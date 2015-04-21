@@ -1,0 +1,25 @@
+items {
+  Id: 1
+  Rmb: 1
+  Diamond: 1
+}
+items {
+  Id: 2
+  Rmb: 60
+  Diamond: 60
+}
+items {
+  Id: 3
+  Rmb: 120
+  Diamond: 120
+}
+items {
+  Id: 4
+  Rmb: 180
+  Diamond: 180
+}
+items {
+  Id: 5
+  Rmb: 280
+  Diamond: 280
+}

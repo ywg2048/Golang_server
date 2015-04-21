@@ -1,0 +1,180 @@
+items {
+  Level: 1
+  NextLevelNeedExp: 300
+  GoldAddition: 0
+  ScoreAddition: 10
+}
+items {
+  Level: 2
+  NextLevelNeedExp: 600
+  GoldAddition: 10
+  ScoreAddition: 10
+}
+items {
+  Level: 3
+  NextLevelNeedExp: 800
+  GoldAddition: 10
+  ScoreAddition: 20
+}
+items {
+  Level: 4
+  NextLevelNeedExp: 1000
+  GoldAddition: 20
+  ScoreAddition: 30
+}
+items {
+  Level: 5
+  NextLevelNeedExp: 1200
+  GoldAddition: 20
+  ScoreAddition: 30
+}
+items {
+  Level: 6
+  NextLevelNeedExp: 1500
+  GoldAddition: 30
+  ScoreAddition: 40
+}
+items {
+  Level: 7
+  NextLevelNeedExp: 1800
+  GoldAddition: 30
+  ScoreAddition: 50
+}
+items {
+  Level: 8
+  NextLevelNeedExp: 2100
+  GoldAddition: 40
+  ScoreAddition: 50
+}
+items {
+  Level: 9
+  NextLevelNeedExp: 2500
+  GoldAddition: 40
+  ScoreAddition: 60
+}
+items {
+  Level: 10
+  NextLevelNeedExp: 2900
+  GoldAddition: 50
+  ScoreAddition: 70
+}
+items {
+  Level: 11
+  NextLevelNeedExp: 3300
+  GoldAddition: 50
+  ScoreAddition: 70
+}
+items {
+  Level: 12
+  NextLevelNeedExp: 3700
+  GoldAddition: 60
+  ScoreAddition: 80
+}
+items {
+  Level: 13
+  NextLevelNeedExp: 4100
+  GoldAddition: 60
+  ScoreAddition: 90
+}
+items {
+  Level: 14
+  NextLevelNeedExp: 4500
+  GoldAddition: 70
+  ScoreAddition: 90
+}
+items {
+  Level: 15
+  NextLevelNeedExp: 5000
+  GoldAddition: 70
+  ScoreAddition: 100
+}
+items {
+  Level: 16
+  NextLevelNeedExp: 5500
+  GoldAddition: 80
+  ScoreAddition: 110
+}
+items {
+  Level: 17
+  NextLevelNeedExp: 6000
+  GoldAddition: 80
+  ScoreAddition: 110
+}
+items {
+  Level: 18
+  NextLevelNeedExp: 6500
+  GoldAddition: 90
+  ScoreAddition: 120
+}
+items {
+  Level: 19
+  NextLevelNeedExp: 7000
+  GoldAddition: 90
+  ScoreAddition: 130
+}
+items {
+  Level: 20
+  NextLevelNeedExp: 7600
+  GoldAddition: 100
+  ScoreAddition: 130
+}
+items {
+  Level: 21
+  NextLevelNeedExp: 8200
+  GoldAddition: 100
+  ScoreAddition: 140
+}
+items {
+  Level: 22
+  NextLevelNeedExp: 8800
+  GoldAddition: 110
+  ScoreAddition: 140
+}
+items {
+  Level: 23
+  NextLevelNeedExp: 9400
+  GoldAddition: 110
+  ScoreAddition: 150
+}
+items {
+  Level: 24
+  NextLevelNeedExp: 10000
+  GoldAddition: 120
+  ScoreAddition: 160
+}
+items {
+  Level: 25
+  NextLevelNeedExp: 11000
+  GoldAddition: 120
+  ScoreAddition: 160
+}
+items {
+  Level: 26
+  NextLevelNeedExp: 12000
+  GoldAddition: 130
+  ScoreAddition: 170
+}
+items {
+  Level: 27
+  NextLevelNeedExp: 13000
+  GoldAddition: 130
+  ScoreAddition: 180
+}
+items {
+  Level: 28
+  NextLevelNeedExp: 14000
+  GoldAddition: 140
+  ScoreAddition: 180
+}
+items {
+  Level: 29
+  NextLevelNeedExp: 15000
+  GoldAddition: 140
+  ScoreAddition: 190
+}
+items {
+  Level: 30
+  NextLevelNeedExp: 100000
+  GoldAddition: 150
+  ScoreAddition: 200
+}

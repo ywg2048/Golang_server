@@ -1,0 +1,53 @@
+items {
+  GiftId: 1
+  GiftName: "小礼包"
+  ConsumeDiamondNum: 0
+  Rmb: 100
+  GoodsList {
+    GoodsType: 3
+    GoodsNum: 15
+  }
+}
+items {
+  GiftId: 2
+  GiftName: "大礼包"
+  ConsumeDiamondNum: 0
+  Rmb: 400
+  GoodsList {
+    GoodsType: 2
+    GoodsNum: 30000
+  }
+}
+items {
+  GiftId: 3
+  GiftName: "超大礼包"
+  ConsumeDiamondNum: 0
+  Rmb: 690
+  GoodsList {
+    GoodsType: 4
+    GoodsSubType: 1
+    GoodsNum: 3
+  }
+}
+items {
+  GiftId: 4
+  GiftName: "特惠礼包"
+  ConsumeDiamondNum: 0
+  Rmb: 950
+  GoodsList {
+    GoodsType: 4
+    GoodsSubType: 2
+    GoodsNum: 3
+  }
+}
+items {
+  GiftId: 5
+  GiftName: "极品礼包"
+  ConsumeDiamondNum: 0
+  Rmb: 970
+  GoodsList {
+    GoodsType: 4
+    GoodsSubType: 3
+    GoodsNum: 3
+  }
+}

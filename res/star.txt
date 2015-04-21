@@ -1,0 +1,666 @@
+items {
+  PetId: 1
+  Name: "蒋班亚男"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 700
+  LevelAddHurt: 485
+  BaseScoreAddition: 30
+  BaseGoldAddition: 120
+  NeedChipNum: 10
+}
+items {
+  PetId: 1
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 1400
+  LevelAddHurt: 810
+  BaseScoreAddition: 30
+  BaseGoldAddition: 120
+  NeedChipNum: 20
+}
+items {
+  PetId: 1
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 2100
+  LevelAddHurt: 1120
+  BaseScoreAddition: 30
+  BaseGoldAddition: 120
+  NeedChipNum: 40
+}
+items {
+  PetId: 2
+  Name: "奇妙"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 1000
+  LevelAddHurt: 455
+  BaseScoreAddition: 100
+  BaseGoldAddition: 50
+  NeedChipNum: 10
+}
+items {
+  PetId: 2
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 2000
+  LevelAddHurt: 765
+  BaseScoreAddition: 100
+  BaseGoldAddition: 50
+  NeedChipNum: 20
+}
+items {
+  PetId: 2
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 3000
+  LevelAddHurt: 1070
+  BaseScoreAddition: 100
+  BaseGoldAddition: 50
+  NeedChipNum: 40
+}
+items {
+  PetId: 3
+  Name: "   涛妮"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 1200
+  LevelAddHurt: 600
+  BaseScoreAddition: 20
+  BaseGoldAddition: 100
+  NeedChipNum: 10
+}
+items {
+  PetId: 3
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 2400
+  LevelAddHurt: 900
+  BaseScoreAddition: 20
+  BaseGoldAddition: 100
+  NeedChipNum: 20
+}
+items {
+  PetId: 3
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 3600
+  LevelAddHurt: 1200
+  BaseScoreAddition: 20
+  BaseGoldAddition: 100
+  NeedChipNum: 40
+}
+items {
+  PetId: 4
+  Name: "Tiber"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 1000
+  LevelAddHurt: 620
+  BaseScoreAddition: 60
+  BaseGoldAddition: 60
+  NeedChipNum: 10
+}
+items {
+  PetId: 4
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 2000
+  LevelAddHurt: 925
+  BaseScoreAddition: 60
+  BaseGoldAddition: 60
+  NeedChipNum: 20
+}
+items {
+  PetId: 4
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 3000
+  LevelAddHurt: 1230
+  BaseScoreAddition: 60
+  BaseGoldAddition: 60
+  NeedChipNum: 40
+}
+items {
+  PetId: 5
+  Name: "六毛"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 1200
+  LevelAddHurt: 600
+  BaseScoreAddition: 20
+  BaseGoldAddition: 100
+  NeedChipNum: 10
+}
+items {
+  PetId: 5
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 2400
+  LevelAddHurt: 900
+  BaseScoreAddition: 20
+  BaseGoldAddition: 100
+  NeedChipNum: 20
+}
+items {
+  PetId: 5
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 3600
+  LevelAddHurt: 1200
+  BaseScoreAddition: 20
+  BaseGoldAddition: 100
+  NeedChipNum: 40
+}
+items {
+  PetId: 5
+  StarLevel: 4
+  LevelLimitUp: 25
+  BaseHurt: 4800
+  LevelAddHurt: 1500
+  BaseScoreAddition: 20
+  BaseGoldAddition: 100
+  NeedChipNum: 70
+}
+items {
+  PetId: 6
+  Name: "CoCo"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 700
+  LevelAddHurt: 485
+  BaseScoreAddition: 30
+  BaseGoldAddition: 120
+  NeedChipNum: 10
+}
+items {
+  PetId: 6
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 1400
+  LevelAddHurt: 810
+  BaseScoreAddition: 30
+  BaseGoldAddition: 120
+  NeedChipNum: 20
+}
+items {
+  PetId: 6
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 2100
+  LevelAddHurt: 1120
+  BaseScoreAddition: 30
+  BaseGoldAddition: 120
+  NeedChipNum: 40
+}
+items {
+  PetId: 6
+  StarLevel: 4
+  LevelLimitUp: 25
+  BaseHurt: 2800
+  LevelAddHurt: 1425
+  BaseScoreAddition: 30
+  BaseGoldAddition: 120
+  NeedChipNum: 70
+}
+items {
+  PetId: 7
+  Name: "妮妮"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 1000
+  LevelAddHurt: 455
+  BaseScoreAddition: 100
+  BaseGoldAddition: 50
+  NeedChipNum: 12
+}
+items {
+  PetId: 7
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 2000
+  LevelAddHurt: 765
+  BaseScoreAddition: 100
+  BaseGoldAddition: 50
+  NeedChipNum: 22
+}
+items {
+  PetId: 7
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 3000
+  LevelAddHurt: 1070
+  BaseScoreAddition: 100
+  BaseGoldAddition: 50
+  NeedChipNum: 42
+}
+items {
+  PetId: 7
+  StarLevel: 4
+  LevelLimitUp: 25
+  BaseHurt: 4000
+  LevelAddHurt: 1375
+  BaseScoreAddition: 100
+  BaseGoldAddition: 50
+  NeedChipNum: 72
+}
+items {
+  PetId: 7
+  StarLevel: 5
+  LevelLimitUp: 30
+  BaseHurt: 5000
+  LevelAddHurt: 1575
+  BaseScoreAddition: 100
+  BaseGoldAddition: 50
+  NeedChipNum: 112
+}
+items {
+  PetId: 8
+  Name: "皓皓"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 1200
+  LevelAddHurt: 600
+  BaseScoreAddition: 20
+  BaseGoldAddition: 100
+  NeedChipNum: 10
+}
+items {
+  PetId: 8
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 2400
+  LevelAddHurt: 900
+  BaseScoreAddition: 20
+  BaseGoldAddition: 100
+  NeedChipNum: 20
+}
+items {
+  PetId: 8
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 3600
+  LevelAddHurt: 1200
+  BaseScoreAddition: 20
+  BaseGoldAddition: 100
+  NeedChipNum: 40
+}
+items {
+  PetId: 8
+  StarLevel: 4
+  LevelLimitUp: 25
+  BaseHurt: 4800
+  LevelAddHurt: 1500
+  BaseScoreAddition: 20
+  BaseGoldAddition: 100
+  NeedChipNum: 70
+}
+items {
+  PetId: 8
+  StarLevel: 5
+  LevelLimitUp: 30
+  BaseHurt: 6000
+  LevelAddHurt: 1700
+  BaseScoreAddition: 20
+  BaseGoldAddition: 100
+  NeedChipNum: 110
+}
+items {
+  PetId: 9
+  Name: "春春"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 1000
+  LevelAddHurt: 620
+  BaseScoreAddition: 60
+  BaseGoldAddition: 60
+  NeedChipNum: 15
+}
+items {
+  PetId: 9
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 2000
+  LevelAddHurt: 925
+  BaseScoreAddition: 60
+  BaseGoldAddition: 60
+  NeedChipNum: 25
+}
+items {
+  PetId: 9
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 3000
+  LevelAddHurt: 1230
+  BaseScoreAddition: 60
+  BaseGoldAddition: 60
+  NeedChipNum: 45
+}
+items {
+  PetId: 9
+  StarLevel: 4
+  LevelLimitUp: 25
+  BaseHurt: 4000
+  LevelAddHurt: 1530
+  BaseScoreAddition: 60
+  BaseGoldAddition: 60
+  NeedChipNum: 75
+}
+items {
+  PetId: 9
+  StarLevel: 5
+  LevelLimitUp: 30
+  BaseHurt: 5000
+  LevelAddHurt: 1730
+  BaseScoreAddition: 60
+  BaseGoldAddition: 60
+  NeedChipNum: 115
+}
+items {
+  PetId: 10
+  Name: "杏儿"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 800
+  LevelAddHurt: 640
+  BaseScoreAddition: 10
+  BaseGoldAddition: 110
+  NeedChipNum: 10
+}
+items {
+  PetId: 10
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 1600
+  LevelAddHurt: 955
+  BaseScoreAddition: 10
+  BaseGoldAddition: 110
+  NeedChipNum: 20
+}
+items {
+  PetId: 10
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 2400
+  LevelAddHurt: 1260
+  BaseScoreAddition: 10
+  BaseGoldAddition: 110
+  NeedChipNum: 40
+}
+items {
+  PetId: 10
+  StarLevel: 4
+  LevelLimitUp: 25
+  BaseHurt: 3200
+  LevelAddHurt: 1565
+  BaseScoreAddition: 10
+  BaseGoldAddition: 110
+  NeedChipNum: 70
+}
+items {
+  PetId: 10
+  StarLevel: 5
+  LevelLimitUp: 30
+  BaseHurt: 4000
+  LevelAddHurt: 1765
+  BaseScoreAddition: 10
+  BaseGoldAddition: 110
+  NeedChipNum: 110
+}
+items {
+  PetId: 11
+  Name: "涛涛"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 1500
+  LevelAddHurt: 730
+  BaseScoreAddition: 30
+  BaseGoldAddition: 60
+  NeedChipNum: 10
+}
+items {
+  PetId: 11
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 3000
+  LevelAddHurt: 1015
+  BaseScoreAddition: 30
+  BaseGoldAddition: 60
+  NeedChipNum: 20
+}
+items {
+  PetId: 11
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 4500
+  LevelAddHurt: 1310
+  BaseScoreAddition: 30
+  BaseGoldAddition: 60
+  NeedChipNum: 40
+}
+items {
+  PetId: 11
+  StarLevel: 4
+  LevelLimitUp: 25
+  BaseHurt: 6000
+  LevelAddHurt: 1605
+  BaseScoreAddition: 30
+  BaseGoldAddition: 60
+  NeedChipNum: 70
+}
+items {
+  PetId: 11
+  StarLevel: 5
+  LevelLimitUp: 30
+  BaseHurt: 7500
+  LevelAddHurt: 1800
+  BaseScoreAddition: 30
+  BaseGoldAddition: 60
+  NeedChipNum: 110
+}
+items {
+  PetId: 12
+  Name: "轩轩"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 1200
+  LevelAddHurt: 765
+  BaseScoreAddition: 10
+  BaseGoldAddition: 80
+  NeedChipNum: 12
+}
+items {
+  PetId: 12
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 2400
+  LevelAddHurt: 1060
+  BaseScoreAddition: 10
+  BaseGoldAddition: 80
+  NeedChipNum: 22
+}
+items {
+  PetId: 12
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 3600
+  LevelAddHurt: 1355
+  BaseScoreAddition: 10
+  BaseGoldAddition: 80
+  NeedChipNum: 42
+}
+items {
+  PetId: 12
+  StarLevel: 4
+  LevelLimitUp: 25
+  BaseHurt: 4800
+  LevelAddHurt: 1655
+  BaseScoreAddition: 10
+  BaseGoldAddition: 80
+  NeedChipNum: 72
+}
+items {
+  PetId: 12
+  StarLevel: 5
+  LevelLimitUp: 30
+  BaseHurt: 6000
+  LevelAddHurt: 1855
+  BaseScoreAddition: 10
+  BaseGoldAddition: 80
+  NeedChipNum: 112
+}
+items {
+  PetId: 13
+  Name: "考拉"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 1000
+  LevelAddHurt: 620
+  BaseScoreAddition: 60
+  BaseGoldAddition: 60
+  NeedChipNum: 10
+}
+items {
+  PetId: 13
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 2000
+  LevelAddHurt: 925
+  BaseScoreAddition: 60
+  BaseGoldAddition: 60
+  NeedChipNum: 20
+}
+items {
+  PetId: 13
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 3000
+  LevelAddHurt: 1230
+  BaseScoreAddition: 60
+  BaseGoldAddition: 60
+  NeedChipNum: 40
+}
+items {
+  PetId: 13
+  StarLevel: 4
+  LevelLimitUp: 25
+  BaseHurt: 4000
+  LevelAddHurt: 1530
+  BaseScoreAddition: 60
+  BaseGoldAddition: 60
+  NeedChipNum: 70
+}
+items {
+  PetId: 14
+  Name: "大象"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 1000
+  LevelAddHurt: 455
+  BaseScoreAddition: 100
+  BaseGoldAddition: 50
+  NeedChipNum: 10
+}
+items {
+  PetId: 14
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 2000
+  LevelAddHurt: 765
+  BaseScoreAddition: 100
+  BaseGoldAddition: 50
+  NeedChipNum: 20
+}
+items {
+  PetId: 14
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 3000
+  LevelAddHurt: 1070
+  BaseScoreAddition: 100
+  BaseGoldAddition: 50
+  NeedChipNum: 40
+}
+items {
+  PetId: 15
+  Name: "熊猫"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 800
+  LevelAddHurt: 640
+  BaseScoreAddition: 10
+  BaseGoldAddition: 110
+  NeedChipNum: 10
+}
+items {
+  PetId: 15
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 1600
+  LevelAddHurt: 955
+  BaseScoreAddition: 10
+  BaseGoldAddition: 110
+  NeedChipNum: 20
+}
+items {
+  PetId: 15
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 2400
+  LevelAddHurt: 1260
+  BaseScoreAddition: 10
+  BaseGoldAddition: 110
+  NeedChipNum: 40
+}
+items {
+  PetId: 16
+  Name: "葱葱"
+  StarLevel: 1
+  LevelLimitUp: 10
+  BaseHurt: 1200
+  LevelAddHurt: 765
+  BaseScoreAddition: 10
+  BaseGoldAddition: 80
+  NeedChipNum: 10
+}
+items {
+  PetId: 16
+  StarLevel: 2
+  LevelLimitUp: 15
+  BaseHurt: 2400
+  LevelAddHurt: 1060
+  BaseScoreAddition: 10
+  BaseGoldAddition: 80
+  NeedChipNum: 20
+}
+items {
+  PetId: 16
+  StarLevel: 3
+  LevelLimitUp: 20
+  BaseHurt: 3600
+  LevelAddHurt: 1355
+  BaseScoreAddition: 10
+  BaseGoldAddition: 80
+  NeedChipNum: 40
+}
+items {
+  PetId: 16
+  StarLevel: 4
+  LevelLimitUp: 25
+  BaseHurt: 4800
+  LevelAddHurt: 1655
+  BaseScoreAddition: 10
+  BaseGoldAddition: 80
+  NeedChipNum: 70
+}
+items {
+  PetId: 16
+  StarLevel: 5
+  LevelLimitUp: 30
+  BaseHurt: 6000
+  LevelAddHurt: 1855
+  BaseScoreAddition: 10
+  BaseGoldAddition: 80
+  NeedChipNum: 110
+}

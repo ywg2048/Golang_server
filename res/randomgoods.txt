@@ -1,0 +1,920 @@
+items {
+  ElementId: 1
+  ElementType: 5
+  SubId: 1
+  Num: 1
+  Name: "蒋班亚男"
+  Icon: "1"
+  SilverKeyRandom: 15
+  GoldKeyRandom: 45
+  Version: "1.0.0"
+}
+items {
+  ElementId: 2
+  ElementType: 5
+  SubId: 2
+  Num: 1
+  Name: "奇妙"
+  Icon: "1"
+  SilverKeyRandom: 15
+  GoldKeyRandom: 45
+  Version: "1.0.0"
+}
+items {
+  ElementId: 3
+  ElementType: 5
+  SubId: 3
+  Num: 1
+  Name: "   涛妮"
+  Icon: "1"
+  SilverKeyRandom: 15
+  GoldKeyRandom: 45
+  Version: "1.0.0"
+}
+items {
+  ElementId: 4
+  ElementType: 5
+  SubId: 4
+  Num: 1
+  Name: "Tiber"
+  Icon: "1"
+  SilverKeyRandom: 15
+  GoldKeyRandom: 45
+  Version: "1.0.0"
+}
+items {
+  ElementId: 5
+  ElementType: 5
+  SubId: 5
+  Num: 1
+  Name: "六毛"
+  Icon: "1"
+  SilverKeyRandom: 18
+  GoldKeyRandom: 55
+  Version: "1.0.0"
+}
+items {
+  ElementId: 6
+  ElementType: 5
+  SubId: 6
+  Num: 1
+  Name: "CoCo"
+  Icon: "1"
+  SilverKeyRandom: 18
+  GoldKeyRandom: 55
+  Version: "1.0.0"
+}
+items {
+  ElementId: 7
+  ElementType: 5
+  SubId: 7
+  Num: 1
+  Name: "妮妮"
+  Icon: "1"
+  SilverKeyRandom: 3
+  GoldKeyRandom: 10
+  Version: "1.0.0"
+}
+items {
+  ElementId: 8
+  ElementType: 5
+  SubId: 8
+  Num: 1
+  Name: "皓皓"
+  Icon: "1"
+  SilverKeyRandom: 3
+  GoldKeyRandom: 10
+  Version: "1.0.0"
+}
+items {
+  ElementId: 9
+  ElementType: 5
+  SubId: 9
+  Num: 1
+  Name: "春春"
+  Icon: "1"
+  SilverKeyRandom: 3
+  GoldKeyRandom: 10
+  Version: "1.0.0"
+}
+items {
+  ElementId: 10
+  ElementType: 5
+  SubId: 10
+  Num: 1
+  Name: "杏儿"
+  Icon: "1"
+  SilverKeyRandom: 3
+  GoldKeyRandom: 10
+  Version: "1.0.0"
+}
+items {
+  ElementId: 11
+  ElementType: 5
+  SubId: 11
+  Num: 1
+  Name: "涛涛"
+  Icon: "1"
+  SilverKeyRandom: 3
+  GoldKeyRandom: 10
+  Version: "1.0.0"
+}
+items {
+  ElementId: 12
+  ElementType: 5
+  SubId: 12
+  Num: 1
+  Name: "轩轩"
+  Icon: "1"
+  SilverKeyRandom: 3
+  GoldKeyRandom: 10
+  Version: "1.0.0"
+}
+items {
+  ElementId: 13
+  ElementType: 6
+  SubId: 1
+  Num: 1
+  Name: "蒋班亚男碎片"
+  Icon: "1"
+  CopperKeyRandom: 280
+  SilverKeyRandom: 400
+  GoldKeyRandom: 400
+  Version: "1.0.0"
+}
+items {
+  ElementId: 14
+  ElementType: 6
+  SubId: 2
+  Num: 1
+  Name: "奇妙碎片"
+  Icon: "1"
+  CopperKeyRandom: 280
+  SilverKeyRandom: 400
+  GoldKeyRandom: 400
+  Version: "1.0.0"
+}
+items {
+  ElementId: 15
+  ElementType: 6
+  SubId: 3
+  Num: 1
+  Name: " 涛妮碎片"
+  Icon: "1"
+  CopperKeyRandom: 280
+  SilverKeyRandom: 400
+  GoldKeyRandom: 400
+  Version: "1.0.0"
+}
+items {
+  ElementId: 16
+  ElementType: 6
+  SubId: 4
+  Num: 1
+  Name: "Tiber碎片"
+  Icon: "1"
+  CopperKeyRandom: 280
+  SilverKeyRandom: 400
+  GoldKeyRandom: 400
+  Version: "1.0.0"
+}
+items {
+  ElementId: 17
+  ElementType: 6
+  SubId: 5
+  Num: 1
+  Name: "六毛碎片"
+  Icon: "1"
+  CopperKeyRandom: 245
+  SilverKeyRandom: 350
+  GoldKeyRandom: 350
+  Version: "1.0.0"
+}
+items {
+  ElementId: 18
+  ElementType: 6
+  SubId: 6
+  Num: 1
+  Name: "CoCo碎片"
+  Icon: "1"
+  CopperKeyRandom: 245
+  SilverKeyRandom: 350
+  GoldKeyRandom: 350
+  Version: "1.0.0"
+}
+items {
+  ElementId: 19
+  ElementType: 6
+  SubId: 7
+  Num: 1
+  Name: "妮妮碎片"
+  Icon: "1"
+  CopperKeyRandom: 70
+  SilverKeyRandom: 100
+  GoldKeyRandom: 100
+  Version: "1.0.0"
+}
+items {
+  ElementId: 20
+  ElementType: 6
+  SubId: 8
+  Num: 1
+  Name: "皓皓碎片"
+  Icon: "1"
+  CopperKeyRandom: 70
+  SilverKeyRandom: 100
+  GoldKeyRandom: 100
+  Version: "1.0.0"
+}
+items {
+  ElementId: 21
+  ElementType: 6
+  SubId: 9
+  Num: 1
+  Name: "春春碎片"
+  Icon: "1"
+  CopperKeyRandom: 70
+  SilverKeyRandom: 100
+  GoldKeyRandom: 100
+  Version: "1.0.0"
+}
+items {
+  ElementId: 22
+  ElementType: 6
+  SubId: 10
+  Num: 1
+  Name: "杏儿碎片"
+  Icon: "1"
+  CopperKeyRandom: 70
+  SilverKeyRandom: 100
+  GoldKeyRandom: 100
+  Version: "1.0.0"
+}
+items {
+  ElementId: 23
+  ElementType: 6
+  SubId: 11
+  Num: 1
+  Name: "涛涛碎片"
+  Icon: "1"
+  CopperKeyRandom: 70
+  SilverKeyRandom: 100
+  GoldKeyRandom: 100
+  Version: "1.0.0"
+}
+items {
+  ElementId: 24
+  ElementType: 6
+  SubId: 12
+  Num: 1
+  Name: "轩轩碎片"
+  Icon: "1"
+  CopperKeyRandom: 70
+  SilverKeyRandom: 100
+  GoldKeyRandom: 100
+  Version: "1.0.0"
+}
+items {
+  ElementId: 25
+  ElementType: 6
+  SubId: 13
+  Num: 1
+  Name: "经验碎片1"
+  Icon: "1"
+  CopperKeyRandom: 252
+  SilverKeyRandom: 144
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 26
+  ElementType: 6
+  SubId: 14
+  Num: 1
+  Name: "经验碎片2"
+  Icon: "1"
+  CopperKeyRandom: 504
+  SilverKeyRandom: 192
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 27
+  ElementType: 6
+  SubId: 15
+  Num: 1
+  Name: "经验碎片3"
+  Icon: "1"
+  CopperKeyRandom: 403
+  SilverKeyRandom: 288
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 28
+  ElementType: 6
+  SubId: 16
+  Num: 1
+  Name: "经验碎片4"
+  Icon: "1"
+  CopperKeyRandom: 353
+  SilverKeyRandom: 480
+  GoldKeyRandom: 385
+  Version: "1.0.0"
+}
+items {
+  ElementId: 29
+  ElementType: 6
+  SubId: 17
+  Num: 1
+  Name: "经验碎片5"
+  Icon: "1"
+  CopperKeyRandom: 302
+  SilverKeyRandom: 384
+  GoldKeyRandom: 641
+  Version: "1.0.0"
+}
+items {
+  ElementId: 30
+  ElementType: 6
+  SubId: 18
+  Num: 1
+  Name: "经验碎片6"
+  Icon: "1"
+  CopperKeyRandom: 252
+  SilverKeyRandom: 336
+  GoldKeyRandom: 513
+  Version: "1.0.0"
+}
+items {
+  ElementId: 31
+  ElementType: 6
+  SubId: 19
+  Num: 1
+  Name: "经验碎片7"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 288
+  GoldKeyRandom: 449
+  Version: "1.0.0"
+}
+items {
+  ElementId: 32
+  ElementType: 6
+  SubId: 20
+  Num: 1
+  Name: "经验碎片8"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 240
+  GoldKeyRandom: 385
+  Version: "1.0.0"
+}
+items {
+  ElementId: 33
+  ElementType: 6
+  SubId: 21
+  Num: 1
+  Name: "经验碎片9"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 288
+  GoldKeyRandom: 385
+  Version: "1.0.0"
+}
+items {
+  ElementId: 34
+  ElementType: 1
+  SubId: 0
+  Num: 5
+  Name: "钻石 x 5"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 16
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 35
+  ElementType: 1
+  SubId: 0
+  Num: 10
+  Name: "钻石 x 10"
+  Icon: "1"
+  CopperKeyRandom: 27
+  SilverKeyRandom: 16
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 36
+  ElementType: 1
+  SubId: 0
+  Num: 15
+  Name: "钻石 x 15"
+  Icon: "1"
+  CopperKeyRandom: 54
+  SilverKeyRandom: 33
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 37
+  ElementType: 1
+  SubId: 0
+  Num: 20
+  Name: "钻石 x 20"
+  Icon: "1"
+  CopperKeyRandom: 109
+  SilverKeyRandom: 67
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 38
+  ElementType: 1
+  SubId: 0
+  Num: 25
+  Name: "钻石 x 25"
+  Icon: "1"
+  CopperKeyRandom: 164
+  SilverKeyRandom: 101
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 39
+  ElementType: 1
+  SubId: 0
+  Num: 30
+  Name: "钻石 x 30"
+  Icon: "1"
+  CopperKeyRandom: 219
+  SilverKeyRandom: 135
+  GoldKeyRandom: 262
+  Version: "1.0.0"
+}
+items {
+  ElementId: 40
+  ElementType: 1
+  SubId: 0
+  Num: 40
+  Name: "钻石 x 40"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 101
+  GoldKeyRandom: 197
+  Version: "1.0.0"
+}
+items {
+  ElementId: 41
+  ElementType: 1
+  SubId: 0
+  Num: 45
+  Name: "钻石 x 45"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 67
+  GoldKeyRandom: 131
+  Version: "1.0.0"
+}
+items {
+  ElementId: 42
+  ElementType: 1
+  SubId: 0
+  Num: 50
+  Name: "钻石 x 50"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 33
+  GoldKeyRandom: 98
+  Version: "1.0.0"
+}
+items {
+  ElementId: 43
+  ElementType: 2
+  SubId: 0
+  Num: 500
+  Name: "金币 x 500"
+  Icon: "1"
+  CopperKeyRandom: 109
+  SilverKeyRandom: 11
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 44
+  ElementType: 2
+  SubId: 0
+  Num: 1000
+  Name: "金币 x 1000"
+  Icon: "1"
+  CopperKeyRandom: 219
+  SilverKeyRandom: 22
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 45
+  ElementType: 2
+  SubId: 0
+  Num: 2000
+  Name: "金币 x 2000"
+  Icon: "1"
+  CopperKeyRandom: 438
+  SilverKeyRandom: 44
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 46
+  ElementType: 2
+  SubId: 0
+  Num: 3000
+  Name: "金币 x 3000"
+  Icon: "1"
+  CopperKeyRandom: 657
+  SilverKeyRandom: 67
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 47
+  ElementType: 2
+  SubId: 0
+  Num: 5000
+  Name: "金币 x 5000"
+  Icon: "1"
+  CopperKeyRandom: 876
+  SilverKeyRandom: 89
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 48
+  ElementType: 2
+  SubId: 0
+  Num: 6000
+  Name: "金币 x 6000"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 89
+  GoldKeyRandom: 219
+  Version: "1.0.0"
+}
+items {
+  ElementId: 49
+  ElementType: 2
+  SubId: 0
+  Num: 7000
+  Name: "金币 x 7000"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 67
+  GoldKeyRandom: 164
+  Version: "1.0.0"
+}
+items {
+  ElementId: 50
+  ElementType: 2
+  SubId: 0
+  Num: 8000
+  Name: "金币 x 8000"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 44
+  GoldKeyRandom: 109
+  Version: "1.0.0"
+}
+items {
+  ElementId: 51
+  ElementType: 2
+  SubId: 0
+  Num: 10000
+  Name: "金币 x 10000"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 22
+  GoldKeyRandom: 82
+  Version: "1.0.0"
+}
+items {
+  ElementId: 52
+  ElementType: 3
+  SubId: 0
+  Num: 1
+  Name: "花＊1"
+  Icon: "1"
+  CopperKeyRandom: 230
+  SilverKeyRandom: 135
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 53
+  ElementType: 3
+  SubId: 0
+  Num: 2
+  Name: "花＊2"
+  Icon: "1"
+  CopperKeyRandom: 460
+  SilverKeyRandom: 270
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 54
+  ElementType: 3
+  SubId: 0
+  Num: 3
+  Name: "花＊3"
+  Icon: "1"
+  CopperKeyRandom: 690
+  SilverKeyRandom: 405
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 55
+  ElementType: 3
+  SubId: 0
+  Num: 4
+  Name: "花＊4"
+  Icon: "1"
+  CopperKeyRandom: 920
+  SilverKeyRandom: 135
+  GoldKeyRandom: 0
+  Version: "1.0.0"
+}
+items {
+  ElementId: 56
+  ElementType: 3
+  SubId: 0
+  Num: 5
+  Name: "花＊5"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 270
+  GoldKeyRandom: 400
+  Version: "1.0.0"
+}
+items {
+  ElementId: 57
+  ElementType: 3
+  SubId: 0
+  Num: 6
+  Name: "花＊6"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 202
+  GoldKeyRandom: 300
+  Version: "1.0.0"
+}
+items {
+  ElementId: 58
+  ElementType: 3
+  SubId: 0
+  Num: 7
+  Name: "花＊7"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 135
+  GoldKeyRandom: 200
+  Version: "1.0.0"
+}
+items {
+  ElementId: 59
+  ElementType: 3
+  SubId: 0
+  Num: 8
+  Name: "花＊8"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 101
+  GoldKeyRandom: 150
+  Version: "1.0.0"
+}
+items {
+  ElementId: 60
+  ElementType: 3
+  SubId: 0
+  Num: 9
+  Name: "花＊9"
+  Icon: "1"
+  CopperKeyRandom: 0
+  SilverKeyRandom: 67
+  GoldKeyRandom: 100
+  Version: "1.0.0"
+}
+items {
+  ElementId: 61
+  ElementType: 4
+  SubId: 1
+  Num: 1
+  Name: "快速消除"
+  Icon: "1"
+  CopperKeyRandom: 82
+  SilverKeyRandom: 359
+  GoldKeyRandom: 263
+  Version: "1.0.0"
+}
+items {
+  ElementId: 62
+  ElementType: 4
+  SubId: 2
+  Num: 1
+  Name: "重新排列"
+  Icon: "1"
+  CopperKeyRandom: 82
+  SilverKeyRandom: 179
+  GoldKeyRandom: 131
+  Version: "1.0.0"
+}
+items {
+  ElementId: 63
+  ElementType: 4
+  SubId: 3
+  Num: 1
+  Name: "交换位置"
+  Icon: "1"
+  CopperKeyRandom: 82
+  SilverKeyRandom: 179
+  GoldKeyRandom: 131
+  Version: "1.0.0"
+}
+items {
+  ElementId: 64
+  ElementType: 4
+  SubId: 4
+  Num: 1
+  Name: "旋风射线"
+  Icon: "1"
+  CopperKeyRandom: 246
+  SilverKeyRandom: 359
+  GoldKeyRandom: 263
+  Version: "1.0.0"
+}
+items {
+  ElementId: 65
+  ElementType: 4
+  SubId: 5
+  Num: 1
+  Name: "+5步"
+  Icon: "1"
+  CopperKeyRandom: 82
+  SilverKeyRandom: 215
+  GoldKeyRandom: 158
+  Version: "1.0.0"
+}
+items {
+  ElementId: 66
+  ElementType: 4
+  SubId: 7
+  Num: 1
+  Name: "奇妙幽灵"
+  Icon: "1"
+  CopperKeyRandom: 164
+  SilverKeyRandom: 180
+  GoldKeyRandom: 133
+  Version: "1.0.0"
+}
+items {
+  ElementId: 67
+  ElementType: 4
+  SubId: 8
+  Num: 1
+  Name: "旋风射线"
+  Icon: "1"
+  CopperKeyRandom: 82
+  SilverKeyRandom: 359
+  GoldKeyRandom: 263
+  Version: "1.0.0"
+}
+items {
+  ElementId: 68
+  ElementType: 4
+  SubId: 9
+  Num: 1
+  Name: "随机骰子"
+  Icon: "1"
+  CopperKeyRandom: 821
+  SilverKeyRandom: 718
+  GoldKeyRandom: 527
+  Version: "1.0.0"
+}
+items {
+  ElementId: 69
+  ElementType: 4
+  SubId: 10
+  Num: 1
+  Name: "+3步"
+  Icon: "1"
+  CopperKeyRandom: 1642
+  SilverKeyRandom: 718
+  GoldKeyRandom: 527
+  Version: "1.0.0"
+}
+items {
+  ElementId: 70
+  ElementType: 4
+  SubId: 11
+  Num: 1
+  Name: "奇妙飓风"
+  Icon: "1"
+  CopperKeyRandom: 164
+  SilverKeyRandom: 180
+  GoldKeyRandom: 133
+  Version: "1.0.0"
+}
+items {
+  ElementId: 71
+  ElementType: 5
+  SubId: 13
+  Num: 1
+  Name: "安仔"
+  Icon: "1"
+  SilverKeyRandom: 3
+  GoldKeyRandom: 10
+  Version: "1.0.4"
+}
+items {
+  ElementId: 72
+  ElementType: 5
+  SubId: 14
+  Num: 1
+  Name: "妮娜"
+  Icon: "1"
+  SilverKeyRandom: 5
+  GoldKeyRandom: 15
+  Version: "1.0.4"
+}
+items {
+  ElementId: 73
+  ElementType: 5
+  SubId: 15
+  Num: 1
+  Name: "萌萌"
+  Icon: "1"
+  SilverKeyRandom: 5
+  GoldKeyRandom: 15
+  Version: "1.0.4"
+}
+items {
+  ElementId: 74
+  ElementType: 5
+  SubId: 16
+  Num: 1
+  Name: "葱葱"
+  Icon: "1"
+  SilverKeyRandom: 3
+  GoldKeyRandom: 10
+  Version: "1.0.4"
+}
+items {
+  ElementId: 75
+  ElementType: 6
+  SubId: 22
+  Num: 1
+  Name: "安仔碎片"
+  Icon: "1"
+  CopperKeyRandom: 105
+  SilverKeyRandom: 150
+  GoldKeyRandom: 150
+  Version: "1.0.4"
+}
+items {
+  ElementId: 76
+  ElementType: 6
+  SubId: 23
+  Num: 1
+  Name: "妮娜碎片"
+  Icon: "1"
+  CopperKeyRandom: 140
+  SilverKeyRandom: 200
+  GoldKeyRandom: 200
+  Version: "1.0.4"
+}
+items {
+  ElementId: 77
+  ElementType: 6
+  SubId: 24
+  Num: 1
+  Name: "萌萌碎片"
+  Icon: "1"
+  CopperKeyRandom: 140
+  SilverKeyRandom: 200
+  GoldKeyRandom: 200
+  Version: "1.0.4"
+}
+items {
+  ElementId: 78
+  ElementType: 6
+  SubId: 25
+  Num: 1
+  Name: "葱葱碎片"
+  Icon: "1"
+  CopperKeyRandom: 70
+  SilverKeyRandom: 100
+  GoldKeyRandom: 100
+  Version: "1.0.4"
+}

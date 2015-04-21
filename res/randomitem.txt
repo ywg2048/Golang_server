@@ -1,0 +1,207 @@
+items {
+  Index: 1
+  Name: "增加1步"
+  Desc: "使用后单局增加1步"
+  ItemType: 6
+  Value: 1
+  Version: "1.0.0.0"
+  RandomNum: 450
+}
+items {
+  Index: 2
+  Name: "增加2步"
+  Desc: "使用后单局增加2步"
+  ItemType: 6
+  Value: 2
+  Version: "1.0.0.0"
+  RandomNum: 900
+}
+items {
+  Index: 3
+  Name: "增加3步"
+  Desc: "使用后单局增加3步"
+  ItemType: 6
+  Value: 3
+  Version: "1.0.0.0"
+  RandomNum: 1100
+}
+items {
+  Index: 4
+  Name: "增加4步"
+  Desc: "使用后单局增加4步"
+  ItemType: 6
+  Value: 4
+  Version: "1.0.0.0"
+  RandomNum: 900
+}
+items {
+  Index: 5
+  Name: "增加5步"
+  Desc: "使用后单局增加5步"
+  ItemType: 6
+  Value: 5
+  Version: "1.0.0.0"
+  RandomNum: 480
+}
+items {
+  Index: 6
+  Name: "奇妙飓风x1"
+  Desc: "使用后单局生成1个奇妙飓风"
+  ItemType: 11
+  Value: 1
+  Version: "1.0.0.0"
+  RandomNum: 800
+}
+items {
+  Index: 7
+  Name: "奇妙飓风x2"
+  Desc: "使用后单局生成2个奇妙飓风"
+  ItemType: 11
+  Value: 2
+  Version: "1.0.0.0"
+  RandomNum: 540
+}
+items {
+  Index: 8
+  Name: "奇妙飓风x3"
+  Desc: "使用后单局生成3个奇妙飓风"
+  ItemType: 11
+  Value: 3
+  Version: "1.0.0.0"
+  RandomNum: 0
+}
+items {
+  Index: 9
+  Name: "旋风射线x1"
+  Desc: "使用后单局生成1个旋风射线"
+  ItemType: 8
+  Value: 1
+  Version: "1.0.0.0"
+  RandomNum: 400
+}
+items {
+  Index: 10
+  Name: "旋风射线x2"
+  Desc: "使用后单局生成2个旋风射线"
+  ItemType: 8
+  Value: 2
+  Version: "1.0.0.0"
+  RandomNum: 200
+}
+items {
+  Index: 11
+  Name: "旋风射线x3"
+  Desc: "使用后单局生成3个旋风射线"
+  ItemType: 8
+  Value: 3
+  Version: "1.0.0.0"
+  RandomNum: 0
+}
+items {
+  Index: 12
+  Name: "奇妙幽灵x1"
+  Desc: "使用后单局生成1个奇妙幽灵"
+  ItemType: 7
+  Value: 1
+  Version: "1.0.0.0"
+  RandomNum: 800
+}
+items {
+  Index: 13
+  Name: "奇妙幽灵x2"
+  Desc: "使用后单局生成2个奇妙幽灵"
+  ItemType: 7
+  Value: 2
+  Version: "1.0.0.0"
+  RandomNum: 540
+}
+items {
+  Index: 14
+  Name: "奇妙幽灵x3"
+  Desc: "使用后单局生成3个奇妙幽灵"
+  ItemType: 7
+  Value: 3
+  Version: "1.0.0.0"
+  RandomNum: 0
+}
+items {
+  Index: 15
+  Name: "快速消除x1"
+  Desc: "使用后单局增加1次快速消除"
+  ItemType: 1
+  Value: 1
+  Version: "1.0.0.0"
+  RandomNum: 750
+}
+items {
+  Index: 16
+  Name: "快速消除x2"
+  Desc: "使用后单局增加2次快速消除"
+  ItemType: 1
+  Value: 2
+  Version: "1.0.0.0"
+  RandomNum: 450
+}
+items {
+  Index: 17
+  Name: "快速消除x3"
+  Desc: "使用后单局增加3次快速消除"
+  ItemType: 1
+  Value: 3
+  Version: "1.0.0.0"
+  RandomNum: 0
+}
+items {
+  Index: 18
+  Name: "交换位置x1"
+  Desc: "使用后单局增加1次交换位置"
+  ItemType: 3
+  Value: 1
+  Version: "1.0.0.0"
+  RandomNum: 500
+}
+items {
+  Index: 19
+  Name: "交换位置x2"
+  Desc: "使用后单局增加2次交换位置"
+  ItemType: 3
+  Value: 2
+  Version: "1.0.0.0"
+  RandomNum: 300
+}
+items {
+  Index: 20
+  Name: "交换位置x3"
+  Desc: "使用后单局增加3次交换位置"
+  ItemType: 3
+  Value: 3
+  Version: "1.0.0.0"
+  RandomNum: 0
+}
+items {
+  Index: 21
+  Name: "重新排列x1"
+  Desc: "使用后单局增加1次重新排列"
+  ItemType: 2
+  Value: 1
+  Version: "1.0.0.0"
+  RandomNum: 933
+}
+items {
+  Index: 22
+  Name: "重新排列x2"
+  Desc: "使用后单局增加2次重新排列"
+  ItemType: 2
+  Value: 2
+  Version: "1.0.0.0"
+  RandomNum: 550
+}
+items {
+  Index: 23
+  Name: "重新排列x3"
+  Desc: "使用后单局增加3次重新排列"
+  ItemType: 2
+  Value: 3
+  Version: "1.0.0.0"
+  RandomNum: 0
+}

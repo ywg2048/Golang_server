@@ -1,0 +1,100 @@
+items {
+  TipsId: 1
+  TipsText: "主人大大，偶们在拼命加载…"
+  Language: "cn"
+}
+items {
+  TipsId: 2
+  TipsText: "蹦跶得我也是醉了…"
+  Language: "cn"
+}
+items {
+  TipsId: 3
+  TipsText: "主人，偶们在拼命加载…"
+  Language: "cn"
+}
+items {
+  TipsId: 4
+  TipsText: "偶们在拼命加载…"
+  Language: "cn"
+}
+items {
+  TipsId: 5
+  TipsText: "每天签到获得更多奖励！"
+  Language: "cn"
+}
+items {
+  TipsId: 6
+  TipsText: "玩命加载咯…"
+  Language: "cn"
+}
+items {
+  TipsId: 7
+  TipsText: "加载加得好嗨森…"
+  Language: "cn"
+}
+items {
+  TipsId: 8
+  TipsText: "奉天承运，奉旨加载中…"
+  Language: "cn"
+}
+items {
+  TipsId: 9
+  TipsText: "且加载且珍惜…"
+  Language: "cn"
+}
+items {
+  TipsId: 10
+  TipsText: "加载，就是任性…"
+  Language: "cn"
+}
+items {
+  TipsId: 11
+  TipsText: "奇妙的朋友，你家里人知道吗?"
+  Language: "cn"
+}
+items {
+  TipsId: 12
+  TipsText: "我只想安静滴...萌萌哒…"
+  Language: "cn"
+}
+items {
+  TipsId: 13
+  TipsText: "偶们加载也是蛮拼的…"
+  Language: "cn"
+}
+items {
+  TipsId: 14
+  TipsText: "豪，偶们做朋友吧…"
+  Language: "cn"
+}
+items {
+  TipsId: 15
+  TipsText: "加载跳得好有节奏…"
+  Language: "cn"
+}
+items {
+  TipsId: 16
+  TipsText: "蹦啊蹦啊蹦啊…噗!"
+  Language: "cn"
+}
+items {
+  TipsId: 17
+  TipsText: "蹦跶技术哪家强？"
+  Language: "cn"
+}
+items {
+  TipsId: 18
+  TipsText: "越蹦越涨姿势…"
+  Language: "cn"
+}
+items {
+  TipsId: 19
+  TipsText: "全民大健身,广场舞蹦起！"
+  Language: "cn"
+}
+items {
+  TipsId: 20
+  TipsText: "你看我，是不是因为我跳得好看？"
+  Language: "cn"
+}

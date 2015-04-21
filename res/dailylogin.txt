@@ -1,0 +1,678 @@
+items {
+  Days: 1
+  ReSignInDiamond: 10
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 1500
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 2
+  ReSignInDiamond: 12
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 1600
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+    Type: 4
+    SubType: 11
+    Num: 1
+  }
+  GoodsList {
+    Type: 3
+    Num: 5
+  }
+  GoodsList {
+    Type: 4
+    SubType: 2
+    Num: 2
+  }
+}
+items {
+  Days: 3
+  ReSignInDiamond: 14
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 1700
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 4
+  ReSignInDiamond: 16
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 1900
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 5
+  ReSignInDiamond: 18
+  GiftId: 1
+  GoodsList {
+    Type: 2
+    Num: 2000
+  }
+  GoodsList {
+    Type: 6
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+    Type: 4
+    SubType: 7
+    Num: 1
+  }
+  GoodsList {
+    Type: 3
+    Num: 5
+  }
+  GoodsList {
+    Type: 4
+    SubType: 2
+    Num: 1
+  }
+}
+items {
+  Days: 6
+  ReSignInDiamond: 20
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 2100
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 7
+  ReSignInDiamond: 22
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 2200
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 8
+  ReSignInDiamond: 24
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 2300
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 9
+  ReSignInDiamond: 26
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 2400
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 10
+  ReSignInDiamond: 28
+  GiftId: 1
+  GoodsList {
+    Type: 2
+    Num: 2500
+  }
+  GoodsList {
+    Type: 6
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 5
+  }
+  GoodsList {
+    Type: 4
+    SubType: 11
+    Num: 1
+  }
+  GoodsList {
+    Type: 3
+    Num: 5
+  }
+  GoodsList {
+    Type: 4
+    SubType: 3
+    Num: 2
+  }
+}
+items {
+  Days: 11
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 2600
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 12
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 2700
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 13
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 2800
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 14
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 2900
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 15
+  ReSignInDiamond: 30
+  GiftId: 2
+  GoodsList {
+    Type: 2
+    Num: 3000
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 5
+  }
+  GoodsList {
+    Type: 4
+    SubType: 7
+    Num: 1
+  }
+  GoodsList {
+    Type: 3
+    Num: 5
+  }
+  GoodsList {
+    Type: 4
+    SubType: 11
+    Num: 1
+  }
+}
+items {
+  Days: 16
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 3100
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 17
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 3200
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 18
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 3300
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 19
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 3400
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 20
+  ReSignInDiamond: 30
+  GiftId: 2
+  GoodsList {
+    Type: 2
+    Num: 3500
+  }
+  GoodsList {
+    Type: 6
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 8
+  }
+  GoodsList {
+    Type: 4
+    SubType: 2
+    Num: 1
+  }
+  GoodsList {
+    Type: 3
+    Num: 10
+  }
+  GoodsList {
+    Type: 4
+    SubType: 1
+    Num: 2
+  }
+}
+items {
+  Days: 21
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 3600
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 22
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 3700
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 23
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 3800
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 24
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 3900
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 25
+  ReSignInDiamond: 30
+  GiftId: 3
+  GoodsList {
+    Type: 2
+    Num: 4000
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 8
+  }
+  GoodsList {
+    Type: 4
+    SubType: 1
+    Num: 2
+  }
+  GoodsList {
+    Type: 3
+    Num: 10
+  }
+  GoodsList {
+    Type: 4
+    SubType: 11
+    Num: 1
+  }
+}
+items {
+  Days: 26
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 4100
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 27
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 4200
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 3
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 28
+  ReSignInDiamond: 30
+  GiftId: 3
+  GoodsList {
+    Type: 2
+    Num: 4300
+  }
+  GoodsList {
+    Type: 7
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 13
+  }
+  GoodsList {
+    Type: 4
+    SubType: 1
+    Num: 2
+  }
+  GoodsList {
+    Type: 4
+    SubType: 5
+    Num: 1
+  }
+  GoodsList {
+    Type: 4
+    SubType: 2
+    Num: 2
+  }
+  GoodsList {
+    Type: 3
+    Num: 10
+  }
+}
+items {
+  Days: 29
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 4400
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 5
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 30
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 4500
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 5
+  }
+  GoodsList {
+  }
+}
+items {
+  Days: 31
+  ReSignInDiamond: 30
+  GiftId: 0
+  GoodsList {
+    Type: 2
+    Num: 4600
+  }
+  GoodsList {
+    Type: 5
+    Num: 2
+  }
+  GoodsList {
+    Type: 1
+    Num: 5
+  }
+  GoodsList {
+  }
+}

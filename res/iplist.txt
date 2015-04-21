@@ -1,0 +1,18 @@
+items {
+  ServerId: 1
+  ServerIp: "wf-test.mqkid.com"
+  ServerPort: 9001
+  ServerName: "公网测试环境1"
+}
+items {
+  ServerId: 2
+  ServerIp: "wf-test.mqkid.com"
+  ServerPort: 9002
+  ServerName: "公网测试环境2"
+}
+items {
+  ServerId: 3
+  ServerIp: "game.weixiaona.com"
+  ServerPort: 9001
+  ServerName: "公网正式环境"
+}

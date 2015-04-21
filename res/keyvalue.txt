@@ -1,0 +1,67 @@
+items {
+  Key: 0
+  IntValue: 20
+  Desc: "老虎机换一批消耗钻石数量"
+}
+items {
+  Key: 1
+  StrValue: "2014-12-01 09:00:00"
+  Desc: "每日登陆元天"
+}
+items {
+  Key: 2
+  IntValue: 1
+  Desc: "单次抽取消耗钥匙数"
+}
+items {
+  Key: 3
+  IntValue: 6
+  Desc: "批量抽取消耗钥匙数"
+}
+items {
+  Key: 4
+  IntListValue: 9
+  IntListValue: 12
+  IntListValue: 16
+  IntListValue: 18
+  IntListValue: 21
+  Desc: "铜钥匙随机重置时间"
+}
+items {
+  Key: 5
+  IntListValue: 9
+  IntListValue: 12
+  IntListValue: 16
+  IntListValue: 18
+  IntListValue: 21
+  Desc: "银钥匙随机重置时间"
+}
+items {
+  Key: 6
+  IntListValue: 9
+  IntListValue: 12
+  IntListValue: 16
+  IntListValue: 18
+  IntListValue: 21
+  Desc: "金钥匙随机重置时间"
+}
+items {
+  Key: 7
+  IntValue: 20
+  Desc: "随机道具消耗钻石数"
+}
+items {
+  Key: 8
+  IntValue: 40
+  Desc: "铜钥匙价格"
+}
+items {
+  Key: 9
+  IntValue: 30
+  Desc: "银钥匙价格"
+}
+items {
+  Key: 10
+  IntValue: 20
+  Desc: "金钥匙价格"
+}

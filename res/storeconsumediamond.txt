@@ -1,0 +1,70 @@
+items {
+  GoodsId: 1
+  GoodsName: "花"
+  GoodsType: 3
+  GoodsNum: 1
+  ConsumeDiamondNum: 6
+}
+items {
+  GoodsId: 2
+  GoodsName: "花"
+  GoodsType: 3
+  GoodsNum: 5
+  ConsumeDiamondNum: 30
+}
+items {
+  GoodsId: 3
+  GoodsName: "花"
+  GoodsType: 3
+  GoodsNum: 10
+  ConsumeDiamondNum: 60
+}
+items {
+  GoodsId: 4
+  GoodsName: "花"
+  GoodsType: 3
+  GoodsNum: 15
+  ConsumeDiamondNum: 90
+}
+items {
+  GoodsId: 5
+  GoodsName: "花"
+  GoodsType: 3
+  GoodsNum: 30
+  ConsumeDiamondNum: 180
+}
+items {
+  GoodsId: 6
+  GoodsName: "金币"
+  GoodsType: 2
+  GoodsNum: 2000
+  ConsumeDiamondNum: 9
+}
+items {
+  GoodsId: 7
+  GoodsName: "金币"
+  GoodsType: 2
+  GoodsNum: 5000
+  ConsumeDiamondNum: 21
+}
+items {
+  GoodsId: 8
+  GoodsName: "金币"
+  GoodsType: 2
+  GoodsNum: 10000
+  ConsumeDiamondNum: 42
+}
+items {
+  GoodsId: 9
+  GoodsName: "金币"
+  GoodsType: 2
+  GoodsNum: 30000
+  ConsumeDiamondNum: 126
+}
+items {
+  GoodsId: 10
+  GoodsName: "金币"
+  GoodsType: 2
+  GoodsNum: 100000
+  ConsumeDiamondNum: 423
+}

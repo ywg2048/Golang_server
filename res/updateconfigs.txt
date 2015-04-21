@@ -1,0 +1,99 @@
+items {
+  UpdateConfigId: 1
+  Version: "1.0.4"
+  OSType: "Android"
+  StrategyType: 0
+  StrategyName: "Force"
+  HasUpdate: 1
+  LatestVersion: "1.1.19"
+  CanHotUpdate: 0
+  Description: "最早的版本"
+}
+items {
+  UpdateConfigId: 2
+  Version: "1.0.5"
+  OSType: "Android"
+  StrategyType: 0
+  StrategyName: "Force"
+  HasUpdate: 1
+  LatestVersion: "1.1.19"
+  CanHotUpdate: 0
+  Description: "早期稳定版本"
+}
+items {
+  UpdateConfigId: 3
+  Version: "1.1.18"
+  OSType: "Android"
+  StrategyType: 2
+  StrategyName: "Advise"
+  HasUpdate: 1
+  LatestVersion: "1.1.19"
+  CanHotUpdate: 0
+  Description: "临时的版本"
+}
+items {
+  UpdateConfigId: 4
+  Version: "1.1.19"
+  OSType: "Android"
+  StrategyType: 0
+  StrategyName: "Newst"
+  HasUpdate: 0
+  LatestVersion: "1.1.19"
+  CanHotUpdate: 0
+  Description: "2015年4月3日当前发布版本"
+}
+items {
+  UpdateConfigId: 5
+  Version: "2.0.1"
+  OSType: "Android"
+  StrategyType: 0
+  StrategyName: "Newst"
+  HasUpdate: 0
+  LatestVersion: "2.0.1"
+  CanHotUpdate: 0
+  Description: "当前开发的版本"
+}
+items {
+  UpdateConfigId: 6
+  Version: "1.0.4"
+  OSType: "iOS"
+  StrategyType: 0
+  StrategyName: "Newst"
+  HasUpdate: 0
+  LatestVersion: "1.0.4"
+  CanHotUpdate: 0
+  Description: "Maya发布的版本"
+}
+items {
+  UpdateConfigId: 7
+  Version: "1.1.18"
+  OSType: "iOS"
+  StrategyType: 0
+  StrategyName: "Newst"
+  HasUpdate: 0
+  LatestVersion: "1.1.18"
+  CanHotUpdate: 0
+  Description: "Maya25号上传的版本"
+}
+items {
+  UpdateConfigId: 7
+  Version: "2.0.1"
+  OSType: "iOS"
+  StrategyType: 0
+  StrategyName: "Newst"
+  HasUpdate: 0
+  LatestVersion: "2.0.1"
+  CanHotUpdate: 0
+  Description: "Maya开发的版本"
+}
+items {
+  UpdateConfigId: 8
+  Version: "2.0.1"
+  OSType: "iOS"
+  StrategyType: 0
+  StrategyName: "Newst"
+  HasUpdate: 0
+  LatestVersion: "2.0.1"
+  CanHotUpdate: 0
+  Description: "Tuojie上传的版本-妙妙消"
+}

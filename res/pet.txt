@@ -1,0 +1,160 @@
+items {
+  PetId: 1
+  Name: "蒋班亚男"
+  Version: "1.0.0"
+  Order: 12
+  StartStarLevel: 1
+  MaxStarLevel: 3
+  UnlockDiamond: 0
+  UnlockStage: 0
+}
+items {
+  PetId: 2
+  Name: "奇妙"
+  Version: "1.0.0"
+  Order: 11
+  StartStarLevel: 1
+  MaxStarLevel: 3
+  UnlockDiamond: 0
+  UnlockStage: 0
+}
+items {
+  PetId: 3
+  Name: "   涛妮"
+  Version: "1.0.0"
+  Order: 10
+  StartStarLevel: 1
+  MaxStarLevel: 3
+  UnlockDiamond: 0
+  UnlockStage: 0
+}
+items {
+  PetId: 4
+  Name: "Tiber"
+  Version: "1.0.0"
+  Order: 9
+  StartStarLevel: 1
+  MaxStarLevel: 3
+  UnlockDiamond: 0
+  UnlockStage: 0
+}
+items {
+  PetId: 5
+  Name: "六毛"
+  Version: "1.0.0"
+  Order: 8
+  StartStarLevel: 1
+  MaxStarLevel: 4
+  UnlockDiamond: 0
+  UnlockStage: 0
+}
+items {
+  PetId: 6
+  Name: "CoCo"
+  Version: "1.0.0"
+  Order: 7
+  StartStarLevel: 1
+  MaxStarLevel: 4
+  UnlockDiamond: 0
+  UnlockStage: 0
+}
+items {
+  PetId: 7
+  Name: "妮妮"
+  Version: "1.0.0"
+  Order: 5
+  StartStarLevel: 1
+  MaxStarLevel: 5
+  UnlockDiamond: 268
+  UnlockStage: 0
+}
+items {
+  PetId: 8
+  Name: "皓皓"
+  Version: "1.0.0"
+  Order: 2
+  StartStarLevel: 1
+  MaxStarLevel: 5
+  UnlockDiamond: 0
+  UnlockStage: 0
+}
+items {
+  PetId: 9
+  Name: "春春"
+  Version: "1.0.0"
+  Order: 4
+  StartStarLevel: 1
+  MaxStarLevel: 5
+  UnlockDiamond: 288
+  UnlockStage: 0
+}
+items {
+  PetId: 10
+  Name: "杏儿"
+  Version: "1.0.0"
+  Order: 6
+  StartStarLevel: 1
+  MaxStarLevel: 5
+  UnlockDiamond: 218
+  UnlockStage: 0
+}
+items {
+  PetId: 11
+  Name: "涛涛"
+  Version: "1.0.0"
+  Order: 3
+  StartStarLevel: 1
+  MaxStarLevel: 5
+  UnlockDiamond: 198
+  UnlockStage: 0
+}
+items {
+  PetId: 12
+  Name: "轩轩"
+  Version: "1.0.0"
+  Order: 1
+  StartStarLevel: 1
+  MaxStarLevel: 5
+  UnlockDiamond: 258
+  UnlockStage: 0
+}
+items {
+  PetId: 13
+  Name: "安仔"
+  Version: "1.0.4"
+  Order: 1
+  StartStarLevel: 1
+  MaxStarLevel: 4
+  UnlockDiamond: 0
+  UnlockStage: 0
+}
+items {
+  PetId: 14
+  Name: "妮娜"
+  Version: "1.0.4"
+  Order: 1
+  StartStarLevel: 1
+  MaxStarLevel: 3
+  UnlockDiamond: 0
+  UnlockStage: 0
+}
+items {
+  PetId: 15
+  Name: "萌萌"
+  Version: "1.0.4"
+  Order: 1
+  StartStarLevel: 1
+  MaxStarLevel: 3
+  UnlockDiamond: 0
+  UnlockStage: 0
+}
+items {
+  PetId: 16
+  Name: "葱葱"
+  Version: "1.0.4"
+  Order: 1
+  StartStarLevel: 1
+  MaxStarLevel: 5
+  UnlockDiamond: 298
+  UnlockStage: 10003
+}
