@@ -4,30 +4,21 @@ import (
 	"github.com/astaxie/beego"
 )
 
-import "fmt"
 import "io/ioutil"
-
-//import "net/http"
-
-//import "os"
-//import "flag"
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
 import cs_handle "module/cs_handle"
-
-//import "flag"
 
 type MainController struct {
 	beego.Controller
 }
 
 func (c *MainController) Get() {
-	c.Data["Website"] = "beego.me"
-	c.Data["Email"] = "astaxie@gmail.com"
+	c.Data["Website"] = "www.tuojie.com"
+	c.Data["Email"] = "info@tuojie.com"
 	c.TplNames = "index.tpl"
 }
 func (c *MainController) Post() {
-	fmt.Println("***********Post Start***********")
 	beego.Debug("***********Post Start***********")
 	data_req, _ := ioutil.ReadAll(c.Ctx.Input.Request.Body)
 	c.Ctx.Input.Request.Body.Close()
