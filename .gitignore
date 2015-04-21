@@ -1,7 +1,9 @@
-quickstart
+quickstart.git
+
 *.o
 *.a
 *.so
+*.log
 
 # Folders
 _obj
