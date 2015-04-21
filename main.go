@@ -31,7 +31,7 @@ func Init() {
 
 	//db  初始化
 	beego.Debug("db init")
-	err := db_session.Init(config.Config().GetDbIp())
+	err := db_session.Init(beego.AppConfig.String("mongodb_ip"))
 	//err := db_session.Init("127.0.0.1:12306")
 	if err != nil {
 		beego.Error("Init db_session fail")
