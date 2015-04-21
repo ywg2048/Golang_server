@@ -51,6 +51,13 @@
       color: #999;
     }
 
+    .title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: normal;
+      text-shadow: 0px 1px 2px #ddd;
+    }
+
     .description {
       text-align: center;
       font-size: 16px;
@@ -75,7 +82,8 @@
 
 <body>
   <header>
-    <h1 class="logo">Welcome to Piggo Server</h1>
+    <h1 class="title">Welcome to Piggo Server</h1>
+    <h1 class="logo"></h1>
     <div class="description">
       PigGo is a simple & powerful Go Game framework.
     </div>
