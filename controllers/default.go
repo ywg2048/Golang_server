@@ -7,7 +7,7 @@ import (
 import "io/ioutil"
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
-import cs_handle "module/cs_handle"
+import cs_handle "tuojie.com/piggo/quickstart.git/cs_handle"
 
 type MainController struct {
 	beego.Controller

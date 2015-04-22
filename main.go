@@ -6,12 +6,11 @@ import (
 	_ "tuojie.com/piggo/quickstart.git/routers"
 )
 
-import cs_handle "module/cs_handle"
-import db_session "module/db/session"
-import db_collection "module/db/collection"
-import res_mgr "module/res_mgr"
+import cs_handle "tuojie.com/piggo/quickstart.git/cs_handle"
+import db_session "tuojie.com/piggo/quickstart.git/db/session"
+import db_collection "tuojie.com/piggo/quickstart.git/db/collection"
+import res_mgr "tuojie.com/piggo/quickstart.git/res_mgr"
 import rand "github.com/tuojie/utility"
-import config "config_data"
 
 func main() {
 	Init()
@@ -27,7 +26,7 @@ func Init() {
 	cs_handle.Init()
 
 	beego.Debug("config init")
-	config.InitConfig()
+	//config.InitConfig()
 
 	//db  初始化
 	beego.Debug("db init")
