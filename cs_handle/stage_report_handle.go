@@ -1,8 +1,11 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
-import log "code.google.com/p/log4go"
+
 import db "tuojie.com/piggo/quickstart.git/db/collection"
 import "labix.org/v2/mgo/bson"
 import db_session "tuojie.com/piggo/quickstart.git/db/session"
@@ -23,7 +26,7 @@ func stageReportHandle(
 	c := db_session.DB("zoo").C("player")
 	var player db.Player
 	err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
-	log.Debug("*********StageReportHandle result is %v err is %v********", player, err)
+	beego.Debug("*********StageReportHandle result is %v err is %v********", player, err)
 	//log.Debug("*********StageReportHandle result.level1 is %v********", player.Levels[1].GetStageScore())
 
 	//时间戳
@@ -38,14 +41,14 @@ func stageReportHandle(
 							bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
 						c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
 							bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
-						log.Info("更新用户分数成功")
+						beego.Info("更新用户分数成功")
 					}
 				} else {
 					c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
 						bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
 					c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
 						bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
-					log.Info("新关卡用户分数保存成功")
+					beego.Info("新关卡用户分数保存成功")
 				}
 
 			} else {
@@ -54,7 +57,7 @@ func stageReportHandle(
 					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
 				c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
 					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
-				log.Info("插入新用户分数成功")
+				beego.Info("插入新用户分数成功")
 			}
 
 			// for j:= range player.Levels {

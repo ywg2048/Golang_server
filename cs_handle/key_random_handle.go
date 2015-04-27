@@ -1,9 +1,12 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
 import db "tuojie.com/piggo/quickstart.git/db/collection"
-import log "code.google.com/p/log4go"
+
 import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 import rand "github.com/tuojie/utility"
 import "resource"
@@ -36,12 +39,12 @@ func keyRandomHandle(
 	if int_version == 0 {
 		int_version = IpStringToInt("1.0.0")
 	}
-	log.Debug("req_str_version:%s, req_int_version:%d", str_version, int_version)
+	beego.Debug("req_str_version:%s, req_int_version:%d", str_version, int_version)
 	//拉取pool_random信息
 	pool_db_list, ret := db.GetRandomPool(res_list.GetSAccount(),
 		getKeyRandomPoolType(random_type))
 	if ret != 0 {
-		log.Error("get random pools fail ret:%d", ret)
+		beego.Error("get random pools fail ret:%d", ret)
 		makeKeyRandomResPkg([]int32{}, []int32{}, req, res_list,
 			int32(cspb.ErrorCode_PlayerNotExist), random_type)
 		return -1
@@ -63,7 +66,7 @@ func keyRandomHandle(
 				int32(cspb.ChangeType_Deduct),
 				res_list)
 		} else {
-			log.Debug("free random key")
+			beego.Debug("free random key")
 		}
 		if hour >= 0 && today >= 0 {
 			makePoolNextFreeNtf(hour, today, res_list)
@@ -72,7 +75,7 @@ func keyRandomHandle(
 
 	} else {
 		if len(assign_list) < pool_goods_num {
-			log.Error("assign_list is error len:%d", int(len(assign_list)))
+			beego.Error("assign_list is error len:%d", int(len(assign_list)))
 			makeKeyRandomResPkg([]int32{}, []int32{}, req, res_list,
 				int32(cspb.ErrorCode_SysError),
 				random_type)
@@ -93,7 +96,7 @@ func keyRandomHandle(
 				assign_list = deleteAssignList(res_list.GetSAccount(), index,
 					goods_id, last_signin_time, assign_list)
 			} else {
-				log.Error("random goods error")
+				beego.Error("random goods error")
 				makeKeyRandomResPkg([]int32{}, []int32{}, req, res_list,
 					int32(cspb.ErrorCode_SysError),
 					random_type)
@@ -111,7 +114,7 @@ func keyRandomHandle(
 	for i := 0; i < pool_goods_num; i++ {
 		goods_id = randomFromAll(random_type, int_version, defaultSelecter, randomKeyNum)
 		if goods_id == -1 {
-			log.Error("random error")
+			beego.Error("random error")
 			makeKeyRandomResPkg([]int32{}, []int32{}, req, res_list,
 				int32(cspb.ErrorCode_SysError),
 				random_type)
@@ -140,7 +143,7 @@ func checkRandomType(random_type int32) bool {
 		random_type == int32(cspb.KeyRandomType_rGoldKeyBatch) {
 		return true
 	}
-	log.Error("random type is invalid random_type:%d", random_type)
+	beego.Error("random type is invalid random_type:%d", random_type)
 	return false
 }
 
@@ -171,7 +174,7 @@ func getKeyRandomPoolType(random_type int32) int32 {
 		return int32(cspb.KeyRandomType_rGoldKeyPool)
 
 	default:
-		log.Error(" random_type is invalid random_type:%d",
+		beego.Error(" random_type is invalid random_type:%d",
 			random_type)
 		return -1
 	}
@@ -199,8 +202,8 @@ func isFreeChangePool(random_type int32, last_signin_time int64) (bool, int32, i
 
 	size := len(hour_list)
 	if size <= 0 {
-		log.Debug("hour_list`len:%d is invalid", size)
-		log.Debug("return %t", false)
+		beego.Debug("hour_list`len:%d is invalid", size)
+		beego.Debug("return %t", false)
 		return false, -1, -1
 	}
 
@@ -209,14 +212,14 @@ func isFreeChangePool(random_type int32, last_signin_time int64) (bool, int32, i
 	now_hour := int32(time.Now().Hour())
 	now_year_day := int32(time.Now().YearDay())
 
-	log.Debug("hour_list:%d", hour_list)
-	log.Debug("last_hour:%d", last_hour)
-	log.Debug("last_year_day:%d", last_year_day)
-	log.Debug("now_hour:%d", now_hour)
-	log.Debug("now_year_day:%d", now_year_day)
+	beego.Debug("hour_list:%d", hour_list)
+	beego.Debug("last_hour:%d", last_hour)
+	beego.Debug("last_year_day:%d", last_year_day)
+	beego.Debug("now_hour:%d", now_hour)
+	beego.Debug("now_year_day:%d", now_year_day)
 
 	if last_signin_time == int64(0) {
-		log.Debug("last_signin_time:%d return %t", last_signin_time, true)
+		beego.Debug("last_signin_time:%d return %t", last_signin_time, true)
 		return true, hour_list[0], int32(1)
 	}
 	var ret bool
@@ -227,15 +230,15 @@ func isFreeChangePool(random_type int32, last_signin_time int64) (bool, int32, i
 			//当前的小时数大于等于本天第一次就可以免费
 			ret = true
 		} else {
-			log.Debug("return %t", false)
+			beego.Debug("return %t", false)
 			ret = false
 		}
 
 		if len(hour_list) >= 1 {
-			log.Debug("ret:%t, hour:%d, today:%d", ret, hour_list[1], 1)
+			beego.Debug("ret:%t, hour:%d, today:%d", ret, hour_list[1], 1)
 			return ret, hour_list[1], int32(1)
 		} else {
-			log.Debug("ret:%t, hour:%d, today:%d", ret, hour_list[0], 0)
+			beego.Debug("ret:%t, hour:%d, today:%d", ret, hour_list[0], 0)
 			return ret, hour_list[0], int32(0)
 		}
 
@@ -243,13 +246,13 @@ func isFreeChangePool(random_type int32, last_signin_time int64) (bool, int32, i
 		//在同一天
 		for _, hour := range hour_list {
 			if hour <= 0 || hour >= 24 {
-				log.Error("static data is invalid hour:%d", hour)
-				log.Debug("return %t", false)
+				beego.Error("static data is invalid hour:%d", hour)
+				beego.Debug("return %t", false)
 				return false, -1, int32(-1)
 			}
 
 			if last_hour < hour && now_hour >= hour {
-				log.Debug("return %t", true)
+				beego.Debug("return %t", true)
 				return true, hour, int32(1)
 			}
 		}
@@ -267,7 +270,7 @@ func isBatchRandom(random_type int32) bool {
 
 func randomFromAssign(random_type int32, assign_list []*assignInfo) (int32, int32) {
 
-	log.Debug("assign_list:%v,", assign_list)
+	beego.Debug("assign_list:%v,", assign_list)
 
 	var max_num int32 = 0
 	for _, assign_goods := range assign_list {
@@ -290,10 +293,10 @@ func randomFromAssign(random_type int32, assign_list []*assignInfo) (int32, int3
 		}
 	}
 	if goods_id == -1 {
-		log.Error("random error max_num:%d, random_num:%d, cur_num:%d",
+		beego.Error("random error max_num:%d, random_num:%d, cur_num:%d",
 			max_num, random_num, cur_num)
 	}
-	log.Debug("random_type:%d, random_goods_id:%d, index:%d",
+	beego.Debug("random_type:%d, random_goods_id:%d, index:%d",
 		random_type, goods_id, index)
 	return goods_id, index
 }
@@ -325,7 +328,7 @@ func randomKeyNum(random_type int32, data *resource.Randomgoods) int32 {
 		return data.GetGoldKeyRandom()
 
 	default:
-		log.Error(" random_type is invalid random_type:%d",
+		beego.Error(" random_type is invalid random_type:%d",
 			random_type)
 		return 0
 	}
@@ -347,7 +350,7 @@ func makeAssignList(key_db_list []db.RandomPool) ([]*assignInfo, int64) {
 
 		last_signin_time = info.UpdateTime
 	}
-	log.Debug("assign_list:%v, last_signin_time:%d",
+	beego.Debug("assign_list:%v, last_signin_time:%d",
 		assign_list, last_signin_time)
 	return assign_list, last_signin_time
 }
@@ -371,19 +374,19 @@ func deleteAssignList(account string, index int32,
 func coverKeyRandomInfo(account string, random_type int32,
 	goods_list []int32, last_signin_time int64) int32 {
 
-	log.Debug("account:%s, random_type:%d, goods_list:%v",
+	beego.Debug("account:%s, random_type:%d, goods_list:%v",
 		account, random_type, goods_list)
 
 	if random_type != int32(cspb.KeyRandomType_rCopperKeyPool) &&
 		random_type != int32(cspb.KeyRandomType_rSilverKeyPool) &&
 		random_type != int32(cspb.KeyRandomType_rGoldKeyPool) {
 
-		log.Error("random_type:%d is invalid", random_type)
+		beego.Error("random_type:%d is invalid", random_type)
 		return -1
 	}
 	count := len(goods_list)
 	if count != pool_goods_num {
-		log.Error("goods count:%d", count)
+		beego.Error("goods count:%d", count)
 		return -1
 	}
 
@@ -412,7 +415,7 @@ func getAttrIdFromRandomType(random_type int32) int32 {
 		return int32(cspb.AttrId_GoldKey)
 
 	default:
-		log.Error(" random_type is invalid random_type:%d",
+		beego.Error(" random_type is invalid random_type:%d",
 			random_type)
 		return 0
 	}

@@ -1,11 +1,14 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 
 import proto "code.google.com/p/goprotobuf/proto"
 
 //import player_db "module/db/collection"
-import log "code.google.com/p/log4go"
+
 import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 import rand "github.com/tuojie/utility"
 
@@ -16,7 +19,7 @@ func randomItemHandle(
 	use_random_item_id := req.GetBody().GetRandomItemReq().GetUseRandomItemId()
 	if use_random_item_id == 0 {
 		cost_diamond := resmgr.KeyvalueData.GetItems()[7].GetIntValue()
-		log.Debug("need deduct diamond:%d", cost_diamond)
+		beego.Debug("need deduct diamond:%d", cost_diamond)
 		makeAttrInt32Ntf(int32(cspb.AttrId_Diamond),
 			cost_diamond,
 			int32(cspb.ChangeType_Deduct),
@@ -33,12 +36,12 @@ func randomItemHandle(
 
 	item_index := randomItemFromRes()
 	if item_index <= 0 {
-		log.Error("random item from res error item_index:%d", item_index)
+		beego.Error("random item from res error item_index:%d", item_index)
 		return makeRandomItemResPkg(req, res_list,
 			int32(cspb.ErrorCode_RandomItemFail), item_index)
 	}
 
-	log.Debug("random item_index :%d", item_index)
+	beego.Debug("random item_index :%d", item_index)
 	return makeRandomItemResPkg(req, res_list, int32(0), item_index)
 }
 
@@ -79,9 +82,9 @@ func randomItemFromRes() int32 {
 		}
 	}
 	if item_index == -1 {
-		log.Error("random item error max_num:%d, random_num:%d, cur_num:%d",
+		beego.Error("random item error max_num:%d, random_num:%d, cur_num:%d",
 			max_num, random_num, cur_num)
 	}
-	log.Debug("random_item_index:%d", item_index)
+	beego.Debug("random_item_index:%d", item_index)
 	return item_index
 }

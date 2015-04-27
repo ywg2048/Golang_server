@@ -1,9 +1,11 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
 import pet_db "tuojie.com/piggo/quickstart.git/db/collection"
-import log "code.google.com/p/log4go"
 
 func getPetListHandle(
 	req *cspb.CSPkg,
@@ -24,7 +26,7 @@ func getPetListHandle(
 		//添加pet_ntf到res_list中
 		makePetNtf(pet_list, res_list)
 	} else {
-		log.Error("get pet list fail ret:%d", ret)
+		beego.Error("get pet list fail ret:%d", ret)
 	}
 
 	return makePetListResPkg(req, res_list, ret)

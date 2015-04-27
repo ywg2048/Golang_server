@@ -1,8 +1,11 @@
 package collection
 
+import (
+	"github.com/astaxie/beego"
+)
 import "labix.org/v2/mgo"
 import "labix.org/v2/mgo/bson"
-import log "code.google.com/p/log4go"
+
 import db_session "tuojie.com/piggo/quickstart.git/db/session"
 import "fmt"
 
@@ -22,30 +25,30 @@ type RechargeFlowData struct {
 func GetRechargeFlow(uid int64, start_time int64,
 	end_time int64) ([]RechargeFlowData, int32) {
 
-	log.Debug("uid:%d, start_time:%d, end_time:%d", uid, start_time, end_time)
+	beego.Debug("uid:%d, start_time:%d, end_time:%d", uid, start_time, end_time)
 	c := db_session.DB("zoo").C("recharge")
 	var recharge_list []RechargeFlowData
 	err := c.Find(bson.M{"uid": uid, "recharge_time": bson.M{"$gt": start_time, "$lt": end_time}}).
 		Sort("+recharge_time").All(&recharge_list)
 	if err == mgo.ErrNotFound {
-		log.Error("load recharge_list no found. uid:%d, err:%v", uid, err)
+		beego.Error("load recharge_list no found. uid:%d, err:%v", uid, err)
 		return recharge_list, 1
 	} else if err != nil {
-		log.Error("load recharge_list fail err:%v", err)
+		beego.Error("load recharge_list fail err:%v", err)
 		return recharge_list, -1
 	}
 
-	log.Debug("recharge_list:%v", recharge_list)
+	beego.Debug("recharge_list:%v", recharge_list)
 	return recharge_list, 0
 }
 
 func AddRechargeFlow(recharge_flow *RechargeFlowData) int32 {
-	log.Debug("recharge_flow:%s", fmt.Sprint(recharge_flow))
+	beego.Debug("recharge_flow:%s", fmt.Sprint(recharge_flow))
 
 	c := db_session.DB("zoo").C("recharge")
 	err := c.Insert(&recharge_flow)
 	if err != nil {
-		log.Error("insert recharge_flow fail err:%v", err)
+		beego.Error("insert recharge_flow fail err:%v", err)
 		return -1
 	}
 

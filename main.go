@@ -2,7 +2,12 @@ package main
 
 import (
 	"github.com/astaxie/beego"
+
+	"github.com/astaxie/beego/orm"
+	"github.com/astaxie/beego/plugins/auth"
+	_ "github.com/go-sql-driver/mysql"
 	"os"
+	_ "tuojie.com/piggo/quickstart.git/docs"
 	_ "tuojie.com/piggo/quickstart.git/routers"
 )
 
@@ -12,15 +17,38 @@ import db_collection "tuojie.com/piggo/quickstart.git/db/collection"
 import res_mgr "tuojie.com/piggo/quickstart.git/res_mgr"
 import rand "github.com/tuojie/utility"
 
+type MonsterUser struct {
+	Id      int
+	Name    string   `orm:"size(100)"`
+	Profile *Profile `orm:"rel(one)"` // OneToOne relation
+}
+type Profile struct {
+	Id          int
+	Age         int16
+	MonsterUser *MonsterUser `orm:"reverse(one)"` // 设置反向关系(可选)
+}
+
 func main() {
+	beego.EnableAdmin = true
+	beego.AdminHttpAddr = "localhost"
+
 	Init()
+	beego.InsertFilter("/stage", beego.BeforeRouter, auth.Basic("root", "root"))
 	beego.Run()
+
 	Finish()
 }
 
 func Init() {
-	beego.Debug("******Start main.Init******")
 
+	beego.Debug("******Start main.Init******")
+	orm.RegisterDataBase("default", "mysql", "root:@/Monsters?charset=utf8", 30)
+
+	// register model
+	orm.RegisterModel(new(MonsterUser), new(Profile))
+
+	// create table
+	orm.RunSyncdb("default", false, true)
 	//msg handle 初始化
 	beego.Debug("cs_handle Init")
 	cs_handle.Init()

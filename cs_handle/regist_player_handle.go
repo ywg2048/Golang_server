@@ -1,15 +1,17 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
 import db "tuojie.com/piggo/quickstart.git/db/collection"
-import log "code.google.com/p/log4go"
 
 func registPlayerHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
 
-	log.Debug("******registPlayerHandle, req is %v, res is %v", req, res_list)
+	beego.Debug("******registPlayerHandle, req is %v, res is %v", req, res_list)
 	//req_data := req.GetBody().GetRegistPlayerReq()
 
 	// var player db.Player
@@ -26,7 +28,7 @@ func registPlayerHandle(
 	// player.Uid = uid
 	// 根据提供的client account创建一个player用户
 	ret, player := db.LoadPlayer(res_list.GetCAccount(), res_list.GetSAccount(), res_list.GetUid())
-	log.Debug("Db LoadPlayer Player, ret is %d, player is %v", ret, player)
+	beego.Debug("Db LoadPlayer Player, ret is %d, player is %v", ret, player)
 
 	// switch ret {
 	// case 0:

@@ -1,9 +1,12 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
 import db "tuojie.com/piggo/quickstart.git/db/collection"
-import log "code.google.com/p/log4go"
+
 import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 //import "resource"
@@ -13,15 +16,15 @@ func signinHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
 
-	log.Debug("******signinHandle, req is %v, res is %v", req, res_list)
+	beego.Debug("******signinHandle, req is %v, res is %v", req, res_list)
 	req_flag := req.GetBody().GetSignInReq().GetFlag()
 
 	//拉取player基本信息
 	//	db_info, ret := db.InsertPlayer(res_list.GetSAccount())
 	ret, db_info := db.LoadPlayer(res_list.GetCAccount(), res_list.GetSAccount(), res_list.GetUid())
-	log.Debug("-----------db_info---------", db_info)
+	beego.Debug("-----------db_info---------", db_info)
 	if ret != 0 {
-		log.Error("load player fail ret:%d", ret)
+		beego.Error("load player fail ret:%d", ret)
 		return makeSigninResPkg(req, res_list,
 			int32(cspb.ErrorCode_PlayerNotExist), req_flag, int32(-1))
 	}
@@ -36,7 +39,7 @@ func signinHandle(
 	Time, _ := time.Parse("2006-01-02 15:04:05", start_time_str)
 	start_time := Time.Unix() - int64(60*60*8)
 	now_time := time.Now().Unix()
-	log.Debug("^^^^^^db_info.LastSignIntime^^^^^^", db_info.WonderfulFriends.LastSignInTime)
+	beego.Debug("^^^^^^db_info.LastSignIntime^^^^^^", db_info.WonderfulFriends.LastSignInTime)
 	var last_signin_time int64
 	var free_oper_time int64
 	if db_info.LastSignInTime > db_info.WonderfulFriends.LastSignInTime {
@@ -55,14 +58,14 @@ func signinHandle(
 	now_cycle := (now_time - start_time) / 86400 / 30
 	now_day := (now_time - start_time) / 86400 % 30
 
-	log.Debug("last_signin_time:%d", last_signin_time)
-	log.Debug("free_oper_time:%d", free_oper_time)
-	log.Debug("now_time:%d", now_time)
-	log.Debug("start_time:%d", start_time)
-	log.Debug("last_signin_cycle:%d", last_signin_cycle)
-	log.Debug("last_signin_day:%d", last_signin_day)
-	log.Debug("now_cycle:%d", now_cycle)
-	log.Debug("now_day:%d", now_day)
+	beego.Debug("last_signin_time:%d", last_signin_time)
+	beego.Debug("free_oper_time:%d", free_oper_time)
+	beego.Debug("now_time:%d", now_time)
+	beego.Debug("start_time:%d", start_time)
+	beego.Debug("last_signin_cycle:%d", last_signin_cycle)
+	beego.Debug("last_signin_day:%d", last_signin_day)
+	beego.Debug("now_cycle:%d", now_cycle)
+	beego.Debug("now_day:%d", now_day)
 
 	can_signin := false
 
@@ -98,7 +101,7 @@ func signinHandle(
 			break
 		}
 
-		log.Error("oh fuck code has bug!!!!")
+		beego.Error("oh fuck code has bug!!!!")
 		break
 	}
 
@@ -109,7 +112,7 @@ func signinHandle(
 			free = int32(1)
 		} else { //还可以签到
 			//花钻石签到
-			log.Debug("signin_day:%d", signin_day)
+			beego.Debug("signin_day:%d", signin_day)
 			consume = resmgr.DailyloginData.GetItems()[signin_day].GetReSignInDiamond()
 		}
 	}
@@ -146,7 +149,7 @@ func signinHandle(
 		//存时间到数据表player
 		ret = db.SetLastSignInTime(res_list.GetCAccount(), last_signin_time, free_oper_time)
 		if ret != 0 {
-			log.Error("SetLastSignInTime error ret:%d", ret)
+			beego.Error("SetLastSignInTime error ret:%d", ret)
 		}
 	} else {
 		//不可以签到
@@ -159,10 +162,10 @@ func signinHandle(
 }
 
 func reward(signin_day int32, res_list *cspb.CSPkgList) {
-	log.Debug("*****Signin_handle.reward:signin_day:%d", signin_day)
+	beego.Debug("*****Signin_handle.reward:signin_day:%d", signin_day)
 
 	if signin_day < 0 || signin_day >= 30 {
-		log.Error("signin:%d is invalid", signin_day)
+		beego.Error("signin:%d is invalid", signin_day)
 		return
 	}
 
@@ -174,7 +177,7 @@ func reward(signin_day int32, res_list *cspb.CSPkgList) {
 		if goods_info.GetType() < int32(cspb.AttrId_Diamond) ||
 			goods_info.GetType() >= int32(cspb.AttrId_Max) {
 
-			log.Error("goods_type:%d is invalid", goods_info.GetType())
+			beego.Error("goods_type:%d is invalid", goods_info.GetType())
 			break
 		}
 		if goods_info.GetType() == int32(cspb.AttrId_Item) {
@@ -199,7 +202,7 @@ func reward(signin_day int32, res_list *cspb.CSPkgList) {
 
 	//发送 chip 或者 pet ntf
 	if len(pet_list) > 0 {
-		log.Debug("petlist:%v", pet_list)
+		beego.Debug("petlist:%v", pet_list)
 		for _, pet := range pet_list {
 			db.SetPetInfo(res_list.GetSAccount(), pet.GetPetId(),
 				1, 0, 0, pet.GetPetStarLevel())
@@ -208,7 +211,7 @@ func reward(signin_day int32, res_list *cspb.CSPkgList) {
 	}
 
 	if len(chip_list) > 0 {
-		log.Debug("makeChipList chip_list:%v", chip_list)
+		beego.Debug("makeChipList chip_list:%v", chip_list)
 		for _, chip := range chip_list {
 			change_num := int32(0)
 			if chip.GetChangeType() == int32(cspb.ChangeType_Add) {

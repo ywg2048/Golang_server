@@ -1,18 +1,21 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
-import log "code.google.com/p/log4go"
+
 import "time"
 
 func serverTimeHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
 
-	log.Debug("******serverTimeHandle")
+	beego.Debug("******serverTimeHandle")
 	ret := int32(0)
 	now_time := time.Now().Unix()
-	log.Debug("server time :%d", now_time)
+	beego.Debug("server time :%d", now_time)
 	//填充ServerTimeRes回包
 	res_data := new(cspb.CSServerTimeRes)
 	*res_data = cspb.CSServerTimeRes{
@@ -26,6 +29,6 @@ func serverTimeHandle(
 	}
 	res_list = makeCSPkgList(int32(cspb.Command_kServerTimeRes),
 		res_pkg_body, res_list)
-	log.Debug("serverTimeHandle******")
+	beego.Debug("serverTimeHandle******")
 	return ret
 }

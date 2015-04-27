@@ -1,8 +1,11 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
-import log "code.google.com/p/log4go"
+
 import db "tuojie.com/piggo/quickstart.git/db/collection"
 import "resource"
 import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
@@ -27,7 +30,7 @@ func makeCSPkgList(
 	}
 	//append pkg 到的pkg_list中
 	pkg_list.Pkgs = append(pkg_list.Pkgs, pkg)
-	log.Debug("resinfo:%d->%s\n %s",
+	beego.Debug("resinfo:%d->%s\n %s",
 		cmd,
 		cspb.Command_name[cmd],
 		pkg.String())
@@ -66,7 +69,7 @@ func addAttrInt32(attr_id int32, value int32,
 		}
 
 	default:
-		log.Error("attr id is invalid attr_id:%d", attr_id)
+		beego.Error("attr id is invalid attr_id:%d", attr_id)
 		return nil
 	}
 
@@ -78,7 +81,7 @@ func addAttrInt32(attr_id int32, value int32,
 	}
 
 	attr_list = append(attr_list, attr_info)
-	log.Debug("attr_list:%v", attr_list)
+	beego.Debug("attr_list:%v", attr_list)
 	return attr_list
 }
 
@@ -106,7 +109,7 @@ func addAttrItemOne(item_id int32, item_num int32,
 	}
 
 	attr_list = append(attr_list, attr_info)
-	log.Debug("attr_list:%v", attr_list)
+	beego.Debug("attr_list:%v", attr_list)
 	return attr_list
 }
 
@@ -153,23 +156,23 @@ func randomFromAll(random_type int32, req_version int64,
 		}
 	}
 	if goods_id == -1 {
-		log.Error("random error max_num:%d, random_num:%d, cur_num:%d, req_version:%d",
+		beego.Error("random error max_num:%d, random_num:%d, cur_num:%d, req_version:%d",
 			max_num, random_num, cur_num, req_version)
 	}
-	log.Debug("random_type:%d, random_goods_id:%d, req_version:%d",
+	beego.Debug("random_type:%d, random_goods_id:%d, req_version:%d",
 		random_type, goods_id, req_version)
 	return goods_id
 }
 
 func processMail(res_list *cspb.CSPkgList) {
-	log.Debug("******processMail")
+	beego.Debug("******processMail")
 
 	account := res_list.GetSAccount()
 	uid := res_list.GetUid()
-	log.Debug("processMail account:%s, uid:%d", account, uid)
+	beego.Debug("processMail account:%s, uid:%d", account, uid)
 	mail_list, ret := db.GetMailAll(uid)
 	if ret != 0 || len(mail_list) <= 0 {
-		log.Debug("no thing to process ret:%d, len:%d", ret, len(mail_list))
+		beego.Debug("no thing to process ret:%d, len:%d", ret, len(mail_list))
 		return
 	}
 	var pet_list []*cspb.PetInfo
@@ -210,7 +213,7 @@ func processMail(res_list *cspb.CSPkgList) {
 
 	//发送 chip 或者 pet ntf
 	if len(pet_list) > 0 {
-		log.Debug("petlist:%v", pet_list)
+		beego.Debug("petlist:%v", pet_list)
 		for _, pet := range pet_list {
 			db.SetPetInfo(res_list.GetSAccount(), pet.GetPetId(),
 				1, 0, 0, pet.GetPetStarLevel())
@@ -219,7 +222,7 @@ func processMail(res_list *cspb.CSPkgList) {
 	}
 
 	if len(chip_list) > 0 {
-		log.Debug("makeChipList chip_list:%v", chip_list)
+		beego.Debug("makeChipList chip_list:%v", chip_list)
 		for _, chip := range chip_list {
 			change_num := int32(0)
 			if chip.GetChangeType() == int32(cspb.ChangeType_Add) {
@@ -274,7 +277,7 @@ func goodsParseMakeNtf(goods_list []int32, res_list *cspb.CSPkgList) {
 	}
 	//发送 chip 或者 pet ntf
 	if len(pet_list) > 0 {
-		log.Debug("petlist:%v", pet_list)
+		beego.Debug("petlist:%v", pet_list)
 		for _, pet := range pet_list {
 			db.SetPetInfo(res_list.GetSAccount(), pet.GetPetId(),
 				1, 0, 0, pet.GetPetStarLevel())
@@ -283,7 +286,7 @@ func goodsParseMakeNtf(goods_list []int32, res_list *cspb.CSPkgList) {
 	}
 
 	if len(chip_list) > 0 {
-		log.Debug("makeChipList chip_list:%v", chip_list)
+		beego.Debug("makeChipList chip_list:%v", chip_list)
 		for _, chip := range chip_list {
 			change_num := int32(0)
 			if chip.GetChangeType() == int32(cspb.ChangeType_Add) {
@@ -305,7 +308,7 @@ func processPet(
 
 	_, ret := db.GetPetById(account, pet_id)
 	if ret < 0 {
-		log.Error("get pet db error saccount:%s, pet_id:%d", account, pet_id)
+		beego.Error("get pet db error saccount:%s, pet_id:%d", account, pet_id)
 		return pet_list, chip_list
 	}
 
@@ -327,11 +330,11 @@ func processPet(
 			chip_list = append(chip_list, makeChip(chip_res.GetChipId(),
 				chip_res.GetChipType(), add_chip_num,
 				int32(cspb.ChangeType_Add)))
-			log.Debug("find pet to chip petid:%d", pet_id)
+			beego.Debug("find pet to chip petid:%d", pet_id)
 			return pet_list, chip_list
 		}
 	}
-	log.Error("pet_id:%d is not in res", pet_id)
+	beego.Error("pet_id:%d is not in res", pet_id)
 	return pet_list, chip_list
 }
 
@@ -352,7 +355,7 @@ func processChip(
 
 	chip_db_list, ret_chip := db.GetChipList(account)
 	if ret_chip < 0 {
-		log.Error("get chip db list error saccount:%s", account)
+		beego.Error("get chip db list error saccount:%s", account)
 		return pet_list, chip_list
 	}
 
@@ -376,7 +379,7 @@ func processChip(
 	if left_num >= 0 {
 		_, ret_pet := db.GetPetById(account, res_chip.GetChipType())
 		if ret_pet < 0 {
-			log.Error("get pet db error saccount:%s, pet_id:%d",
+			beego.Error("get pet db error saccount:%s, pet_id:%d",
 				account, res_chip.GetChipType())
 			return pet_list, chip_list
 		}
@@ -410,10 +413,10 @@ func processChipEx(
 	account string, chip_id int32, num int32,
 	chip_list []*cspb.ChipInfo) []*cspb.ChipInfo {
 
-	log.Debug("account:%s, chip_id:%d, num:%d",
+	beego.Debug("account:%s, chip_id:%d, num:%d",
 		account, chip_id, num)
 	if chip_id < 1 {
-		log.Error("processChip fail chip_id(%d) is invalid ", chip_id)
+		beego.Error("processChip fail chip_id(%d) is invalid ", chip_id)
 		return chip_list
 	}
 	res_chip := resmgr.ChipData.GetItems()[chip_id-1]
@@ -426,7 +429,7 @@ func processChipEx(
 
 func getNeedChipNum(pet_id int32, pet_star_lv int32) int32 {
 
-	log.Debug("pet_id:%d, pet_star_lv:%d", pet_id, pet_star_lv)
+	beego.Debug("pet_id:%d, pet_star_lv:%d", pet_id, pet_star_lv)
 	for _, star_data := range resmgr.StarData.GetItems() {
 		if star_data.GetStarLevel() == pet_star_lv &&
 			star_data.GetPetId() == pet_id {
@@ -482,7 +485,7 @@ func CheckMail(mail db.Mail) bool {
 func IpStringToInt(ip string) int64 {
 	bits := strings.Split(ip, ".")
 	if len(bits) < 3 {
-		log.Debug("len:%d", len(bits))
+		beego.Debug("len:%d", len(bits))
 		return 0
 	}
 	b0, _ := strconv.Atoi(bits[0])

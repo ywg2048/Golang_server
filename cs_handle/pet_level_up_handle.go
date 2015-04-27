@@ -1,9 +1,12 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
 import db "tuojie.com/piggo/quickstart.git/db/collection"
-import log "code.google.com/p/log4go"
+
 import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func petLevelUpHandle(
@@ -13,19 +16,19 @@ func petLevelUpHandle(
 	pet_id := req.GetBody().GetPetLevelUpReq().GetPetId()
 	pet_db, ret_pet := db.GetPetById(res_list.GetSAccount(), pet_id)
 	if ret_pet < 0 {
-		log.Error("get pet info error ret:%d", ret_pet)
+		beego.Error("get pet info error ret:%d", ret_pet)
 		return makePetLevelUpResPkg(req, res_list,
 			int32(cspb.ErrorCode_PetIdIsInvalid))
 	}
 
 	if ret_pet == 1 {
 		if pet_id >= int32(len(resmgr.PetData.GetItems())) {
-			log.Error("get pet info error pet_id:%d, ret:%d", pet_id, ret_pet)
+			beego.Error("get pet info error pet_id:%d, ret:%d", pet_id, ret_pet)
 			return makePetLevelUpResPkg(req, res_list, ret_pet)
 		}
 		start_star_level := resmgr.PetData.GetItems()[pet_id-1].GetStartStarLevel()
 		if start_star_level <= 0 {
-			log.Error("get pet info error pet_id:%d, ret:%d", pet_id, ret_pet)
+			beego.Error("get pet info error pet_id:%d, ret:%d", pet_id, ret_pet)
 			return makePetLevelUpResPkg(req, res_list, ret_pet)
 		}
 		pet_db = db.Pet{
@@ -39,7 +42,7 @@ func petLevelUpHandle(
 	}
 
 	if pet_db.PetLevel >= getPetMaxLvByStarLv(pet_id, pet_db.PetStarLevel) {
-		log.Error("account:%s, pet_level:%d is max level",
+		beego.Error("account:%s, pet_level:%d is max level",
 			res_list.GetSAccount(), pet_db.PetLevel)
 		return makePetLevelUpResPkg(req, res_list,
 			int32(cspb.ErrorCode_PetLevelIsMax))
@@ -47,7 +50,7 @@ func petLevelUpHandle(
 
 	chip_db_list, ret_chip := db.GetExpChip(res_list.GetSAccount())
 	if ret_chip != 0 {
-		log.Error("get chip list error ret:%d", ret_chip)
+		beego.Error("get chip list error ret:%d", ret_chip)
 		return makePetLevelUpResPkg(req, res_list,
 			int32(cspb.ErrorCode_ChipIdIsInvalid))
 	}
@@ -56,23 +59,23 @@ func petLevelUpHandle(
 	for _, db_chip := range chip_db_list {
 		map_chip_db[db_chip.ChipId] = db_chip
 	}
-	log.Debug("map_chip_db:%v", map_chip_db)
+	beego.Debug("map_chip_db:%v", map_chip_db)
 
 	map_chip_req := make(map[int32]int32) //map[chip_id]chip_num
 	for _, chip_info := range req.GetBody().GetPetLevelUpReq().GetChipList() {
 		map_chip_req[chip_info.GetChipId()] += chip_info.GetChipNum()
 	}
-	log.Debug("map_chip_req:%v", map_chip_req)
+	beego.Debug("map_chip_req:%v", map_chip_req)
 
 	var chip_list []*cspb.ChipInfo
 	for req_chip_id, req_chip_num := range map_chip_req {
-		log.Debug("req_chip_id:%d, req_chip_num:%d", req_chip_id, req_chip_num)
+		beego.Debug("req_chip_id:%d, req_chip_num:%d", req_chip_id, req_chip_num)
 		chip_db_info, find_chip := map_chip_db[req_chip_id]
-		log.Debug("chip_db_info.chip_id:%d, p_chip_db_info:%p",
+		beego.Debug("chip_db_info.chip_id:%d, p_chip_db_info:%p",
 			chip_db_info.ChipId, &chip_db_info)
 		if find_chip {
 			if req_chip_num > chip_db_info.ChipNum {
-				log.Error("chip is not enough, rep_num:%d, has_num:%d",
+				beego.Error("chip is not enough, rep_num:%d, has_num:%d",
 					req_chip_num, chip_db_info.ChipNum)
 				return makePetLevelUpResPkg(req, res_list,
 					int32(cspb.ErrorCode_ChipNumIsNotEnough))
@@ -84,7 +87,7 @@ func petLevelUpHandle(
 			db.ChangeChip(res_list.GetSAccount(), chip_db_info.ChipType, -req_chip_num,
 				chip_db_info.ChipId)
 		} else {
-			log.Error("no find chip in db chip_id:%d", req_chip_id)
+			beego.Error("no find chip in db chip_id:%d", req_chip_id)
 			return makePetLevelUpResPkg(req, res_list, int32(cspb.ErrorCode_ChipIdIsInvalid))
 		}
 	}
@@ -113,15 +116,15 @@ func petLevelUpHandle(
 }
 
 func petLevelUp(req *cspb.CSPkg, pet_db_info *db.Pet) db.Pet {
-	log.Debug("pet level up start , old_pet:%v ", pet_db_info)
+	beego.Debug("pet level up start , old_pet:%v ", pet_db_info)
 	var provide_exp int32 = 0
 	for _, chip_info := range req.GetBody().GetPetLevelUpReq().GetChipList() {
 		res_chip := resmgr.ChipData.GetItems()[chip_info.GetChipId()-1]
 		provide_exp += res_chip.GetProvideExp() * chip_info.GetChipNum()
 	}
-	log.Debug("chip provide_exp:%d", provide_exp)
+	beego.Debug("chip provide_exp:%d", provide_exp)
 	if provide_exp <= 0 {
-		log.Error("provide_exp:%d", provide_exp)
+		beego.Error("provide_exp:%d", provide_exp)
 		return *pet_db_info
 	}
 	var new_pet_db_info db.Pet = *pet_db_info
@@ -134,7 +137,7 @@ func petLevelUp(req *cspb.CSPkg, pet_db_info *db.Pet) db.Pet {
 	pet_max_level := getPetMaxLvByStarLv(pet_db_info.PetId, pet_db_info.PetStarLevel)
 	for exp_pool > 0 {
 		if new_pet_db_info.PetLevel >= pet_max_level {
-			log.Debug("is max level pet_id:%d, level:%d, max_level:%d",
+			beego.Debug("is max level pet_id:%d, level:%d, max_level:%d",
 				pet_db_info.PetId, pet_db_info.PetLevel, pet_max_level)
 			break
 		}
@@ -151,7 +154,7 @@ func petLevelUp(req *cspb.CSPkg, pet_db_info *db.Pet) db.Pet {
 		}
 		exp_pool -= need_exp
 	}
-	log.Debug("pet level up end , new_pet:%v ", new_pet_db_info)
+	beego.Debug("pet level up end , new_pet:%v ", new_pet_db_info)
 	return new_pet_db_info
 }
 

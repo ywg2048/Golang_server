@@ -1,13 +1,15 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
-import log "code.google.com/p/log4go"
 
 // cmd proc func array
 var procFuncArray [cspb.Command_kMaxCount]cmdProcess
 
 func Init() {
-	log.Debug("******cs_handle framehandle Init")
+	beego.Debug("******cs_handle framehandle Init")
 	//初始化process array
 	for i := 0; i < int(cspb.Command_kMaxCount); i++ {
 		procFuncArray[i] = nil
@@ -38,16 +40,16 @@ func PkgListHandle(
 		cmd := req.GetHead().GetCmd()
 		proc := getCmdProc(cmd)
 		if proc == nil {
-			log.Error("no find cmd proc cmd:%d", cmd)
+			beego.Error("no find cmd proc cmd:%d", cmd)
 			continue
 		}
-		log.Debug("Reqinfo cmd is%d & command name is %s req is %s",
+		beego.Debug("Reqinfo cmd is%d & command name is %s req is %s",
 			cmd,
 			cspb.Command_name[cmd],
 			req.String())
 		ret := proc(req, pkg_list_res)
 		if ret != 0 {
-			log.Error("cmd proc fail ret:%d", ret)
+			beego.Error("cmd proc fail ret:%d", ret)
 			continue
 		}
 	}

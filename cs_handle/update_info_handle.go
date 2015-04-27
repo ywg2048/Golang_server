@@ -1,8 +1,10 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
-import log "code.google.com/p/log4go"
 
 //import config "config_data"
 import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
@@ -13,7 +15,7 @@ func updateInfoHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
 
-	log.Debug("******updateInfoHandle******")
+	beego.Debug("******updateInfoHandle******")
 	req_version := req.GetBody().GetUpdateInfoReq().GetVersion()
 	req_osType := req.GetBody().GetUpdateInfoReq().GetOSType()
 	//	req_code := req.GetBody().GetUpdateInfoReq().GetCode()
@@ -26,11 +28,11 @@ func updateInfoHandle(
 	canHotUpdate := int32(0)
 	hotUpdateVersion := ""
 
-	log.Debug("req_osType is %s", req_osType)
-	log.Debug("UpdateconfigsData count is %d", int32(len(resmgr.UpdateconfigsData.GetItems())))
+	beego.Debug("req_osType is %s", req_osType)
+	beego.Debug("UpdateconfigsData count is %d", int32(len(resmgr.UpdateconfigsData.GetItems())))
 	for _, update_config := range resmgr.UpdateconfigsData.GetItems() {
 		if req_version == update_config.GetVersion() && req_osType == update_config.GetOSType() {
-			log.Debug("update config is %v", update_config)
+			beego.Debug("update config is %v", update_config)
 			strategy = update_config.GetStrategyType()
 			url = update_config.GetUrl()
 			strategyName = update_config.GetStrategyName()
@@ -45,7 +47,7 @@ func updateInfoHandle(
 	ret := int32(0)
 
 	//填充CSUpdateInfoRes回包
-	log.Debug("填充CSUpdateInfoRes回包")
+	beego.Debug("填充CSUpdateInfoRes回包")
 	res_data := new(cspb.CSUpdateInfoRes)
 	*res_data = cspb.CSUpdateInfoRes{
 		Ret:              proto.Int32(ret),

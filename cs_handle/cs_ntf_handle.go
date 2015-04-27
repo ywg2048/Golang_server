@@ -1,9 +1,11 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 
 import proto "code.google.com/p/goprotobuf/proto"
-import log "code.google.com/p/log4go"
 
 func makeAttrInt32Ntf(attr_id int32, value int32,
 	change_type int32, res_list *cspb.CSPkgList) {
@@ -15,7 +17,7 @@ func makeAttrInt32Ntf(attr_id int32, value int32,
 	attr_ntf.AttrList = addAttrInt32(attr_id, value, change_type)
 
 	if len(attr_ntf.GetAttrList()) <= 0 {
-		log.Error("no attr to add res_list")
+		beego.Error("no attr to add res_list")
 		return
 	}
 	//添加attr_ntf到res_list中
@@ -37,7 +39,7 @@ func makeAttrItemNtf(item_id int32, item_num int32,
 	attr_ntf.AttrList = addAttrItemOne(item_id, item_num, change_type)
 
 	if len(attr_ntf.GetAttrList()) <= 0 {
-		log.Error("no attr to add res_list")
+		beego.Error("no attr to add res_list")
 		return
 	}
 	//添加attr_ntf到res_list中
@@ -62,7 +64,7 @@ func makePet(pet_id int32, pet_level int32,
 		PetStarLevel: proto.Int32(pet_star_level),
 	}
 
-	log.Debug("pet_info:%v", pet_info)
+	beego.Debug("pet_info:%v", pet_info)
 	return pet_info
 }
 
@@ -93,7 +95,7 @@ func makeChip(chip_id int32, chip_type int32,
 		ChangeType: proto.Int32(change_type),
 	}
 
-	log.Debug("chip_info:%v", chip_info)
+	beego.Debug("chip_info:%v", chip_info)
 	return chip_info
 }
 

@@ -1,21 +1,24 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
 import db "tuojie.com/piggo/quickstart.git/db/collection"
-import log "code.google.com/p/log4go"
+
 import "time"
 
 func rechargeHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
 
-	log.Debug("******loginHandle, req is %v, res is %v", req, res_list)
+	beego.Debug("******loginHandle, req is %v, res is %v", req, res_list)
 	ret, player := db.LoadPlayer(res_list.GetCAccount(), res_list.GetSAccount(), res_list.GetUid())
-	log.Debug("Db LoadPlayer Player, ret is %d, player is %v", ret, player)
+	beego.Debug("Db LoadPlayer Player, ret is %d, player is %v", ret, player)
 
 	req_data := req.GetBody().GetRechargeReportReq()
-	log.Debug("req_data:%s", req_data.String())
+	beego.Debug("req_data:%s", req_data.String())
 	var recharge_flow db.RechargeFlowData
 
 	// recharge_flow.Account = res_list.GetSAccount()
@@ -34,7 +37,7 @@ func rechargeHandle(
 	//ret := AddRechargeFlow(&recharge_flow)
 
 	if ret != 0 {
-		log.Error("add recharge fail ret:%d", ret)
+		beego.Error("add recharge fail ret:%d", ret)
 		ret = int32(-1)
 		return makeRechargeResPkg(req, res_list, ret)
 	}

@@ -1,9 +1,12 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
 import db "tuojie.com/piggo/quickstart.git/db/collection"
-import log "code.google.com/p/log4go"
+
 import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func petStarUpHandle(
@@ -13,18 +16,18 @@ func petStarUpHandle(
 	pet_id := req.GetBody().GetPetStarUpReq().GetPetId()
 	pet_db, ret_pet := db.GetPetById(res_list.GetSAccount(), pet_id)
 	if ret_pet < 0 {
-		log.Error("get pet info error ret:%d", ret_pet)
+		beego.Error("get pet info error ret:%d", ret_pet)
 		return makePetStarUpResPkg(req, res_list, ret_pet)
 	}
 
 	if ret_pet == 1 {
 		if pet_id >= int32(len(resmgr.PetData.GetItems())) {
-			log.Error("get pet info error pet_id:%d, ret:%d", pet_id, ret_pet)
+			beego.Error("get pet info error pet_id:%d, ret:%d", pet_id, ret_pet)
 			return makePetStarUpResPkg(req, res_list, ret_pet)
 		}
 		start_star_level := resmgr.PetData.GetItems()[pet_id-1].GetStartStarLevel()
 		if start_star_level <= 0 {
-			log.Error("get pet info error pet_id:%d, ret:%d", pet_id, ret_pet)
+			beego.Error("get pet info error pet_id:%d, ret:%d", pet_id, ret_pet)
 			return makePetStarUpResPkg(req, res_list, ret_pet)
 		}
 		pet_db = db.Pet{
@@ -39,18 +42,18 @@ func petStarUpHandle(
 
 	chip_db, ret_chip := db.GetPetChipByType(res_list.GetSAccount(), pet_id)
 	if ret_chip != 0 {
-		log.Error("get chip info error ret:%d", ret_chip)
+		beego.Error("get chip info error ret:%d", ret_chip)
 		return makePetStarUpResPkg(req, res_list, ret_chip)
 	}
 
 	if pet_db.PetStarLevel < 0 {
-		log.Error("db pet star level is invalid star_leve:%d", pet_db.PetStarLevel)
+		beego.Error("db pet star level is invalid star_leve:%d", pet_db.PetStarLevel)
 		return makePetStarUpResPkg(req, res_list, int32(-1))
 	}
 
 	var max_star_level int32 = resmgr.PetData.GetItems()[pet_id-1].GetMaxStarLevel()
 	if pet_db.PetStarLevel >= max_star_level {
-		log.Error("db pet star level is max star_level:%d, max_level:%d",
+		beego.Error("db pet star level is max star_level:%d, max_level:%d",
 			pet_db.PetStarLevel, max_star_level)
 		return makePetStarUpResPkg(req, res_list,
 			int32(cspb.ErrorCode_PetStarLevelIsMax))
@@ -59,7 +62,7 @@ func petStarUpHandle(
 	need_chip_num := getNeedChipNum(pet_id, int32(pet_db.PetStarLevel))
 
 	if chip_db.ChipNum < need_chip_num || need_chip_num == 0 {
-		log.Error("db chip num(%d) is less need chip num(%d)",
+		beego.Error("db chip num(%d) is less need chip num(%d)",
 			chip_db.ChipNum, need_chip_num)
 
 		return makePetStarUpResPkg(req, res_list,

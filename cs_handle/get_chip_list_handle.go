@@ -1,9 +1,11 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
 import chip_db "tuojie.com/piggo/quickstart.git/db/collection"
-import log "code.google.com/p/log4go"
 
 func getChipListHandle(
 	req *cspb.CSPkg,
@@ -24,7 +26,7 @@ func getChipListHandle(
 
 		makeChipNtf(chip_list, res_list)
 	} else {
-		log.Error("get chip list fail ret:%d", ret)
+		beego.Error("get chip list fail ret:%d", ret)
 	}
 
 	return makeChipListResPkg(req, res_list, ret)

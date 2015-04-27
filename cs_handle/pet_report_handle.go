@@ -1,9 +1,12 @@
 package cs_handle
 
+import (
+	"github.com/astaxie/beego"
+)
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
 import db "tuojie.com/piggo/quickstart.git/db/collection"
-import log "code.google.com/p/log4go"
+
 import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func petReportHandle(
@@ -13,7 +16,7 @@ func petReportHandle(
 	pet_id := req.GetBody().GetReportPetReq().GetPetId()
 	pet_db, ret_pet := db.GetPetById(res_list.GetSAccount(), pet_id)
 	if ret_pet < 0 {
-		log.Error("get pet info error ret:%d", ret_pet)
+		beego.Error("get pet info error ret:%d", ret_pet)
 		return makePetReportResPkg(req, res_list,
 			int32(cspb.ErrorCode_PetIdIsInvalid))
 	}
@@ -29,7 +32,7 @@ func petReportHandle(
 		//添加pet_ntf到res_list中
 		makePetNtf(pet_list, res_list)
 
-		log.Error(" pet is exist pet_id:%d, ret:%d", pet_id, ret_pet)
+		beego.Error(" pet is exist pet_id:%d, ret:%d", pet_id, ret_pet)
 		return makePetReportResPkg(req, res_list,
 			int32(cspb.ErrorCode_PetIdIsExist))
 	}
