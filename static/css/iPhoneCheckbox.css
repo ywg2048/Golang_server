@@ -1,0 +1,304 @@
+/*-------------------------*\
+	 *	Demo1
+	\*-------------------------*/
+	
+	.labelWrap {
+		width: 200px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+	/*==checkbox容器样式==*/
+	#sliderLabel {
+		border: 1px solid #555;
+		border-radius: 4px;
+		cursor: pointer;
+		display: block;
+		height: 30px;
+		overflow: hidden;/*==这个值很重要，将超出容器部分隐藏==*/
+		position: relative;
+		width: 100px;
+		float: left;
+		margin-right: 10px;
+	}
+	/*==隐藏input[type="checkbox"]==*/
+	#onOff {
+		border: 0 none !important;
+		clip: rect(1px,1px,1px,1px);
+		height: 1px !important;
+		overflow: hidden !important;
+		position: absolute !important;
+		width: 1px !important;
+	}
+	/*==checkbox处于默认状态位置（未选中）==*/
+	#slider {
+		left: -50px;/*定位在OFF位置*/
+		position: absolute;
+		top: 0;
+		-moz-transition: left 0.25s ease-out;
+		-webkit-transition: left 0.25s ease-out;
+		-o-transition: left 0.25s ease-out;
+		-ms-transition: left 0.25s ease-out;
+		transition: left 0.25s ease-out;
+	}
+	/*==ON、OFF和盖板定位位置==*/
+	#sliderOn, 
+	#slideBlock, 
+	#sliderOff  {
+		display: block;
+		font-family: arial, verdana,sans-serif;
+		font-weight: bold;
+		height: 30px;
+		line-height: 30px;
+		position: absolute;
+		text-align: center;
+		top: 0px;
+		text-shadow: #093B5C 0px -1px 1px;
+		color: #fff;
+	}
+	/*==ON按钮效果==*/
+	#sliderOn {
+		background: -webkit-linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#14539C), to(#3095C7));
+		background: -moz-linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+		background: -o-linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+		background: -ms-linear-gradient(19% 75% 90deg,#3095C7, #14539C); 	
+		background: linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+		width: 54px;
+		left: 0;	/*处于left为0位置处*/
+	}
+	/*==覆盖按钮样式==*/
+	#slideBlock {
+		background: -webkit-linear-gradient(19% 75% 90deg,#FFFFFF, #A1A1A1);
+		background: #fff -webkit-gradient(linear, 0% 0%, 0% 100%, from(#A1A1A1), to(#FFFFFF));
+		background: -moz-linear-gradient(19% 75% 90deg,#FFFFFF, #A1A1A1);
+		background: -ms-linear-gradient(19% 75% 90deg,#FFFFFF, #A1A1A1);
+		background: -o-linear-gradient(19% 75% 90deg,#FFFFFF, #A1A1A1);
+		background: linear-gradient(19% 75% 90deg,#FFFFFF, #A1A1A1);
+		border-radius: 3px;
+		height: 28px;
+		left: 50px;/*处于left为50px处，遮住ON按钮 */
+		width: 48px;
+		border: 1px solid #e5e5e5;
+	}
+	/*==OFF按钮风格==*/
+	#sliderOff {
+		background: -webkit-linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#14539C), to(#3095C7));
+		background: -moz-linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+		background: -o-linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+		background: -ms-linear-gradient(19% 75% 90deg,#3095C7, #14539C); 	
+		background: linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+		left: 96px;/*OFF按钮默认位置处*/
+		width: 54px;
+	}
+	#lableTitle{
+		line-height: 32px;
+	}
+	/*==input[type=checkbox]:checked状态时，改变slider左边位置==*/
+	#sliderLabel input:checked + #slider {
+		left: 0;
+	}
+	
+/*-------------------------*\
+		 *	Demo2
+		\*-------------------------*/		
+		#checked {
+			font-family: "Lucida Grande", Verdana, Arial, sans-serif, Helvetica;
+			width: 300px;
+			position: relative;
+			margin: 20px auto;
+		}
+		/*==Checkbox容器==*/
+		.labelBox {
+			margin-bottom: 20px;
+			background: -webkit-linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#14539C), to(#3095C7));
+			background: -moz-linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+			background: -ms-linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+			background: -o-linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+			background: linear-gradient(19% 75% 90deg,#3095C7, #14539C); 
+			border-radius: 4px;
+			border: 1px solid #555555;
+			/*容器大小*/
+			width: 80px;
+			position: relative;/*这个很重要*/
+			height: 32px;
+		}
+		/*==CSS3的伪类元素制作ON和OFF按钮==*/
+		.labelBox::before,
+		.labelBox::after {
+			content:"ON";/*添加ON标识符*/
+			padding-left: 9px;
+			line-height: 32px;
+			color: #fff;
+			font-size: 14px;
+			text-shadow: #093b5c 0 -1px 1px;
+		}
+		/*==改变OFF按钮标签符==*/
+		.labelBox::after {
+			content:"OFF";
+			padding-left: 12px;
+		}
+		/*==盖板效果==*/
+		.check { 
+			display: block;
+			width: 40px;
+			height: 30px;
+			border-radius: 3px;
+			background: #fff -webkit-gradient(linear, 0% 0%, 0% 100%, from(#A1A1A1), to(#FFFFFF));
+			background: -webkit-linear-gradient(19% 75% 90deg,#FFFFFF, #A1A1A1);
+			background: -moz-linear-gradient(19% 75% 90deg,#FFFFFF, #A1A1A1);
+			background: -ms-linear-gradient(19% 75% 90deg,#FFFFFF, #A1A1A1);
+			background: -o-linear-gradient(19% 75% 90deg,#FFFFFF, #A1A1A1);
+			background: -moz-linear-gradient(19% 75% 90deg,#FFFFFF, #A1A1A1);
+			border: 1px solid #e5e5e5;
+			/*默认盖板位置*/
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+		/*==隐藏input[type=checkbox]==*/
+		input[type=checkbox] {
+			border: 0 none !important;
+			clip: rect(1px,1px,1px,1px);
+			height: 1px !important;
+			overflow: hidden !important;
+			position: absolute !important;
+			width: 1px !important;
+		}
+		/*==制作LabelON动画效果==*/
+		@-webkit-keyframes labelON {
+			0% {
+				top: 0px;
+				left: 0px;/*确定按钮未选中状态位置*/
+			}			
+			100% { 
+				top: 0px;
+				left: 38px;/*确定按钮选中状态位置*/
+			}
+		}
+		@-moz-keyframes labelON {
+			0% {
+				top: 0px;
+				left: 0px;/*确定按钮未选中状态位置*/
+			}	
+			100% { 
+				top: 0px;
+				left: 38px;/*确定按钮选中状态位置*/
+			}
+		}
+		@-o-keyframes labelON {
+			0% {
+				top: 0px;
+				left: 0px;/*确定按钮未选中状态位置*/
+			}			
+			100% { 
+				top: 0px;
+				left: 38px;/*确定按钮选中状态位置*/
+			}
+		}
+		@-ms-keyframes labelON {
+			0% {
+				top: 0px;
+				left: 0px;/*确定按钮未选中状态位置*/
+			}	
+			100% { 
+				top: 0px;
+				left: 38px;/*确定按钮选中状态位置*/
+			}
+		}
+		@keyframes labelON {
+			0% {
+				top: 0px;
+				left: 0px;/*确定按钮未选中状态位置*/
+			}	
+			100% { 
+				top: 0px;
+				left: 38px;/*确定按钮选中状态位置*/
+			}
+		}
+		/*==制作labelOFF动画==*/
+		@-webkit-keyframes labelOFF {
+			0% {
+				top: 0px;
+				left: 38px;/*确定按钮选中状态位置*/
+			}			
+			100% { 
+				top: 0px;
+				left: 0px;/*确定按钮未选中状态位置*/
+			}
+		}
+		@-moz-keyframes labelOFF {
+			0% {
+				top: 0px;
+				left: 38px;/*确定按钮选中状态位置*/
+			}			
+			100% { 
+				top: 0px;
+				left: 0px;/*确定按钮未选中状态位置*/
+			}
+		}
+		@-o-keyframes labelOFF {
+			0% {
+				top: 0px;
+				left: 38px;/*确定按钮选中状态位置*/
+			}			
+			100% { 
+				top: 0px;
+				left: 0px;/*确定按钮未选中状态位置*/
+			}
+		}
+		@-ms-keyframes labelOFF {
+			0% {
+				top: 0px;
+				left: 38px;/*确定按钮选中状态位置*/
+			}			
+			100% { 
+				top: 0px;
+				left: 0px;/*确定按钮未选中状态位置*/
+			}
+		}
+		@keyframes labelOFF {
+			0% {
+				top: 0px;
+				left: 38px;/*确定按钮选中状态位置*/
+			}			
+			100% { 
+				top: 0px;
+				left: 0px;/*确定按钮未选中状态位置*/
+			}
+		}
+		/*==input[type=checkbox]:checked时盖板位置==*/
+		input[type=checkbox]:checked + label.check {
+		
+			top: 0px;
+			left: 38px;	
+		
+			-webkit-animation: labelON 0.2s ease-in 0s 1;
+			-moz-animation: labelON 0.2s ease-in 0s 1;
+			-o-animation: labelON 0.2s ease-in 0s 1;
+			-ms-animation: labelON 0.2s ease-in 0s 1;
+			animation: labelON 0.2s ease-in 0s 1;
+			box-shadow: #244766 -1px 0px 3px;
+		}
+		/*==input[type="checkbox"]没选中时盖板位置==*/
+		input[type=checkbox] + label.check {
+		
+			top: 0px;
+			left: 0px;
+		
+			-webkit-animation: labelOFF 0.2s ease-in 0s 1;
+			-moz-animation: labelOFF 0.2s ease-in 0s 1;
+			-o-animation: labelOFF 0.2s ease-in 0s 1;
+			-ms-animation: labelOFF 0.2s ease-in 0s 1;
+			animation: labelOFF 0.2s ease-in 0s 1;
+			box-shadow: #244766 1px 0px 3px;		
+		}
+		label.info {
+			position: absolute;
+			color: #000;
+			top:0px;
+			left: 100px;
+			line-height: 32px;
+			width: 200px;
+		}

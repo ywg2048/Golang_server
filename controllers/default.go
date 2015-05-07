@@ -14,9 +14,10 @@ type MainController struct {
 }
 
 func (c *MainController) Get() {
-	c.Data["Website"] = "www.tuojie.com"
-	c.Data["Email"] = "info@tuojie.com"
-	c.TplNames = "index.tpl"
+	// c.Data["Website"] = "www.tuojie.com"
+	// c.Data["Email"] = "info@tuojie.com"
+	c.TplNames = "mobileweb.tpl"
+	// c.TplNames = "index.tpl"
 }
 func (c *MainController) Post() {
 	beego.Debug("***********Post Start***********")

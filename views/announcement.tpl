@@ -380,135 +380,32 @@ a{
 	text-decoration: NONE
 }
 </style>
+
 </head>
 <body>
-	<h1>奇妙的朋友管理后台</h1>
-	<hr/>
-<center>
-<!--添加道具-->
-<br />
-<h2>道具管理</h2>
-<form action="/stage" method="POST" onsubmit="return checkselect();" class="search bgBlack">
-	<table class="bordered">
-	<tr><td>游戏账号：</td><td><input type="text"  name="useracount" id="useracount" placeholder="玩家的id号"/></td></tr>
-	<tr><td>赠送道具的类型：</td><td>
-	<select id="mySelect" name="stagename" onchange="cc(this[selectedIndex].value);">
-		<option value="0">请选择附加类型</option>
-		<option value="1">钻石</option>
-		<option value="2">金币</option>
-		<option value="3">行动力（花）</option>
-		<option value="4">道具</option>
-
-	</select></td></tr>
-	<tr><td>赠送道具的子类型：</td><td>
-	<select  id="mySelect_sub" name="stagename_sub">
-		<option value="0">请选择附加类型</option>
-		<option value="1">快速消除</option>
-		<option value="2">重新排列</option>
-		<option value="3">交换位置</option>
-		<option value="4">旋风射线</option>
-		<option value="5">加五步</option>
-
-	</select></td></tr>
-	<tr><td>赠送道具的数量：</td><td><input type="number" min=0  name="stagenum" id="stagenum" placeholder="道具的数量"/></td></tr><br />
-	<tr><td  colspan="2"> <input type="submit" name="提交" value="提交" class="btn primary"/>
-	<input type="reset" name="取消" value="取消" class="btn primary"/></td></tr>
-	
-</table>
-</form>
-<!--编辑消息公告-->
-<br />
-<h2>公告编辑板块  <a href="/message">管理</a></h2>
-
-<form action="/message" method="POST" class="search bgBlack">
-	<table class="bordered">
-		<tr><td>标题：</td><td><input type="text" name="title"/></td></tr>
-		<tr><td>公告内容：</td><td><textarea rows="10" cols="40" style="resize:none" name="content"></textarea></td></tr>
-		<tr><td>标题2：</td><td><input type="text" name="title2"/></td></tr>
-		<tr><td>公告内容2：</td><td><textarea rows="10" cols="40" style="resize:none" name="content2"></textarea></td></tr>
-		<tr><td  colspan="2"><input type="submit" name="提交" value="提交" class="btn primary"/>
-		<input type="reset" name="取消" value="取消" class="btn primary"/></td></tr>
-	</table>
-</form>
-<br/>
-<br/>
+	<a href="/stage">返回管理首页</a>
 <table class="bordered">
-	<tr><th>用户账号</th><th>道具</th><th>道具数量</th><th>操作时间</th></tr>
-{{range $k, $v := .s}}
-
-
-<tr><td>{{$v.Useracount}}</td><td>
-	{{if eq $v.Stagename "1"}}
-		钻石
-	
-	{{else if eq $v.Stagename "2"}}
-		金币
-	
-	{{else if eq $v.Stagename "3"}}
-		行动力（花）
-	
-	{{else if eq $v.Stagename "4"}}
-		{{if eq $v.Stagenamesub "1"}}
-			快速消除
-		
-		{{else if eq $v.Stagenamesub "2"}}
-			重新排列
-		
-		{{else if eq $v.Stagenamesub "3"}}
-			交换位置
-		
-		{{else if eq $v.Stagenamesub "4"}}
-			旋风射线
-		{{else if eq $v.Stagenamesub "5"}}
-			加五步
-		{{else}}
-			选择无效
-		{{end}}
-	
-	{{else}}
-		选择无效
+	<tr><th>序号</th><th>标题</th><th>内容</th><th>标题2</th><th>内容2</th><th>是否激活</th><th>操作</th></tr>
+	{{range $k, $v := .message}}
+		<form action='/message' method='get'>
+		<tr><td>{{$v.Id}}</td><td>{{$v.Title}}</td><td>{{$v.Content}}</td><td>{{$v.Title2}}</td><td>{{$v.Content2}}</td>
+			<td>
+				{{if eq $v.IsActive 0}}
+				<font color="red">未激活</font>
+				{{else}}
+				<font color="green">已激活</font>
+				{{end}}
+			</td>
+			<td>
+				<a href="?id={{$v.Id}}&opration=active">激活</a><a href="?id={{$v.Id}}&opration=close">关闭</a>
+			</td>
+		</tr>
+		</form>
 	{{end}}
-</td><td>{{$v.Stagenum}}</td><td>{{$v.Time}}</td></tr>
 
-{{end}} 
 </table>
+
 </center>
-<script>
-	
-	function checkselect(){
-	 	var t = document.getElementById("mySelect");
-	 	
-	 	var  useracount=document.getElementById("useracount").value;
-	 	var stagenum=document.getElementById("stagenum").value;
-		value=t.options[t.selectedIndex].value
-		if (value=="0"||useracount==""||stagenum==""){
 
-			return false;
-
-		}else if (value=="4"){
-			val=checkselect_sub();
-			if (val=="0"){
-				return false;
-			}else{
-				return true;
-			}
-		}else{
-			return true
-		}
-	}
-	function checkselect_sub(){
-		var t=document.getElementById("mySelect_sub");
-		value=t.options[t.selectedIndex].value
-		return value
-	}
-	function cc(val){
-		var mySelect_sub=document.getElementById("mySelect_sub");
-	    if (val=="4"){
-	    	mySelect_sub.style.display="inline-block";
-	    }else{
-	    	mySelect_sub.style.display="none";
-	    }
-     }
-</script>
 </body>
 </html>

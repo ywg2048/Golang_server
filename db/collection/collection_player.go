@@ -4,6 +4,8 @@ import "labix.org/v2/mgo"
 import "labix.org/v2/mgo/bson"
 import (
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
+	models "tuojie.com/piggo/quickstart.git/models"
 )
 
 //import log "code.google.com/p/log4go"
@@ -29,6 +31,15 @@ type WonderfulFriendsData struct {
 	LastSignInTime     int64 `bson:"last_signin_time"`
 	FreeSignInOperTime int64 `bson:"free_signin_oper_time"`
 }
+type Messagecenter struct {
+	Id       int32
+	Title    string `orm:"size(100)"`
+	Content  string `orm:"size(256)"`
+	Title2   string `orm:"size(256)"`
+	Content2 string `orm:"size(256)"`
+	IsActive int32
+	Time     int64
+}
 
 // func LoadPlayer(account string) (Player, int32) {
 // 	log.Debug("account:%s", account)
@@ -51,8 +62,39 @@ type WonderfulFriendsData struct {
 // 	log.Debug("player_info:%s", fmt.Sprint(player))
 // 	return player, 0
 // }
-
+func init() {
+	orm.RegisterDataBase("default", "mysql", "root:@/Monsters?charset=utf8")
+}
 func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, Player) {
+	beego.Info("-----------Testing mysql---------")
+	var message models.Messagecenter
+	var cond *orm.Condition
+
+	cond = orm.NewCondition()
+
+	cond = cond.And("Id__gte", 1)
+	cond = cond.And("IsActive__contains", 1)
+	var qs orm.QuerySeter
+	qs = orm.NewOrm().QueryTable("messagecenter").SetCond(cond)
+	cnt, err := qs.All(&message)
+	if err != nil {
+		beego.Debug("查询数据库失败")
+	}
+	beego.Debug(message, cnt, err)
+	var messages []*cspb.CSMessageNtf
+	for i := range message {
+		beego.Info("--------")
+		messages[i].Id = &message[i].Id
+		messages[i].Title = &message[i].Title
+		messages[i].Content = &message[i].Content
+		messages[i].Title2 = &message[i].Title2
+		messages[i].Content2 = &message[i].Content2
+		messages[i].IsActive = &message[i].IsActive
+		messages[i].Time = &message[i].Time
+	}
+	beego.Info("******RES-----messages", messages)
+	beego.Info("-----------Testing mysql---------")
+
 	beego.Debug("******LoadPlayer:%v", clientAccount)
 
 	var player Player

@@ -31,9 +31,13 @@ type Profile struct {
 func main() {
 	beego.EnableAdmin = true
 	beego.AdminHttpAddr = "localhost"
+	if beego.AppConfig.String("runmode") == "pro" {
+		beego.SetLevel(beego.LevelInformational)
+	}
 
+	beego.SetLogger("file", `{"filename":"log/zoo_server.log"}`)
 	Init()
-	beego.InsertFilter("/stage", beego.BeforeRouter, auth.Basic("root", "root"))
+	beego.InsertFilter("/stage", beego.BeforeRouter, auth.Basic(beego.AppConfig.String("authuser"), beego.AppConfig.String("authpwd")))
 	beego.Run()
 
 	Finish()

@@ -34,6 +34,7 @@ type StageController struct {
 }
 
 func init() {
+
 	orm.RegisterModel(new(Stagerecord))
 
 }
@@ -44,7 +45,7 @@ func (c *StageController) Get() {
 
 	cond = cond.And("Id__gte", 1)
 	var qs orm.QuerySeter
-	qs = orm.NewOrm().QueryTable("stagerecord").SetCond(cond)
+	qs = orm.NewOrm().QueryTable("stagerecord").Limit(20).SetCond(cond)
 	cnt, err := qs.All(&users)
 	c.Data["s"] = users
 	beego.Debug(cnt, err, users)

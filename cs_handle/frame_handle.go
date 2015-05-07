@@ -30,6 +30,7 @@ func Init() {
 	cmdProcessRegister(cspb.Command_kRechargeReportReq, rechargeHandle)
 	cmdProcessRegister(cspb.Command_kLoginReq, loginHandle)
 	cmdProcessRegister(cspb.Command_kStageReportReq, stageReportHandle)
+	cmdProcessRegister(cspb.Command_kMessageCenterReq, MessageCenterHandle)
 
 }
 
