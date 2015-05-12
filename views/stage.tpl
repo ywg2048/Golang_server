@@ -424,8 +424,7 @@ a{
 	<table class="bordered">
 		<tr><td>标题：</td><td><input type="text" name="title"/></td></tr>
 		<tr><td>公告内容：</td><td><textarea rows="10" cols="40" style="resize:none" name="content"></textarea></td></tr>
-		<tr><td>标题2：</td><td><input type="text" name="title2"/></td></tr>
-		<tr><td>公告内容2：</td><td><textarea rows="10" cols="40" style="resize:none" name="content2"></textarea></td></tr>
+		
 		<tr><td  colspan="2"><input type="submit" name="提交" value="提交" class="btn primary"/>
 		<input type="reset" name="取消" value="取消" class="btn primary"/></td></tr>
 	</table>

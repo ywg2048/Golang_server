@@ -20,7 +20,7 @@ func MessageCenterHandle(
 	beego.Info("******messageCenterHandle Start*****")
 	req_data := req.GetBody().GetMessageCenterReq()
 	beego.Debug("********req_data****************", req_data)
-	var message models.Messagecenter
+	var message []models.Messagecenter
 	var cond *orm.Condition
 	cond = orm.NewCondition()
 
@@ -33,30 +33,18 @@ func MessageCenterHandle(
 		beego.Debug("查询数据库失败")
 	}
 	beego.Debug(message, cnt, err)
-	var messages []*cspb.CSMessageNtf
+	var res_messages []*cspb.CSMessageNtf
 	for i := range message {
-		messages[i].Id = &message[i].Id
-		messages[i].Title = &message[i].Title
-		messages[i].Content = &message[i].Content
-		messages[i].Title2 = &message[i].Title2
-		messages[i].Content2 = &message[i].Content2
-		messages[i].IsActive = &message[i].IsActive
-		messages[i].Time = &message[i].Time
+
+		res_messages = append(res_messages, makeMessage(message[i].Id, message[i].Title, message[i].Content, message[i].IsActive, message[i].Time))
+
 	}
-	beego.Info("******RES-----messages", messages)
 	ret := int32(1)
 	res_data := new(cspb.CSMessageCenterRes)
 	beego.Debug("res_data", req_data)
 	*res_data = cspb.CSMessageCenterRes{
 		Ret:        proto.Int32(ret),
-		MessageNtf: messages,
-		// Id:       &message.Id,
-		// Title:    &message.Title,
-		// Content:  &message.Content,
-		// Title2:   &message.Title2,
-		// Content2: &message.Content2,
-		// IsActive: &message.IsActive,
-		// Time:     &message.Time,
+		MessageNtf: res_messages,
 	}
 
 	res_pkg_body := new(cspb.CSBody)

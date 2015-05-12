@@ -98,7 +98,21 @@ func makeChip(chip_id int32, chip_type int32,
 	beego.Debug("chip_info:%v", chip_info)
 	return chip_info
 }
+func makeMessage(message_id int32, message_title string,
+	message_content string, message_isActive int32, message_time int64) *cspb.CSMessageNtf {
 
+	message_ntf := new(cspb.CSMessageNtf)
+	*message_ntf = cspb.CSMessageNtf{
+		Id:       proto.Int32(message_id),
+		Title:    proto.String(message_title),
+		Content:  proto.String(message_content),
+		IsActive: proto.Int32(message_isActive),
+		Time:     proto.Int64(message_time),
+	}
+
+	beego.Debug("message_ntf:%v", message_ntf)
+	return message_ntf
+}
 func makeChipNtf(chip_list []*cspb.ChipInfo,
 	res_list *cspb.CSPkgList) {
 

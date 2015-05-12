@@ -5,6 +5,7 @@ import "labix.org/v2/mgo/bson"
 import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
+
 	models "tuojie.com/piggo/quickstart.git/models"
 )
 
@@ -16,6 +17,8 @@ import cspb "protocol"
 import "regexp"
 import "strings"
 
+import proto "code.google.com/p/goprotobuf/proto"
+
 type Player struct {
 	Saccount           bson.ObjectId        `bson:"_id"`
 	Caccount           string               `bson:"c_account"`
@@ -26,6 +29,7 @@ type Player struct {
 	LastSignInTime     int64                `bson:"last_signin_time"`
 	FreeSignInOperTime int64                `bson:"free_signin_oper_time"`
 	Levels             []*cspb.CSStageNtf   `bson:"Levels"`
+	Money              *cspb.CSMoneyReq     `bson:"Money"`
 }
 type WonderfulFriendsData struct {
 	LastSignInTime     int64 `bson:"last_signin_time"`
@@ -65,34 +69,45 @@ type Messagecenter struct {
 func init() {
 	orm.RegisterDataBase("default", "mysql", "root:@/Monsters?charset=utf8")
 }
+func makeMessage(message_id int32, message_title string,
+	message_content string, message_isActive int32, message_time int64) *cspb.CSMessageNtf {
+
+	message_ntf := new(cspb.CSMessageNtf)
+	*message_ntf = cspb.CSMessageNtf{
+		Id:      proto.Int32(message_id),
+		Title:   proto.String(message_title),
+		Content: proto.String(message_content),
+
+		IsActive: proto.Int32(message_isActive),
+		Time:     proto.Int64(message_time),
+	}
+
+	beego.Debug("message_ntf:%v", message_ntf)
+	return message_ntf
+}
 func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, Player) {
 	beego.Info("-----------Testing mysql---------")
-	var message models.Messagecenter
+	var message []models.Messagecenter
 	var cond *orm.Condition
-
 	cond = orm.NewCondition()
 
 	cond = cond.And("Id__gte", 1)
 	cond = cond.And("IsActive__contains", 1)
 	var qs orm.QuerySeter
-	qs = orm.NewOrm().QueryTable("messagecenter").SetCond(cond)
+	qs = orm.NewOrm().QueryTable("messagecenter").Limit(20).SetCond(cond)
 	cnt, err := qs.All(&message)
-	if err != nil {
-		beego.Debug("查询数据库失败")
-	}
+
 	beego.Debug(message, cnt, err)
-	var messages []*cspb.CSMessageNtf
+
+	var res_messages []*cspb.CSMessageNtf
+
 	for i := range message {
-		beego.Info("--------")
-		messages[i].Id = &message[i].Id
-		messages[i].Title = &message[i].Title
-		messages[i].Content = &message[i].Content
-		messages[i].Title2 = &message[i].Title2
-		messages[i].Content2 = &message[i].Content2
-		messages[i].IsActive = &message[i].IsActive
-		messages[i].Time = &message[i].Time
+
+		res_messages = append(res_messages, makeMessage(message[i].Id, message[i].Title, message[i].Content, message[i].IsActive, message[i].Time))
+
 	}
-	beego.Info("******RES-----messages", messages)
+
+	beego.Info("******RES-----messages", res_messages)
 	beego.Info("-----------Testing mysql---------")
 
 	beego.Debug("******LoadPlayer:%v", clientAccount)

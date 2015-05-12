@@ -2,6 +2,8 @@ package cs_handle
 
 import (
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
+	models "tuojie.com/piggo/quickstart.git/models"
 )
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
@@ -14,6 +16,9 @@ import (
 	"time"
 )
 
+func init() {
+	orm.RegisterDataBase("default", "mysql", "root:@/Monsters?charset=utf8")
+}
 func stageReportHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
@@ -59,19 +64,111 @@ func stageReportHandle(
 				beego.Info("插入新用户分数成功")
 			}
 
-			// for j:= range player.Levels {
-			// 	if *stage.StageId == player.Levels[j].GetStageId() {
-			// 	}
-			// }
-
-			// if int32(*stage.StageScore) > int32(player.Levels[i].GetStageScore()) {
-
-			// }
 			ret = 1
 		}
 
 	} else {
 		ret = 0
+	}
+
+	//取出分数放入mysql里面
+	var playerscore db.Player
+	errs := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&playerscore)
+
+	o := orm.NewOrm()
+	var userscore models.Userscore
+
+	var userscore_read []models.Userscore
+	var cond *orm.Condition
+	cond = orm.NewCondition()
+
+	cond = cond.And("Uid__contains", int64(playerscore.Uid))
+	var qs orm.QuerySeter
+	qs = orm.NewOrm().QueryTable("userscore").SetCond(cond)
+	cnt, err := qs.All(&userscore_read)
+	beego.Info(cnt, err)
+	if errs == nil {
+		if len(userscore_read) == 0 {
+			//如何mysql中无数据
+			for j := range playerscore.Levels {
+				userscore.Uid = int64(playerscore.Uid)
+				userscore.Level = playerscore.Levels[j].GetStageId()
+				userscore.Score = playerscore.Levels[j].GetStageScore()
+				userscore.Startnum = playerscore.Levels[j].GetStageLevel()
+				userscore.Time = int64(playerscore.Levels[j].GetTimestamp())
+				id, err := o.Insert(&userscore)
+				if err == nil {
+
+					beego.Debug("插入成功！！", id)
+
+				} else {
+
+					beego.Error("插入失败！！！")
+
+				}
+			}
+		} else {
+			//如果mysql中有数据
+			if len(userscore_read) == len(playerscore.Levels) {
+				//没有添加新关数
+				for j := range playerscore.Levels {
+					userscore.Id = userscore_read[j].Id
+					userscore.Uid = int64(playerscore.Uid)
+					userscore.Level = playerscore.Levels[j].GetStageId()
+					userscore.Score = playerscore.Levels[j].GetStageScore()
+					userscore.Startnum = playerscore.Levels[j].GetStageLevel()
+					userscore.Time = int64(playerscore.Levels[j].GetTimestamp())
+
+					if num, err := o.Update(&userscore); err == nil {
+
+						beego.Debug("更新成功！！", num)
+
+					} else {
+
+						beego.Error("更新失败！！！")
+
+					}
+				}
+			} else if len(userscore_read) < len(playerscore.Levels) {
+				//前面已有的更新
+				for j := range userscore_read {
+					userscore.Id = userscore_read[j].Id
+					userscore.Uid = int64(playerscore.Uid)
+					userscore.Level = playerscore.Levels[j].GetStageId()
+					userscore.Score = playerscore.Levels[j].GetStageScore()
+					userscore.Startnum = playerscore.Levels[j].GetStageLevel()
+					userscore.Time = int64(playerscore.Levels[j].GetTimestamp())
+
+					if num, err := o.Update(&userscore); err == nil {
+
+						beego.Debug("更新成功！！", num)
+
+					} else {
+
+						beego.Error("更新失败！！！")
+
+					}
+				}
+				//后面的插入
+				for k := len(userscore_read); k < len(playerscore.Levels); k++ {
+					userscore.Uid = int64(playerscore.Uid)
+					userscore.Level = playerscore.Levels[k].GetStageId()
+					userscore.Score = playerscore.Levels[k].GetStageScore()
+					userscore.Startnum = playerscore.Levels[k].GetStageLevel()
+					userscore.Time = int64(playerscore.Levels[k].GetTimestamp())
+					id, err := o.Insert(&userscore)
+					if err == nil {
+
+						beego.Debug("插入成功！！", id)
+
+					} else {
+
+						beego.Error("插入失败！！！")
+
+					}
+				}
+			}
+		}
 	}
 
 	res_data := new(cspb.CSStageReportRes)
@@ -88,20 +185,4 @@ func stageReportHandle(
 		res_pkg_body, res_list)
 	return ret
 
-	// //查询的时间戳
-	// log.Debug("*********DB TimeStamp is %v", result)
-
-	// //时间戳
-	// Timestamp := time.Now().Unix()
-	// _, err := c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-	// 	bson.M{"$set": bson.M{"Levels": req_data.StageNtf, "timestamp": Timestamp}})
-
-	// if err != nil {
-	// 	log.Error("插入关数失败:%v", err)
-	// 	ret = int32(cspb.ErrorCode_PlayerInsertFail)
-	// 	player.Uid = int64(0)
-	// }
-
-	//log.Debug("******StageReportHandle, levelid is %v, level is %v,score is %v,res is %v", levelid, stage_level, stage_score, res)
-	// return makeStageReportResPkg(req, res_list, ret)
 }

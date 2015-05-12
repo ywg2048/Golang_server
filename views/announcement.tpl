@@ -385,10 +385,10 @@ a{
 <body>
 	<a href="/stage">返回管理首页</a>
 <table class="bordered">
-	<tr><th>序号</th><th>标题</th><th>内容</th><th>标题2</th><th>内容2</th><th>是否激活</th><th>操作</th></tr>
+	<tr><th>序号</th><th>标题</th><th>内容</th><th>是否激活</th><th>操作</th></tr>
 	{{range $k, $v := .message}}
 		<form action='/message' method='get'>
-		<tr><td>{{$v.Id}}</td><td>{{$v.Title}}</td><td>{{$v.Content}}</td><td>{{$v.Title2}}</td><td>{{$v.Content2}}</td>
+		<tr><td>{{$v.Id}}</td><td>{{$v.Title}}</td><td>{{$v.Content}}</td>
 			<td>
 				{{if eq $v.IsActive 0}}
 				<font color="red">未激活</font>
@@ -397,7 +397,7 @@ a{
 				{{end}}
 			</td>
 			<td>
-				<a href="?id={{$v.Id}}&opration=active">激活</a><a href="?id={{$v.Id}}&opration=close">关闭</a>
+				<a href="?id={{$v.Id}}&opration=active">激活</a>|<a href="?id={{$v.Id}}&opration=close">关闭</a>
 			</td>
 		</tr>
 		</form>

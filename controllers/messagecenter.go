@@ -2,7 +2,7 @@ package controllers
 
 import (
 	// "encoding/json"
-	// "fmt"
+	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 
@@ -33,29 +33,29 @@ func (c *MessagecenterController) Get() {
 	ids, err := strconv.Atoi(id)
 	id1 := int32(ids)
 	beego.Info(id1)
-	// 激活操作
-	// if opration == "active" {
-	// 	beego.Info("激活")
+	//激活操作
+	if opration == "active" {
+		beego.Info("激活")
 
-	// 	o := orm.NewOrm()
-	// 	messagecenter := []models.Messagecenter{Id: id1}
-	// 	if o.Read(&messagecenter) == nil {
-	// 		messagecenter.IsActive = 1
-	// 		if num, err := o.Update(&messagecenter); err == nil {
-	// 			fmt.Println(num)
-	// 		}
-	// 	}
-	// } else {
-	// 	beego.Info("关闭")
-	// 	o := orm.NewOrm()
-	// 	messagecenter := []models.Messagecenter{Id: id1}
-	// 	if o.Read(&messagecenter) == nil {
-	// 		messagecenter.IsActive = 0
-	// 		if num, err := o.Update(&messagecenter); err == nil {
-	// 			fmt.Println(num)
-	// 		}
-	// 	}
-	// }
+		o := orm.NewOrm()
+		messagecenter := models.Messagecenter{Id: id1}
+		if o.Read(&messagecenter) == nil {
+			messagecenter.IsActive = 1
+			if num, err := o.Update(&messagecenter); err == nil {
+				fmt.Println(num)
+			}
+		}
+	} else {
+		beego.Info("关闭")
+		o := orm.NewOrm()
+		messagecenter := models.Messagecenter{Id: id1}
+		if o.Read(&messagecenter) == nil {
+			messagecenter.IsActive = 0
+			if num, err := o.Update(&messagecenter); err == nil {
+				fmt.Println(num)
+			}
+		}
+	}
 	//读取列表
 	var message []models.Messagecenter
 	var cond *orm.Condition
@@ -76,18 +76,15 @@ func (c *MessagecenterController) Post() {
 	c.Ctx.Request.ParseForm()
 	title := c.Input().Get("title")
 	content := c.Input().Get("content")
-	title2 := c.Input().Get("title2")
-	content2 := c.Input().Get("content2")
 
 	o := orm.NewOrm()
 	var messagecenter models.Messagecenter
 
-	messagecenter[0].Title = title
-	messagecenter[0].Content = content
-	messagecenter[0].Title2 = title2
-	messagecenter[0].Content2 = content2
-	messagecenter[0].Time = time.Now().Unix()
-	messagecenter[0].IsActive = 0
+	messagecenter.Title = title
+	messagecenter.Content = content
+
+	messagecenter.Time = time.Now().Unix()
+	messagecenter.IsActive = 0
 	beego.Debug(messagecenter)
 
 	id, err := o.Insert(&messagecenter)
