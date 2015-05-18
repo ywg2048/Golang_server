@@ -2,9 +2,11 @@ package cs_handle
 
 import (
 	"github.com/astaxie/beego"
+	models "tuojie.com/piggo/quickstart.git/models"
 )
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
+
 import db "tuojie.com/piggo/quickstart.git/db/collection"
 
 import "time"
@@ -19,7 +21,7 @@ func rechargeHandle(
 
 	req_data := req.GetBody().GetRechargeReportReq()
 	beego.Debug("req_data:%s", req_data.String())
-	var recharge_flow db.RechargeFlowData
+	var recharge_flow models.RechargeFlowData
 
 	// recharge_flow.Account = res_list.GetSAccount()
 	// recharge_flow.Uid = res_list.GetUid()

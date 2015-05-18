@@ -2,12 +2,14 @@ package cs_handle
 
 import (
 	"github.com/astaxie/beego"
+	models "tuojie.com/piggo/quickstart.git/models"
 )
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
 
-import db "tuojie.com/piggo/quickstart.git/db/collection"
+// import db "tuojie.com/piggo/quickstart.git/db/collection"
 import "labix.org/v2/mgo/bson"
+
 import db_session "tuojie.com/piggo/quickstart.git/db/session"
 
 func MoneyHandle(
@@ -17,7 +19,7 @@ func MoneyHandle(
 	req_data := req.GetBody().GetMoneyReq()
 	beego.Info(req_data)
 	c := db_session.DB("zoo").C("player")
-	var player db.Player
+	var player models.Player
 	err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
 	beego.Debug("*********MoneyHandle result is %v err is %v********", player, err)
 
@@ -39,7 +41,7 @@ func MoneyHandle(
 		ret = int32(1)
 	}
 
-	var moneyres db.Player
+	var moneyres models.Player
 	errs := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&moneyres)
 	if errs != nil {
 		beego.Error("查询money失败")

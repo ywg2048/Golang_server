@@ -19,53 +19,6 @@ import "strings"
 
 import proto "code.google.com/p/goprotobuf/proto"
 
-type Player struct {
-	Saccount           bson.ObjectId        `bson:"_id"`
-	Caccount           string               `bson:"c_account"`
-	Uid                int64                `bson:"uid"`
-	WonderfulFriends   WonderfulFriendsData `bson:"WonderfulFriends"`
-	RechargeFlow       RechargeFlowData     `bson:"RechargeFlow"`
-	RegistTime         int64                `bson:"regist_time"`
-	LastSignInTime     int64                `bson:"last_signin_time"`
-	FreeSignInOperTime int64                `bson:"free_signin_oper_time"`
-	Levels             []*cspb.CSStageNtf   `bson:"Levels"`
-	Money              *cspb.CSMoneyReq     `bson:"Money"`
-}
-type WonderfulFriendsData struct {
-	LastSignInTime     int64 `bson:"last_signin_time"`
-	FreeSignInOperTime int64 `bson:"free_signin_oper_time"`
-}
-type Messagecenter struct {
-	Id       int32
-	Title    string `orm:"size(100)"`
-	Content  string `orm:"size(256)"`
-	Title2   string `orm:"size(256)"`
-	Content2 string `orm:"size(256)"`
-	IsActive int32
-	Time     int64
-}
-
-// func LoadPlayer(account string) (Player, int32) {
-// 	log.Debug("account:%s", account)
-// 	var player Player
-// 	if len(account) <= 0 {
-// 		log.Error("lenth(%d) of account is invalid", int(len(account)))
-// 		return player, -1
-// 	}
-// 	c := db_session.DB("zoo").C("player")
-
-// 	err := c.Find(bson.M{"_id": bson.ObjectIdHex(account)}).One(&player)
-// 	if err == mgo.ErrNotFound {
-// 		log.Error("load player no found err:%v", err)
-// 		return player, 1
-// 	} else if err != nil {
-// 		log.Error("load player fail err:%v", err)
-// 		return player, -1
-// 	}
-
-// 	log.Debug("player_info:%s", fmt.Sprint(player))
-// 	return player, 0
-// }
 func init() {
 	orm.RegisterDataBase("default", "mysql", "root:@/Monsters?charset=utf8")
 }
@@ -85,7 +38,7 @@ func makeMessage(message_id int32, message_title string,
 	beego.Debug("message_ntf:%v", message_ntf)
 	return message_ntf
 }
-func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, Player) {
+func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, models.Player) {
 	beego.Info("-----------Testing mysql---------")
 	var message []models.Messagecenter
 	var cond *orm.Condition
@@ -112,7 +65,7 @@ func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, P
 
 	beego.Debug("******LoadPlayer:%v", clientAccount)
 
-	var player Player
+	var player models.Player
 	ret := int32(0)
 
 	beego.Debug("Before client is %s, serverAccount is %s, uid is %s", clientAccount, serverAccount, uid)
@@ -336,7 +289,7 @@ func SetLevelValues(account string, levelid int32, stage_level int32, stage_scor
 	c := db_session.DB("zoo").C("player")
 
 	//var stageScore int32
-	var result Player
+	var result models.Player
 	errs := c.Find(bson.M{"c_account": account}).One(&result)
 	if errs != nil {
 		beego.Error("Get StageReportDB fail err:%v", errs)
@@ -363,7 +316,7 @@ func SetLevelValuesTest(account string, levelid int32, stage_level int32, stage_
 	c := db_session.DB("zoo").C("player")
 
 	//var stageScore int32
-	var result Player
+	var result models.Player
 	errs := c.Find(bson.M{"c_account": account}).One(&result)
 	if errs != nil {
 		beego.Error("Get StageReportDB fail err:%v", errs)

@@ -32,7 +32,10 @@ func Init() {
 	cmdProcessRegister(cspb.Command_kStageReportReq, stageReportHandle)
 	cmdProcessRegister(cspb.Command_kMessageCenterReq, MessageCenterHandle)
 	cmdProcessRegister(cspb.Command_kMoneyReq, MoneyHandle)
-
+	cmdProcessRegister(cspb.Command_kFindUserReq, FinduserHandle)
+	cmdProcessRegister(cspb.Command_kAddFriendReq, AddFriendHandle)
+	cmdProcessRegister(cspb.Command_kApplyListReq, ApplyListHandle)
+	cmdProcessRegister(cspb.Command_kApplyListReq, ApplyFriendProcessHandle)
 }
 
 func PkgListHandle(

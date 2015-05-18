@@ -8,7 +8,7 @@ import (
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
 
-import db "tuojie.com/piggo/quickstart.git/db/collection"
+// import db "tuojie.com/piggo/quickstart.git/db/collection"
 import "labix.org/v2/mgo/bson"
 import db_session "tuojie.com/piggo/quickstart.git/db/session"
 import (
@@ -29,7 +29,7 @@ func stageReportHandle(
 	req_data := req.GetBody().GetStageReportReq()
 
 	c := db_session.DB("zoo").C("player")
-	var player db.Player
+	var player models.Player
 	err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
 	beego.Debug("*********StageReportHandle result is %v err is %v********", player, err)
 	//log.Debug("*********StageReportHandle result.level1 is %v********", player.Levels[1].GetStageScore())
@@ -72,7 +72,7 @@ func stageReportHandle(
 	}
 
 	//取出分数放入mysql里面
-	var playerscore db.Player
+	var playerscore models.Player
 	errs := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&playerscore)
 
 	o := orm.NewOrm()

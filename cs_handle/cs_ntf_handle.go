@@ -113,6 +113,17 @@ func makeMessage(message_id int32, message_title string,
 	beego.Debug("message_ntf:%v", message_ntf)
 	return message_ntf
 }
+func makeApplylist(playerid int32, isaccept int32, isrefuse int32, applytime int64, accepttime int64) *cspb.CSApplyListNtf {
+	apply_ntf := new(cspb.CSApplyListNtf)
+	*apply_ntf = cspb.CSApplyListNtf{
+		Playerid:   proto.Int32(playerid),
+		IsAccept:   proto.Int32(isaccept),
+		IsRefuse:   proto.Int32(isrefuse),
+		Applytime:  proto.Int64(applytime),
+		Accepttime: proto.Int64(accepttime),
+	}
+	return apply_ntf
+}
 func makeChipNtf(chip_list []*cspb.ChipInfo,
 	res_list *cspb.CSPkgList) {
 
