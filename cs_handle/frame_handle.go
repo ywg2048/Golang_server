@@ -36,6 +36,8 @@ func Init() {
 	cmdProcessRegister(cspb.Command_kAddFriendReq, AddFriendHandle)
 	cmdProcessRegister(cspb.Command_kApplyListReq, ApplyListHandle)
 	cmdProcessRegister(cspb.Command_kApplyListReq, ApplyFriendProcessHandle)
+	cmdProcessRegister(cspb.Command_kMainInfoReq, MainInfoHandle)
+	cmdProcessRegister(cspb.Command_kRankReq, RankHandle)
 }
 
 func PkgListHandle(

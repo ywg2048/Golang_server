@@ -32,7 +32,7 @@ func stageReportHandle(
 	var player models.Player
 	err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
 	beego.Debug("*********StageReportHandle result is %v err is %v********", player, err)
-	//log.Debug("*********StageReportHandle result.level1 is %v********", player.Levels[1].GetStageScore())
+
 	//时间戳
 	ret := int32(0)
 	if err == nil {

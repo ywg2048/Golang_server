@@ -13,5 +13,6 @@ func init() {
 	beego.Router("/mobileweb", &controllers.MobilewebController{})
 	beego.Router("/foshan/rest/game/app", &controllers.AppController{})
 	beego.Router("/message", &controllers.MessagecenterController{})
+
 	admin.Run()
 }

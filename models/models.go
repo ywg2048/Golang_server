@@ -6,6 +6,9 @@ import (
 	cspb "protocol"
 )
 
+/*所有的数据库模型都在这*/
+
+/*mysql*/
 type Messagecenter struct {
 	Id      int32
 	Title   string `orm:"size(100)"`
@@ -27,6 +30,94 @@ type Userscore struct {
 	Startnum int32
 	Time     int64
 }
+
+//好友消息
+type Messages struct {
+	Id          int32
+	Fromuid     int32
+	Touid       int32
+	Messagetype int32 /*0:好友申请加好友请求，1：好友申请赠送小红花请求，2：好友申请赠送卡片请求，3，好友赠送体力，4：好友赠送卡片*/
+	Fromname    string
+	Fromstar    string
+	Cardtype    string //卡片的颜色
+	Number      string
+	Time        int64
+}
+
+//排名
+type Ranking struct {
+	Id       int32
+	Uid      int32
+	Name     string
+	Medal    int32
+	Level    int32
+	star     string
+	Ranktype int32 /*0:小伙伴排名，1:明星排名，2:好友排名*/
+	Title    int32 /*头衔的等级*/
+	Time     int64
+}
+
+/*成就*/
+type Achievement struct {
+	Id             int32
+	Uid            int32
+	AchievementSum int32 //总共多少成就
+	AchievementId  int32 /*完成成就的Id*/
+	Time           int64
+}
+
+/*mongo*/
+/*人物的属性*/
+type PlayerInfo struct {
+	Saccount        bson.ObjectId          `bson:"_id"`
+	Caccount        string                 `bson:"c_account"`
+	Uid             int32                  `bson:"uid"`
+	Name            string                 `bson:"name"`
+	Gold            int32                  `bson:"gold"`
+	Flower          int32                  `bson:"flower"`
+	Diamond         int32                  `bson:"diamond"`
+	Star            []*StarDate            `bson:"star"`
+	SolutionPool    int32                  `bson:"experience_pool"`
+	Medal           int32                  `bson:"medal"`
+	Cards           CardData               `bson:"cards"`
+	RegisterTime    int32                  `bson:"register_time"`
+	FriendList      []*FriendListData      `bson:"FriendList"`
+	ApplyFriendList []*ApplyFriendListData `bson:"ApplyFriendList"`
+	Recharge        []*RechargeData        `bson:"recharge"`
+}
+type StarDate struct {
+	Starname  string `bson:"starname"`
+	Level     int32  `bson:"level"`
+	Solution  int32  `bson:"experience"`
+	Dress     int32  `bson:"dress"`
+	Dressname string `bson:"dressname"`
+	Fighting  int32  `bson:"fighting"`
+	IsActive  int32  `bson:"is_active"` //是否选择
+}
+type CardData struct {
+	WhiteCard  int32 `bson:"white_card"`
+	RedCard    int32 `bson:"red_card"`
+	YellowCard int32 `bson:"yellow_card"`
+}
+type RechargeData struct {
+	Uid          int64  `bson:"uid"`
+	Rmb          int32  `bson:"rmb"`
+	Dollar       int32  `bson:"dollar"`
+	GoodsType    int32  `bson:"goods_type"`
+	GoodsSubType int32  `bson:"goods_sub_type"`
+	GoodsNum     int32  `bson:"goods_num"`
+	RechargeTime int64  `bson:"recharge_time"`
+	Version      string `bson:"version"`
+	Code         string `bson:"code"`
+	Channel      string `bson:"channel"`
+}
+
+/*系统*/
+type System struct {
+	Version string `bson:"version"`
+}
+
+/*老版*/
 type Player struct {
 	Saccount           bson.ObjectId          `bson:"_id"`
 	Caccount           string                 `bson:"c_account"`
@@ -72,6 +163,6 @@ type ApplyFriendListData struct {
 
 func init() {
 
-	orm.RegisterModel(new(Messagecenter), new(Userscore), new(Userinfo))
+	orm.RegisterModel(new(Messagecenter), new(Userscore), new(Userinfo), new(Ranking))
 
 }

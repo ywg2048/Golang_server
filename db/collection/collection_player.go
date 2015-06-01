@@ -308,30 +308,3 @@ func SetLevelValues(account string, levelid int32, stage_level int32, stage_scor
 	}
 	return 0
 }
-
-func SetLevelValuesTest(account string, levelid int32, stage_level int32, stage_score int32) int32 {
-
-	beego.Debug("********account is %v levelid is %v stage_level is %v stage_score is %v", account, levelid, stage_level, stage_score)
-
-	c := db_session.DB("zoo").C("player")
-
-	//var stageScore int32
-	var result models.Player
-	errs := c.Find(bson.M{"c_account": account}).One(&result)
-	if errs != nil {
-		beego.Error("Get StageReportDB fail err:%v", errs)
-		return -1
-	}
-	beego.Debug("********result is %v", result)
-	//stageScore = result.Levels.level.Score
-	//log.Debug("DB StageScore is %v", stageScore)
-	beego.Debug("StageScore is %v", stage_score)
-
-	_, err := c.Upsert(bson.M{"c_account": account},
-		bson.M{"$set": bson.M{"Levels.level'" + fmt.Sprintf("%d", levelid) + "'.Levelid": levelid, "Levels.level'" + fmt.Sprintf("%d", levelid) + "'.StageLevel": stage_level, "Levels.level'" + fmt.Sprintf("%d", levelid) + "'.Score": stage_score}})
-	if err != nil {
-		beego.Error("StageReportHandle fail err:%v", err)
-		return -1
-	}
-	return 0
-}

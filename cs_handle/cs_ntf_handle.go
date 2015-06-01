@@ -113,6 +113,21 @@ func makeMessage(message_id int32, message_title string,
 	beego.Debug("message_ntf:%v", message_ntf)
 	return message_ntf
 }
+func makeRank(playuid int32, playname string,
+	star string, level int32, medalnum int32) *cspb.CSRankNtf {
+
+	rank_ntf := new(cspb.CSRankNtf)
+	*rank_ntf = cspb.CSRankNtf{
+		Playuid:  proto.Int32(playuid),
+		Playname: proto.String(playname),
+		Star:     proto.String(star),
+		Level:    proto.Int32(level),
+		Medalnum: proto.Int32(medalnum),
+	}
+
+	beego.Debug("rank_ntf:%v", rank_ntf)
+	return rank_ntf
+}
 func makeApplylist(playerid int32, isaccept int32, isrefuse int32, applytime int64, accepttime int64) *cspb.CSApplyListNtf {
 	apply_ntf := new(cspb.CSApplyListNtf)
 	*apply_ntf = cspb.CSApplyListNtf{
