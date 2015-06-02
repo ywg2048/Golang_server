@@ -34,7 +34,7 @@ type Userscore struct {
 //好友消息
 type Messages struct {
 	Id          int32
-	Fromuid     int32
+	Fromuid     int64
 	Touid       int32
 	Messagetype int32 /*0:好友申请加好友请求，1：好友申请赠送小红花请求，2：好友申请赠送卡片请求，3，好友赠送体力，4：好友赠送卡片*/
 	Fromname    string
@@ -51,7 +51,7 @@ type Ranking struct {
 	Name     string
 	Medal    int32
 	Level    int32
-	star     string
+	Star     string
 	Ranktype int32 /*0:小伙伴排名，1:明星排名，2:好友排名*/
 	Title    int32 /*头衔的等级*/
 	Time     int64
@@ -68,22 +68,28 @@ type Achievement struct {
 
 /*mongo*/
 /*人物的属性*/
-type PlayerInfo struct {
-	Saccount        bson.ObjectId          `bson:"_id"`
-	Caccount        string                 `bson:"c_account"`
-	Uid             int32                  `bson:"uid"`
-	Name            string                 `bson:"name"`
-	Gold            int32                  `bson:"gold"`
-	Flower          int32                  `bson:"flower"`
-	Diamond         int32                  `bson:"diamond"`
-	Star            []*StarDate            `bson:"star"`
-	SolutionPool    int32                  `bson:"experience_pool"`
-	Medal           int32                  `bson:"medal"`
-	Cards           CardData               `bson:"cards"`
-	RegisterTime    int32                  `bson:"register_time"`
-	FriendList      []*FriendListData      `bson:"FriendList"`
-	ApplyFriendList []*ApplyFriendListData `bson:"ApplyFriendList"`
-	Recharge        []*RechargeData        `bson:"recharge"`
+type Player struct {
+	Saccount           bson.ObjectId          `bson:"_id"`
+	Caccount           string                 `bson:"c_account"`
+	Uid                int64                  `bson:"uid"`
+	Name               string                 `bson:"name"`
+	Gold               int32                  `bson:"gold"`
+	Flower             int32                  `bson:"flower"`
+	Diamond            int32                  `bson:"diamond"`
+	Star               []*StarDate            `bson:"star"`
+	SolutionPool       int32                  `bson:"experience_pool"`
+	Medal              int32                  `bson:"medal"`
+	Cards              CardData               `bson:"cards"`
+	RegistTime         int64                  `bson:"regist_time"`
+	FriendList         []*FriendListData      `bson:"FriendList"`
+	ApplyFriendList    []*ApplyFriendListData `bson:"ApplyFriendList"`
+	Recharge           []*RechargeData        `bson:"recharge"`
+	WonderfulFriends   WonderfulFriendsData   `bson:"WonderfulFriends"`
+	RechargeFlow       RechargeFlowData       `bson:"RechargeFlow"`
+	LastSignInTime     int64                  `bson:"last_signin_time"`
+	FreeSignInOperTime int64                  `bson:"free_signin_oper_time"`
+	Levels             []*cspb.CSStageNtf     `bson:"Levels"`
+	Money              *cspb.CSMoneyReq       `bson:"Money"`
 }
 type StarDate struct {
 	Starname  string `bson:"starname"`
@@ -118,20 +124,20 @@ type System struct {
 }
 
 /*老版*/
-type Player struct {
-	Saccount           bson.ObjectId          `bson:"_id"`
-	Caccount           string                 `bson:"c_account"`
-	Uid                int64                  `bson:"uid"`
-	WonderfulFriends   WonderfulFriendsData   `bson:"WonderfulFriends"`
-	RechargeFlow       RechargeFlowData       `bson:"RechargeFlow"`
-	RegistTime         int64                  `bson:"regist_time"`
-	LastSignInTime     int64                  `bson:"last_signin_time"`
-	FreeSignInOperTime int64                  `bson:"free_signin_oper_time"`
-	Levels             []*cspb.CSStageNtf     `bson:"Levels"`
-	Money              *cspb.CSMoneyReq       `bson:"Money"`
-	FriendList         []*FriendListData      `bson:"FriendList"`
-	ApplyFriendList    []*ApplyFriendListData `bson:"ApplyFriendList"`
-}
+// type Player struct {
+// 	Saccount           bson.ObjectId          `bson:"_id"`
+// 	Caccount           string                 `bson:"c_account"`
+// 	Uid                int64                  `bson:"uid"`
+// 	WonderfulFriends   WonderfulFriendsData   `bson:"WonderfulFriends"`
+// 	RechargeFlow       RechargeFlowData       `bson:"RechargeFlow"`
+// 	RegistTime         int64                  `bson:"regist_time"`
+// 	LastSignInTime     int64                  `bson:"last_signin_time"`
+// 	FreeSignInOperTime int64                  `bson:"free_signin_oper_time"`
+// 	Levels             []*cspb.CSStageNtf     `bson:"Levels"`
+// 	Money              *cspb.CSMoneyReq       `bson:"Money"`
+// 	FriendList         []*FriendListData      `bson:"FriendList"`
+// 	ApplyFriendList    []*ApplyFriendListData `bson:"ApplyFriendList"`
+// }
 type WonderfulFriendsData struct {
 	LastSignInTime     int64 `bson:"last_signin_time"`
 	FreeSignInOperTime int64 `bson:"free_signin_oper_time"`

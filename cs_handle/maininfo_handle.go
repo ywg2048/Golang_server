@@ -24,9 +24,9 @@ func MainInfoHandle(
 	beego.Info(req_data)
 
 	ret := int32(0)
-	c := db_session.DB("zoo").C("playerinfo")
-	var playerinfo models.PlayerInfo
-	err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&playerinfo)
+	c := db_session.DB("zoo").C("player")
+	var player models.Player
+	err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
 	if err != nil {
 		beego.Error("出错了！")
 	}

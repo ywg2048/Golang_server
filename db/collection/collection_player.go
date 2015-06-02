@@ -22,45 +22,41 @@ import proto "code.google.com/p/goprotobuf/proto"
 func init() {
 	orm.RegisterDataBase("default", "mysql", "root:@/Monsters?charset=utf8")
 }
-func makeMessage(message_id int32, message_title string,
-	message_content string, message_isActive int32, message_time int64) *cspb.CSMessageNtf {
+func makeRank(playuid int32, playname string,
+	star string, level int32, medalnum int32) *cspb.CSRankNtf {
 
-	message_ntf := new(cspb.CSMessageNtf)
-	*message_ntf = cspb.CSMessageNtf{
-		Id:      proto.Int32(message_id),
-		Title:   proto.String(message_title),
-		Content: proto.String(message_content),
-
-		IsActive: proto.Int32(message_isActive),
-		Time:     proto.Int64(message_time),
+	rank_ntf := new(cspb.CSRankNtf)
+	*rank_ntf = cspb.CSRankNtf{
+		Playuid:  proto.Int32(playuid),
+		Playname: proto.String(playname),
+		Star:     proto.String(star),
+		Level:    proto.Int32(level),
+		Medalnum: proto.Int32(medalnum),
 	}
 
-	beego.Debug("message_ntf:%v", message_ntf)
-	return message_ntf
+	beego.Debug("rank_ntf:%v", rank_ntf)
+	return rank_ntf
 }
 func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, models.Player) {
 	beego.Info("-----------Testing mysql---------")
-	var message []models.Messagecenter
+	var ranking []models.Ranking
 	var cond *orm.Condition
 	cond = orm.NewCondition()
 
 	cond = cond.And("Id__gte", 1)
-	cond = cond.And("IsActive__contains", 1)
+
 	var qs orm.QuerySeter
-	qs = orm.NewOrm().QueryTable("messagecenter").Limit(20).SetCond(cond)
-	cnt, err := qs.All(&message)
-
-	beego.Debug(message, cnt, err)
-
-	var res_messages []*cspb.CSMessageNtf
-
-	for i := range message {
-
-		res_messages = append(res_messages, makeMessage(message[i].Id, message[i].Title, message[i].Content, message[i].IsActive, message[i].Time))
-
+	var res_rank []*cspb.CSRankNtf
+	qs = orm.NewOrm().QueryTable("ranking").SetCond(cond).OrderBy("-Medal")
+	cnt, err := qs.All(&ranking)
+	if err != nil {
+		beego.Debug("查询数据库失败")
 	}
-
-	beego.Info("******RES-----messages", res_messages)
+	beego.Debug(ranking, cnt, err)
+	for i := range ranking {
+		res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Star, ranking[i].Level, ranking[i].Medal))
+	}
+	beego.Info("******RES-----messages", res_rank)
 	beego.Info("-----------Testing mysql---------")
 
 	beego.Debug("******LoadPlayer:%v", clientAccount)

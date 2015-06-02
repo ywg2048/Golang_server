@@ -21,7 +21,7 @@ func ApplyListHandle(
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
-	beego.Debug("*********ApplyListHandle result is %v err is %v********", player, err)
+	beego.Debug("*********ApplyListHandle result is*******", player, err)
 
 	ret := int32(1)
 	var res_applylist []*cspb.CSApplyListNtf
