@@ -24,14 +24,19 @@ func FinduserHandle(
 	IsFriend := int32(0) //查看是否是好友 1代表已经是好友 2代表已经申请好友但没通过 0代表不是好友
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
-	var player_isfriend models.Player
+	friendid := 0
 	err := c.Find(bson.M{"uid": req_data.GetUid()}).One(&player)
-	errs := c.Find(bson.M{"FriendList.friendid": req_data.GetUid()}).One(&player_isfriend)
+	for i := range player.FriendList {
+		if player.FriendList[i].Friendid == req_data.GetUid() {
+			friendid = i
+			break
+		}
+	}
 	if err != nil {
-		if errs != nil {
-			if player_isfriend.FriendList[0].IsActive == 1 {
+		if friendid != 0 {
+			if player.FriendList[0].IsActive == 1 {
 				IsFriend = 1
-			} else if player_isfriend.FriendList[0].IsActive == 0 {
+			} else if player.FriendList[0].IsActive == 0 {
 				IsFriend = 2
 			} else {
 				IsFriend = 0

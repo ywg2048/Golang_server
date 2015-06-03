@@ -114,7 +114,7 @@ func makeMessage(message_id int32, message_title string,
 	return message_ntf
 }
 func makeRank(playuid int32, playname string,
-	star string, level int32, medalnum int32) *cspb.CSRankNtf {
+	star string, level int32, medalnum int32, rankid int32, titleid int32) *cspb.CSRankNtf {
 
 	rank_ntf := new(cspb.CSRankNtf)
 	*rank_ntf = cspb.CSRankNtf{
@@ -123,6 +123,8 @@ func makeRank(playuid int32, playname string,
 		Star:     proto.String(star),
 		Level:    proto.Int32(level),
 		Medalnum: proto.Int32(medalnum),
+		Rankid:   proto.Int32(rankid),
+		Titleid:  proto.Int32(titleid),
 	}
 
 	beego.Debug("rank_ntf:%v", rank_ntf)
@@ -138,6 +140,49 @@ func makeApplylist(playerid int32, isaccept int32, isrefuse int32, applytime int
 		Accepttime: proto.Int64(accepttime),
 	}
 	return apply_ntf
+}
+func makeFriendlist(playerid int32, name string, star string, level int32, isAccept int32, applytime int64, accepttime int64) *cspb.CSFriendListNtf {
+	friend_ntf := new(cspb.CSFriendListNtf)
+	*friend_ntf = cspb.CSFriendListNtf{
+		Playerid:   proto.Int32(playerid),
+		Name:       proto.String(name),
+		Star:       proto.String(star),
+		Level:      proto.Int32(level),
+		IsAccept:   proto.Int32(isAccept),
+		Applytime:  proto.Int64(applytime),
+		Accepttime: proto.Int64(accepttime),
+	}
+	return friend_ntf
+
+}
+
+func makeAskPowerlistmake(playuid int32, playname string, playstar string) *cspb.CSAskPowerNtf {
+	askpower_ntf := new(cspb.CSAskPowerNtf)
+	*askpower_ntf = cspb.CSAskPowerNtf{
+		Playuid:  proto.Int32(playuid),
+		Playname: proto.String(playname),
+		Playstar: proto.String(playstar),
+	}
+	return askpower_ntf
+}
+func makeAskcardlistmake(playuid int32, playname string, playstar string, cardcolor string) *cspb.CSAskCardNtf {
+	askcard_ntf := new(cspb.CSAskCardNtf)
+	*askcard_ntf = cspb.CSAskCardNtf{
+		Playuid:   proto.Int32(playuid),
+		Playname:  proto.String(playname),
+		Playstar:  proto.String(playstar),
+		Cardcolor: proto.String(cardcolor),
+	}
+	return askcard_ntf
+}
+func makeAccpetcardlist(playuid int32, playname string, playstar string) *cspb.CSAcceptCardlistNtf {
+	acceptcard_ntf := new(cspb.CSAcceptCardlistNtf)
+	*acceptcard_ntf = cspb.CSAcceptCardlistNtf{
+		Playuid:  proto.Int32(playuid),
+		Playname: proto.String(playname),
+		Playstar: proto.String(playstar),
+	}
+	return acceptcard_ntf
 }
 func makeChipNtf(chip_list []*cspb.ChipInfo,
 	res_list *cspb.CSPkgList) {

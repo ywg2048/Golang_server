@@ -40,7 +40,7 @@ type Messages struct {
 	Fromname    string
 	Fromstar    string
 	Cardtype    string //卡片的颜色
-	Number      string
+	Number      int32
 	Time        int64
 }
 
@@ -169,6 +169,6 @@ type ApplyFriendListData struct {
 
 func init() {
 
-	orm.RegisterModel(new(Messagecenter), new(Userscore), new(Userinfo), new(Ranking))
+	orm.RegisterModel(new(Messagecenter), new(Userscore), new(Userinfo), new(Ranking), new(Messages))
 
 }

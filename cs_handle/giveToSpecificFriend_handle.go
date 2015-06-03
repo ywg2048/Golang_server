@@ -30,12 +30,14 @@ func GiveToSpecificFriendHandle(
 	if err != nil {
 		beego.Error("出错了！")
 	}
-	//生成消息
+	//生成消息存在mysql中
 	o := orm.NewOrm()
 	var messages models.Messages
 	messages.Fromuid = res_list.GetUid()
 	messages.Touid = req_data.GetPlayuid()
 	messages.Fromname = player.Name
+	messages.Number = req_data.GetNumber()
+
 	o.Insert(&messages)
 
 	res_data := new(cspb.CSGiveToSpecificFriendRes)

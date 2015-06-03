@@ -45,7 +45,7 @@ func RankHandle(
 		}
 		beego.Debug(ranking, cnt, err)
 		for i := range ranking {
-			res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Star, ranking[i].Level, ranking[i].Medal))
+			res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Star, ranking[i].Level, ranking[i].Medal, int32(i+1), int32(1)))
 		}
 	case int32(2):
 		//明星排名
@@ -57,7 +57,7 @@ func RankHandle(
 		}
 		beego.Debug(ranking, cnt, err)
 		for i := range ranking {
-			res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Star, ranking[i].Level, ranking[i].Medal))
+			res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Star, ranking[i].Level, ranking[i].Medal, int32(i+1), int32(1)))
 		}
 
 	case int32(3):
@@ -70,7 +70,7 @@ func RankHandle(
 				beego.Debug("查询数据库失败")
 			}
 			beego.Debug(ranking, cnt, err)
-			res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Star, ranking[i].Level, ranking[i].Medal))
+			res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Star, ranking[i].Level, ranking[i].Medal, int32(i+1), int32(1)))
 		}
 
 	}
