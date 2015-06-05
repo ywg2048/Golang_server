@@ -42,6 +42,7 @@ func Init() {
 	cmdProcessRegister(cspb.Command_kGiveToSpecificFriendReq, GiveToSpecificFriendHandle)
 	cmdProcessRegister(cspb.Command_kFriendListReq, FriendlistHandle)
 	cmdProcessRegister(cspb.Command_kAcceptCardlistReq, AcceptCardListtHandle)
+	cmdProcessRegister(cspb.Command_kLevelUpPageReq, LevelUpHandle)
 }
 
 func PkgListHandle(

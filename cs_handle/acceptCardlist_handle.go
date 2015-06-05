@@ -22,7 +22,7 @@ func AcceptCardListtHandle(
 	beego.Info("*********AcceptCardListtHandle Start**********")
 	req_data := req.GetBody().GetAcceptcardlistReq()
 	beego.Info(req_data)
-	ret := int32(0)
+	ret := int32(1)
 	var AcceptCardlistNtf []*cspb.CSAcceptCardlistNtf
 	AcceptCardlistNtf = append(AcceptCardlistNtf, makeAccpetcardlist(int32(100073), "大广", "春春"))
 	AcceptCardlistNtf = append(AcceptCardlistNtf, makeAccpetcardlist(int32(100074), "小明", "春春"))

@@ -21,7 +21,7 @@ func FriendlistHandle(
 	beego.Info("*********FriendlistHandle Start**********")
 	req_data := req.GetBody().GetFriendlistReq()
 	beego.Info(req_data)
-	ret := int32(0)
+	ret := int32(1)
 
 	var FriendListNtf []*cspb.CSFriendListNtf
 	FriendListNtf = append(FriendListNtf, makeFriendlist(int32(100073), "大广", "春春", int32(5), int32(1), int64(14282635486), int64(14282686592)))

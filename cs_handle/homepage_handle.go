@@ -13,12 +13,12 @@ import cspb "protocol"
 
 // import db_session "tuojie.com/piggo/quickstart.git/db/session"
 
-func FriendHomeHandle(
+func HomePageHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
 	//好友主页
-	beego.Info("*********FriendHomeHandle Start**********")
-	req_data := req.GetBody().GetFriendHomeReq()
+	beego.Info("*********HomePageHandle Start**********")
+	req_data := req.GetBody().GetHomepageReq()
 	beego.Info(req_data)
 
 	ret := int32(1)
@@ -36,36 +36,34 @@ func FriendHomeHandle(
 	// 	}
 	// }
 	// beego.Info(starid)
+	// required int32 starid = 2;
+	// required string dress = 3;
+	// required int32 level = 4;
+	// required int32 medal = 5;
+	// required int32 exp =6;
+	// required int32 satisfaction = 7;
+	starid := int32(1)
+	dress := "演唱会"
+	level := int32(12)
+	medal := int32(931)
+	exp := int32(150)
+	satisfaction := int32(250)
 
-	Star := "春春"
-	Playname := "李开"
-	Fighting := int32(25000)
-	Dress := "金色年华"
-	Level := int32(5)
-	Medal := int32(100)
-	medalLevelID := int32(1)
-	res_data := new(cspb.CSFriendHomeRes)
-	*res_data = cspb.CSFriendHomeRes{
-		// Star:     &player.Star[starid].Starname,
-		// Playname: &player.Name,
-		// Fighting: &player.Star[starid].Fighting,
-		// Dress:    &player.Star[starid].Dressname,
-		// Level:    &player.Star[starid].Level,
-		// Medal:    &player.Medal,
-		Star:         &Star,
-		Playname:     &Playname,
-		Fighting:     &Fighting,
-		Dress:        &Dress,
-		Level:        &Level,
-		Medal:        &Medal,
-		MedalLevelID: &medalLevelID,
+	res_data := new(cspb.CSHomePageRes)
+	*res_data = cspb.CSHomePageRes{
+		Starid:       &starid,
+		Dress:        &dress,
+		Level:        &level,
+		Medal:        &medal,
+		Exp:          &exp,
+		Satisfaction: &satisfaction,
 	}
 
 	res_pkg_body := new(cspb.CSBody)
 	*res_pkg_body = cspb.CSBody{
-		FriendHomeRes: res_data,
+		HomepageRes: res_data,
 	}
-	res_list = makeCSPkgList(int32(cspb.Command_kFriendHomeRes),
+	res_list = makeCSPkgList(int32(cspb.Command_kHomePageRes),
 		res_pkg_body, res_list)
 	return ret
 

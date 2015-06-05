@@ -23,17 +23,17 @@ func init() {
 	orm.RegisterDataBase("default", "mysql", "root:@/Monsters?charset=utf8")
 }
 func makeRank(playuid int32, playname string,
-	star string, level int32, medalnum int32, rankid int32, titleid int32) *cspb.CSRankNtf {
+	level int32, medalnum int32, rankid int32, medalLevelID int32) *cspb.CSRankNtf {
 
 	rank_ntf := new(cspb.CSRankNtf)
 	*rank_ntf = cspb.CSRankNtf{
 		Playuid:  proto.Int32(playuid),
 		Playname: proto.String(playname),
-		Star:     proto.String(star),
-		Level:    proto.Int32(level),
-		Medalnum: proto.Int32(medalnum),
-		Rankid:   proto.Int32(rankid),
-		Titleid:  proto.Int32(titleid),
+
+		Level:        proto.Int32(level),
+		Medalnum:     proto.Int32(medalnum),
+		Rankid:       proto.Int32(rankid),
+		MedalLevelID: proto.Int32(medalLevelID),
 	}
 
 	beego.Debug("rank_ntf:%v", rank_ntf)
@@ -56,7 +56,7 @@ func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, m
 	}
 	beego.Debug(ranking, cnt, err)
 	for i := range ranking {
-		res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Star, ranking[i].Level, ranking[i].Medal, int32(i+1), int32(1)))
+		res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Level, ranking[i].Medal, int32(i+1), int32(1)))
 	}
 	beego.Info("******RES-----messages", res_rank)
 	beego.Info("-----------Testing mysql---------")

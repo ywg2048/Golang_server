@@ -22,7 +22,7 @@ func AskCardListtHandle(
 	beego.Info("*********AskCardListtHandle Start**********")
 	req_data := req.GetBody().GetAskcardlistReq()
 	beego.Info(req_data)
-	ret := int32(0)
+	ret := int32(1)
 	var AskCardlistNtf []*cspb.CSAskCardNtf
 	AskCardlistNtf = append(AskCardlistNtf, makeAskcardlistmake(int32(100073), "大广", "春春", "红色"))
 	AskCardlistNtf = append(AskCardlistNtf, makeAskcardlistmake(int32(100074), "小明", "春春", "红色"))

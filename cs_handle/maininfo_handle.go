@@ -23,7 +23,7 @@ func MainInfoHandle(
 	req_data := req.GetBody().GetMaininfoReq()
 	beego.Info(req_data)
 
-	ret := int32(0)
+	ret := int32(1)
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)

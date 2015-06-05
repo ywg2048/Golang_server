@@ -22,7 +22,7 @@ func AskPowerListtHandle(
 	beego.Info("*********AskPowerListtHandle Start**********")
 	req_data := req.GetBody().GetAskpowerlistReq()
 	beego.Info(req_data)
-	ret := int32(0)
+	ret := int32(1)
 	var AskPowerlistNtf []*cspb.CSAskPowerNtf
 	AskPowerlistNtf = append(AskPowerlistNtf, makeAskPowerlistmake(int32(100073), "大广", "春春"))
 	AskPowerlistNtf = append(AskPowerlistNtf, makeAskPowerlistmake(int32(100074), "小明", "春春"))
