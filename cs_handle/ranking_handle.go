@@ -42,7 +42,7 @@ func RankHandle(
 	}
 	beego.Debug(ranking, cnt, err)
 	for i := range ranking {
-		res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Level, ranking[i].Medal, int32(i+1), int32(1), req_data.GetStarid()))
+		res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Level, ranking[i].Medal, int32(i+1), int32(1), int32(8)))
 	}
 	// switch req_data.GetType() {
 	// case "1":

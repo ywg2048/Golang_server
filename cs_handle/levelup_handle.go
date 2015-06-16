@@ -24,26 +24,32 @@ func LevelUpHandle(
 	beego.Info(req_data)
 
 	ret := int32(1)
-	whiteCard := int32(15)
-	redCard := int32(20)
-	yellowCard := int32(5)
+	var CardNtf []*cspb.CSCardNtf
+	CardNtf = append(CardNtf, makeCardNtf(int32(1), int32(45)))
+	CardNtf = append(CardNtf, makeCardNtf(int32(2), int32(45)))
+	CardNtf = append(CardNtf, makeCardNtf(int32(3), int32(45)))
+	CardNtf = append(CardNtf, makeCardNtf(int32(4), int32(45)))
+	CardNtf = append(CardNtf, makeCardNtf(int32(5), int32(45)))
+	CardNtf = append(CardNtf, makeCardNtf(int32(6), int32(45)))
+
 	level := int32(10)
-	satisfaction := int32(2500)
+	affinity := int32(2500)
+	playExperience := int32(50)
 	fighting := int32(40000)
-	dress := "演唱会"
+	dressId := int32(3)
+	dress := "高级套装"
 	exp := int32(20)
-	solutionPool := int32(150)
+
 	res_data := new(cspb.CSLevelUpPageRes)
 	*res_data = cspb.CSLevelUpPageRes{
-		WhiteCard:    &whiteCard,
-		RedCard:      &redCard,
-		YellowCard:   &yellowCard,
-		Level:        &level,
-		Satisfaction: &satisfaction,
-		Fighting:     &fighting,
-		Dress:        &dress,
-		Exp:          &exp,
-		SolutionPool: &solutionPool,
+		CardNtf:        CardNtf,
+		Level:          &level,
+		Affinity:       &affinity,
+		PlayExperience: &playExperience,
+		Fighting:       &fighting,
+		DressId:        &dressId,
+		Dress:          &dress,
+		Exp:            &exp,
 	}
 
 	res_pkg_body := new(cspb.CSBody)

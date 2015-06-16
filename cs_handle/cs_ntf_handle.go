@@ -131,60 +131,7 @@ func makeRank(playuid int32, playname string,
 	beego.Debug("rank_ntf:%v", rank_ntf)
 	return rank_ntf
 }
-func makeApplylist(playerid int32, isaccept int32, isrefuse int32, applytime int64, accepttime int64) *cspb.CSApplyListNtf {
-	apply_ntf := new(cspb.CSApplyListNtf)
-	*apply_ntf = cspb.CSApplyListNtf{
-		Playerid:   proto.Int32(playerid),
-		IsAccept:   proto.Int32(isaccept),
-		IsRefuse:   proto.Int32(isrefuse),
-		Applytime:  proto.Int64(applytime),
-		Accepttime: proto.Int64(accepttime),
-	}
-	return apply_ntf
-}
-func makeFriendlist(playerid int32, name string, star string, level int32, isAccept int32, applytime int64, accepttime int64) *cspb.CSFriendListNtf {
-	friend_ntf := new(cspb.CSFriendListNtf)
-	*friend_ntf = cspb.CSFriendListNtf{
-		Playerid:   proto.Int32(playerid),
-		Name:       proto.String(name),
-		Star:       proto.String(star),
-		Level:      proto.Int32(level),
-		IsAccept:   proto.Int32(isAccept),
-		Applytime:  proto.Int64(applytime),
-		Accepttime: proto.Int64(accepttime),
-	}
-	return friend_ntf
 
-}
-
-func makeAskPowerlistmake(playuid int32, playname string, playstar string) *cspb.CSAskPowerNtf {
-	askpower_ntf := new(cspb.CSAskPowerNtf)
-	*askpower_ntf = cspb.CSAskPowerNtf{
-		Playuid:  proto.Int32(playuid),
-		Playname: proto.String(playname),
-		Playstar: proto.String(playstar),
-	}
-	return askpower_ntf
-}
-func makeAskcardlistmake(playuid int32, playname string, playstar string, cardcolor string) *cspb.CSAskCardNtf {
-	askcard_ntf := new(cspb.CSAskCardNtf)
-	*askcard_ntf = cspb.CSAskCardNtf{
-		Playuid:   proto.Int32(playuid),
-		Playname:  proto.String(playname),
-		Playstar:  proto.String(playstar),
-		Cardcolor: proto.String(cardcolor),
-	}
-	return askcard_ntf
-}
-func makeAccpetcardlist(playuid int32, playname string, playstar string) *cspb.CSAcceptCardlistNtf {
-	acceptcard_ntf := new(cspb.CSAcceptCardlistNtf)
-	*acceptcard_ntf = cspb.CSAcceptCardlistNtf{
-		Playuid:  proto.Int32(playuid),
-		Playname: proto.String(playname),
-		Playstar: proto.String(playstar),
-	}
-	return acceptcard_ntf
-}
 func makeChipNtf(chip_list []*cspb.ChipInfo,
 	res_list *cspb.CSPkgList) {
 
@@ -216,4 +163,82 @@ func makePoolNextFreeNtf(hour int32, today int32,
 	}
 	res_list = makeCSPkgList(int32(cspb.Command_kPoolNextFreeNtf),
 		res_pkg_body, res_list)
+}
+func makeFriendntf(Playid int32, Starid int32, Name string) *cspb.CSFriendNtf {
+	friend_ntf := new(cspb.CSFriendNtf)
+	*friend_ntf = cspb.CSFriendNtf{
+		Playid: proto.Int32(Playid),
+		Starid: proto.Int32(Starid),
+		Name:   proto.String(Name),
+	}
+	return friend_ntf
+}
+func makeFriendmessagelistNtf(MessageType int32, ElementType int32, Friendntf []*cspb.CSFriendNtf, CardId int32, CardColor string, ElementNum int32, MessageId int32) *cspb.CSFriendmessagelistNtf {
+	friendmessagelist_ntf := new(cspb.CSFriendmessagelistNtf)
+	*friendmessagelist_ntf = cspb.CSFriendmessagelistNtf{
+		MessageType: proto.Int32(MessageType),
+		ElementType: proto.Int32(ElementType),
+		Friendntf:   Friendntf,
+		CardId:      proto.Int32(CardId),
+		CardColor:   proto.String(CardColor),
+		ElementNum:  proto.Int32(ElementNum),
+		MessageId:   proto.Int32(MessageId),
+	}
+	return friendmessagelist_ntf
+
+}
+func makefriendlist(FriendListId int32, Playerid int32, Name string, Starid int32, Starname string, Fighting int32, DressId int32, Dress string, Level int32, Medal int32, MedalLevelID int32, Stagelevel int32) *cspb.CSFriendListNtf {
+	friendlist_ntf := new(cspb.CSFriendListNtf)
+	*friendlist_ntf = cspb.CSFriendListNtf{
+		FriendListId: proto.Int32(FriendListId),
+		Playerid:     proto.Int32(Playerid),
+		Name:         proto.String(Name),
+		Starid:       proto.Int32(Starid),
+		Starname:     proto.String(Starname),
+		Fighting:     proto.Int32(Fighting),
+		DressId:      proto.Int32(DressId),
+		Dress:        proto.String(Dress),
+		Level:        proto.Int32(Level),
+		Medal:        proto.Int32(Medal),
+		MedalLevelID: proto.Int32(MedalLevelID),
+		Stagelevel:   proto.Int32(Stagelevel),
+	}
+	return friendlist_ntf
+}
+func makeCardNtf(CardId int32, Total int32) *cspb.CSCardNtf {
+	card_ntf := new(cspb.CSCardNtf)
+	*card_ntf = cspb.CSCardNtf{
+		CardId: proto.Int32(CardId),
+		Total:  proto.Int32(Total),
+	}
+	return card_ntf
+}
+
+func makeAnimalNtf(AnimalId int32, Produce int32, AnimalLevel int32, MyFriendNtf []*cspb.CSMyFriendNtf) *cspb.CSAnimalNtf {
+	animal_ntf := new(cspb.CSAnimalNtf)
+	*animal_ntf = cspb.CSAnimalNtf{
+
+		AnimalId:    proto.Int32(AnimalId),
+		Produce:     proto.Int32(Produce),
+		AnimalLevel: proto.Int32(AnimalLevel),
+		MyFriendNtf: MyFriendNtf,
+	}
+	return animal_ntf
+}
+func makeMyFriendNtf(FriendId int32, Name string, StarId int32) *cspb.CSMyFriendNtf {
+	myfriend_ntf := new(cspb.CSMyFriendNtf)
+	*myfriend_ntf = cspb.CSMyFriendNtf{
+		FriendId: proto.Int32(FriendId),
+		Name:     proto.String(Name),
+		StarId:   proto.Int32(StarId),
+	}
+	return myfriend_ntf
+}
+func makeStarInfo(StarId int32, DressId int32) *cspb.CSStarInfo {
+	star_info := new(cspb.CSStarInfo)
+	*star_info = cspb.CSStarInfo{
+		StarId:  proto.Int32(StarId),
+		DressId: proto.Int32(DressId),
+	}
+	return star_info
 }
