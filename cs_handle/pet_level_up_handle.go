@@ -94,17 +94,21 @@ func petLevelUpHandle(
 
 	var pet_list []*cspb.PetInfo
 	new_pet := petLevelUp(req, &pet_db)
-	if new_pet != pet_db {
-		pet_list = append(pet_list, makePet(new_pet.PetId,
-			new_pet.PetLevel,
-			new_pet.PetCurExp,
-			new_pet.PetTotalExp,
-			pet_db.PetStarLevel))
-		db.SetPetInfo(res_list.GetSAccount(),
-			new_pet.PetId, new_pet.PetLevel,
-			new_pet.PetCurExp, new_pet.PetTotalExp,
-			pet_db.PetStarLevel)
-	}
+	//if new_pet != pet_db {
+	pet_list = append(pet_list, makePet(new_pet.PetId,
+		new_pet.PetLevel,
+		new_pet.PetCurExp,
+		new_pet.PetTotalExp,
+		new_pet.PetStarLevel,
+		new_pet.Petmedallevel,
+		new_pet.PetmedalNum,
+		new_pet.DressId,
+	))
+	db.SetPetInfo(res_list.GetSAccount(),
+		new_pet.PetId, new_pet.PetLevel,
+		new_pet.PetCurExp, new_pet.PetTotalExp,
+		pet_db.PetStarLevel)
+	//}
 
 	//添加pet_ntf到res_list中
 	makeChipNtf(chip_list, res_list)
@@ -154,6 +158,8 @@ func petLevelUp(req *cspb.CSPkg, pet_db_info *db.Pet) db.Pet {
 		}
 		exp_pool -= need_exp
 	}
+	new_pet_db_info.Petcard[0].CardId = int32(1)
+	new_pet_db_info.Petcard[0].CardNum = int32(5)
 	beego.Debug("pet level up end , new_pet:%v ", new_pet_db_info)
 	return new_pet_db_info
 }

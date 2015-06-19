@@ -10,12 +10,21 @@ import db_session "tuojie.com/piggo/quickstart.git/db/session"
 import "fmt"
 
 type Pet struct {
-	Account      string `bson:"account"`
-	PetId        int32  `bson:"pet_id"`
-	PetLevel     int32  `bson:"pet_level"`
-	PetCurExp    int32  `bson:"pet_cur_exp"`
-	PetTotalExp  int32  `bson:"pet_total_exp"`
-	PetStarLevel int32  `bson:"pet_star_level"`
+	Account       string     `bson:"account"`
+	PetId         int32      `bson:"pet_id"`
+	PetLevel      int32      `bson:"pet_level"`
+	PetCurExp     int32      `bson:"pet_cur_exp"`
+	PetTotalExp   int32      `bson:"pet_total_exp"`
+	PetStarLevel  int32      `bson:"pet_star_level"`
+	Petmedallevel int32      `bson:"pet_medal_level"`
+	PetmedalNum   int32      `bson:"pet_medal_num"`
+	Petcard       PetcardNtf `bson:"pet_card"`
+	DressId       int32      `bson:"dress_id"`
+}
+
+type PetcardNtf []struct {
+	CardId  int32 `bson:"cardid"`
+	CardNum int32 `bson:"cardnum"`
 }
 
 type Chip struct {
@@ -71,10 +80,14 @@ func SetPetInfo(account string, pet_id int32,
 	_, err := c.Upsert(bson.M{"account": account, "pet_id": pet_id},
 
 		bson.M{"$set": bson.M{
-			"pet_level":      pet_level,
-			"pet_cur_exp":    pet_cur_exp,
-			"pet_total_exp":  pet_total_exp,
-			"pet_star_level": pet_star_level}})
+			"pet_level":       pet_level,
+			"pet_cur_exp":     pet_cur_exp,
+			"pet_total_exp":   pet_total_exp,
+			"pet_star_level":  pet_star_level,
+			"pet_medal_level": int32(1),
+			"pet_medal_num":   int32(150),
+			"dress_id":        int32(2)}})
+
 	if err != nil {
 		beego.Error("SetPetInfo fail err:%v", err)
 		return -1

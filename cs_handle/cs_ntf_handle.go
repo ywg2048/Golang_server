@@ -53,7 +53,7 @@ func makeAttrItemNtf(item_id int32, item_num int32,
 
 func makePet(pet_id int32, pet_level int32,
 	pet_cur_exp int32, pet_total_exp int32,
-	pet_star_level int32) *cspb.PetInfo {
+	pet_star_level int32, Petmedallevel int32, PetmedalNum int32, DressId int32, PetCardNtf []*cspb.CSPetCardNtf) *cspb.PetInfo {
 
 	pet_info := new(cspb.PetInfo)
 	*pet_info = cspb.PetInfo{
@@ -62,12 +62,23 @@ func makePet(pet_id int32, pet_level int32,
 		PetCurExp:    proto.Int32(pet_cur_exp),
 		PetTotalExp:  proto.Int32(pet_total_exp),
 		PetStarLevel: proto.Int32(pet_star_level),
+		PetMedalLevl: proto.Int32(Petmedallevel),
+		PetMedalNum:  proto.Int32(PetmedalNum),
+		DressId:      proto.Int32(DressId),
+		PetCardNtf:   PetCardNtf,
 	}
 
 	beego.Debug("pet_info:%v", pet_info)
 	return pet_info
 }
-
+func makecardNtf(CardId int32, CardNum int32) *cspb.CSPetCardNtf {
+	card_ntf := new(cspb.CSPetCardNtf)
+	*card_ntf = cspb.CSPetCardNtf{
+		CardId: proto.Int32(CardId),
+		CarNum: proto.Int32(CardNum),
+	}
+	return card_ntf
+}
 func makePetNtf(pet_list []*cspb.PetInfo,
 	res_list *cspb.CSPkgList) {
 
@@ -205,14 +216,6 @@ func makefriendlist(FriendListId int32, Playerid int32, Name string, Starid int3
 	}
 	return friendlist_ntf
 }
-func makeCardNtf(CardId int32, Total int32) *cspb.CSCardNtf {
-	card_ntf := new(cspb.CSCardNtf)
-	*card_ntf = cspb.CSCardNtf{
-		CardId: proto.Int32(CardId),
-		Total:  proto.Int32(Total),
-	}
-	return card_ntf
-}
 
 func makeAnimalNtf(AnimalId int32, Produce int32, AnimalLevel int32, MyFriendNtf []*cspb.CSMyFriendNtf) *cspb.CSAnimalNtf {
 	animal_ntf := new(cspb.CSAnimalNtf)
@@ -241,4 +244,13 @@ func makeStarInfo(StarId int32, DressId int32) *cspb.CSStarInfo {
 		DressId: proto.Int32(DressId),
 	}
 	return star_info
+}
+func makeFriendStagentf(FriendId int32, Name string, Stage int32) *cspb.CSFriendStageNtf {
+	friendstage_ntf := new(cspb.CSFriendStageNtf)
+	*friendstage_ntf = cspb.CSFriendStageNtf{
+		FriendId: proto.Int32(FriendId),
+		Name:     proto.String(Name),
+		Stage:    proto.Int32(Stage),
+	}
+	return friendstage_ntf
 }

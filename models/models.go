@@ -166,6 +166,29 @@ type ApplyFriendListData struct {
 	Applytime    int64 `bson:"applytime"`
 	Oprationtime int64 `bson:"oprationtime"`
 }
+type Pet struct {
+	Account       string     `bson:"account"`
+	PetId         int32      `bson:"pet_id"`
+	PetLevel      int32      `bson:"pet_level"`
+	PetCurExp     int32      `bson:"pet_cur_exp"`
+	PetTotalExp   int32      `bson:"pet_total_exp"`
+	PetStarLevel  int32      `bson:"pet_star_level"`
+	Petmedallevel int32      `bson:"pet_medal_level"`
+	PetmedalNum   int32      `bson:"pet_medal_num"`
+	Petcard       PetcardNtf `bson:"pet_card"`
+	DressId       int32      `bson:"dress_id"`
+}
+type PetcardNtf []struct {
+	CardId  int32 `bson:"cardid"`
+	CardNum int32 `bson:"cardnum"`
+}
+
+type Chip struct {
+	Account  string `bson:"account"`
+	ChipId   int32  `bson:"chip_id"`
+	ChipType int32  `bson:"chip_type"`
+	ChipNum  int32  `bson:"chip_num"`
+}
 
 func init() {
 

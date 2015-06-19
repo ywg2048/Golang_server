@@ -27,7 +27,11 @@ func petReportHandle(
 			pet_db.PetLevel,
 			pet_db.PetCurExp,
 			pet_db.PetTotalExp,
-			pet_db.PetStarLevel))
+			pet_db.PetStarLevel,
+			pet_db.Petmedallevel,
+			pet_db.PetmedalNum,
+			pet_db.DressId,
+		))
 
 		//添加pet_ntf到res_list中
 		makePetNtf(pet_list, res_list)
@@ -47,7 +51,11 @@ func petReportHandle(
 		int32(1),
 		int32(0),
 		int32(0),
-		start_pet_star_level))
+		start_pet_star_level,
+		int32(1),
+		int32(150),
+		int32(2),
+	))
 
 	//添加pet_ntf到res_list中
 	makePetNtf(pet_list, res_list)

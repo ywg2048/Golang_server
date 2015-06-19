@@ -16,12 +16,21 @@ func getPetListHandle(
 		return makePetListResPkg(req, res_list, ret)
 	} else if ret == 0 {
 		var pet_list []*cspb.PetInfo
+
+		var cardNtf []*cspb.CSPetCardNtf
 		for _, db_info := range pet_db_list {
+			for i := range db_info.Petcard {
+
+			}
 			pet_list = append(pet_list, makePet(db_info.PetId,
 				db_info.PetLevel,
 				db_info.PetCurExp,
 				db_info.PetTotalExp,
-				db_info.PetStarLevel))
+				db_info.PetStarLevel,
+				db_info.Petmedallevel,
+				db_info.PetmedalNum,
+				db_info.DressId,
+			))
 		}
 		//添加pet_ntf到res_list中
 		makePetNtf(pet_list, res_list)

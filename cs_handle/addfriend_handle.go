@@ -4,16 +4,16 @@ import (
 	// "fmt"
 	"github.com/astaxie/beego"
 	// "time"
-	// models "tuojie.com/piggo/quickstart.git/models"
+	models "tuojie.com/piggo/quickstart.git/models"
 )
 import cspb "protocol"
 
 import proto "code.google.com/p/goprotobuf/proto"
 
 // import db "tuojie.com/piggo/quickstart.git/db/collection"
-// import "labix.org/v2/mgo/bson"
+import "labix.org/v2/mgo/bson"
 
-// import db_session "tuojie.com/piggo/quickstart.git/db/session"
+import db_session "tuojie.com/piggo/quickstart.git/db/session"
 
 func AddFriendHandle(
 	req *cspb.CSPkg,
@@ -30,6 +30,7 @@ func AddFriendHandle(
 	var player models.Player
 	err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
 
+	beego.Info(err)
 	res_data := new(cspb.CSAddFriendRes)
 	*res_data = cspb.CSAddFriendRes{
 		Ret:      proto.Int32(ret),

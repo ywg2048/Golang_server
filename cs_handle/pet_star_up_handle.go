@@ -85,7 +85,11 @@ func petStarUpHandle(
 		pet_db.PetLevel,
 		pet_db.PetCurExp,
 		pet_db.PetTotalExp,
-		pet_db.PetStarLevel+int32(1)))
+		pet_db.PetStarLevel+int32(1),
+		pet_db.Petmedallevel,
+		pet_db.PetmedalNum,
+		pet_db.DressId,
+	))
 	db.SetPetInfo(res_list.GetSAccount(),
 		pet_db.PetId, pet_db.PetLevel,
 		pet_db.PetCurExp, pet_db.PetTotalExp, pet_db.PetStarLevel+int32(1))
