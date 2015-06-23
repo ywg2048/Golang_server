@@ -14,6 +14,7 @@ import cspb "protocol"
 // import "labix.org/v2/mgo/bson"
 
 // import db_session "tuojie.com/piggo/quickstart.git/db/session"
+import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func FriendmessageListHandle(
 	req *cspb.CSPkg,
@@ -23,17 +24,15 @@ func FriendmessageListHandle(
 	beego.Info(req_data)
 	ret := int32(1)
 	var Friendntf []*cspb.CSFriendNtf
-	Friendntf = append(Friendntf, makeFriendntf(int32(10073), int32(8), "小明"))
-	Friendntf = append(Friendntf, makeFriendntf(int32(10074), int32(8), "小红"))
-	Friendntf = append(Friendntf, makeFriendntf(int32(10075), int32(8), "小张"))
-	Friendntf = append(Friendntf, makeFriendntf(int32(10076), int32(8), "小王"))
-	Friendntf = append(Friendntf, makeFriendntf(int32(10077), int32(8), "小静"))
+	for i := range resmgr.FriendntftestData.GetItems() {
+		Friendntf = append(Friendntf, makeFriendntf(resmgr.FriendntftestData.GetItems()[i].GetFriendId(), resmgr.FriendntftestData.GetItems()[i].GetStarId(), resmgr.FriendntftestData.GetItems()[i].GetName()))
+	}
 	var FriendmessagelistNtf []*cspb.CSFriendmessagelistNtf
-	FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(1), Friendntf, int32(0), "", int32(12), int32(1)))
-	FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(2), Friendntf, int32(1), "红色", int32(12), int32(2)))
-	FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(1), Friendntf, int32(0), "", int32(12), int32(3)))
-	FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), Friendntf, int32(1), "红色", int32(12), int32(4)))
-	FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(3), Friendntf, int32(0), "", int32(0), int32(5)))
+	for j := range resmgr.FriendmessagelisttestData.GetItems() {
+		FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(resmgr.FriendmessagelisttestData.GetItems()[j].GetMessageType(), resmgr.FriendmessagelisttestData.GetItems()[j].GetElementType(),
+			Friendntf, resmgr.FriendmessagelisttestData.GetItems()[j].GetCardId(), resmgr.FriendmessagelisttestData.GetItems()[j].GetCardColor(), resmgr.FriendmessagelisttestData.GetItems()[j].GetElementNum(),
+			resmgr.FriendmessagelisttestData.GetItems()[j].GetMessageId()))
+	}
 	uid := int32(2885377)
 	res_data := new(cspb.CSFriendmessageListRes)
 	*res_data = cspb.CSFriendmessageListRes{

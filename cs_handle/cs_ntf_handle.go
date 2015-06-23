@@ -217,26 +217,16 @@ func makefriendlist(FriendListId int32, Playerid int32, Name string, Starid int3
 	return friendlist_ntf
 }
 
-func makeAnimalNtf(AnimalId int32, Produce int32, AnimalLevel int32, MyFriendNtf []*cspb.CSMyFriendNtf) *cspb.CSAnimalNtf {
+func makeAnimalNtf(AnimalId int32, Status int32) *cspb.CSAnimalNtf {
 	animal_ntf := new(cspb.CSAnimalNtf)
 	*animal_ntf = cspb.CSAnimalNtf{
 
-		AnimalId:    proto.Int32(AnimalId),
-		Produce:     proto.Int32(Produce),
-		AnimalLevel: proto.Int32(AnimalLevel),
-		MyFriendNtf: MyFriendNtf,
+		AnimalId: proto.Int32(AnimalId),
+		Status:   proto.Int32(Status),
 	}
 	return animal_ntf
 }
-func makeMyFriendNtf(FriendId int32, Name string, StarId int32) *cspb.CSMyFriendNtf {
-	myfriend_ntf := new(cspb.CSMyFriendNtf)
-	*myfriend_ntf = cspb.CSMyFriendNtf{
-		FriendId: proto.Int32(FriendId),
-		Name:     proto.String(Name),
-		StarId:   proto.Int32(StarId),
-	}
-	return myfriend_ntf
-}
+
 func makeStarInfo(StarId int32, DressId int32) *cspb.CSStarInfo {
 	star_info := new(cspb.CSStarInfo)
 	*star_info = cspb.CSStarInfo{
@@ -253,4 +243,12 @@ func makeFriendStagentf(FriendId int32, Name string, Stage int32) *cspb.CSFriend
 		Stage:    proto.Int32(Stage),
 	}
 	return friendstage_ntf
+}
+func makeAchievementNtf(Achievementid int32, Status int32) *cspb.CSAchievementNtf {
+	achievement_ntf := new(cspb.CSAchievementNtf)
+	*achievement_ntf = cspb.CSAchievementNtf{
+		Achievementid: proto.Int32(Achievementid),
+		Status:        proto.Int32(Status),
+	}
+	return achievement_ntf
 }

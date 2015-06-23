@@ -137,9 +137,9 @@ items {
   Num: 1
   Name: "蒋班亚男碎片"
   Icon: "1"
-  CopperKeyRandom: 280
-  SilverKeyRandom: 400
-  GoldKeyRandom: 400
+  CopperKeyRandom: 364
+  SilverKeyRandom: 520
+  GoldKeyRandom: 520
   Version: "1.0.0"
 }
 items {
@@ -149,9 +149,9 @@ items {
   Num: 1
   Name: "奇妙碎片"
   Icon: "1"
-  CopperKeyRandom: 280
-  SilverKeyRandom: 400
-  GoldKeyRandom: 400
+  CopperKeyRandom: 364
+  SilverKeyRandom: 520
+  GoldKeyRandom: 520
   Version: "1.0.0"
 }
 items {
@@ -161,9 +161,9 @@ items {
   Num: 1
   Name: " 涛妮碎片"
   Icon: "1"
-  CopperKeyRandom: 280
-  SilverKeyRandom: 400
-  GoldKeyRandom: 400
+  CopperKeyRandom: 364
+  SilverKeyRandom: 520
+  GoldKeyRandom: 520
   Version: "1.0.0"
 }
 items {
@@ -173,9 +173,9 @@ items {
   Num: 1
   Name: "Tiber碎片"
   Icon: "1"
-  CopperKeyRandom: 280
-  SilverKeyRandom: 400
-  GoldKeyRandom: 400
+  CopperKeyRandom: 364
+  SilverKeyRandom: 520
+  GoldKeyRandom: 520
   Version: "1.0.0"
 }
 items {
@@ -185,9 +185,9 @@ items {
   Num: 1
   Name: "六毛碎片"
   Icon: "1"
-  CopperKeyRandom: 245
-  SilverKeyRandom: 350
-  GoldKeyRandom: 350
+  CopperKeyRandom: 318
+  SilverKeyRandom: 455
+  GoldKeyRandom: 455
   Version: "1.0.0"
 }
 items {
@@ -197,9 +197,9 @@ items {
   Num: 1
   Name: "CoCo碎片"
   Icon: "1"
-  CopperKeyRandom: 245
-  SilverKeyRandom: 350
-  GoldKeyRandom: 350
+  CopperKeyRandom: 318
+  SilverKeyRandom: 455
+  GoldKeyRandom: 455
   Version: "1.0.0"
 }
 items {
@@ -209,9 +209,9 @@ items {
   Num: 1
   Name: "妮妮碎片"
   Icon: "1"
-  CopperKeyRandom: 70
-  SilverKeyRandom: 100
-  GoldKeyRandom: 100
+  CopperKeyRandom: 91
+  SilverKeyRandom: 130
+  GoldKeyRandom: 130
   Version: "1.0.0"
 }
 items {
@@ -221,9 +221,9 @@ items {
   Num: 1
   Name: "皓皓碎片"
   Icon: "1"
-  CopperKeyRandom: 70
-  SilverKeyRandom: 100
-  GoldKeyRandom: 100
+  CopperKeyRandom: 91
+  SilverKeyRandom: 130
+  GoldKeyRandom: 130
   Version: "1.0.0"
 }
 items {
@@ -233,9 +233,9 @@ items {
   Num: 1
   Name: "春春碎片"
   Icon: "1"
-  CopperKeyRandom: 70
-  SilverKeyRandom: 100
-  GoldKeyRandom: 100
+  CopperKeyRandom: 91
+  SilverKeyRandom: 130
+  GoldKeyRandom: 130
   Version: "1.0.0"
 }
 items {
@@ -245,9 +245,9 @@ items {
   Num: 1
   Name: "杏儿碎片"
   Icon: "1"
-  CopperKeyRandom: 70
-  SilverKeyRandom: 100
-  GoldKeyRandom: 100
+  CopperKeyRandom: 91
+  SilverKeyRandom: 130
+  GoldKeyRandom: 130
   Version: "1.0.0"
 }
 items {
@@ -257,9 +257,9 @@ items {
   Num: 1
   Name: "涛涛碎片"
   Icon: "1"
-  CopperKeyRandom: 70
-  SilverKeyRandom: 100
-  GoldKeyRandom: 100
+  CopperKeyRandom: 91
+  SilverKeyRandom: 130
+  GoldKeyRandom: 130
   Version: "1.0.0"
 }
 items {
@@ -269,9 +269,9 @@ items {
   Num: 1
   Name: "轩轩碎片"
   Icon: "1"
-  CopperKeyRandom: 70
-  SilverKeyRandom: 100
-  GoldKeyRandom: 100
+  CopperKeyRandom: 91
+  SilverKeyRandom: 130
+  GoldKeyRandom: 130
   Version: "1.0.0"
 }
 items {
@@ -877,9 +877,9 @@ items {
   Num: 1
   Name: "安仔碎片"
   Icon: "1"
-  CopperKeyRandom: 105
-  SilverKeyRandom: 150
-  GoldKeyRandom: 150
+  CopperKeyRandom: 136
+  SilverKeyRandom: 195
+  GoldKeyRandom: 195
   Version: "1.0.4"
 }
 items {
@@ -889,9 +889,9 @@ items {
   Num: 1
   Name: "妮娜碎片"
   Icon: "1"
-  CopperKeyRandom: 140
-  SilverKeyRandom: 200
-  GoldKeyRandom: 200
+  CopperKeyRandom: 182
+  SilverKeyRandom: 260
+  GoldKeyRandom: 260
   Version: "1.0.4"
 }
 items {
@@ -901,9 +901,9 @@ items {
   Num: 1
   Name: "萌萌碎片"
   Icon: "1"
-  CopperKeyRandom: 140
-  SilverKeyRandom: 200
-  GoldKeyRandom: 200
+  CopperKeyRandom: 182
+  SilverKeyRandom: 260
+  GoldKeyRandom: 260
   Version: "1.0.4"
 }
 items {
@@ -913,8 +913,8 @@ items {
   Num: 1
   Name: "葱葱碎片"
   Icon: "1"
-  CopperKeyRandom: 70
-  SilverKeyRandom: 100
-  GoldKeyRandom: 100
+  CopperKeyRandom: 91
+  SilverKeyRandom: 130
+  GoldKeyRandom: 130
   Version: "1.0.4"
 }

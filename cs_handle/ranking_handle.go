@@ -16,6 +16,7 @@ import proto "code.google.com/p/goprotobuf/proto"
 // import "labix.org/v2/mgo/bson"
 
 // import db_session "tuojie.com/piggo/quickstart.git/db/session"
+import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func RankHandle(
 	req *cspb.CSPkg,
@@ -41,8 +42,8 @@ func RankHandle(
 		beego.Debug("查询数据库失败")
 	}
 	beego.Debug(ranking, cnt, err)
-	for i := range ranking {
-		res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Level, ranking[i].Medal, int32(i+1), int32(1), int32(8)))
+	for i := range resmgr.RankingtestData.GetItems() {
+		res_rank = append(res_rank, makeRank(resmgr.RankingtestData.GetItems()[i].GetUID(), resmgr.RankingtestData.GetItems()[i].GetName(), resmgr.RankingtestData.GetItems()[i].GetLevel(), resmgr.RankingtestData.GetItems()[i].GetMedalNum(), resmgr.RankingtestData.GetItems()[i].GetRankId(), resmgr.RankingtestData.GetItems()[i].GetMedalLevelID(), resmgr.RankingtestData.GetItems()[i].GetStarId()))
 	}
 	// switch req_data.GetType() {
 	// case "1":

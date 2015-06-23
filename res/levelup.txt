@@ -1,0 +1,54 @@
+items {
+  Level: 1
+  CardId: 1
+  Number: 10
+  GetNum: 10
+}
+items {
+  Level: 1
+  CardId: 2
+  Number: 20
+  GetNum: 20
+}
+items {
+  Level: 1
+  CardId: 3
+  Number: 30
+  GetNum: 10
+}
+items {
+  Level: 2
+  CardId: 1
+  Number: 10
+  GetNum: 10
+}
+items {
+  Level: 2
+  CardId: 2
+  Number: 20
+  GetNum: 20
+}
+items {
+  Level: 2
+  CardId: 3
+  Number: 30
+  GetNum: 20
+}
+items {
+  Level: 3
+  CardId: 1
+  Number: 10
+  GetNum: 10
+}
+items {
+  Level: 3
+  CardId: 2
+  Number: 20
+  GetNum: 20
+}
+items {
+  Level: 3
+  CardId: 3
+  Number: 30
+  GetNum: 20
+}

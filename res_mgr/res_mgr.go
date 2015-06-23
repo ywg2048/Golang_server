@@ -43,6 +43,15 @@ func Init() {
 	resLoadFile("star.bytes", &StarData)
 	resLoadFile("loadingtiplist.bytes", &LoadingtiplistData)
 	resLoadFile("updateconfigs.bytes", &UpdateconfigsData)
+	resLoadFile("dresstest.bytes", &DresstestData)
+	resLoadFile("achievementtest.bytes", &AchievementtestData)
+	resLoadFile("friendlisttest.bytes", &FriendlisttestData)
+	resLoadFile("friendmessagelisttest.bytes", &FriendmessagelisttestData)
+	resLoadFile("friendntftest.bytes", &FriendntftestData)
+	resLoadFile("friendstagetest.bytes", &FriendstagetestData)
+	resLoadFile("zootest.bytes", &ZootestData)
+	resLoadFile("rankingtest.bytes", &RankingtestData)
+
 } //>>>func
 
 var PetData resource.PetArray
@@ -56,5 +65,13 @@ var KeyvalueData resource.KeyvalueArray
 var StarData resource.StarArray
 var LoadingtiplistData resource.LoadingtiplistArray
 var UpdateconfigsData resource.UpdateconfigsArray
+var DresstestData resource.DresstestArray
+var AchievementtestData resource.AchievementtestArray
+var FriendlisttestData resource.FriendlisttsetArray
+var FriendmessagelisttestData resource.FriendmessagelisttestArray
+var FriendntftestData resource.FriendntftestArray
+var FriendstagetestData resource.FriendstagetestArray
+var ZootestData resource.ZootestArray
+var RankingtestData resource.RankingtestArray
 
 //>>>var

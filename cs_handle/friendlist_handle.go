@@ -14,6 +14,7 @@ import cspb "protocol"
 // import "labix.org/v2/mgo/bson"
 
 // import db_session "tuojie.com/piggo/quickstart.git/db/session"
+import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func FriendlistHandle(
 	req *cspb.CSPkg,
@@ -23,11 +24,11 @@ func FriendlistHandle(
 	beego.Info(req_data)
 	ret := int32(1)
 	var FriendListNtf []*cspb.CSFriendListNtf
-	FriendListNtf = append(FriendListNtf, makefriendlist(int32(1), int32(100073), "小明", int32(8), "春春", int32(25000), int32(1), "演唱会", int32(10), int32(150), int32(1), int32(20)))
-	FriendListNtf = append(FriendListNtf, makefriendlist(int32(2), int32(100074), "小红", int32(8), "春春", int32(30000), int32(1), "演唱会", int32(12), int32(150), int32(1), int32(20)))
-	FriendListNtf = append(FriendListNtf, makefriendlist(int32(3), int32(100075), "小王", int32(8), "春春", int32(35000), int32(1), "演唱会", int32(13), int32(150), int32(1), int32(20)))
-	FriendListNtf = append(FriendListNtf, makefriendlist(int32(4), int32(100076), "小张", int32(8), "春春", int32(28000), int32(1), "演唱会", int32(14), int32(150), int32(1), int32(20)))
-	FriendListNtf = append(FriendListNtf, makefriendlist(int32(5), int32(100077), "小静", int32(8), "春春", int32(27000), int32(1), "演唱会", int32(15), int32(150), int32(1), int32(20)))
+	for i := range resmgr.FriendlisttestData.GetItems() {
+		FriendListNtf = append(FriendListNtf, makefriendlist(resmgr.FriendlisttestData.GetItems()[i].GetID(), resmgr.FriendlisttestData.GetItems()[i].GetUID(), resmgr.FriendlisttestData.GetItems()[i].GetName(), resmgr.FriendlisttestData.GetItems()[i].GetStarId(), resmgr.FriendlisttestData.GetItems()[i].GetStarName(),
+			resmgr.FriendlisttestData.GetItems()[i].GetFighting(), resmgr.FriendlisttestData.GetItems()[i].GetDressID(), resmgr.FriendlisttestData.GetItems()[i].GetDressName(), resmgr.FriendlisttestData.GetItems()[i].GetLevel(),
+			resmgr.FriendlisttestData.GetItems()[i].GetMedal(), resmgr.FriendlisttestData.GetItems()[i].GetMedalLevelId(), resmgr.FriendlisttestData.GetItems()[i].GetStagelevel()))
+	}
 
 	res_data := new(cspb.CSFriendlistRes)
 	*res_data = cspb.CSFriendlistRes{

@@ -1,0 +1,30 @@
+items {
+  Id: 0
+  Price: 1
+  Unit: "$"
+  Diamond: 60
+}
+items {
+  Id: 1
+  Price: 3
+  Unit: "$"
+  Diamond: 200
+  PreDesc: "Gift"
+  Desc: "x20"
+}
+items {
+  Id: 2
+  Price: 5
+  Unit: "$"
+  Diamond: 400
+  PreDesc: "Gift"
+  Desc: "x100"
+}
+items {
+  Id: 3
+  Price: 21
+  Unit: "$"
+  Diamond: 1920
+  PreDesc: "Gift"
+  Desc: "x660"
+}

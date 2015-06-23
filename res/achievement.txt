@@ -1,0 +1,45 @@
+items {
+  Id: 1
+  Exp: 100
+  Diamond: 20
+  Title: "升级达人"
+  Total: 10
+  starnum: 3
+  Desc: "升到10级"
+}
+items {
+  Id: 2
+  Exp: 200
+  Diamond: 40
+  Title: "升级达人"
+  Total: 15
+  starnum: 3
+  Desc: "升到15级"
+}
+items {
+  Id: 3
+  Exp: 400
+  Diamond: 80
+  Title: "升级达人"
+  Total: 20
+  starnum: 3
+  Desc: "升到20级"
+}
+items {
+  Id: 4
+  Exp: 800
+  Diamond: 160
+  Title: "升级达人"
+  Total: 25
+  starnum: 3
+  Desc: "升到25级"
+}
+items {
+  Id: 5
+  Exp: 1600
+  Diamond: 320
+  Title: "升级达人"
+  Total: 30
+  starnum: 3
+  Desc: "升到30级"
+}

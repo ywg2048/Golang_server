@@ -1,0 +1,21 @@
+items {
+  Id: 1
+  Diamond: 10
+  Gold: 500
+  Desc: "小袋金币"
+  StoreID: "com.tuojie.500gold"
+}
+items {
+  Id: 2
+  Diamond: 20
+  Gold: 2000
+  Desc: "中袋金币"
+  StoreID: "com.tuojie.2000gold"
+}
+items {
+  Id: 3
+  Diamond: 70
+  Gold: 10000
+  Desc: "大袋金币"
+  StoreID: "com.tuojie.10000gold"
+}

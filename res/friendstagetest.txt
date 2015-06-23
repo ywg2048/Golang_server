@@ -1,0 +1,30 @@
+items {
+  PlayerId: 100073
+  Name: "大广"
+  Stage: 10
+}
+items {
+  PlayerId: 100074
+  Name: "小敏"
+  Stage: 12
+}
+items {
+  PlayerId: 100075
+  Name: "小米"
+  Stage: 15
+}
+items {
+  PlayerId: 100076
+  Name: "阿牛"
+  Stage: 23
+}
+items {
+  PlayerId: 2885377
+  Name: "朱林"
+  Stage: 30
+}
+items {
+  PlayerId: 100077
+  Name: "小王"
+  Stage: 35
+}

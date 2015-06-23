@@ -1,0 +1,30 @@
+items {
+  Id: 1
+  Name: "初级套装"
+  UnlockLevel: 3
+}
+items {
+  Id: 2
+  Name: "中级套装"
+  UnlockLevel: 7
+}
+items {
+  Id: 3
+  Name: "高级套装"
+  UnlockLevel: 10
+}
+items {
+  Id: 4
+  Name: "白银套装"
+  UnlockLevel: 15
+}
+items {
+  Id: 5
+  Name: "黄金套装"
+  UnlockLevel: 22
+}
+items {
+  Id: 6
+  Name: "白金套装"
+  UnlockLevel: 26
+}

@@ -10,19 +10,19 @@ import db_session "tuojie.com/piggo/quickstart.git/db/session"
 import "fmt"
 
 type Pet struct {
-	Account       string     `bson:"account"`
-	PetId         int32      `bson:"pet_id"`
-	PetLevel      int32      `bson:"pet_level"`
-	PetCurExp     int32      `bson:"pet_cur_exp"`
-	PetTotalExp   int32      `bson:"pet_total_exp"`
-	PetStarLevel  int32      `bson:"pet_star_level"`
-	Petmedallevel int32      `bson:"pet_medal_level"`
-	PetmedalNum   int32      `bson:"pet_medal_num"`
-	Petcard       PetcardNtf `bson:"pet_card"`
-	DressId       int32      `bson:"dress_id"`
+	Account       string        `bson:"account"`
+	PetId         int32         `bson:"pet_id"`
+	PetLevel      int32         `bson:"pet_level"`
+	PetCurExp     int32         `bson:"pet_cur_exp"`
+	PetTotalExp   int32         `bson:"pet_total_exp"`
+	PetStarLevel  int32         `bson:"pet_star_level"`
+	Petmedallevel int32         `bson:"pet_medal_level"`
+	PetmedalNum   int32         `bson:"pet_medal_num"`
+	Petcard       []*PetcardNtf `bson:"pet_card"`
+	DressId       int32         `bson:"dress_id"`
 }
 
-type PetcardNtf []struct {
+type PetcardNtf struct {
 	CardId  int32 `bson:"cardid"`
 	CardNum int32 `bson:"cardnum"`
 }
@@ -76,6 +76,21 @@ func SetPetInfo(account string, pet_id int32,
 	beego.Debug("account:%s, pet_id:%d, pet_level:%d, pet_cur_exp:%d, pet_total_exp:%d, pet_star_level:%d",
 		account, pet_id, pet_level, pet_cur_exp, pet_total_exp, pet_star_level)
 
+	var Petcard []PetcardNtf
+	Petcard[0].CardId = 1
+	Petcard[0].CardNum = 20
+	Petcard[1].CardId = 1
+	Petcard[1].CardNum = 20
+	Petcard[2].CardId = 1
+	Petcard[2].CardNum = 20
+	Petcard[3].CardId = 1
+	Petcard[3].CardNum = 20
+	Petcard[4].CardId = 1
+	Petcard[4].CardNum = 20
+	Petcard[5].CardId = 1
+	Petcard[5].CardNum = 20
+	Petcard[6].CardId = 1
+	Petcard[6].CardNum = 20
 	c := db_session.DB("zoo").C("pet")
 	_, err := c.Upsert(bson.M{"account": account, "pet_id": pet_id},
 
@@ -86,7 +101,9 @@ func SetPetInfo(account string, pet_id int32,
 			"pet_star_level":  pet_star_level,
 			"pet_medal_level": int32(1),
 			"pet_medal_num":   int32(150),
-			"dress_id":        int32(2)}})
+			"dress_id":        int32(2),
+			"pet_card":        Petcard,
+		}})
 
 	if err != nil {
 		beego.Error("SetPetInfo fail err:%v", err)

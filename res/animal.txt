@@ -1,0 +1,450 @@
+items {
+  LevelId: 1
+  containment: 100
+  Prolificacy: 20
+  LevelUpGold: 100
+  AnimalId: 1
+  AnimalName: "大熊猫"
+  Introduction: "大熊猫"
+}
+items {
+  LevelId: 2
+  containment: 150
+  Prolificacy: 40
+  LevelUpGold: 200
+  AnimalId: 1
+  AnimalName: "大熊猫"
+  Introduction: "大熊猫"
+}
+items {
+  LevelId: 3
+  containment: 200
+  Prolificacy: 60
+  LevelUpGold: 300
+  AnimalId: 1
+  AnimalName: "大熊猫"
+  Introduction: "大熊猫"
+}
+items {
+  LevelId: 4
+  containment: 250
+  Prolificacy: 80
+  LevelUpGold: 400
+  AnimalId: 1
+  AnimalName: "大熊猫"
+  Introduction: "大熊猫"
+}
+items {
+  LevelId: 5
+  containment: 300
+  Prolificacy: 100
+  LevelUpGold: 500
+  AnimalId: 1
+  AnimalName: "大熊猫"
+  Introduction: "大熊猫"
+}
+items {
+  LevelId: 6
+  containment: 350
+  Prolificacy: 120
+  LevelUpGold: 600
+  AnimalId: 1
+  AnimalName: "大熊猫"
+  Introduction: "大熊猫"
+}
+items {
+  LevelId: 7
+  containment: 400
+  Prolificacy: 140
+  LevelUpGold: 700
+  AnimalId: 1
+  AnimalName: "大熊猫"
+  Introduction: "大熊猫"
+}
+items {
+  LevelId: 8
+  containment: 450
+  Prolificacy: 160
+  LevelUpGold: 800
+  AnimalId: 1
+  AnimalName: "大熊猫"
+  Introduction: "大熊猫"
+}
+items {
+  LevelId: 9
+  containment: 500
+  Prolificacy: 180
+  LevelUpGold: 900
+  AnimalId: 1
+  AnimalName: "大熊猫"
+  Introduction: "大熊猫"
+}
+items {
+  LevelId: 10
+  containment: 550
+  Prolificacy: 200
+  LevelUpGold: 1000
+  AnimalId: 1
+  AnimalName: "大熊猫"
+  Introduction: "大熊猫"
+}
+items {
+  LevelId: 1
+  containment: 100
+  Prolificacy: 20
+  LevelUpGold: 100
+  AnimalId: 2
+  AnimalName: "黄鼠狼"
+  Introduction: "黄鼠狼"
+}
+items {
+  LevelId: 2
+  containment: 150
+  Prolificacy: 40
+  LevelUpGold: 200
+  AnimalId: 2
+  AnimalName: "黄鼠狼"
+  Introduction: "黄鼠狼"
+}
+items {
+  LevelId: 3
+  containment: 200
+  Prolificacy: 60
+  LevelUpGold: 300
+  AnimalId: 2
+  AnimalName: "黄鼠狼"
+  Introduction: "黄鼠狼"
+}
+items {
+  LevelId: 4
+  containment: 250
+  Prolificacy: 80
+  LevelUpGold: 400
+  AnimalId: 2
+  AnimalName: "黄鼠狼"
+  Introduction: "黄鼠狼"
+}
+items {
+  LevelId: 5
+  containment: 300
+  Prolificacy: 100
+  LevelUpGold: 500
+  AnimalId: 2
+  AnimalName: "黄鼠狼"
+  Introduction: "黄鼠狼"
+}
+items {
+  LevelId: 6
+  containment: 350
+  Prolificacy: 120
+  LevelUpGold: 600
+  AnimalId: 2
+  AnimalName: "黄鼠狼"
+  Introduction: "黄鼠狼"
+}
+items {
+  LevelId: 7
+  containment: 400
+  Prolificacy: 140
+  LevelUpGold: 700
+  AnimalId: 2
+  AnimalName: "黄鼠狼"
+  Introduction: "黄鼠狼"
+}
+items {
+  LevelId: 8
+  containment: 450
+  Prolificacy: 160
+  LevelUpGold: 800
+  AnimalId: 2
+  AnimalName: "黄鼠狼"
+  Introduction: "黄鼠狼"
+}
+items {
+  LevelId: 9
+  containment: 500
+  Prolificacy: 180
+  LevelUpGold: 900
+  AnimalId: 2
+  AnimalName: "黄鼠狼"
+  Introduction: "黄鼠狼"
+}
+items {
+  LevelId: 10
+  containment: 550
+  Prolificacy: 200
+  LevelUpGold: 1000
+  AnimalId: 2
+  AnimalName: "黄鼠狼"
+  Introduction: "黄鼠狼"
+}
+items {
+  LevelId: 1
+  containment: 100
+  Prolificacy: 20
+  LevelUpGold: 100
+  AnimalId: 3
+  AnimalName: "蛇"
+  Introduction: "蛇"
+}
+items {
+  LevelId: 2
+  containment: 150
+  Prolificacy: 40
+  LevelUpGold: 200
+  AnimalId: 3
+  AnimalName: "蛇"
+  Introduction: "蛇"
+}
+items {
+  LevelId: 3
+  containment: 200
+  Prolificacy: 60
+  LevelUpGold: 300
+  AnimalId: 3
+  AnimalName: "蛇"
+  Introduction: "蛇"
+}
+items {
+  LevelId: 4
+  containment: 250
+  Prolificacy: 80
+  LevelUpGold: 400
+  AnimalId: 3
+  AnimalName: "蛇"
+  Introduction: "蛇"
+}
+items {
+  LevelId: 5
+  containment: 300
+  Prolificacy: 100
+  LevelUpGold: 500
+  AnimalId: 3
+  AnimalName: "蛇"
+  Introduction: "蛇"
+}
+items {
+  LevelId: 6
+  containment: 350
+  Prolificacy: 120
+  LevelUpGold: 600
+  AnimalId: 3
+  AnimalName: "蛇"
+  Introduction: "蛇"
+}
+items {
+  LevelId: 7
+  containment: 400
+  Prolificacy: 140
+  LevelUpGold: 700
+  AnimalId: 3
+  AnimalName: "蛇"
+  Introduction: "蛇"
+}
+items {
+  LevelId: 8
+  containment: 450
+  Prolificacy: 160
+  LevelUpGold: 800
+  AnimalId: 3
+  AnimalName: "蛇"
+  Introduction: "蛇"
+}
+items {
+  LevelId: 9
+  containment: 500
+  Prolificacy: 180
+  LevelUpGold: 900
+  AnimalId: 3
+  AnimalName: "蛇"
+  Introduction: "蛇"
+}
+items {
+  LevelId: 10
+  containment: 550
+  Prolificacy: 200
+  LevelUpGold: 1000
+  AnimalId: 3
+  AnimalName: "蛇"
+  Introduction: "蛇"
+}
+items {
+  LevelId: 1
+  containment: 100
+  Prolificacy: 20
+  LevelUpGold: 100
+  AnimalId: 4
+  AnimalName: "老虎"
+  Introduction: "老虎"
+}
+items {
+  LevelId: 2
+  containment: 150
+  Prolificacy: 40
+  LevelUpGold: 200
+  AnimalId: 4
+  AnimalName: "老虎"
+  Introduction: "老虎"
+}
+items {
+  LevelId: 3
+  containment: 200
+  Prolificacy: 60
+  LevelUpGold: 300
+  AnimalId: 4
+  AnimalName: "老虎"
+  Introduction: "老虎"
+}
+items {
+  LevelId: 4
+  containment: 250
+  Prolificacy: 80
+  LevelUpGold: 400
+  AnimalId: 4
+  AnimalName: "老虎"
+  Introduction: "老虎"
+}
+items {
+  LevelId: 5
+  containment: 300
+  Prolificacy: 100
+  LevelUpGold: 500
+  AnimalId: 4
+  AnimalName: "老虎"
+  Introduction: "老虎"
+}
+items {
+  LevelId: 6
+  containment: 350
+  Prolificacy: 120
+  LevelUpGold: 600
+  AnimalId: 4
+  AnimalName: "老虎"
+  Introduction: "老虎"
+}
+items {
+  LevelId: 7
+  containment: 400
+  Prolificacy: 140
+  LevelUpGold: 700
+  AnimalId: 4
+  AnimalName: "老虎"
+  Introduction: "老虎"
+}
+items {
+  LevelId: 8
+  containment: 450
+  Prolificacy: 160
+  LevelUpGold: 800
+  AnimalId: 4
+  AnimalName: "老虎"
+  Introduction: "老虎"
+}
+items {
+  LevelId: 9
+  containment: 500
+  Prolificacy: 180
+  LevelUpGold: 900
+  AnimalId: 4
+  AnimalName: "老虎"
+  Introduction: "老虎"
+}
+items {
+  LevelId: 10
+  containment: 550
+  Prolificacy: 200
+  LevelUpGold: 1000
+  AnimalId: 4
+  AnimalName: "老虎"
+  Introduction: "老虎"
+}
+items {
+  LevelId: 1
+  containment: 100
+  Prolificacy: 20
+  LevelUpGold: 100
+  AnimalId: 5
+  AnimalName: "海豚"
+  Introduction: "海豚"
+}
+items {
+  LevelId: 2
+  containment: 150
+  Prolificacy: 40
+  LevelUpGold: 200
+  AnimalId: 5
+  AnimalName: "海豚"
+  Introduction: "海豚"
+}
+items {
+  LevelId: 3
+  containment: 200
+  Prolificacy: 60
+  LevelUpGold: 300
+  AnimalId: 5
+  AnimalName: "海豚"
+  Introduction: "海豚"
+}
+items {
+  LevelId: 4
+  containment: 250
+  Prolificacy: 80
+  LevelUpGold: 400
+  AnimalId: 5
+  AnimalName: "海豚"
+  Introduction: "海豚"
+}
+items {
+  LevelId: 5
+  containment: 300
+  Prolificacy: 100
+  LevelUpGold: 500
+  AnimalId: 5
+  AnimalName: "海豚"
+  Introduction: "海豚"
+}
+items {
+  LevelId: 6
+  containment: 350
+  Prolificacy: 120
+  LevelUpGold: 600
+  AnimalId: 5
+  AnimalName: "海豚"
+  Introduction: "海豚"
+}
+items {
+  LevelId: 7
+  containment: 400
+  Prolificacy: 140
+  LevelUpGold: 700
+  AnimalId: 5
+  AnimalName: "海豚"
+  Introduction: "海豚"
+}
+items {
+  LevelId: 8
+  containment: 450
+  Prolificacy: 160
+  LevelUpGold: 800
+  AnimalId: 5
+  AnimalName: "海豚"
+  Introduction: "海豚"
+}
+items {
+  LevelId: 9
+  containment: 500
+  Prolificacy: 180
+  LevelUpGold: 900
+  AnimalId: 5
+  AnimalName: "海豚"
+  Introduction: "海豚"
+}
+items {
+  LevelId: 10
+  containment: 550
+  Prolificacy: 200
+  LevelUpGold: 1000
+  AnimalId: 5
+  AnimalName: "海豚"
+  Introduction: "海豚"
+}

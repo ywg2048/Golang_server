@@ -23,6 +23,12 @@ func petReportHandle(
 
 	if ret_pet == 0 {
 		var pet_list []*cspb.PetInfo
+
+		var cardNtf []*cspb.CSPetCardNtf
+		for i := range pet_db.Petcard {
+			cardNtf = append(cardNtf, makecardNtf(pet_db.Petcard[i].CardId, pet_db.Petcard[i].CardNum))
+		}
+
 		pet_list = append(pet_list, makePet(pet_db.PetId,
 			pet_db.PetLevel,
 			pet_db.PetCurExp,
@@ -31,6 +37,7 @@ func petReportHandle(
 			pet_db.Petmedallevel,
 			pet_db.PetmedalNum,
 			pet_db.DressId,
+			cardNtf,
 		))
 
 		//添加pet_ntf到res_list中
@@ -47,6 +54,12 @@ func petReportHandle(
 		int32(0), int32(0), start_pet_star_level)
 
 	var pet_list []*cspb.PetInfo
+
+	var cardNtf []*cspb.CSPetCardNtf
+	for i := range pet_db.Petcard {
+		cardNtf = append(cardNtf, makecardNtf(pet_db.Petcard[i].CardId, pet_db.Petcard[i].CardNum))
+	}
+
 	pet_list = append(pet_list, makePet(pet_id,
 		int32(1),
 		int32(0),
@@ -55,6 +68,7 @@ func petReportHandle(
 		int32(1),
 		int32(150),
 		int32(2),
+		cardNtf,
 	))
 
 	//添加pet_ntf到res_list中

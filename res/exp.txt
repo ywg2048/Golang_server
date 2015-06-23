@@ -1,0 +1,36 @@
+items {
+  LevelId: 2
+  RequireExp: 1100
+}
+items {
+  LevelId: 3
+  RequireExp: 1200
+}
+items {
+  LevelId: 4
+  RequireExp: 1300
+}
+items {
+  LevelId: 5
+  RequireExp: 1400
+}
+items {
+  LevelId: 6
+  RequireExp: 1500
+}
+items {
+  LevelId: 7
+  RequireExp: 1600
+}
+items {
+  LevelId: 8
+  RequireExp: 1700
+}
+items {
+  LevelId: 9
+  RequireExp: 1800
+}
+items {
+  LevelId: 10
+  RequireExp: 1900
+}

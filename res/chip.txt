@@ -2,91 +2,91 @@ items {
   ChipId: 1
   Name: "蒋班亚男碎片"
   ChipType: 1
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   Image: 3
 }
 items {
   ChipId: 2
   Name: "奇妙碎片"
   ChipType: 2
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   Image: 4
 }
 items {
   ChipId: 3
   Name: " 涛妮碎片"
   ChipType: 3
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   Image: 1
 }
 items {
   ChipId: 4
   Name: "Tiber碎片"
   ChipType: 4
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   Image: 1
 }
 items {
   ChipId: 5
   Name: "六毛碎片"
   ChipType: 5
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   Image: 5
 }
 items {
   ChipId: 6
   Name: "CoCo碎片"
   ChipType: 6
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   Image: 8
 }
 items {
   ChipId: 7
   Name: "妮妮碎片"
   ChipType: 7
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   Image: 10
 }
 items {
   ChipId: 8
   Name: "皓皓碎片"
   ChipType: 8
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   Image: 6
 }
 items {
   ChipId: 9
   Name: "春春碎片"
   ChipType: 9
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   Image: 2
 }
 items {
   ChipId: 10
   Name: "杏儿碎片"
   ChipType: 10
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   Image: 1
 }
 items {
   ChipId: 11
   Name: "涛涛碎片"
   ChipType: 11
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   Image: 1
 }
 items {
   ChipId: 12
   Name: "轩轩碎片"
   ChipType: 12
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   Image: 1
 }
 items {
   ChipId: 13
   Name: "经验碎片1"
   ChipType: 0
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   ProvideExp: 100
   Image: 48
 }
@@ -94,7 +94,7 @@ items {
   ChipId: 14
   Name: "经验碎片2"
   ChipType: 0
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   ProvideExp: 300
   Image: 48
 }
@@ -102,7 +102,7 @@ items {
   ChipId: 15
   Name: "经验碎片3"
   ChipType: 0
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   ProvideExp: 500
   Image: 48
 }
@@ -110,7 +110,7 @@ items {
   ChipId: 16
   Name: "经验碎片4"
   ChipType: 0
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   ProvideExp: 800
   Image: 48
 }
@@ -118,7 +118,7 @@ items {
   ChipId: 17
   Name: "经验碎片5"
   ChipType: 0
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   ProvideExp: 1000
   Image: 48
 }
@@ -126,7 +126,7 @@ items {
   ChipId: 18
   Name: "经验碎片6"
   ChipType: 0
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   ProvideExp: 1300
   Image: 48
 }
@@ -134,7 +134,7 @@ items {
   ChipId: 19
   Name: "经验碎片7"
   ChipType: 0
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   ProvideExp: 1500
   Image: 48
 }
@@ -142,7 +142,7 @@ items {
   ChipId: 20
   Name: "经验碎片8"
   ChipType: 0
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   ProvideExp: 1800
   Image: 48
 }
@@ -150,7 +150,7 @@ items {
   ChipId: 21
   Name: "经验碎片9"
   ChipType: 0
-  Version: "1.0.0"
+  Version: "1.0.0.0"
   ProvideExp: 2000
   Image: 48
 }
@@ -158,27 +158,27 @@ items {
   ChipId: 22
   Name: "安仔碎片"
   ChipType: 13
-  Version: "1.0.4"
+  Version: "1.0.0.0"
   Image: 1
 }
 items {
   ChipId: 23
   Name: "妮娜碎片"
   ChipType: 14
-  Version: "1.0.4"
+  Version: "1.0.0.0"
   Image: 1
 }
 items {
   ChipId: 24
   Name: "萌萌碎片"
   ChipType: 15
-  Version: "1.0.4"
+  Version: "1.0.0.0"
   Image: 1
 }
 items {
   ChipId: 25
   Name: "葱葱碎片"
   ChipType: 16
-  Version: "1.0.4"
+  Version: "1.0.0.0"
   Image: 1
 }

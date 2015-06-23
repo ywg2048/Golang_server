@@ -14,6 +14,7 @@ import cspb "protocol"
 // import "labix.org/v2/mgo/bson"
 
 // import db_session "tuojie.com/piggo/quickstart.git/db/session"
+import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func FriendStageHandle(
 	req *cspb.CSPkg,
@@ -23,13 +24,9 @@ func FriendStageHandle(
 	beego.Info(req_data)
 	ret := int32(1)
 	var Friendstage []*cspb.CSFriendStageNtf
-	Friendstage = append(Friendstage, makeFriendStagentf(int32(100073), "大广", int32(10)))
-	Friendstage = append(Friendstage, makeFriendStagentf(int32(100074), "小敏", int32(12)))
-	Friendstage = append(Friendstage, makeFriendStagentf(int32(100075), "小米", int32(15)))
-	Friendstage = append(Friendstage, makeFriendStagentf(int32(100076), "阿牛", int32(23)))
-	Friendstage = append(Friendstage, makeFriendStagentf(int32(2885377), "朱林", int32(30)))
-	Friendstage = append(Friendstage, makeFriendStagentf(int32(100077), "小王", int32(35)))
-
+	for i := range resmgr.FriendstagetestData.GetItems() {
+		Friendstage = append(Friendstage, makeFriendStagentf(resmgr.FriendstagetestData.GetItems()[i].GetPlayerId(), resmgr.FriendstagetestData.GetItems()[i].GetName(), resmgr.FriendstagetestData.GetItems()[i].GetStage()))
+	}
 	res_data := new(cspb.CSFriendStageRes)
 	*res_data = cspb.CSFriendStageRes{
 		Friendstage: Friendstage,

@@ -1,0 +1,70 @@
+items {
+  ID: 1
+  UID: 100073
+  Name: "小明"
+  StarId: 8
+  StarName: "春春"
+  Fighting: 25000
+  DressID: 1
+  DressName: "初级套装"
+  Level: 10
+  Medal: 150
+  MedalLevelId: 1
+  Stagelevel: 20
+}
+items {
+  ID: 2
+  UID: 100074
+  Name: "小红"
+  StarId: 8
+  StarName: "春春"
+  Fighting: 30000
+  DressID: 1
+  DressName: "初级套装"
+  Level: 12
+  Medal: 150
+  MedalLevelId: 1
+  Stagelevel: 20
+}
+items {
+  ID: 3
+  UID: 100075
+  Name: "小王"
+  StarId: 8
+  StarName: "春春"
+  Fighting: 35000
+  DressID: 1
+  DressName: "初级套装"
+  Level: 13
+  Medal: 150
+  MedalLevelId: 1
+  Stagelevel: 20
+}
+items {
+  ID: 4
+  UID: 100076
+  Name: "小张"
+  StarId: 8
+  StarName: "春春"
+  Fighting: 28000
+  DressID: 1
+  DressName: "初级套装"
+  Level: 14
+  Medal: 150
+  MedalLevelId: 1
+  Stagelevel: 20
+}
+items {
+  ID: 5
+  UID: 100077
+  Name: "小静"
+  StarId: 8
+  StarName: "春春"
+  Fighting: 27000
+  DressID: 1
+  DressName: "初级套装"
+  Level: 15
+  Medal: 150
+  MedalLevelId: 1
+  Stagelevel: 20
+}

@@ -315,7 +315,17 @@ func processPet(
 	//自己没有该宠物，直接添加到pet_list
 	start_star_level := resmgr.PetData.GetItems()[pet_id-1].GetStartStarLevel()
 	if ret == 1 {
-		pet_list = append(pet_list, makePet(pet_id, 1, 0, 0, start_star_level, int32(1), int32(150), int32(2)))
+
+		var cardNtf []*cspb.CSPetCardNtf
+
+		cardNtf = append(cardNtf, makecardNtf(int32(1), int32(20)))
+		cardNtf = append(cardNtf, makecardNtf(int32(2), int32(20)))
+		cardNtf = append(cardNtf, makecardNtf(int32(3), int32(20)))
+		cardNtf = append(cardNtf, makecardNtf(int32(4), int32(20)))
+		cardNtf = append(cardNtf, makecardNtf(int32(5), int32(20)))
+		cardNtf = append(cardNtf, makecardNtf(int32(6), int32(20)))
+
+		pet_list = append(pet_list, makePet(pet_id, 1, 0, 0, start_star_level, int32(1), int32(150), int32(2), cardNtf))
 		if num == 1 {
 			//增加的数量只有一个，直接返回啦
 			return pet_list, chip_list
@@ -391,8 +401,17 @@ func processChip(
 
 			//加上对应的宠物到pet_list
 			pet_star_level := resmgr.PetData.GetItems()[res_chip.GetChipType()-1].GetStartStarLevel()
+
+			var cardNtf []*cspb.CSPetCardNtf
+
+			cardNtf = append(cardNtf, makecardNtf(int32(1), int32(20)))
+			cardNtf = append(cardNtf, makecardNtf(int32(2), int32(20)))
+			cardNtf = append(cardNtf, makecardNtf(int32(3), int32(20)))
+			cardNtf = append(cardNtf, makecardNtf(int32(4), int32(20)))
+			cardNtf = append(cardNtf, makecardNtf(int32(5), int32(20)))
+			cardNtf = append(cardNtf, makecardNtf(int32(6), int32(20)))
 			pet_list = append(pet_list, makePet(res_chip.GetChipType(),
-				1, 0, 0, pet_star_level, int32(1), int32(150), int32(2)))
+				1, 0, 0, pet_star_level, int32(1), int32(150), int32(2), cardNtf))
 		}
 	}
 

@@ -95,6 +95,10 @@ func petLevelUpHandle(
 	var pet_list []*cspb.PetInfo
 	new_pet := petLevelUp(req, &pet_db)
 	//if new_pet != pet_db {
+	var cardNtf []*cspb.CSPetCardNtf
+	for i := range pet_db.Petcard {
+		cardNtf = append(cardNtf, makecardNtf(pet_db.Petcard[i].CardId, pet_db.Petcard[i].CardNum))
+	}
 	pet_list = append(pet_list, makePet(new_pet.PetId,
 		new_pet.PetLevel,
 		new_pet.PetCurExp,
@@ -103,6 +107,7 @@ func petLevelUpHandle(
 		new_pet.Petmedallevel,
 		new_pet.PetmedalNum,
 		new_pet.DressId,
+		cardNtf,
 	))
 	db.SetPetInfo(res_list.GetSAccount(),
 		new_pet.PetId, new_pet.PetLevel,

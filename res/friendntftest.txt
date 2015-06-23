@@ -1,0 +1,25 @@
+items {
+  FriendId: 10073
+  StarId: 8
+  Name: "小明"
+}
+items {
+  FriendId: 10074
+  StarId: 8
+  Name: "小红"
+}
+items {
+  FriendId: 10075
+  StarId: 8
+  Name: "小张"
+}
+items {
+  FriendId: 10076
+  StarId: 8
+  Name: "小王"
+}
+items {
+  FriendId: 10077
+  StarId: 8
+  Name: "小静"
+}

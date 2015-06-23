@@ -1,0 +1,24 @@
+items {
+  Achievementid: 1
+  Status: 1
+}
+items {
+  Achievementid: 2
+  Status: 1
+}
+items {
+  Achievementid: 3
+  Status: 1
+}
+items {
+  Achievementid: 4
+  Status: 0
+}
+items {
+  Achievementid: 5
+  Status: 0
+}
+items {
+  Achievementid: 6
+  Status: 0
+}

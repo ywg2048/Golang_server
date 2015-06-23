@@ -1,0 +1,37 @@
+items {
+  MessageType: 1
+  ElementType: 1
+  CardId: 0
+  ElementNum: 12
+  MessageId: 1
+}
+items {
+  MessageType: 1
+  ElementType: 2
+  CardId: 1
+  CardColor: "红色"
+  ElementNum: 12
+  MessageId: 2
+}
+items {
+  MessageType: 2
+  ElementType: 1
+  CardId: 0
+  ElementNum: 12
+  MessageId: 3
+}
+items {
+  MessageType: 2
+  ElementType: 2
+  CardId: 1
+  CardColor: "红色"
+  ElementNum: 12
+  MessageId: 4
+}
+items {
+  MessageType: 2
+  ElementType: 3
+  CardId: 0
+  ElementNum: 0
+  MessageId: 5
+}

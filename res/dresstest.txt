@@ -1,0 +1,16 @@
+items {
+  StarId: 9
+  DressId: 1
+}
+items {
+  StarId: 8
+  DressId: 2
+}
+items {
+  StarId: 11
+  DressId: 3
+}
+items {
+  StarId: 12
+  DressId: 4
+}

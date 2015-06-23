@@ -20,7 +20,7 @@ func getPetListHandle(
 		var cardNtf []*cspb.CSPetCardNtf
 		for _, db_info := range pet_db_list {
 			for i := range db_info.Petcard {
-
+				cardNtf = append(cardNtf, makecardNtf(db_info.Petcard[i].CardId, db_info.Petcard[i].CardNum))
 			}
 			pet_list = append(pet_list, makePet(db_info.PetId,
 				db_info.PetLevel,
@@ -30,6 +30,7 @@ func getPetListHandle(
 				db_info.Petmedallevel,
 				db_info.PetmedalNum,
 				db_info.DressId,
+				cardNtf,
 			))
 		}
 		//添加pet_ntf到res_list中

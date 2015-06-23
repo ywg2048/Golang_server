@@ -80,7 +80,10 @@ func petStarUpHandle(
 		int32(cspb.ChangeType_Deduct)))
 
 	var pet_list []*cspb.PetInfo
-
+	var cardNtf []*cspb.CSPetCardNtf
+	for i := range pet_db.Petcard {
+		cardNtf = append(cardNtf, makecardNtf(pet_db.Petcard[i].CardId, pet_db.Petcard[i].CardNum))
+	}
 	pet_list = append(pet_list, makePet(pet_db.PetId,
 		pet_db.PetLevel,
 		pet_db.PetCurExp,
@@ -89,6 +92,7 @@ func petStarUpHandle(
 		pet_db.Petmedallevel,
 		pet_db.PetmedalNum,
 		pet_db.DressId,
+		cardNtf,
 	))
 	db.SetPetInfo(res_list.GetSAccount(),
 		pet_db.PetId, pet_db.PetLevel,

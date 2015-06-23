@@ -14,6 +14,7 @@ import cspb "protocol"
 // import "labix.org/v2/mgo/bson"
 
 // import db_session "tuojie.com/piggo/quickstart.git/db/session"
+import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func ZooHandle(
 	req *cspb.CSPkg,
@@ -23,15 +24,10 @@ func ZooHandle(
 	beego.Info(req_data)
 	ret := int32(1)
 
-	var MyFriendNtf []*cspb.CSMyFriendNtf
-	MyFriendNtf = append(MyFriendNtf, makeMyFriendNtf(int32(10073), "大广", int32(8)))
-	MyFriendNtf = append(MyFriendNtf, makeMyFriendNtf(int32(10074), "小红", int32(8)))
-	MyFriendNtf = append(MyFriendNtf, makeMyFriendNtf(int32(10075), "小张", int32(8)))
-
 	var AnimalNtf []*cspb.CSAnimalNtf
-	AnimalNtf = append(AnimalNtf, makeAnimalNtf(int32(1), int32(100), int32(10), MyFriendNtf))
-	AnimalNtf = append(AnimalNtf, makeAnimalNtf(int32(2), int32(100), int32(10), MyFriendNtf))
-	AnimalNtf = append(AnimalNtf, makeAnimalNtf(int32(3), int32(100), int32(10), MyFriendNtf))
+	for i := range resmgr.ZootestData.GetItems() {
+		AnimalNtf = append(AnimalNtf, makeAnimalNtf(resmgr.ZootestData.GetItems()[i].GetAnimalId(), resmgr.ZootestData.GetItems()[i].GetStatus()))
+	}
 
 	res_data := new(cspb.CSZooRes)
 

@@ -15,6 +15,8 @@ import cspb "protocol"
 
 // import db_session "tuojie.com/piggo/quickstart.git/db/session"
 
+import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
+
 func DressHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
@@ -26,11 +28,9 @@ func DressHandle(
 	res_data := new(cspb.CSDressRes)
 	starId := int32(1)
 	var StarInfo []*cspb.CSStarInfo
-	StarInfo = append(StarInfo, makeStarInfo(int32(9), int32(1)))
-	StarInfo = append(StarInfo, makeStarInfo(int32(8), int32(2)))
-	StarInfo = append(StarInfo, makeStarInfo(int32(11), int32(3)))
-	StarInfo = append(StarInfo, makeStarInfo(int32(12), int32(4)))
-
+	for i := range resmgr.DresstestData.GetItems() {
+		StarInfo = append(StarInfo, makeStarInfo(resmgr.DresstestData.GetItems()[i].GetStarId(), resmgr.DresstestData.GetItems()[i].GetDressId()))
+	}
 	playerId := int32(res_list.GetUid())
 	*res_data = cspb.CSDressRes{
 		StarId:   &starId,

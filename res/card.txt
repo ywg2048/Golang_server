@@ -1,0 +1,42 @@
+items {
+  Id: 1
+  Color: "Red"
+  CardName: "大象"
+  Total: 28
+  Price: 1
+}
+items {
+  Id: 2
+  Color: "White"
+  CardName: "猴子"
+  Total: 28
+  Price: 2
+}
+items {
+  Id: 3
+  Color: "Yellow"
+  CardName: "蛇"
+  Total: 28
+  Price: 3
+}
+items {
+  Id: 4
+  Color: "Blue"
+  CardName: "鲸鱼"
+  Total: 28
+  Price: 4
+}
+items {
+  Id: 5
+  Color: "Black"
+  CardName: "海豚"
+  Total: 28
+  Price: 5
+}
+items {
+  Id: 6
+  Color: "Green"
+  CardName: "长颈鹿"
+  Total: 28
+  Price: 6
+}

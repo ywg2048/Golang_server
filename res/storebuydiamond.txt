@@ -1,25 +1,108 @@
 items {
   Id: 1
-  Rmb: 1
-  Diamond: 1
+  Dollor: 1
+  RMB: 1
+  Diamond: 50
+  Desc: "小堆钻石"
+  StoreID: "com.tuojie.50diamod"
+  platform: "iOS"
 }
 items {
   Id: 2
-  Rmb: 60
-  Diamond: 60
+  Dollor: 4
+  RMB: 4
+  Diamond: 130
+  Desc: "小袋钻石"
+  StoreID: "com.tuojie.130diamod"
+  platform: "iOS"
 }
 items {
   Id: 3
-  Rmb: 120
-  Diamond: 120
+  Dollor: 9
+  RMB: 9
+  Diamond: 275
+  Desc: "大袋钻石"
+  StoreID: "com.tuojie.275diamod"
+  platform: "iOS"
 }
 items {
   Id: 4
-  Rmb: 180
-  Diamond: 180
+  Dollor: 19
+  RMB: 19
+  Diamond: 570
+  Desc: "小箱钻石"
+  StoreID: "com.tuojie.570diamod"
+  platform: "iOS"
 }
 items {
   Id: 5
-  Rmb: 280
-  Diamond: 280
+  Dollor: 39
+  RMB: 39
+  Diamond: 1500
+  Desc: "大箱钻石"
+  StoreID: "com.tuojie.1500diamod"
+  platform: "iOS"
+}
+items {
+  Id: 6
+  Dollor: 99
+  RMB: 99
+  Diamond: 4000
+  Desc: "卡车钻石"
+  StoreID: "com.tuojie.4000diamod"
+  platform: "iOS"
+}
+items {
+  Id: 7
+  Dollor: 1
+  RMB: 1
+  Diamond: 50
+  Desc: "小堆钻石"
+  StoreID: "com.tuojie.50diamod"
+  platform: "Android"
+}
+items {
+  Id: 8
+  Dollor: 4
+  RMB: 4
+  Diamond: 130
+  Desc: "小袋钻石"
+  StoreID: "com.tuojie.130diamod"
+  platform: "Android"
+}
+items {
+  Id: 9
+  Dollor: 9
+  RMB: 9
+  Diamond: 275
+  Desc: "大袋钻石"
+  StoreID: "com.tuojie.275diamod"
+  platform: "Android"
+}
+items {
+  Id: 10
+  Dollor: 19
+  RMB: 19
+  Diamond: 570
+  Desc: "小箱钻石"
+  StoreID: "com.tuojie.570diamod"
+  platform: "Android"
+}
+items {
+  Id: 11
+  Dollor: 39
+  RMB: 39
+  Diamond: 1500
+  Desc: "大箱钻石"
+  StoreID: "com.tuojie.1500diamod"
+  platform: "Android"
+}
+items {
+  Id: 12
+  Dollor: 99
+  RMB: 99
+  Diamond: 4000
+  Desc: "卡车钻石"
+  StoreID: "com.tuojie.4000diamod"
+  platform: "Android"
 }

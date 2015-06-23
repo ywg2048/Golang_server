@@ -48,7 +48,12 @@ func LevelUpHandle(
 	_err := c.Find(bson.M{"account": res_list.GetSAccount()}).All(&petlist)
 	beego.Info(_err)
 	var pet_list []*cspb.PetInfo
+
+	var cardNtf []*cspb.CSPetCardNtf
 	for j := range petlist {
+		for i := range petlist[j].Petcard {
+			cardNtf = append(cardNtf, makecardNtf(petlist[j].Petcard[i].CardId, petlist[j].Petcard[i].CardNum))
+		}
 		pet_list = append(pet_list, makePet(petlist[j].PetId,
 			petlist[j].PetLevel,
 			petlist[j].PetCurExp,
@@ -57,6 +62,7 @@ func LevelUpHandle(
 			petlist[j].Petmedallevel,
 			petlist[j].PetmedalNum,
 			petlist[j].DressId,
+			cardNtf,
 		))
 	}
 	res_data := new(cspb.CSLevelUpPageRes)

@@ -1,0 +1,23 @@
+items {
+  Id: 1
+  Diamond: 10
+  Solution: 500
+  Desc: "小瓶药水"
+  StoreID: "com.tuojie.500solution"
+  CountDown: 43200
+}
+items {
+  Id: 2
+  Diamond: 20
+  Solution: 2000
+  Desc: "中瓶药水"
+  StoreID: "com.tuojie.2000solution"
+}
+items {
+  Id: 3
+  Diamond: 70
+  Solution: 10000
+  Desc: "大瓶药水"
+  StoreID: "com.tuojie.10000solution"
+  CountDown: 604800
+}

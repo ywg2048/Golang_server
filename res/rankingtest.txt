@@ -1,0 +1,54 @@
+items {
+  UID: 100073
+  Name: "大广"
+  Level: 5
+  MedalNum: 100
+  RankId: 6
+  MedalLevelID: 1
+  StarId: 8
+}
+items {
+  UID: 100074
+  Name: "小敏"
+  Level: 8
+  MedalNum: 250
+  RankId: 2
+  MedalLevelID: 1
+  StarId: 8
+}
+items {
+  UID: 2885377
+  Name: "朱林"
+  Level: 10
+  MedalNum: 300
+  RankId: 1
+  MedalLevelID: 1
+  StarId: 8
+}
+items {
+  UID: 100075
+  Name: "小王"
+  Level: 5
+  MedalNum: 120
+  RankId: 5
+  MedalLevelID: 1
+  StarId: 8
+}
+items {
+  UID: 100076
+  Name: "小明"
+  Level: 6
+  MedalNum: 150
+  RankId: 4
+  MedalLevelID: 1
+  StarId: 8
+}
+items {
+  UID: 100077
+  Name: "小张"
+  Level: 7
+  MedalNum: 180
+  RankId: 3
+  MedalLevelID: 1
+  StarId: 8
+}

@@ -1,0 +1,40 @@
+items {
+  AnimalId: 1
+  Status: 1
+}
+items {
+  AnimalId: 2
+  Status: 1
+}
+items {
+  AnimalId: 3
+  Status: 1
+}
+items {
+  AnimalId: 4
+  Status: 1
+}
+items {
+  AnimalId: 5
+  Status: 1
+}
+items {
+  AnimalId: 6
+  Status: 1
+}
+items {
+  AnimalId: 7
+  Status: 0
+}
+items {
+  AnimalId: 8
+  Status: 0
+}
+items {
+  AnimalId: 9
+  Status: 0
+}
+items {
+  AnimalId: 10
+  Status: 0
+}
