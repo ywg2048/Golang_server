@@ -32,7 +32,6 @@ func resLoadFile(file string, pb proto.Message) {
 
 //带>>>的注释不要删掉,自动添加代码的工具需要
 func Init() {
-
 	resLoadFile("pet.bytes", &PetData)
 	resLoadFile("chip.bytes", &ChipData)
 	resLoadFile("randomgoods.bytes", &RandomgoodsData)
@@ -45,13 +44,12 @@ func Init() {
 	resLoadFile("updateconfigs.bytes", &UpdateconfigsData)
 	resLoadFile("dresstest.bytes", &DresstestData)
 	resLoadFile("achievementtest.bytes", &AchievementtestData)
-	resLoadFile("friendlisttest.bytes", &FriendlisttestData)
+	resLoadFile("friendlisttset.bytes", &FriendlisttestData)
 	resLoadFile("friendmessagelisttest.bytes", &FriendmessagelisttestData)
 	resLoadFile("friendntftest.bytes", &FriendntftestData)
 	resLoadFile("friendstagetest.bytes", &FriendstagetestData)
 	resLoadFile("zootest.bytes", &ZootestData)
 	resLoadFile("rankingtest.bytes", &RankingtestData)
-
 } //>>>func
 
 var PetData resource.PetArray
@@ -65,7 +63,9 @@ var KeyvalueData resource.KeyvalueArray
 var StarData resource.StarArray
 var LoadingtiplistData resource.LoadingtiplistArray
 var UpdateconfigsData resource.UpdateconfigsArray
+
 var DresstestData resource.DresstestArray
+
 var AchievementtestData resource.AchievementtestArray
 var FriendlisttestData resource.FriendlisttsetArray
 var FriendmessagelisttestData resource.FriendmessagelisttestArray

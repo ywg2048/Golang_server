@@ -65,16 +65,16 @@ func LevelUpHandle(
 			cardNtf,
 		))
 	}
-	res_data := new(cspb.CSLevelUpPageRes)
-	*res_data = cspb.CSLevelUpPageRes{
-		Petinfo: pet_list,
+	res_data := new(cspb.CSPetNtf)
+	*res_data = cspb.CSPetNtf{
+		PetList: pet_list,
 	}
 
 	res_pkg_body := new(cspb.CSBody)
 	*res_pkg_body = cspb.CSBody{
-		LevelUpPageRes: res_data,
+		PetNtf: res_data,
 	}
-	res_list = makeCSPkgList(int32(cspb.Command_kLevelUpPageRes),
+	res_list = makeCSPkgList(int32(cspb.Command_kPetNtf),
 		res_pkg_body, res_list)
 	return ret
 

@@ -77,10 +77,10 @@ func Init() {
 	rand.Init()
 
 	//resource 初始化
-	beego.Debug("init res_mgr succ")
 	res_mgr.Init()
+	beego.Debug("init res_mgr succ")
 
-	beego.Debug("******End main.Init******")
+	beego.Debug("******End main.Init******err_")
 }
 
 func Finish() {

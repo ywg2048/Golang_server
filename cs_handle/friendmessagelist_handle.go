@@ -23,6 +23,7 @@ func FriendmessageListHandle(
 	req_data := req.GetBody().GetFriendmessagelistReq()
 	beego.Info(req_data)
 	ret := int32(1)
+	//测试代码
 	var Friendntf []*cspb.CSFriendNtf
 	for i := range resmgr.FriendntftestData.GetItems() {
 		Friendntf = append(Friendntf, makeFriendntf(resmgr.FriendntftestData.GetItems()[i].GetFriendId(), resmgr.FriendntftestData.GetItems()[i].GetStarId(), resmgr.FriendntftestData.GetItems()[i].GetName()))
@@ -34,6 +35,19 @@ func FriendmessageListHandle(
 			resmgr.FriendmessagelisttestData.GetItems()[j].GetMessageId()))
 	}
 	uid := int32(2885377)
+	//正式代码
+	// c := db_session.DB("zoo").C("player")
+	// var player models.Player
+	// err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
+	// if err != nil {
+	// 	beego.Error(err)
+	// }
+
+	// for k := range player.FriendList {
+	// 	var players models.Player
+	// 	c.Find(bson.M{"uid": player.FriendList[k].Friendid}).One(&players)
+	// 	Friendntf = append(Friendntf, makeFriendntf(player.FriendList[k].Friendid, players.StarId, players.Name))
+	// }
 	res_data := new(cspb.CSFriendmessageListRes)
 	*res_data = cspb.CSFriendmessageListRes{
 		Uid:                  &uid,

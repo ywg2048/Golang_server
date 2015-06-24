@@ -3,7 +3,7 @@ package cs_handle
 import (
 	// "fmt"
 	"github.com/astaxie/beego"
-	// "time"
+	"time"
 	models "tuojie.com/piggo/quickstart.git/models"
 )
 import cspb "protocol"
@@ -28,8 +28,36 @@ func AddFriendHandle(
 
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
-	err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
+	//查找用户是否存在
+	err := c.Find(bson.M{"uid": friendId}).One(&player)
+	if err != nil {
+		//用户不存在
+		IsAdd = int32(0)
+	} else {
+		//用户存在
+		//查看是否是好友
+		var players models.Player
+		err_self := c.Find(bson.M{"uid": uid}).One(&players)
+		beego.Info(err_self)
+		for i := range players.FriendList {
+			if players.FriendList[i].Friendid == friendId {
+				//已经是好友或者已经申请好友
+				IsAdd = int32(0)
+				break
+			}
+		}
+	}
 
+	if IsAdd == int32(1) {
+
+		//自己的表
+		c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+			bson.M{"$set": bson.M{"FriendList.Friendid": friendId, "FriendList.IsActive": int32(0), "FriendList.Accepttime": int64(0)}})
+
+		//朋友的申请列表
+		c.Upsert(bson.M{"uid": friendId},
+			bson.M{"$set": bson.M{"ApplyFriendList.Applyuid": uid, "ApplyFriendList.IsAccept": int32(0), "ApplyFriendList.Isrefuse": int32(0), "ApplyFriendList.Applytime": time.Now().Unix(), "ApplyFriendList.Oprationtime": int64(0)}})
+	}
 	beego.Info(err)
 	res_data := new(cspb.CSAddFriendRes)
 	*res_data = cspb.CSAddFriendRes{

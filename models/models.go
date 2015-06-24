@@ -76,10 +76,11 @@ type Player struct {
 	Gold               int32                  `bson:"gold"`
 	Flower             int32                  `bson:"flower"`
 	Diamond            int32                  `bson:"diamond"`
+	StarId             int32                  `bson:"starid"`
 	Star               []*StarDate            `bson:"star"`
 	SolutionPool       int32                  `bson:"experience_pool"`
 	Medal              int32                  `bson:"medal"`
-	Cards              CardData               `bson:"cards"`
+	Cards              []*CardData            `bson:"cards"`
 	RegistTime         int64                  `bson:"regist_time"`
 	FriendList         []*FriendListData      `bson:"FriendList"`
 	ApplyFriendList    []*ApplyFriendListData `bson:"ApplyFriendList"`
@@ -92,6 +93,7 @@ type Player struct {
 	Money              *cspb.CSMoneyReq       `bson:"Money"`
 }
 type StarDate struct {
+	StarId    int32  `bson:"starid"`
 	Starname  string `bson:"starname"`
 	Level     int32  `bson:"level"`
 	Solution  int32  `bson:"experience"`

@@ -36,7 +36,9 @@ func makeCSPkgList(
 		pkg.String())
 	return pkg_list
 }
+func makeServerTimeList() {
 
+}
 func addAttrInt32(attr_id int32, value int32,
 	change_type int32) []*cspb.AttrInfo {
 
