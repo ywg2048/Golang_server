@@ -69,18 +69,17 @@ type Achievement struct {
 /*mongo*/
 /*人物的属性*/
 type Player struct {
-	Saccount           bson.ObjectId          `bson:"_id"`
-	Caccount           string                 `bson:"c_account"`
-	Uid                int64                  `bson:"uid"`
-	Name               string                 `bson:"name"`
-	Gold               int32                  `bson:"gold"`
-	Flower             int32                  `bson:"flower"`
-	Diamond            int32                  `bson:"diamond"`
-	StarId             int32                  `bson:"starid"`
-	Star               []*StarDate            `bson:"star"`
-	SolutionPool       int32                  `bson:"experience_pool"`
-	Medal              int32                  `bson:"medal"`
-	Cards              []*CardData            `bson:"cards"`
+	Saccount     bson.ObjectId `bson:"_id"`
+	Caccount     string        `bson:"c_account"`
+	Uid          int64         `bson:"uid"`
+	Name         string        `bson:"name"`
+	Gold         int32         `bson:"gold"`
+	Flower       int32         `bson:"flower"`
+	Diamond      int32         `bson:"diamond"`
+	StarId       int32         `bson:"starid"`
+	Star         []*StarDate   `bson:"star"`
+	SolutionPool int32         `bson:"experience_pool"`
+
 	RegistTime         int64                  `bson:"regist_time"`
 	FriendList         []*FriendListData      `bson:"FriendList"`
 	ApplyFriendList    []*ApplyFriendListData `bson:"ApplyFriendList"`
@@ -93,19 +92,21 @@ type Player struct {
 	Money              *cspb.CSMoneyReq       `bson:"Money"`
 }
 type StarDate struct {
-	StarId    int32  `bson:"starid"`
-	Starname  string `bson:"starname"`
-	Level     int32  `bson:"level"`
-	Solution  int32  `bson:"experience"`
-	Dress     int32  `bson:"dress"`
-	Dressname string `bson:"dressname"`
-	Fighting  int32  `bson:"fighting"`
-	IsActive  int32  `bson:"is_active"` //是否选择
+	StarId       int32       `bson:"starid"`
+	Starname     string      `bson:"starname"`
+	Level        int32       `bson:"level"`
+	Solution     int32       `bson:"experience"`
+	Dress        int32       `bson:"dress"`
+	Dressname    string      `bson:"dressname"`
+	Fighting     int32       `bson:"fighting"`
+	IsActive     int32       `bson:"is_active"` //是否选择
+	Medal        int32       `bson:"medal"`
+	MedalLevelId int32       `bson:"medal_level_id"`
+	Cards        []*CardData `bson:"cards"`
 }
 type CardData struct {
-	WhiteCard  int32 `bson:"white_card"`
-	RedCard    int32 `bson:"red_card"`
-	YellowCard int32 `bson:"yellow_card"`
+	CardId  int32 `bson:"card_id"`
+	CardNum int32 `bson:"card_num"`
 }
 type RechargeData struct {
 	Uid          int64  `bson:"uid"`

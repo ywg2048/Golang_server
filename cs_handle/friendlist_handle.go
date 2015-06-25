@@ -32,20 +32,41 @@ func FriendlistHandle(
 			resmgr.FriendlisttestData.GetItems()[i].GetMedal(), resmgr.FriendlisttestData.GetItems()[i].GetMedalLevelId(), resmgr.FriendlisttestData.GetItems()[i].GetStagelevel()))
 	}
 	//正式代码
-	c := db_session.DB("zoo").C("pet")
+	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
 	for i := range player.FriendList {
-		var pet models.Pet
-		err := c.Find(bson.M{"account": res_list.GetSAccount()}).One(&pet)
-		if err != nil {
-			beego.Error(err)
-		}
 
 		var players models.Player
 		err_ := c.Find(bson.M{"uid": player.FriendList[i].Friendid}).One(&players)
-		FriendListNtf = append(FriendListNtf, makefriendlist(int32(i), player.FriendList[i].Friendid, players.Name, players.Starid, "春春", Fighting, DressId, Dress, Level, Medal, MedalLevelID, Stagelevel))
+		if err_ != nil {
+			beego.Error(err_)
+		}
+		//查找当前明星的信息,先给默认
+		StarName := resmgr.FriendlisttestData.GetItems()[1].GetStarName()
+		Fighting := resmgr.FriendlisttestData.GetItems()[1].GetFighting()
+		DressId := resmgr.FriendlisttestData.GetItems()[1].GetDressID()
+		Dress := resmgr.FriendlisttestData.GetItems()[1].GetDressName()
+		Level := resmgr.FriendlisttestData.GetItems()[1].GetLevel()
+		Medal := resmgr.FriendlisttestData.GetItems()[1].GetMedal()
+		MedalLevelID := resmgr.FriendlisttestData.GetItems()[1].GetMedalLevelId()
+		Stagelevel := resmgr.FriendlisttestData.GetItems()[i].GetStagelevel() //最大关卡有待商定
+		for j := range players.Star {
+			if players.Star[j].StarId == players.StarId {
+				StarName = players.Star[j].Starname
+				Fighting = players.Star[j].Fighting
+				DressId = players.Star[j].Dress
+				Dress = players.Star[j].Dressname
+				Level = players.Star[j].Level
+				Medal = players.Star[j].Medal
+				MedalLevelID = players.Star[j].MedalLevelId
 
+				break
+			}
+		}
+
+		FriendListNtf = append(FriendListNtf, makefriendlist(int32(i), player.FriendList[i].Friendid, players.Name, players.StarId, StarName, Fighting, DressId, Dress, Level, Medal, MedalLevelID, Stagelevel))
+		beego.Info("FriendListNtf is:", FriendListNtf)
 	}
 	res_data := new(cspb.CSFriendlistRes)
 	*res_data = cspb.CSFriendlistRes{
