@@ -106,9 +106,9 @@ func FriendmessageHandle(
 			for i := range req_data.GetElement() {
 				for j := range player.Star {
 					if player.StarId == player.Star[j].StarId {
-
-						c.Upsert(bson.M{"uid": uid},
-							bson.M{"$inc": bson.M{"star.cards": req_data.GetElement()[i].GetElementNum()}})
+						//将卡片添加到当前明星中
+						c.Upsert(bson.M{"uid": uid, "star.cards.card_id": req_data.GetElement()[i].GetCardId()},
+							bson.M{"$inc": bson.M{"star.cards.$.card_num": req_data.GetElement()[i].GetElementNum()}})
 					}
 				}
 			}
@@ -128,6 +128,7 @@ func FriendmessageHandle(
 	default:
 		//传的值有问题
 		beego.Error("value is Error")
+		isGive = int32(0)
 	}
 
 	res_data := new(cspb.CSFriendmessageRes)
