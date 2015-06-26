@@ -3,7 +3,9 @@ package cs_handle
 import (
 	// "fmt"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
 	"time"
+
 	models "tuojie.com/piggo/quickstart.git/models"
 )
 import cspb "protocol"
@@ -31,19 +33,20 @@ func FriendmessageHandle(
 
 	switch req_data.GetMessageType() {
 	case int32(1):
-		//赠送
+		//赠送,产生消息
 		switch req_data.GetElementType() {
 		case int32(1):
 			//红花
-			for i := range req_data.GetMessagesNtf() {
-				playerId := req_data.GetMessagesNtf()[i].GetPlayuid()
-				c.Find(bson.M{"uid": playerId}).One(&player)
-				player.Flower += req_data.GetElement()[1].GetElementNum()
-				c.Upsert(bson.M{"uid": playerId},
-					bson.M{"$set": bson.M{"flower": player.Flower}})
-			}
+			// for i := range req_data.GetMessagesNtf() {
+			// 	playerId := req_data.GetMessagesNtf()[i].GetPlayuid()
+			// 	c.Find(bson.M{"uid": playerId}).One(&player)
+			// 	player.Flower += req_data.GetElement()[1].GetElementNum()
+			// 	c.Upsert(bson.M{"uid": playerId},
+			// 		bson.M{"$set": bson.M{"flower": player.Flower}})
+			// }
+
 		case int32(2):
-			//卡片
+			// 卡片
 			for i := range req_data.GetMessagesNtf() {
 				playerId := req_data.GetMessagesNtf()[i].GetPlayuid()
 				c.Find(bson.M{"uid": playerId}).One(&player)
@@ -53,8 +56,8 @@ func FriendmessageHandle(
 							if player.Star[j].Cards[k].CardId == req_data.GetElement()[m].GetCardId() {
 								player.Star[j].Cards[k].CardNum += req_data.GetElement()[m].GetElementNum()
 								//别人的卡片增加
-								c.Upsert(bson.M{"uid": playerId},
-									bson.M{"$set": bson.M{"star.cards.card_num": player.Star[j].Cards[k].CardNum}})
+								// c.Upsert(bson.M{"uid": playerId},
+								// 	bson.M{"$set": bson.M{"star.cards.card_num": player.Star[j].Cards[k].CardNum}})
 								//自己的卡片减少
 								var player_self models.Player
 								c.Find(bson.M{"uid": uid}).One(&player_self)
@@ -75,6 +78,7 @@ func FriendmessageHandle(
 					}
 				}
 			}
+
 		case int32(3):
 			//加好友的消息
 
@@ -90,8 +94,34 @@ func FriendmessageHandle(
 			c.Upsert(bson.M{"uid": req_data.GetMessagesNtf()[1].GetPlayuid(), "FriendList.friendid": uid},
 				bson.M{"$set": bson.M{"FriendList.$.isActive": int32(1), "FriendList.$.accepttime": time.Now().Unix()}})
 		}
+
+		//生成消息存在mysql
+		c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
+
+		o := orm.NewOrm()
+		var messages models.Messages
+		messages.Fromuid = int32(res_list.GetUid())
+		messages.Fromname = player.Name
+		messages.FromStarId = player.StarId
+		messages.Time = time.Now().Unix()
+		messages.IsFinish = int32(0)
+		for i := range req_data.GetMessagesNtf() {
+			messages.Touid = req_data.GetMessagesNtf()[i].GetPlayuid()
+			messages.Messagetype = req_data.GetMessageType()
+			for j := range req_data.GetElement() {
+				messages.CardId = req_data.GetElement()[j].GetCardId()
+				messages.Number = req_data.GetElement()[j].GetElementNum()
+
+				id, err := o.Insert(&messages)
+				if err != nil {
+					beego.Error(err)
+				}
+				beego.Info(id)
+			}
+
+		}
 	case int32(2):
-		//接受
+		//接受，处理掉消息
 		switch req_data.GetElementType() {
 		case int32(1):
 			//红花

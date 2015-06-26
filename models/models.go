@@ -34,13 +34,17 @@ type Userscore struct {
 //好友消息
 type Messages struct {
 	Id          int32
-	Fromuid     int64
+	Uid         int32
+	Fromuid     int32
 	Touid       int32
-	Messagetype int32 /*0:好友申请加好友请求，1：好友申请赠送小红花请求，2：好友申请赠送卡片请求，3，好友赠送体力，4：好友赠送卡片*/
+	Messagetype int32 /*1：赠送 2,接收*/
 	Fromname    string
+	FromStarId  int32
 	Fromstar    string
-	Cardtype    string //卡片的颜色
+	ElementType int32 //1:小红花，2：卡片，3：加好友
+	CardId      int32
 	Number      int32
+	IsFinish    int32
 	Time        int64
 }
 
@@ -69,17 +73,16 @@ type Achievement struct {
 /*mongo*/
 /*人物的属性*/
 type Player struct {
-	Saccount     bson.ObjectId `bson:"_id"`
-	Caccount     string        `bson:"c_account"`
-	Uid          int64         `bson:"uid"`
-	Name         string        `bson:"name"`
-	Gold         int32         `bson:"gold"`
-	Flower       int32         `bson:"flower"`
-	Diamond      int32         `bson:"diamond"`
-	StarId       int32         `bson:"starid"`
-	Star         []*StarDate   `bson:"star"`
-	SolutionPool int32         `bson:"experience_pool"`
-
+	Saccount           bson.ObjectId          `bson:"_id"`
+	Caccount           string                 `bson:"c_account"`
+	Uid                int64                  `bson:"uid"`
+	Name               string                 `bson:"name"`
+	Gold               int32                  `bson:"gold"`
+	Flower             int32                  `bson:"flower"`
+	Diamond            int32                  `bson:"diamond"`
+	StarId             int32                  `bson:"starid"`
+	Star               []*StarDate            `bson:"star"`
+	SolutionPool       int32                  `bson:"experience_pool"`
 	RegistTime         int64                  `bson:"regist_time"`
 	FriendList         []*FriendListData      `bson:"FriendList"`
 	ApplyFriendList    []*ApplyFriendListData `bson:"ApplyFriendList"`
@@ -158,9 +161,10 @@ type RechargeFlowData struct {
 	Channel      string `bson:"channel"`
 }
 type FriendListData struct {
-	Friendid   int32 `bson:"friendid"`
-	IsActive   int32 `bson:"isActive"`
-	Accepttime int64 `bson:"accepttime"`
+	Friendid   int32  `bson:"friendid"`
+	FriendName string `bson:"friendname"`
+	IsActive   int32  `bson:"isActive"`
+	Accepttime int64  `bson:"accepttime"`
 }
 type ApplyFriendListData struct {
 	Applyuid     int32 `bson:"applyuid"`
