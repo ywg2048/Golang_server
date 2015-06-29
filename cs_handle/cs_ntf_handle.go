@@ -252,3 +252,11 @@ func makeAchievementNtf(Achievementid int32, Status int32) *cspb.CSAchievementNt
 	}
 	return achievement_ntf
 }
+func makemessageTipsntf(Messagetype int32, Number int32) *cspb.CSmessageTipsntf {
+	messageTips_ntf := new(cspb.CSmessageTipsntf)
+	*messageTips_ntf = cspb.CSmessageTipsntf{
+		Messagetype: proto.Int32(Messagetype),
+		Number:      proto.Int32(Number),
+	}
+	return messageTips_ntf
+}

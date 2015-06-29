@@ -105,9 +105,11 @@ func FriendmessageHandle(
 		messages.FromStarId = player.StarId
 		messages.Time = time.Now().Unix()
 		messages.IsFinish = int32(0)
+
 		for i := range req_data.GetMessagesNtf() {
 			messages.Touid = req_data.GetMessagesNtf()[i].GetPlayuid()
 			messages.Messagetype = req_data.GetMessageType()
+			messages.ElementType = req_data.GetElementType()
 			for j := range req_data.GetElement() {
 				messages.CardId = req_data.GetElement()[j].GetCardId()
 				messages.Number = req_data.GetElement()[j].GetElementNum()
@@ -142,6 +144,7 @@ func FriendmessageHandle(
 					}
 				}
 			}
+
 		case int32(3):
 			//加好友的消息
 			c.Find(bson.M{"uid": uid}).One(&player)
