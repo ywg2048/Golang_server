@@ -3,6 +3,7 @@ package cs_handle
 import (
 	// "fmt"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
 	"time"
 	models "tuojie.com/piggo/quickstart.git/models"
 )
@@ -57,6 +58,28 @@ func AddFriendHandle(
 		//朋友的申请列表
 		c.Upsert(bson.M{"uid": friendId},
 			bson.M{"$set": bson.M{"ApplyFriendList.Applyuid": uid, "ApplyFriendList.IsAccept": int32(0), "ApplyFriendList.Isrefuse": int32(0), "ApplyFriendList.Applytime": time.Now().Unix(), "ApplyFriendList.Oprationtime": int64(0)}})
+		//消息通知mysql表
+		var players models.Player
+		err_self := c.Find(bson.M{"uid": uid}).One(&players)
+		beego.Info(err_self)
+		o := orm.NewOrm()
+		var messages models.Messages
+		messages.Fromuid = int32(res_list.GetUid())
+		messages.Fromname = players.Name
+		messages.FromStarId = players.StarId
+		messages.Time = time.Now().Unix()
+		messages.IsFinish = int32(0)
+		messages.Messagetype = int32(0)
+		messages.ElementType = int32(3)
+		messages.Number = int32(1)
+		messages.Touid = friendId
+
+		id, err := o.Insert(&messages)
+		beego.Info(id, err)
+
+		if err == nil {
+			beego.Info("插入成功！", id)
+		}
 	}
 	beego.Info(err)
 	res_data := new(cspb.CSAddFriendRes)

@@ -20,7 +20,7 @@ import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 func DressHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
-	beego.Info("*********ZooHandle Start**********")
+	beego.Info("*********DressHandle Start**********")
 	req_data := req.GetBody().GetDressReq()
 	beego.Info(req_data)
 	ret := int32(1)
@@ -31,6 +31,11 @@ func DressHandle(
 	for i := range resmgr.DresstestData.GetItems() {
 		StarInfo = append(StarInfo, makeStarInfo(resmgr.DresstestData.GetItems()[i].GetStarId(), resmgr.DresstestData.GetItems()[i].GetDressId()))
 	}
+	//正式代码
+	// c := db_session.DB("zoo").C("player")
+	// var player models.Player
+	// c.Find(bson.M{"c_account":res_list.GetCAccount()}).One(&player)
+
 	playerId := int32(res_list.GetUid())
 	*res_data = cspb.CSDressRes{
 		StarId:   &starId,

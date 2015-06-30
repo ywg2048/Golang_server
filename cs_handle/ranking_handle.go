@@ -36,54 +36,55 @@ func RankHandle(
 	var qs orm.QuerySeter
 
 	var res_rank []*cspb.CSRankNtf
-	qs = orm.NewOrm().QueryTable("ranking").SetCond(cond).OrderBy("-Medal")
-	cnt, err := qs.All(&ranking)
-	if err != nil {
-		beego.Debug("查询数据库失败")
-	}
-	beego.Debug(ranking, cnt, err)
+	//测试代码
+
 	for i := range resmgr.RankingtestData.GetItems() {
 		res_rank = append(res_rank, makeRank(resmgr.RankingtestData.GetItems()[i].GetUID(), resmgr.RankingtestData.GetItems()[i].GetName(), resmgr.RankingtestData.GetItems()[i].GetLevel(), resmgr.RankingtestData.GetItems()[i].GetMedalNum(), resmgr.RankingtestData.GetItems()[i].GetRankId(), resmgr.RankingtestData.GetItems()[i].GetMedalLevelID(), resmgr.RankingtestData.GetItems()[i].GetStarId()))
 	}
-	// switch req_data.GetType() {
-	// case "1":
-	// 	//小伙伴排名
-	// 	qs = orm.NewOrm().QueryTable("ranking").SetCond(cond).OrderBy("-Medal")
-	// 	cnt, err := qs.All(&ranking)
-	// 	if err != nil {
-	// 		beego.Debug("查询数据库失败")
-	// 	}
-	// 	beego.Debug(ranking, cnt, err)
-	// 	for i := range ranking {
-	// 		res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Level, ranking[i].Medal, int32(i+1), int32(1)))
-	// 	}
-	// case "2":
-	// 	//明星排名
-	// 	cond = cond.And("Star_contains", "春春")
-	// 	qs = orm.NewOrm().QueryTable("ranking").SetCond(cond).OrderBy("-Medal")
-	// 	cnt, err := qs.All(&ranking)
-	// 	if err != nil {
-	// 		beego.Debug("查询数据库失败")
-	// 	}
-	// 	beego.Debug(ranking, cnt, err)
-	// 	for i := range ranking {
-	// 		res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Level, ranking[i].Medal, int32(i+1), int32(1)))
-	// 	}
 
-	// case "3":
-	// 	//好友排名（因现在还没有好友系统，先和上一样，好友系统完成后再改）
-	// 	for i := range ranking {
-	// 		cond = cond.And("Star_contains", "春春")
-	// 		qs = orm.NewOrm().QueryTable("ranking").SetCond(cond).OrderBy("-Medal")
-	// 		cnt, err := qs.All(&ranking)
-	// 		if err != nil {
-	// 			beego.Debug("查询数据库失败")
-	// 		}
-	// 		beego.Debug(ranking, cnt, err)
-	// 		res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Level, ranking[i].Medal, int32(i+1), int32(1)))
-	// 	}
+	//正式代码
+	StarId := req_data.GetStarid()
+	switch req_data.GetType() {
+	case "1":
+		//小伙伴排名
+		qs = orm.NewOrm().QueryTable("ranking").SetCond(cond).OrderBy("-Medal")
+		cnt, err := qs.All(&ranking)
+		if err != nil {
+			beego.Debug("查询数据库失败")
+		}
+		beego.Debug(ranking, cnt, err)
+		for i := range ranking {
+			res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Level, ranking[i].Medal, int32(i+1), ranking[i].MedalLevelId, StarId))
+		}
+	case "2":
+		//明星排名
+		cond = cond.And("StarId_contains", StarId)
+		qs = orm.NewOrm().QueryTable("ranking").SetCond(cond).OrderBy("-Medal")
+		cnt, err := qs.All(&ranking)
+		if err != nil {
+			beego.Debug("查询数据库失败")
+		}
+		beego.Debug(ranking, cnt, err)
+		for i := range ranking {
+			res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Level, ranking[i].Medal, int32(i+1), ranking[i].MedalLevelId, StarId))
+		}
 
-	// }
+	case "3":
+		//好友排名(查找朋友列表的数据)
+		var friendrank []models.FriendRank
+		cond = cond.And("Id__gte", 1)
+		qs = orm.NewOrm().QueryTable("friend_rank").SetCond(cond).OrderBy("-Medal")
+		cnt, err := qs.All(&friendrank)
+		if err != nil {
+			beego.Debug("查询数据库失败")
+		}
+		beego.Debug(friendrank, cnt, err)
+		for i := range friendrank {
+			res_rank = append(res_rank, makeRank(friendrank[i].Uid, friendrank[i].Name, friendrank[i].Level, friendrank[i].Medal, int32(i+1), friendrank[i].MedalLevelId, StarId))
+		}
+
+	}
+
 	SearchType := req_data.GetType()
 	beego.Info(res_rank)
 	ret = int32(1)

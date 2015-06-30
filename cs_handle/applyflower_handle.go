@@ -53,7 +53,8 @@ func ApplyFlowerHandle(
 
 			messages.Touid = req_data.GetApplyFlowerList()[i].GetFriendId()
 
-			o.Insert(&messages)
+			id, err := o.Insert(&messages)
+			beego.Info(id, err)
 		}
 	}
 	res_data := new(cspb.CSApplyFlowerRes)

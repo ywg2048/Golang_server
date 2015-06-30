@@ -50,15 +50,24 @@ type Messages struct {
 
 //排名
 type Ranking struct {
-	Id       int32
-	Uid      int32
-	Name     string
-	Medal    int32
-	Level    int32
-	Star     string
-	Ranktype int32 /*0:小伙伴排名，1:明星排名，2:好友排名*/
-	Title    int32 /*头衔的等级*/
-	Time     int64
+	Id           int32
+	Uid          int32
+	Name         string
+	Medal        int32
+	Level        int32
+	StarId       int32
+	MedalLevelId int32 /*头衔的等级*/
+	Time         int64
+}
+type FriendRank struct {
+	Id           int32
+	Uid          int32
+	Name         string
+	Medal        int32
+	Level        int32
+	StarId       int32
+	MedalLevelId int32 /*头衔的等级*/
+	Time         int64
 }
 
 /*成就*/
@@ -199,6 +208,6 @@ type Chip struct {
 
 func init() {
 
-	orm.RegisterModel(new(Messagecenter), new(Userscore), new(Userinfo), new(Ranking), new(Messages))
+	orm.RegisterModel(new(Messagecenter), new(Userscore), new(Userinfo), new(Ranking), new(Messages), new(FriendRank))
 
 }
