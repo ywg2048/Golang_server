@@ -71,17 +71,6 @@ func RankHandle(
 
 	case "3":
 		//好友排名(查找朋友列表的数据)
-		var friendrank []models.FriendRank
-		cond = cond.And("Id__gte", 1)
-		qs = orm.NewOrm().QueryTable("friend_rank").SetCond(cond).OrderBy("-Medal")
-		cnt, err := qs.All(&friendrank)
-		if err != nil {
-			beego.Debug("查询数据库失败")
-		}
-		beego.Debug(friendrank, cnt, err)
-		for i := range friendrank {
-			res_rank = append(res_rank, makeRank(friendrank[i].Uid, friendrank[i].Name, friendrank[i].Level, friendrank[i].Medal, int32(i+1), friendrank[i].MedalLevelId, StarId))
-		}
 
 	}
 

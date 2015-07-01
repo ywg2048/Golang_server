@@ -59,15 +59,10 @@ type Ranking struct {
 	MedalLevelId int32 /*头衔的等级*/
 	Time         int64
 }
-type FriendRank struct {
-	Id           int32
-	Uid          int32
-	Name         string
-	Medal        int32
-	Level        int32
-	StarId       int32
-	MedalLevelId int32 /*头衔的等级*/
-	Time         int64
+type Friend struct {
+	Id       int32
+	Uid      int32
+	FriendId int32
 }
 
 /*成就*/
@@ -102,19 +97,19 @@ type Player struct {
 	FreeSignInOperTime int64                  `bson:"free_signin_oper_time"`
 	Levels             []*cspb.CSStageNtf     `bson:"Levels"`
 	Money              *cspb.CSMoneyReq       `bson:"Money"`
+	Cards              []*CardData            `bson:"cards"`
 }
 type StarDate struct {
-	StarId       int32       `bson:"starid"`
-	Starname     string      `bson:"starname"`
-	Level        int32       `bson:"level"`
-	Solution     int32       `bson:"experience"`
-	Dress        int32       `bson:"dress"`
-	Dressname    string      `bson:"dressname"`
-	Fighting     int32       `bson:"fighting"`
-	IsActive     int32       `bson:"is_active"` //是否选择
-	Medal        int32       `bson:"medal"`
-	MedalLevelId int32       `bson:"medal_level_id"`
-	Cards        []*CardData `bson:"cards"`
+	StarId       int32  `bson:"starid"`
+	Starname     string `bson:"starname"`
+	Level        int32  `bson:"level"`
+	Solution     int32  `bson:"experience"`
+	Dress        int32  `bson:"dress"`
+	Dressname    string `bson:"dressname"`
+	Fighting     int32  `bson:"fighting"`
+	IsActive     int32  `bson:"is_active"` //是否选择
+	Medal        int32  `bson:"medal"`
+	MedalLevelId int32  `bson:"medal_level_id"`
 }
 type CardData struct {
 	CardId  int32 `bson:"card_id"`
@@ -208,6 +203,6 @@ type Chip struct {
 
 func init() {
 
-	orm.RegisterModel(new(Messagecenter), new(Userscore), new(Userinfo), new(Ranking), new(Messages), new(FriendRank))
+	orm.RegisterModel(new(Messagecenter), new(Userscore), new(Userinfo), new(Ranking), new(Messages), new(Friend))
 
 }

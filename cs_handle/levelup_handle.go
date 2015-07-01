@@ -38,10 +38,10 @@ func LevelUpHandle(
 			"pet_medal_num":   req_data.GetPetinfo().GetPetMedalNum(),
 			"dress_id":        req_data.GetPetinfo().GetDressId()}})
 	for i := range req_data.GetPetinfo().GetPetCardNtf() {
-		c.Upsert(bson.M{"account": res_list.GetSAccount(), "pet_id": req_data.GetPetinfo().GetPetId()},
+		c.Upsert(bson.M{"account": res_list.GetSAccount()},
 			bson.M{"$set": bson.M{
-				"pet_card.cardid":  req_data.GetPetinfo().GetPetCardNtf()[i].GetCardId(),
-				"pet_card.cardnum": req_data.GetPetinfo().GetPetCardNtf()[i].GetCarNum(),
+				"cards.cardid":  req_data.GetPetinfo().GetPetCardNtf()[i].GetCardId(),
+				"cards.cardnum": req_data.GetPetinfo().GetPetCardNtf()[i].GetCarNum(),
 			}})
 	}
 	var petlist []models.Pet

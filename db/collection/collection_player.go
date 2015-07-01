@@ -77,8 +77,6 @@ func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, m
 				player.Uid = int64(0)
 			} else {
 
-				// var wonderfulFriends WonderfulFriends
-				// wonderfulFriends.RegistTime = time.Now().Unix()
 				player.Caccount = clientAccount
 				//player.WonderfulFriends.RegistTime = time.Now().Unix()
 				player.RegistTime = time.Now().Unix()
