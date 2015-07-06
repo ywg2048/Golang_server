@@ -11,10 +11,18 @@ import proto "code.google.com/p/goprotobuf/proto"
 
 import "time"
 
-func serverTimeHandle(
+func init() {
+	orm.RegisterDataBase("Monsters", "mysql", "root:@/Monsters?charset=utf8")
+
+}
+func ServerTimeHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
 
+	req_data := req.GetBody().GetServerTimeReq()
+	beego.Info(req_data)
+	beego.Info(res_list)
+	beego.Info(res_list.GetUid())
 	beego.Debug("******serverTimeHandle")
 	ret := int32(0)
 	now_time := time.Now().Unix()
@@ -28,8 +36,10 @@ func serverTimeHandle(
 	cond = cond.And("Id__gte", 1)
 	cond = cond.And("Touid__contains", int32(res_list.GetUid()))
 	cond = cond.And("IsFinish__contains", int32(0))
+	beego.Info(cond)
 	var qs orm.QuerySeter
 	qs = orm.NewOrm().QueryTable("messages").SetCond(cond)
+
 	cnt, err := qs.All(&messages)
 	beego.Info(cnt, err)
 	var messagenTipsntf []*cspb.CSmessageTipsntf
@@ -41,11 +51,11 @@ func serverTimeHandle(
 	for i := range messages {
 		beego.Info(i)
 		message = models.Messages{Touid: int32(res_list.GetUid()), IsFinish: int32(0)}
-		o.Read(&message, "Touid")
-
+		o.Read(&message, "Touid", "IsFinish")
+		beego.Info(message)
 		message.IsFinish = int32(1)
-		errs, id := o.Update(&message)
-		beego.Info(errs, id)
+		id, err := o.Update(&message, "IsFinish")
+		beego.Info(err, id)
 	}
 	res_data := new(cspb.CSServerTimeRes)
 	*res_data = cspb.CSServerTimeRes{

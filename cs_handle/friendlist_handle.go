@@ -14,23 +14,24 @@ import cspb "protocol"
 import "labix.org/v2/mgo/bson"
 
 import db_session "tuojie.com/piggo/quickstart.git/db/session"
-import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
+
+// import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func FriendlistHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
 	beego.Info("*********FriendmessageHandle Start**********")
-	req_data := req.GetBody().GetFriendlistReq()
-	beego.Info(req_data)
+	// req_data := req.GetBody().GetFriendlistReq()
+	// beego.Info(req_data)
 	ret := int32(1)
 
 	var FriendListNtf []*cspb.CSFriendListNtf
-	//测试代码
-	for i := range resmgr.FriendlisttestData.GetItems() {
-		FriendListNtf = append(FriendListNtf, makefriendlist(resmgr.FriendlisttestData.GetItems()[i].GetID(), resmgr.FriendlisttestData.GetItems()[i].GetUID(), resmgr.FriendlisttestData.GetItems()[i].GetName(), resmgr.FriendlisttestData.GetItems()[i].GetStarId(), resmgr.FriendlisttestData.GetItems()[i].GetStarName(),
-			resmgr.FriendlisttestData.GetItems()[i].GetFighting(), resmgr.FriendlisttestData.GetItems()[i].GetDressID(), resmgr.FriendlisttestData.GetItems()[i].GetDressName(), resmgr.FriendlisttestData.GetItems()[i].GetLevel(),
-			resmgr.FriendlisttestData.GetItems()[i].GetMedal(), resmgr.FriendlisttestData.GetItems()[i].GetMedalLevelId(), resmgr.FriendlisttestData.GetItems()[i].GetStagelevel()))
-	}
+	// 测试代码
+	// for i := range resmgr.FriendlisttestData.GetItems() {
+	// 	FriendListNtf = append(FriendListNtf, makefriendlist(resmgr.FriendlisttestData.GetItems()[i].GetID(), resmgr.FriendlisttestData.GetItems()[i].GetUID(), resmgr.FriendlisttestData.GetItems()[i].GetName(), resmgr.FriendlisttestData.GetItems()[i].GetStarId(), resmgr.FriendlisttestData.GetItems()[i].GetStarName(),
+	// 		resmgr.FriendlisttestData.GetItems()[i].GetFighting(), resmgr.FriendlisttestData.GetItems()[i].GetDressID(), resmgr.FriendlisttestData.GetItems()[i].GetDressName(), resmgr.FriendlisttestData.GetItems()[i].GetLevel(),
+	// 		resmgr.FriendlisttestData.GetItems()[i].GetMedal(), resmgr.FriendlisttestData.GetItems()[i].GetMedalLevelId(), resmgr.FriendlisttestData.GetItems()[i].GetStagelevel()))
+	// }
 	//正式代码
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
@@ -42,15 +43,15 @@ func FriendlistHandle(
 		if err_ != nil {
 			beego.Error(err_)
 		}
-		//查找当前明星的信息,先给默认
-		StarName := resmgr.FriendlisttestData.GetItems()[1].GetStarName()
-		Fighting := resmgr.FriendlisttestData.GetItems()[1].GetFighting()
-		DressId := resmgr.FriendlisttestData.GetItems()[1].GetDressID()
-		Dress := resmgr.FriendlisttestData.GetItems()[1].GetDressName()
-		Level := resmgr.FriendlisttestData.GetItems()[1].GetLevel()
-		Medal := resmgr.FriendlisttestData.GetItems()[1].GetMedal()
-		MedalLevelID := resmgr.FriendlisttestData.GetItems()[1].GetMedalLevelId()
-		Stagelevel := resmgr.FriendlisttestData.GetItems()[i].GetStagelevel() //最大关卡有待商定
+		//定义给出默认值
+		StarName := ""
+		Fighting := int32(0)
+		DressId := int32(0)
+		Dress := ""
+		Level := int32(0)
+		Medal := int32(0)
+		MedalLevelID := int32(0)
+		Stagelevel := int32(0)
 		for j := range players.Star {
 			if players.Star[j].StarId == players.StarId {
 				StarName = players.Star[j].Starname
@@ -61,13 +62,13 @@ func FriendlistHandle(
 				Medal = players.Star[j].Medal
 				MedalLevelID = players.Star[j].MedalLevelId
 
-				break
 			}
 		}
 
 		FriendListNtf = append(FriendListNtf, makefriendlist(int32(i), player.FriendList[i].Friendid, players.Name, players.StarId, StarName, Fighting, DressId, Dress, Level, Medal, MedalLevelID, Stagelevel))
-		beego.Info("FriendListNtf is:", FriendListNtf)
+
 	}
+	beego.Info("FriendListNtf is:", FriendListNtf)
 	res_data := new(cspb.CSFriendlistRes)
 	*res_data = cspb.CSFriendlistRes{
 		FriendListNtf: FriendListNtf,

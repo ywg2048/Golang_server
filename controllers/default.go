@@ -23,7 +23,7 @@ func (c *MainController) Post() {
 	beego.Debug("***********Post Start***********")
 	data_req, _ := ioutil.ReadAll(c.Ctx.Input.Request.Body)
 	c.Ctx.Input.Request.Body.Close()
-
+	beego.Info("data_req", c.Ctx.Input.Request.Body)
 	var pkg_list_req cspb.CSPkgList
 	if err := proto.Unmarshal(data_req, &pkg_list_req); err != nil {
 		beego.Error("main.procHttpMsg: unmarshal data_req to CSPkgList fail err:%v", err)

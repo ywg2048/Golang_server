@@ -1,7 +1,7 @@
 package cs_handle
 
 import (
-	// "fmt"
+	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"time"
@@ -34,12 +34,14 @@ func AddFriendHandle(
 	if err != nil {
 		//用户不存在
 		IsAdd = int32(0)
+		beego.Info("用户不存在")
 	} else {
 		//用户存在
 		//查看是否是好友
 		var players models.Player
 		err_self := c.Find(bson.M{"uid": uid}).One(&players)
 		beego.Info(err_self)
+		beego.Info(len(players.FriendList))
 		for i := range players.FriendList {
 			if players.FriendList[i].Friendid == friendId {
 				//已经是好友或者已经申请好友
@@ -50,14 +52,23 @@ func AddFriendHandle(
 	}
 
 	if IsAdd == int32(1) {
-
+		beego.Info("操作1")
 		//自己的表
-		c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-			bson.M{"$set": bson.M{"FriendList.Friendid": friendId, "FriendList.IsActive": int32(0), "FriendList.Accepttime": int64(0)}})
 
+		c.Find(bson.M{"uid": uid}).One(&player)
+
+		i := len(player.FriendList)
+		_, err := c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+			bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(i) + ".friendid": friendId, "FriendList." + fmt.Sprint(i) + ".isActive": int32(0), "FriendList." + fmt.Sprint(i) + ".accepttime": int64(0)}})
+		beego.Info(err)
 		//朋友的申请列表
+
+		var friend models.Player
+		c.Find(bson.M{"uid": friendId}).One(&friend)
+		j := len(friend.ApplyFriendList)
+
 		c.Upsert(bson.M{"uid": friendId},
-			bson.M{"$set": bson.M{"ApplyFriendList.Applyuid": uid, "ApplyFriendList.IsAccept": int32(0), "ApplyFriendList.Isrefuse": int32(0), "ApplyFriendList.Applytime": time.Now().Unix(), "ApplyFriendList.Oprationtime": int64(0)}})
+			bson.M{"$set": bson.M{"ApplyFriendList." + fmt.Sprint(j) + ".applyuid": uid, "ApplyFriendList." + fmt.Sprint(j) + ".isAccept": int32(0), "ApplyFriendList." + fmt.Sprint(j) + ".isrefuse": int32(0), "ApplyFriendList." + fmt.Sprint(j) + ".applytime": time.Now().Unix(), "ApplyFriendList." + fmt.Sprint(j) + ".oprationtime": int64(0)}})
 		//消息通知mysql表
 		var players models.Player
 		err_self := c.Find(bson.M{"uid": uid}).One(&players)
@@ -73,7 +84,7 @@ func AddFriendHandle(
 		messages.ElementType = int32(3)
 		messages.Number = int32(1)
 		messages.Touid = friendId
-
+		messages.Tag = int32(5)
 		id, err := o.Insert(&messages)
 		beego.Info(id, err)
 

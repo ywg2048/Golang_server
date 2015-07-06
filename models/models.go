@@ -45,6 +45,7 @@ type Messages struct {
 	CardId      int32
 	Number      int32
 	IsFinish    int32
+	Tag         int32 //消息的标志（1~5）
 	Time        int64
 }
 
@@ -107,7 +108,7 @@ type StarDate struct {
 	Dress        int32  `bson:"dress"`
 	Dressname    string `bson:"dressname"`
 	Fighting     int32  `bson:"fighting"`
-	IsActive     int32  `bson:"is_active"` //是否选择
+	IsActive     int32  `bson:"is_active"` //是否选择，
 	Medal        int32  `bson:"medal"`
 	MedalLevelId int32  `bson:"medal_level_id"`
 }

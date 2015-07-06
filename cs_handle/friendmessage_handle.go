@@ -90,32 +90,7 @@ func FriendmessageHandle(
 		}
 
 		//生成消息存在mysql
-		c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
 
-		o := orm.NewOrm()
-		var messages models.Messages
-		messages.Fromuid = int32(res_list.GetUid())
-		messages.Fromname = player.Name
-		messages.FromStarId = player.StarId
-		messages.Time = time.Now().Unix()
-		messages.IsFinish = int32(0)
-
-		for i := range req_data.GetMessagesNtf() {
-			messages.Touid = req_data.GetMessagesNtf()[i].GetPlayuid()
-			messages.Messagetype = req_data.GetMessageType()
-			messages.ElementType = req_data.GetElementType()
-			for j := range req_data.GetElement() {
-				messages.CardId = req_data.GetElement()[j].GetCardId()
-				messages.Number = req_data.GetElement()[j].GetElementNum()
-
-				id, err := o.Insert(&messages)
-				if err != nil {
-					beego.Error(err)
-				}
-				beego.Info(id)
-			}
-
-		}
 	case int32(2):
 		//接受，处理掉消息
 		switch req_data.GetElementType() {
@@ -157,7 +132,48 @@ func FriendmessageHandle(
 		beego.Error("value is Error")
 		isGive = int32(0)
 	}
+	//消息表
+	c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
 
+	o := orm.NewOrm()
+	var messages models.Messages
+	messages.Fromuid = int32(res_list.GetUid())
+	messages.Fromname = player.Name
+	messages.FromStarId = player.StarId
+	messages.Time = time.Now().Unix()
+	messages.IsFinish = int32(0)
+	messages.Messagetype = req_data.GetMessageType()
+	messages.ElementType = req_data.GetElementType()
+	if req_data.GetMessageType() == int32(1) && req_data.GetElementType() == int32(1) {
+		//接受小红花
+		messages.Tag = int32(1)
+	} else if req_data.GetMessageType() == int32(2) && req_data.GetElementType() == int32(1) {
+		//赠送小红花
+		messages.Tag = int32(2)
+	} else if req_data.GetMessageType() == int32(1) && req_data.GetElementType() == int32(2) {
+		//接受卡片
+		messages.Tag = int32(3)
+	} else if req_data.GetMessageType() == int32(2) && req_data.GetElementType() == int32(1) {
+		//赠送卡片
+		messages.Tag = int32(4)
+	} else if req_data.GetElementType() == int32(3) {
+		//加好友的消息
+		messages.Tag = int32(5)
+	}
+	for i := range req_data.GetMessagesNtf() {
+		messages.Touid = req_data.GetMessagesNtf()[i].GetPlayuid()
+
+	}
+	for j := range req_data.GetElement() {
+		messages.CardId = req_data.GetElement()[j].GetCardId()
+		messages.Number = req_data.GetElement()[j].GetElementNum()
+
+		id, err := o.Insert(&messages)
+		if err != nil {
+			beego.Error(err)
+		}
+		beego.Info(id)
+	}
 	res_data := new(cspb.CSFriendmessageRes)
 	messageId := req_data.GetMessageId()
 	friendListId := req_data.GetFriendListId()

@@ -25,7 +25,7 @@ func Init() {
 	cmdProcessRegister(cspb.Command_kSignInReq, signinHandle)
 	cmdProcessRegister(cspb.Command_kPetStarUpReq, petStarUpHandle)
 	cmdProcessRegister(cspb.Command_kReportPetReq, petReportHandle)
-	cmdProcessRegister(cspb.Command_kServerTimeReq, serverTimeHandle)
+	cmdProcessRegister(cspb.Command_kServerTimeReq, ServerTimeHandle)
 	cmdProcessRegister(cspb.Command_kUpdateInfoReq, updateInfoHandle)
 	cmdProcessRegister(cspb.Command_kRechargeReportReq, rechargeHandle)
 	cmdProcessRegister(cspb.Command_kLoginReq, loginHandle)
