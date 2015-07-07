@@ -43,14 +43,14 @@ func FriendlistHandle(
 		if err_ != nil {
 			beego.Error(err_)
 		}
-		//定义给出默认值
-		StarName := ""
-		Fighting := int32(0)
-		DressId := int32(0)
-		Dress := ""
-		Level := int32(0)
-		Medal := int32(0)
-		MedalLevelID := int32(0)
+		//定义,关数暂时给出默认值
+		var StarName string
+		var Fighting int32
+		var DressId int32
+		var Dress string
+		var Level int32
+		var Medal int32
+		var MedalLevelID int32
 		Stagelevel := int32(0)
 		for j := range players.Star {
 			if players.Star[j].StarId == players.StarId {

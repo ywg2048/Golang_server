@@ -175,25 +175,26 @@ func makePoolNextFreeNtf(hour int32, today int32,
 	res_list = makeCSPkgList(int32(cspb.Command_kPoolNextFreeNtf),
 		res_pkg_body, res_list)
 }
-func makeFriendntf(Playid int32, Starid int32, Name string) *cspb.CSFriendNtf {
+func makeFriendntf(Playid int32, Starid int32, Name string, CardId int32, ElementNum int32) *cspb.CSFriendNtf {
 	friend_ntf := new(cspb.CSFriendNtf)
 	*friend_ntf = cspb.CSFriendNtf{
 		Playid: proto.Int32(Playid),
 		Starid: proto.Int32(Starid),
 		Name:   proto.String(Name),
+		CardId: proto.Int32(CardId),
+
+		ElementNum: proto.Int32(ElementNum),
 	}
 	return friend_ntf
 }
-func makeFriendmessagelistNtf(MessageType int32, ElementType int32, Friendntf []*cspb.CSFriendNtf, CardId int32, CardColor string, ElementNum int32, MessageId int32) *cspb.CSFriendmessagelistNtf {
+func makeFriendmessagelistNtf(MessageType int32, ElementType int32, Friendntf []*cspb.CSFriendNtf, MessageId int32) *cspb.CSFriendmessagelistNtf {
 	friendmessagelist_ntf := new(cspb.CSFriendmessagelistNtf)
 	*friendmessagelist_ntf = cspb.CSFriendmessagelistNtf{
 		MessageType: proto.Int32(MessageType),
 		ElementType: proto.Int32(ElementType),
 		Friendntf:   Friendntf,
-		CardId:      proto.Int32(CardId),
-		CardColor:   proto.String(CardColor),
-		ElementNum:  proto.Int32(ElementNum),
-		MessageId:   proto.Int32(MessageId),
+
+		MessageId: proto.Int32(MessageId),
 	}
 	return friendmessagelist_ntf
 
