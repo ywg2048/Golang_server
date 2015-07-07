@@ -144,6 +144,9 @@ func FriendmessageHandle(
 	messages.IsFinish = int32(0)
 	messages.Messagetype = req_data.GetMessageType()
 	messages.ElementType = req_data.GetElementType()
+	if req_data.GetElementType() == int32(2) {
+		//卡片类型
+	}
 	if req_data.GetMessageType() == int32(1) && req_data.GetElementType() == int32(1) {
 		//接受小红花
 		messages.Tag = int32(1)
