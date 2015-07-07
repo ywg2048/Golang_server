@@ -47,12 +47,6 @@ type Messages struct {
 	Tag      int32 //消息的标志（1~5）
 	Time     int64
 }
-type CardNtf struct {
-	Id        int32
-	MessageId int32
-	CardId    int32
-	CardNum   int32
-}
 
 //排名
 type Ranking struct {
@@ -205,6 +199,16 @@ type Chip struct {
 	ChipId   int32  `bson:"chip_id"`
 	ChipType int32  `bson:"chip_type"`
 	ChipNum  int32  `bson:"chip_num"`
+}
+
+//消息记录中的CardNtf
+type Cardrecord struct {
+	CardNtf []*CardNtfData `bson:"cardntf"`
+}
+type CardNtfData struct {
+	MessageId int32 `bson:"messageid"`
+	CardId    int32 `bson:"cardid`
+	CardNum   int32 `bson:"cardnum"`
 }
 
 func init() {

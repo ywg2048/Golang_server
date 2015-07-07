@@ -76,28 +76,28 @@ func FriendmessageListHandle(
 		if messages[k].Tag == int32(1) {
 			//赠送小红花
 			cardNtf_tag_1 = append(cardNtf_tag_1, makecardNtf(int32(0), int32(0)))
-			Friendntf_tag_1 = append(Friendntf_tag_1, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_1, messages[k].Number))
+			Friendntf_tag_1 = append(Friendntf_tag_1, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_1))
 			beego.Info(Friendntf_tag_1)
 		} else if messages[k].Tag == int32(2) {
 			//接受小红花
 			cardNtf_tag_2 = append(cardNtf_tag_2, makecardNtf(int32(0), int32(0)))
-			Friendntf_tag_2 = append(Friendntf_tag_2, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_2, messages[k].Number))
+			Friendntf_tag_2 = append(Friendntf_tag_2, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_2))
 			beego.Info(Friendntf_tag_2)
 		} else if messages[k].Tag == int32(3) {
 			//赠送卡片
 
 			cardNtf_tag_3 = append(cardNtf_tag_3, makecardNtf(int32(0), int32(0)))
-			Friendntf_tag_3 = append(Friendntf_tag_3, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_3, messages[k].Number))
+			Friendntf_tag_3 = append(Friendntf_tag_3, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_3))
 			beego.Info(Friendntf_tag_3)
 		} else if messages[k].Tag == int32(4) {
 			//接受卡片
 			cardNtf_tag_4 = append(cardNtf_tag_4, makecardNtf(int32(0), int32(0)))
-			Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_4, messages[k].Number))
+			Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_4))
 			beego.Info(Friendntf_tag_4)
 		} else if messages[k].Tag == int32(5) {
 			//添加好友
 			cardNtf_tag_5 = append(cardNtf_tag_5, makecardNtf(int32(0), int32(0)))
-			Friendntf_tag_5 = append(Friendntf_tag_5, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_5, messages[k].Number))
+			Friendntf_tag_5 = append(Friendntf_tag_5, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_5))
 			beego.Info(Friendntf_tag_5)
 		}
 

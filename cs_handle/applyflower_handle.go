@@ -100,7 +100,6 @@ func ApplyFlowerHandle(
 				messages.IsFinish = int32(0)
 				messages.Messagetype = int32(1)
 				messages.ElementType = int32(1)
-				messages.Number = int32(1)
 
 				messages.Touid = req_data.GetApplyFlowerList()[i].GetFriendId()
 
@@ -122,7 +121,6 @@ func ApplyFlowerHandle(
 					messages.IsFinish = int32(0)
 					messages.Messagetype = int32(1)
 					messages.ElementType = int32(1)
-					messages.Number = int32(1)
 
 					messages.Touid = req_data.GetApplyFlowerList()[i].GetFriendId()
 
@@ -144,7 +142,6 @@ func ApplyFlowerHandle(
 						messages.IsFinish = int32(0)
 						messages.Messagetype = int32(1)
 						messages.ElementType = int32(1)
-						messages.Number = int32(1)
 
 						messages.Touid = req_data.GetApplyFlowerList()[i].GetFriendId()
 

@@ -82,7 +82,7 @@ func AddFriendHandle(
 		messages.IsFinish = int32(0)
 		messages.Messagetype = int32(0)
 		messages.ElementType = int32(3)
-		messages.Number = int32(1)
+
 		messages.Touid = friendId
 		messages.Tag = int32(5)
 		id, err := o.Insert(&messages)
