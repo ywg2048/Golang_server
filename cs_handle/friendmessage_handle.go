@@ -75,6 +75,7 @@ func FriendmessageHandle(
 
 					if err != nil {
 						beego.Error("减少卡片失败")
+						isGive = int32(0)
 					} else {
 						beego.Info("减少卡片成功")
 					}
@@ -82,58 +83,6 @@ func FriendmessageHandle(
 				}
 			}
 
-		case int32(3):
-			//加好友的消息
-			beego.Info("加好友消息")
-			//同意就在表里加一条记录，不同意不操作
-			for i := range req_data.GetMessagesNtf() {
-
-				for j := range player.FriendList {
-					if req_data.GetMessagesNtf()[i].GetPlayuid() == player.FriendList[j].Friendid {
-						_, err := c.Upsert(bson.M{"uid": uid},
-							bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(j) + ".friendid": req_data.GetMessagesNtf()[i].GetPlayuid(), "FriendList." + fmt.Sprint(j) + ".isActive": int32(1), "FriendList." + fmt.Sprint(j) + ".accepttime": time.Now().Unix()}})
-
-						if err != nil {
-							beego.Error("同意好友申请失败")
-						} else {
-							beego.Info("同意好友申请成功")
-						}
-
-						//对方的朋友表
-						// c.Upsert(bson.M{"uid": req_data.GetMessagesNtf()[i].GetPlayuid(), "FriendList.friendid": uid},
-						// 	bson.M{"$set": bson.M{"FriendList.$.isActive": int32(1), "FriendList.$.accepttime": time.Now().Unix()}})
-					}
-
-				}
-				//自己的朋友申请列表
-				for k := range player.ApplyFriendList {
-					if req_data.GetMessagesNtf()[i].GetPlayuid() == player.ApplyFriendList[k].Applyuid {
-						_, err := c.Upsert(bson.M{"uid": uid},
-							bson.M{"$set": bson.M{"ApplyFriendList." + fmt.Sprint(k) + ".isAccept": int32(1), "ApplyFriendList." + fmt.Sprint(k) + ".isrefuse": int32(0), "ApplyFriendList." + fmt.Sprint(k) + ".oprationtime": time.Now().Unix()}})
-						if err != nil {
-							beego.Error("同意好友,申请列表变更失败")
-						} else {
-							beego.Info("同意好友,申请列表变更成功")
-						}
-					}
-				}
-
-				//朋友的朋友列表变更
-				var friend models.Player
-				c.Find(bson.M{"uid": req_data.GetMessagesNtf()[i].GetPlayuid()}).One(&friend)
-				for m := range friend.FriendList {
-					if friend.FriendList[m].Friendid == uid {
-						_, err := c.Upsert(bson.M{"uid": req_data.GetMessagesNtf()[i].GetPlayuid()},
-							bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(m) + ".isActive": int32(1), "FriendList." + fmt.Sprint(m) + ".accepttime": time.Now().Unix()}})
-
-						if err != nil {
-							beego.Error("同意好友,好友的好友列表变更失败")
-						} else {
-							beego.Info("同意好友,好友的好友列表变更成功")
-						}
-					}
-				}
-			}
 		}
 
 		//生成消息存在mysql
@@ -148,8 +97,14 @@ func FriendmessageHandle(
 			c.Find(bson.M{"uid": uid}).One(&player)
 			for i := range req_data.GetMessagesNtf() {
 				for j := range req_data.GetMessagesNtf()[i].GetElement() {
-					c.Upsert(bson.M{"uid": uid},
+					_, err := c.Upsert(bson.M{"uid": uid},
 						bson.M{"$inc": bson.M{"flower": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
+					if err != nil {
+						beego.Error("增加失败")
+						isGive = int32(0)
+					} else {
+						beego.Info("增加小红花成功")
+					}
 				}
 			}
 		case int32(2):
@@ -172,6 +127,7 @@ func FriendmessageHandle(
 
 							if err != nil {
 								beego.Error("插入失败")
+								isGive = int32(0)
 							} else {
 								beego.Info("插入成功")
 							}
@@ -182,24 +138,67 @@ func FriendmessageHandle(
 				}
 			}
 
-		case int32(3):
-			//加好友的消息
-			beego.Info("加好友")
-			c.Find(bson.M{"uid": uid}).One(&player)
-			m := len(player.FriendList)
-			c.Upsert(bson.M{"uid": uid},
-				bson.M{"$push": bson.M{"FriendList." + fmt.Sprint(m) + ".friendid": req_data.GetMessagesNtf()[1].GetPlayuid(), "FriendList." + fmt.Sprint(m) + ".isActive": int32(1), "FriendList." + fmt.Sprint(m) + ".accepttime": time.Now().Unix()}})
-
-			c.Update(bson.M{"uid": uid},
-				bson.M{"$pull": bson.M{"ApplyFriendList." + fmt.Sprint(m) + ".Applyuid": req_data.GetMessagesNtf()[1].GetPlayuid()}})
-			//对方的朋友表
-			c.Upsert(bson.M{"uid": req_data.GetMessagesNtf()[1].GetPlayuid(), "FriendList.friendid": uid},
-				bson.M{"$set": bson.M{"FriendList.$.isActive": int32(1), "FriendList.$.accepttime": time.Now().Unix()}})
 		}
 	default:
 		//传的值有问题
 		beego.Error("value is Error")
 		isGive = int32(0)
+	}
+	if req_data.GetElementType() == int32(3) {
+		//加好友的消息
+		beego.Info("加好友消息")
+		//同意就在表里加一条记录，不同意不操作
+		for i := range req_data.GetMessagesNtf() {
+
+			for j := range player.FriendList {
+				if req_data.GetMessagesNtf()[i].GetPlayuid() == player.FriendList[j].Friendid {
+					_, err := c.Upsert(bson.M{"uid": uid},
+						bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(j) + ".friendid": req_data.GetMessagesNtf()[i].GetPlayuid(), "FriendList." + fmt.Sprint(j) + ".isActive": int32(1), "FriendList." + fmt.Sprint(j) + ".accepttime": time.Now().Unix()}})
+
+					if err != nil {
+						beego.Error("同意好友申请失败")
+						isGive = int32(0)
+					} else {
+						beego.Info("同意好友申请成功")
+					}
+
+					//对方的朋友表
+					// c.Upsert(bson.M{"uid": req_data.GetMessagesNtf()[i].GetPlayuid(), "FriendList.friendid": uid},
+					// 	bson.M{"$set": bson.M{"FriendList.$.isActive": int32(1), "FriendList.$.accepttime": time.Now().Unix()}})
+				}
+
+			}
+			//自己的朋友申请列表
+			for k := range player.ApplyFriendList {
+				if req_data.GetMessagesNtf()[i].GetPlayuid() == player.ApplyFriendList[k].Applyuid {
+					_, err := c.Upsert(bson.M{"uid": uid},
+						bson.M{"$set": bson.M{"ApplyFriendList." + fmt.Sprint(k) + ".isAccept": int32(1), "ApplyFriendList." + fmt.Sprint(k) + ".isrefuse": int32(0), "ApplyFriendList." + fmt.Sprint(k) + ".oprationtime": time.Now().Unix()}})
+					if err != nil {
+						beego.Error("同意好友,申请列表变更失败")
+						isGive = int32(0)
+					} else {
+						beego.Info("同意好友,申请列表变更成功")
+					}
+				}
+			}
+
+			//朋友的朋友列表变更
+			var friend models.Player
+			c.Find(bson.M{"uid": req_data.GetMessagesNtf()[i].GetPlayuid()}).One(&friend)
+			for m := range friend.FriendList {
+				if friend.FriendList[m].Friendid == uid {
+					_, err := c.Upsert(bson.M{"uid": req_data.GetMessagesNtf()[i].GetPlayuid()},
+						bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(m) + ".isActive": int32(1), "FriendList." + fmt.Sprint(m) + ".accepttime": time.Now().Unix()}})
+
+					if err != nil {
+						beego.Error("同意好友,好友的好友列表变更失败")
+						isGive = int32(0)
+					} else {
+						beego.Info("同意好友,好友的好友列表变更成功")
+					}
+				}
+			}
+		}
 	}
 	//消息表
 	c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
@@ -237,24 +236,35 @@ func FriendmessageHandle(
 	messageid, err := o.Insert(&messages)
 	if err != nil {
 		beego.Error(err)
+		isGive = int32(0)
 	}
 	beego.Info(messageid)
-	var cardrecord models.Cardrecord
-	c1 := db_session.DB("zoo").C("cardrecord")
-	c1.Find(bson.M{"uid": uid}).One(&cardrecord)
-	m := len(cardrecord.CardNtf)
-	for i := range req_data.GetMessagesNtf() {
-		for j := range req_data.GetMessagesNtf()[i].GetElement() {
-			c1.Upsert(bson.M{"uid": uid},
-				bson.M{"$set": bson.M{"cardntf." + fmt.Sprint(m) + ".messageid": messageid,
-					"cardntf." + fmt.Sprint(m) + ".cardid":  req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId(),
-					"cardntf." + fmt.Sprint(m) + ".cardnum": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
+	if req_data.GetElementType() == int32(2) {
+		var cardrecord models.Cardrecord
+		c1 := db_session.DB("zoo").C("cardrecord")
+		c1.Find(bson.M{"uid": uid}).One(&cardrecord)
+		m := len(cardrecord.CardNtf)
+		for i := range req_data.GetMessagesNtf() {
+			for j := range req_data.GetMessagesNtf()[i].GetElement() {
+				_, err := c1.Upsert(bson.M{"uid": uid},
+					bson.M{"$set": bson.M{"cardntf." + fmt.Sprint(m) + ".messageid": messageid,
+						"cardntf." + fmt.Sprint(m) + ".cardid":  req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId(),
+						"cardntf." + fmt.Sprint(m) + ".cardnum": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
+				if err != nil {
+					beego.Error("赠送卡片信息存储失败")
+					isGive = int32(0)
+				} else {
+					beego.Info("赠送卡片信息存储成功")
+				}
+			}
 		}
 	}
 	res_data := new(cspb.CSFriendmessageRes)
 	messageId := req_data.GetMessageId()
 	friendListId := req_data.GetFriendListId()
 	elementType := req_data.GetElementType()
+
+	beego.Info("isGive =", isGive)
 	*res_data = cspb.CSFriendmessageRes{
 		IsGive:       &isGive,
 		Uid:          &uid,
