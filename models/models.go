@@ -98,6 +98,15 @@ type Player struct {
 	Levels             []*cspb.CSStageNtf     `bson:"Levels"`
 	Money              *cspb.CSMoneyReq       `bson:"Money"`
 	Cards              []*CardData            `bson:"cards"`
+	CardRecord         []*CardrecordData      `bson:"cardrecord"`
+}
+
+//消息记录中的CardNtf
+
+type CardrecordData struct {
+	MessageId int32 `bson:"messageid"`
+	CardId    int32 `bson:"cardid`
+	CardNum   int32 `bson:"cardnum"`
 }
 type StarDate struct {
 	StarId       int32  `bson:"starid"`
@@ -199,16 +208,6 @@ type Chip struct {
 	ChipId   int32  `bson:"chip_id"`
 	ChipType int32  `bson:"chip_type"`
 	ChipNum  int32  `bson:"chip_num"`
-}
-
-//消息记录中的CardNtf
-type Cardrecord struct {
-	CardNtf []*CardNtfData `bson:"cardntf"`
-}
-type CardNtfData struct {
-	MessageId int32 `bson:"messageid"`
-	CardId    int32 `bson:"cardid`
-	CardNum   int32 `bson:"cardnum"`
 }
 
 func init() {
