@@ -64,12 +64,23 @@ func FriendmessageHandle(
 
 		case int32(2):
 			// 卡片
-			// beego.Info("赠送卡片")
-			// for i := range req_data.GetMessagesNtf() {
+			beego.Info("赠送卡片")
+			for i := range req_data.GetMessagesNtf() {
+				for j := range req_data.GetMessagesNtf()[i].GetElement() {
 
-			// 	c.Find(bson.M{"uid": uid}).One(&player)
+					_, err := c.Upsert(bson.M{"uid": uid},
+						bson.M{"$set": bson.M{"cards." + fmt.Sprint(req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId()-1) + ".card_id": req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId()}})
+					c.Upsert(bson.M{"uid": uid},
+						bson.M{"$inc": bson.M{"cards." + fmt.Sprint(req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId()-1) + ".card_num": -req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
 
-			// }
+					if err != nil {
+						beego.Error("减少卡片失败")
+					} else {
+						beego.Info("减少卡片成功")
+					}
+
+				}
+			}
 
 		case int32(3):
 			//加好友的消息
