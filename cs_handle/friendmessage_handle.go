@@ -31,7 +31,21 @@ func FriendmessageHandle(
 	uid := int32(res_list.GetUid())
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
-
+	c.Find(bson.M{"uid": uid}).One(&player)
+	//mongodb中卡片给出初始化的值
+	beego.Info("card_account", beego.AppConfig.String("card_account"))
+	beego.Info("cards len", len(player.Cards))
+	if len(player.Cards) == 0 {
+		for i := 0; i <= stringToint(beego.AppConfig.String("card_account")); i++ {
+			_, err := c.Upsert(bson.M{"uid": uid},
+				bson.M{"$set": bson.M{"cards." + fmt.Sprint(i) + ".card_id": (i + 1), "cards." + fmt.Sprint(i) + ".card_num": int32(0)}})
+			if err != nil {
+				beego.Error("插入失败")
+			} else {
+				beego.Info("插入成功")
+			}
+		}
+	}
 	switch req_data.GetMessageType() {
 	case int32(1):
 		//赠送,产生消息
@@ -95,16 +109,25 @@ func FriendmessageHandle(
 			c.Find(bson.M{"uid": uid}).One(&player)
 
 			for i := range req_data.GetMessagesNtf() {
+				beego.Info(i)
 				for j := range req_data.GetMessagesNtf()[i].GetElement() {
+					beego.Info(j)
+
 					for n := range player.Cards {
 
 						if player.Cards[n].CardId == req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId() {
 							_, err := c.Upsert(bson.M{"uid": uid},
-								bson.M{"$set": bson.M{"cards." + fmt.Sprint(n) + ".card_id": req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId(), "cards." + fmt.Sprint(n) + ".card_num": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
+								bson.M{"$set": bson.M{"cards." + fmt.Sprint(n) + ".card_id": req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId()}})
+							c.Upsert(bson.M{"uid": uid},
+								bson.M{"$inc": bson.M{"cards." + fmt.Sprint(n) + ".card_num": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
+
 							if err != nil {
 								beego.Error("插入失败")
+							} else {
+								beego.Info("插入成功")
 							}
 						}
+
 					}
 
 				}
