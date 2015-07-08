@@ -86,16 +86,54 @@ func FriendmessageHandle(
 			//加好友的消息
 			beego.Info("加好友消息")
 			//同意就在表里加一条记录，不同意不操作
-			c.Find(bson.M{"uid": uid}).One(&player)
+			for i := range req_data.GetMessagesNtf() {
 
-			c.Upsert(bson.M{"uid": uid},
-				bson.M{"$push": bson.M{"FriendList.friendid": req_data.GetMessagesNtf()[1].GetPlayuid(), "FriendList.isActive": int32(1), "FriendList.accepttime": time.Now().Unix()}})
+				for j := range player.FriendList {
+					if req_data.GetMessagesNtf()[i].GetPlayuid() == player.FriendList[j].Friendid {
+						_, err := c.Upsert(bson.M{"uid": uid},
+							bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(j) + ".friendid": req_data.GetMessagesNtf()[i].GetPlayuid(), "FriendList." + fmt.Sprint(j) + ".isActive": int32(1), "FriendList." + fmt.Sprint(j) + ".accepttime": time.Now().Unix()}})
 
-			c.Update(bson.M{"uid": uid},
-				bson.M{"$pull": bson.M{"ApplyFriendList.Applyuid": req_data.GetMessagesNtf()[1].GetPlayuid()}})
-			//对方的朋友表
-			c.Upsert(bson.M{"uid": req_data.GetMessagesNtf()[1].GetPlayuid(), "FriendList.friendid": uid},
-				bson.M{"$set": bson.M{"FriendList.$.isActive": int32(1), "FriendList.$.accepttime": time.Now().Unix()}})
+						if err != nil {
+							beego.Error("同意好友申请失败")
+						} else {
+							beego.Info("同意好友申请成功")
+						}
+
+						//对方的朋友表
+						// c.Upsert(bson.M{"uid": req_data.GetMessagesNtf()[i].GetPlayuid(), "FriendList.friendid": uid},
+						// 	bson.M{"$set": bson.M{"FriendList.$.isActive": int32(1), "FriendList.$.accepttime": time.Now().Unix()}})
+					}
+
+				}
+				//自己的朋友申请列表
+				for k := range player.ApplyFriendList {
+					if req_data.GetMessagesNtf()[i].GetPlayuid() == player.ApplyFriendList[k].Applyuid {
+						_, err := c.Upsert(bson.M{"uid": uid},
+							bson.M{"$set": bson.M{"ApplyFriendList." + fmt.Sprint(k) + ".isAccept": int32(1), "ApplyFriendList." + fmt.Sprint(k) + ".isrefuse": int32(0), "ApplyFriendList." + fmt.Sprint(k) + ".oprationtime": time.Now().Unix()}})
+						if err != nil {
+							beego.Error("同意好友,申请列表变更失败")
+						} else {
+							beego.Info("同意好友,申请列表变更成功")
+						}
+					}
+				}
+
+				//朋友的朋友列表变更
+				var friend models.Player
+				c.Find(bson.M{"uid": req_data.GetMessagesNtf()[i].GetPlayuid()}).One(&friend)
+				for m := range friend.FriendList {
+					if friend.FriendList[m].Friendid == uid {
+						_, err := c.Upsert(bson.M{"uid": req_data.GetMessagesNtf()[i].GetPlayuid()},
+							bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(m) + ".isActive": int32(1), "FriendList." + fmt.Sprint(m) + ".accepttime": time.Now().Unix()}})
+
+						if err != nil {
+							beego.Error("同意好友,好友的好友列表变更失败")
+						} else {
+							beego.Info("同意好友,好友的好友列表变更成功")
+						}
+					}
+				}
+			}
 		}
 
 		//生成消息存在mysql

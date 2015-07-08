@@ -58,7 +58,7 @@ func AddFriendHandle(
 		c.Find(bson.M{"uid": uid}).One(&player)
 
 		i := len(player.FriendList)
-		_, err := c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+		_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
 			bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(i) + ".friendid": friendId, "FriendList." + fmt.Sprint(i) + ".isActive": int32(0), "FriendList." + fmt.Sprint(i) + ".accepttime": int64(0)}})
 		beego.Info(err)
 		//朋友的申请列表
@@ -69,6 +69,10 @@ func AddFriendHandle(
 
 		c.Upsert(bson.M{"uid": friendId},
 			bson.M{"$set": bson.M{"ApplyFriendList." + fmt.Sprint(j) + ".applyuid": uid, "ApplyFriendList." + fmt.Sprint(j) + ".isAccept": int32(0), "ApplyFriendList." + fmt.Sprint(j) + ".isrefuse": int32(0), "ApplyFriendList." + fmt.Sprint(j) + ".applytime": time.Now().Unix(), "ApplyFriendList." + fmt.Sprint(j) + ".oprationtime": int64(0)}})
+
+		_, errs := c.Upsert(bson.M{"uid": friendId},
+			bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(j) + ".friendid": int32(req_data.GetUid()), "FriendList." + fmt.Sprint(j) + ".isActive": int32(0), "FriendList." + fmt.Sprint(j) + ".accepttime": int64(0)}})
+		beego.Info(errs)
 		//消息通知mysql表
 		var players models.Player
 		err_self := c.Find(bson.M{"uid": uid}).One(&players)
