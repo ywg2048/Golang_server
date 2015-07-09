@@ -220,9 +220,6 @@ func FriendmessageHandle(
 		} else if req_data.GetMessageType() == int32(2) && req_data.GetElementType() == int32(1) {
 			//赠送小红花
 			messages.Tag = int32(2)
-		} else if req_data.GetMessageType() == int32(1) && req_data.GetElementType() == int32(2) {
-			//接受卡片
-			messages.Tag = int32(3)
 		} else if req_data.GetMessageType() == int32(2) && req_data.GetElementType() == int32(1) {
 			//赠送卡片
 			messages.Tag = int32(4)
