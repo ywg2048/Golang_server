@@ -241,28 +241,37 @@ func FriendmessageHandle(
 	}
 	beego.Info(messageid)
 	if req_data.GetMessageType() == int32(1) && req_data.GetElementType() == int32(2) {
-		var player models.Player
-		err := c.Find(bson.M{"uid": uid}).One(&player)
+		m := len(player.Cardrecord)
 
-		m := len(player.CardRecord)
-		beego.Info(m, err, player.CardRecord)
+		beego.Info(m)
 
 		for i := range req_data.GetMessagesNtf() {
 			for j := range req_data.GetMessagesNtf()[i].GetElement() {
-				_, err := c.Upsert(bson.M{"uid": uid},
-					bson.M{"$set": bson.M{"cardrecord." + fmt.Sprint(m) + ".messageid": int32(messageid),
-						"cardrecord." + fmt.Sprint(m) + ".cardid": req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId(),
-						"cardrecord." + fmt.Sprint(m) + ".cardid": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
-				if err != nil {
-					beego.Error("赠送卡片存储失败")
-					isGive = int32(0)
+				if m == 0 {
+					_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+						bson.M{"$push": bson.M{"cardrecord": bson.M{"message_id": messageid, "card_id": req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId(), "card_num": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}}})
+					if err != nil {
+						beego.Error("首次赠送卡片存储失败")
+						isGive = int32(0)
+					} else {
+						beego.Info("首次赠送卡片存储成功")
+					}
 				} else {
-					beego.Info("赠送卡片存储成功")
+					_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+						bson.M{"$set": bson.M{"cardrecord." + fmt.Sprint(m) + ".message_id": messageid, "cardrecord." + fmt.Sprint(m) + ".card_id": req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId(), "cardrecord." + fmt.Sprint(m) + ".card_num": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
+
+					if err != nil {
+						beego.Error("赠送卡片存储失败")
+						isGive = int32(0)
+					} else {
+						beego.Info("赠送卡片存储成功")
+					}
 				}
 			}
 		}
 
 	}
+
 	res_data := new(cspb.CSFriendmessageRes)
 	messageId := req_data.GetMessageId()
 	friendListId := req_data.GetFriendListId()

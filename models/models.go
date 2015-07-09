@@ -98,15 +98,15 @@ type Player struct {
 	Levels             []*cspb.CSStageNtf     `bson:"Levels"`
 	Money              *cspb.CSMoneyReq       `bson:"Money"`
 	Cards              []*CardData            `bson:"cards"`
-	CardRecord         []*CardrecordData      `bson:"cardrecord"`
+	Cardrecord         []*CardData1           `bson:"cardrecord"`
 }
 
 //消息记录中的CardNtf
 
 type CardrecordData struct {
-	MessageId int32 `bson:"messageid"`
-	CardId    int32 `bson:"cardid`
-	CardNum   int32 `bson:"cardnum"`
+	MessageId int32 `bson:"message_id"`
+	CardId    int32 `bson:"card_id`
+	CardNum   int32 `bson:"card_num"`
 }
 type StarDate struct {
 	StarId       int32  `bson:"starid"`
@@ -123,6 +123,12 @@ type StarDate struct {
 type CardData struct {
 	CardId  int32 `bson:"card_id"`
 	CardNum int32 `bson:"card_num"`
+}
+
+type CardData1 struct {
+	MessageId int32 `bson:"message_id"`
+	CardId    int32 `bson:"card_id"`
+	CardNum   int32 `bson:"card_num"`
 }
 type RechargeData struct {
 	Uid          int64  `bson:"uid"`
