@@ -36,24 +36,30 @@ func FriendlistHandle(
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
+	beego.Info(player.FriendList[0], player.FriendList[1])
+
+	var StarName string
+	var Fighting int32
+	var DressId int32
+	var Dress string
+	var Level int32
+	var Medal int32
+	var MedalLevelID int32
+	var Stagelevel int32
 	for i := range player.FriendList {
 
 		var players models.Player
 		err_ := c.Find(bson.M{"uid": player.FriendList[i].Friendid}).One(&players)
+		beego.Info(players.FriendList[0], players.FriendList[1])
 		if err_ != nil {
 			beego.Error(err_)
 		}
-		//定义,关数暂时给出默认值
-		var StarName string
-		var Fighting int32
-		var DressId int32
-		var Dress string
-		var Level int32
-		var Medal int32
-		var MedalLevelID int32
-		Stagelevel := int32(0)
+		//定义
+
+		Stagelevel = GetMaxStage(player.FriendList[i].Friendid)
 		for j := range players.Star {
 			if players.Star[j].StarId == players.StarId {
+				beego.Info("明星选择")
 				StarName = players.Star[j].Starname
 				Fighting = players.Star[j].Fighting
 				DressId = players.Star[j].Dress
@@ -66,7 +72,7 @@ func FriendlistHandle(
 		}
 
 		FriendListNtf = append(FriendListNtf, makefriendlist(int32(i), player.FriendList[i].Friendid, players.Name, players.StarId, StarName, Fighting, DressId, Dress, Level, Medal, MedalLevelID, Stagelevel))
-
+		beego.Info("FriendListNtf is:", FriendListNtf)
 	}
 	beego.Info("FriendListNtf is:", FriendListNtf)
 	res_data := new(cspb.CSFriendlistRes)
@@ -82,4 +88,24 @@ func FriendlistHandle(
 		res_pkg_body, res_list)
 	return ret
 
+}
+func GetMaxStage(uid int32) int32 {
+	//查找最大关卡数
+	MaxStage := int32(0)
+	c := db_session.DB("zoo").C("player")
+	var player models.Player
+	err := c.Find(bson.M{"uid": uid}).One(&player)
+	if err != nil {
+		beego.Error("没有这样的玩家！", err)
+	}
+	arr := [...]int32{0}
+	s := arr[0:]
+	for i := range player.Levels {
+		if player.Levels[i].GetStageId() < 10000 {
+			//普通关卡
+			s = append(s, player.Levels[i].GetStageId())
+			MaxStage = int32(len(s)) - int32(1)
+		}
+	}
+	return MaxStage
 }

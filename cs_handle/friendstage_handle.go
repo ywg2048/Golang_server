@@ -51,23 +51,3 @@ func FriendStageHandle(
 	return ret
 
 }
-func GetMaxStage(uid int32) int32 {
-	//查找最大关卡数
-	MaxStage := int32(0)
-	c := db_session.DB("zoo").C("player")
-	var player models.Player
-	err := c.Find(bson.M{"uid": uid}).One(&player)
-	if err != nil {
-		beego.Error("没有这样的玩家！", err)
-	}
-	arr := [...]int32{0}
-	s := arr[0:]
-	for i := range player.Levels {
-		if player.Levels[i].GetStageId() < 10000 {
-			//普通关卡
-			s = append(s, player.Levels[i].GetStageId())
-			MaxStage = int32(len(s)) - int32(1)
-		}
-	}
-	return MaxStage
-}
