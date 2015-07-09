@@ -41,7 +41,7 @@ func FriendmessageListHandle(
 	//正式代码
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
-	err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
+	err := c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
 	if err != nil {
 		beego.Error(err)
 	}
@@ -77,28 +77,49 @@ func FriendmessageListHandle(
 			//赠送小红花
 			cardNtf_tag_1 = append(cardNtf_tag_1, makecardNtf(int32(0), int32(0)))
 			Friendntf_tag_1 = append(Friendntf_tag_1, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_1))
-			beego.Info(Friendntf_tag_1)
+			beego.Info("Friendntf_tag_1", Friendntf_tag_1)
 		} else if messages[k].Tag == int32(2) {
 			//接受小红花
 			cardNtf_tag_2 = append(cardNtf_tag_2, makecardNtf(int32(0), int32(0)))
 			Friendntf_tag_2 = append(Friendntf_tag_2, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_2))
-			beego.Info(Friendntf_tag_2)
-		} else if messages[k].Tag == int32(3) {
-			//赠送卡片
-
-			cardNtf_tag_3 = append(cardNtf_tag_3, makecardNtf(int32(0), int32(0)))
-			Friendntf_tag_3 = append(Friendntf_tag_3, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_3))
-			beego.Info(Friendntf_tag_3)
+			beego.Info("Friendntf_tag_2", Friendntf_tag_2)
 		} else if messages[k].Tag == int32(4) {
+			//赠送卡片
+			var friend models.Player
+			err := c.Find(bson.M{"uid": messages[k].Fromuid}).One(&friend)
+			if err != nil {
+				beego.Error(err)
+			}
+			for i := range friend.Cardrecord {
+				if friend.Cardrecord[i].MessageId == messages[k].Id {
+
+					cardNtf_tag_3 = append(cardNtf_tag_3, makecardNtf(friend.Cardrecord[i].CardId, friend.Cardrecord[i].CardNum))
+					beego.Info("cardNtf_tag_3", cardNtf_tag_3)
+				}
+			}
+			Friendntf_tag_3 = append(Friendntf_tag_3, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_3))
+			beego.Info("Friendntf_tag_3", Friendntf_tag_3)
+		} else if messages[k].Tag == int32(3) {
 			//接受卡片
-			cardNtf_tag_4 = append(cardNtf_tag_4, makecardNtf(int32(0), int32(0)))
+			var friend models.Player
+			err := c.Find(bson.M{"uid": messages[k].Fromuid}).One(&friend)
+			if err != nil {
+				beego.Error(err)
+			}
+			for i := range friend.Cardrecord {
+				if friend.Cardrecord[i].MessageId == messages[k].Id {
+
+					cardNtf_tag_4 = append(cardNtf_tag_4, makecardNtf(friend.Cardrecord[i].CardId, friend.Cardrecord[i].CardNum))
+					beego.Info("cardNtf_tag_4", cardNtf_tag_4)
+				}
+			}
 			Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_4))
-			beego.Info(Friendntf_tag_4)
+			beego.Info("Friendntf_tag_4", Friendntf_tag_4)
 		} else if messages[k].Tag == int32(5) {
 			//添加好友
 			cardNtf_tag_5 = append(cardNtf_tag_5, makecardNtf(int32(0), int32(0)))
 			Friendntf_tag_5 = append(Friendntf_tag_5, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, cardNtf_tag_5))
-			beego.Info(Friendntf_tag_5)
+			beego.Info("Friendntf_tag_5", Friendntf_tag_5)
 		}
 
 		// FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(messages[k].Messagetype, messages[k].ElementType, Friendntf, messages[k].CardId, "红色", messages[k].Number, messages[k].Id))

@@ -69,9 +69,9 @@ func AddFriendHandle(
 
 		c.Upsert(bson.M{"uid": friendId},
 			bson.M{"$set": bson.M{"ApplyFriendList." + fmt.Sprint(j) + ".applyuid": uid, "ApplyFriendList." + fmt.Sprint(j) + ".isAccept": int32(0), "ApplyFriendList." + fmt.Sprint(j) + ".isrefuse": int32(0), "ApplyFriendList." + fmt.Sprint(j) + ".applytime": time.Now().Unix(), "ApplyFriendList." + fmt.Sprint(j) + ".oprationtime": int64(0)}})
-
+		k := len(friend.FriendList)
 		_, errs := c.Upsert(bson.M{"uid": friendId},
-			bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(j) + ".friendid": int32(req_data.GetUid()), "FriendList." + fmt.Sprint(j) + ".isActive": int32(0), "FriendList." + fmt.Sprint(j) + ".accepttime": int64(0)}})
+			bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(k) + ".friendid": int32(req_data.GetUid()), "FriendList." + fmt.Sprint(k) + ".isActive": int32(0), "FriendList." + fmt.Sprint(k) + ".accepttime": int64(0)}})
 		beego.Info(errs)
 		//消息通知mysql表
 		var players models.Player
