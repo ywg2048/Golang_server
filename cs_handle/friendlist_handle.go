@@ -65,8 +65,8 @@ func FriendlistHandle(
 				DressId = players.Star[j].Dress
 				Dress = players.Star[j].Dressname
 				Level = players.Star[j].Level
-				Medal = players.Star[j].Medal
-				MedalLevelID = players.Star[j].MedalLevelId
+				Medal = players.Medal
+				MedalLevelID = players.MedalLevelId
 
 			}
 		}

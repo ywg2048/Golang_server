@@ -77,7 +77,7 @@ func RankHandle(
 
 		o := orm.NewOrm()
 
-		num, err := o.Raw("select ranking.* from ranking,friend,current_star where ranking.uid = friend.friend_id and ranking.star_id=current_star.currentstar_id and ranking.uid = current_star.uid").QueryRows(&ranking)
+		num, err := o.Raw("select ranking.* from ranking,friend where ranking.uid = friend.`friend_id` ORDER BY  ranking.`medal` desc").QueryRows(&ranking)
 		if err == nil {
 
 			beego.Info(num, ranking)

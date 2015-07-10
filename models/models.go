@@ -104,6 +104,8 @@ type Player struct {
 	Money              *cspb.CSMoneyReq       `bson:"Money"`
 	Cards              []*CardData            `bson:"cards"`
 	Cardrecord         []*CardData1           `bson:"cardrecord"`
+	Medal              int32                  `bson:"medal"`
+	MedalLevelId       int32                  `bson:"medal_level_id"`
 }
 
 //消息记录中的CardNtf
@@ -114,16 +116,15 @@ type CardrecordData struct {
 	CardNum   int32 `bson:"card_num"`
 }
 type StarDate struct {
-	StarId       int32  `bson:"starid"`
-	Starname     string `bson:"starname"`
-	Level        int32  `bson:"level"`
-	Solution     int32  `bson:"experience"`
-	Dress        int32  `bson:"dress"`
-	Dressname    string `bson:"dressname"`
-	Fighting     int32  `bson:"fighting"`
-	IsActive     int32  `bson:"is_active"` //是否选择，
-	Medal        int32  `bson:"medal"`
-	MedalLevelId int32  `bson:"medal_level_id"`
+	StarId    int32  `bson:"starid"`
+	Starname  string `bson:"starname"`
+	Level     int32  `bson:"level"`
+	Solution  int32  `bson:"experience"`
+	Dress     int32  `bson:"dress"`
+	Dressname string `bson:"dressname"`
+	Fighting  int32  `bson:"fighting"`
+	IsActive  int32  `bson:"is_active"` //是否选择，
+
 }
 type CardData struct {
 	CardId  int32 `bson:"card_id"`
