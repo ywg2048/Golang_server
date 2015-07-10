@@ -64,6 +64,11 @@ type Friend struct {
 	Uid      int32
 	FriendId int32
 }
+type CurrentStar struct {
+	Id            int32
+	Uid           int32
+	CurrentstarId int32
+}
 
 /*成就*/
 type Achievement struct {
@@ -218,6 +223,6 @@ type Chip struct {
 
 func init() {
 
-	orm.RegisterModel(new(Messagecenter), new(Userscore), new(Userinfo), new(Ranking), new(Messages), new(Friend))
+	orm.RegisterModel(new(Messagecenter), new(Userscore), new(Userinfo), new(Ranking), new(Messages), new(Friend), new(CurrentStar))
 
 }

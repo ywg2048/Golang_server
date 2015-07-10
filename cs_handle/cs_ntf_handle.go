@@ -139,7 +139,6 @@ func makeRank(playuid int32, playname string,
 		Starid:       proto.Int32(starid),
 	}
 
-	beego.Debug("rank_ntf:%v", rank_ntf)
 	return rank_ntf
 }
 

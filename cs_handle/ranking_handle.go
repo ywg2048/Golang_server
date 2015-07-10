@@ -60,7 +60,7 @@ func RankHandle(
 	case "2":
 		//明星排名
 		beego.Info("明星排名")
-		cond = cond.And("StarId_contains", StarId)
+		cond = cond.And("StarId__contains", StarId)
 		qs = orm.NewOrm().QueryTable("ranking").SetCond(cond).OrderBy("-Medal")
 		cnt, err := qs.All(&ranking)
 		if err != nil {
@@ -74,10 +74,21 @@ func RankHandle(
 	case "3":
 		//好友排名(查找朋友列表的数据)
 		beego.Info("好友排名")
-	}
 
-	SearchType := req_data.GetType()
+		o := orm.NewOrm()
+
+		num, err := o.Raw("select ranking.* from ranking,friend,current_star where ranking.uid = friend.friend_id and ranking.star_id=current_star.currentstar_id and ranking.uid = current_star.uid").QueryRows(&ranking)
+		if err == nil {
+
+			beego.Info(num, ranking)
+		}
+		for i := range ranking {
+			res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Level, ranking[i].Medal, int32(i+1), ranking[i].MedalLevelId, StarId))
+		}
+	}
 	beego.Info(res_rank)
+	SearchType := req_data.GetType()
+
 	ret = int32(1)
 	res_data := new(cspb.CSRankRes)
 	*res_data = cspb.CSRankRes{
