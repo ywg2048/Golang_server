@@ -199,6 +199,22 @@ func FriendmessageHandle(
 					}
 				}
 			}
+
+			//mysql朋友列表添加
+			o := orm.NewOrm()
+			var Friend models.Friend
+
+			for i := range player.FriendList {
+				Friend = models.Friend{FriendId: player.FriendList[i].Friendid}
+				err := o.Read(&Friend, "Friendid")
+				beego.Info(Friend)
+				if err != nil {
+					Friend.Uid = uid
+					Friend.FriendId = player.FriendList[i].Friendid
+					id, err := o.Insert(&Friend)
+					beego.Info(id, err)
+				}
+			}
 		}
 	}
 	//消息表

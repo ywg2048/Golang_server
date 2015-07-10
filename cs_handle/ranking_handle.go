@@ -16,7 +16,7 @@ import proto "code.google.com/p/goprotobuf/proto"
 // import "labix.org/v2/mgo/bson"
 
 // import db_session "tuojie.com/piggo/quickstart.git/db/session"
-import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
+// import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func RankHandle(
 	req *cspb.CSPkg,
@@ -38,15 +38,16 @@ func RankHandle(
 	var res_rank []*cspb.CSRankNtf
 	//测试代码
 
-	for i := range resmgr.RankingtestData.GetItems() {
-		res_rank = append(res_rank, makeRank(resmgr.RankingtestData.GetItems()[i].GetUID(), resmgr.RankingtestData.GetItems()[i].GetName(), resmgr.RankingtestData.GetItems()[i].GetLevel(), resmgr.RankingtestData.GetItems()[i].GetMedalNum(), resmgr.RankingtestData.GetItems()[i].GetRankId(), resmgr.RankingtestData.GetItems()[i].GetMedalLevelID(), resmgr.RankingtestData.GetItems()[i].GetStarId()))
-	}
+	// for i := range resmgr.RankingtestData.GetItems() {
+	// 	res_rank = append(res_rank, makeRank(resmgr.RankingtestData.GetItems()[i].GetUID(), resmgr.RankingtestData.GetItems()[i].GetName(), resmgr.RankingtestData.GetItems()[i].GetLevel(), resmgr.RankingtestData.GetItems()[i].GetMedalNum(), resmgr.RankingtestData.GetItems()[i].GetRankId(), resmgr.RankingtestData.GetItems()[i].GetMedalLevelID(), resmgr.RankingtestData.GetItems()[i].GetStarId()))
+	// }
 
 	//正式代码
 	StarId := req_data.GetStarid()
 	switch req_data.GetType() {
 	case "1":
 		//小伙伴排名
+		beego.Info("小伙伴排名")
 		qs = orm.NewOrm().QueryTable("ranking").SetCond(cond).OrderBy("-Medal")
 		cnt, err := qs.All(&ranking)
 		if err != nil {
@@ -58,6 +59,7 @@ func RankHandle(
 		}
 	case "2":
 		//明星排名
+		beego.Info("明星排名")
 		cond = cond.And("StarId_contains", StarId)
 		qs = orm.NewOrm().QueryTable("ranking").SetCond(cond).OrderBy("-Medal")
 		cnt, err := qs.All(&ranking)
@@ -71,7 +73,7 @@ func RankHandle(
 
 	case "3":
 		//好友排名(查找朋友列表的数据)
-
+		beego.Info("好友排名")
 	}
 
 	SearchType := req_data.GetType()
