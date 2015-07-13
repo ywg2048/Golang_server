@@ -242,11 +242,13 @@ func makeFriendStagentf(FriendId int32, Name string, Stage int32) *cspb.CSFriend
 	}
 	return friendstage_ntf
 }
-func makeAchievementNtf(Achievementid int32, Status int32) *cspb.CSAchievementNtf {
+func makeAchievementNtf(Achievementid int32, StarLevel int32, Process int32, IsReceive int32) *cspb.CSAchievementNtf {
 	achievement_ntf := new(cspb.CSAchievementNtf)
 	*achievement_ntf = cspb.CSAchievementNtf{
 		Achievementid: proto.Int32(Achievementid),
-		Status:        proto.Int32(Status),
+		Process:       proto.Int32(Process),
+		StarLevel:     proto.Int32(StarLevel),
+		IsReceive:     proto.Int32(IsReceive),
 	}
 	return achievement_ntf
 }

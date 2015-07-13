@@ -70,15 +70,6 @@ type CurrentStar struct {
 	CurrentstarId int32
 }
 
-/*成就*/
-type Achievement struct {
-	Id             int32
-	Uid            int32
-	AchievementSum int32 //总共多少成就
-	AchievementId  int32 /*完成成就的Id*/
-	Time           int64
-}
-
 /*mongo*/
 /*人物的属性*/
 type Player struct {
@@ -91,7 +82,7 @@ type Player struct {
 	Diamond            int32                  `bson:"diamond"`
 	StarId             int32                  `bson:"starid"`
 	Star               []*StarDate            `bson:"star"`
-	SolutionPool       int32                  `bson:"experience_pool"`
+	ExperiencePool     int32                  `bson:"experience_pool"`
 	RegistTime         int64                  `bson:"regist_time"`
 	FriendList         []*FriendListData      `bson:"FriendList"`
 	ApplyFriendList    []*ApplyFriendListData `bson:"ApplyFriendList"`
@@ -106,6 +97,16 @@ type Player struct {
 	Cardrecord         []*CardData1           `bson:"cardrecord"`
 	Medal              int32                  `bson:"medal"`
 	MedalLevelId       int32                  `bson:"medal_level_id"`
+	Achievement        []*AchievementData     `bson:"achievement"`
+}
+
+/*成就*/
+type AchievementData struct {
+	AchievementId int32 `bson:"achievementid"` /*完成成就的Id*/
+	StarLevel     int32 `bson:"starlevel"`
+	Process       int32 `bson:"process"`
+	IsReceive     int32 `bson:"isreceive"` //有没有领取奖励 1代表已经领取， 0代表还没有领取
+
 }
 
 //消息记录中的CardNtf
