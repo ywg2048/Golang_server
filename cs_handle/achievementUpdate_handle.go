@@ -28,9 +28,23 @@ func AchievementupdateHandle(
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
-
+	m := len(player.Achievement)
+	if m == 0 {
+		beego.Info("成就为空")
+		_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+			bson.M{"$push": bson.M{"achievement": bson.M{"achievementid": req_data.GetAchievementid(), "starlevel": req_data.GetStarLevel(), "process": req_data.GetProcess(), "isreceive": int32(0)}}})
+		if err == nil {
+			beego.Info("首次存储成就成功！")
+		} else {
+			beego.Error("首次存储成就失败!")
+		}
+	}
 	for i := range player.Achievement {
+		beego.Info("成就")
+		beego.Info(player.Achievement[i].AchievementId)
+
 		if player.Achievement[i].AchievementId == req_data.GetAchievementid() {
+
 			if player.Achievement[i].StarLevel == req_data.GetStarLevel() {
 				//先检查星星等级是否合法
 
@@ -44,6 +58,14 @@ func AchievementupdateHandle(
 				}
 			} else {
 				beego.Error("星星的等级不合法！")
+			}
+		} else {
+			_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+				bson.M{"$push": bson.M{"achievement": bson.M{"achievementid": req_data.GetAchievementid(), "starlevel": req_data.GetStarLevel(), "process": req_data.GetProcess(), "isreceive": int32(0)}}})
+			if err == nil {
+				beego.Info("首次存储成就成功！")
+			} else {
+				beego.Error("首次存储成就失败!")
 			}
 		}
 	}
