@@ -47,6 +47,7 @@ func Init() {
 	cmdProcessRegister(cspb.Command_kApplyCardReq, ApplyCardHandle)
 	cmdProcessRegister(cspb.Command_kResourceReq, ResourceHandle)
 	cmdProcessRegister(cspb.Command_kReceiveRewardReq, ReceiveRewardHandle)
+	cmdProcessRegister(cspb.Command_kAchievementUpdateReq, AchievementupdateHandle)
 }
 
 func PkgListHandle(

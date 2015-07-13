@@ -30,12 +30,12 @@ func ReceiveRewardHandle(
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
 	for i := range player.Achievement {
 		if player.Achievement[i].AchievementId == req_data.GetAchievementid() {
-			if player.Achievement[i].IsReceive == int32(0) {
+			if player.Achievement[i].StarLevel <= req_data.GetStarLevel() {
 				//只有没有领取的时候才能领取
 				_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-					bson.M{"$set": bson.M{"achievement." + fmt.Sprint(i) + ".achievementid": req_data.GetAchievementid(), "achievement." + fmt.Sprint(i) + ".starlevel": req_data.GetStarLevel(), "achievement." + fmt.Sprint(i) + ".isreceive": int32(1)}})
+					bson.M{"$set": bson.M{"achievement." + fmt.Sprint(i) + ".achievementid": req_data.GetAchievementid(), "achievement." + fmt.Sprint(i) + ".isreceive": int32(1)}})
 				_, errs := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-					bson.M{"$inc": bson.M{"experience_pool": req_data.GetExp(), "diamond": req_data.GetDiamond()}})
+					bson.M{"$inc": bson.M{"experience_pool": req_data.GetExp(), "diamond": req_data.GetDiamond(), "achievement." + fmt.Sprint(i) + ".starlevel": int32(1)}})
 				if errs == nil && err == nil {
 					beego.Info("领取奖励成功！")
 					IsReceive = int32(1)
