@@ -1,0 +1,35 @@
+items {
+  Id: 1
+  Diamond: 6
+  Flower: 1
+  Desc: "一朵小红花"
+  StoreID: "com.tuojie.flower"
+}
+items {
+  Id: 2
+  Diamond: 25
+  Flower: 5
+  Desc: "少量小红花"
+  StoreID: "com.tuojie.5flower"
+}
+items {
+  Id: 3
+  Diamond: 40
+  Flower: 10
+  Desc: "中量小红花"
+  StoreID: "com.tuojie.10flower"
+}
+items {
+  Id: 4
+  Diamond: 60
+  Flower: 15
+  Desc: "大量小红花"
+  StoreID: "com.tuojie.15flower"
+}
+items {
+  Id: 5
+  Diamond: 80
+  Flower: 30
+  Desc: "海量小红花"
+  StoreID: "com.tuojie.30flower"
+}

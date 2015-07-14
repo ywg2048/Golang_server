@@ -10,7 +10,7 @@ items {
   Level: 10
   Medal: 150
   MedalLevelId: 1
-  Stagelevel: 20
+  Stagelevel: 1
 }
 items {
   ID: 2
@@ -24,7 +24,7 @@ items {
   Level: 12
   Medal: 150
   MedalLevelId: 1
-  Stagelevel: 20
+  Stagelevel: 2
 }
 items {
   ID: 3
@@ -38,7 +38,7 @@ items {
   Level: 13
   Medal: 150
   MedalLevelId: 1
-  Stagelevel: 20
+  Stagelevel: 3
 }
 items {
   ID: 4
@@ -52,7 +52,7 @@ items {
   Level: 14
   Medal: 150
   MedalLevelId: 1
-  Stagelevel: 20
+  Stagelevel: 5
 }
 items {
   ID: 5
@@ -66,5 +66,5 @@ items {
   Level: 15
   Medal: 150
   MedalLevelId: 1
-  Stagelevel: 20
+  Stagelevel: 6
 }

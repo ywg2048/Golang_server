@@ -3,52 +3,118 @@ items {
   CardId: 1
   Number: 10
   GetNum: 10
+  Satisfaction: 100
+  Fight_exp: 10
 }
 items {
   Level: 1
   CardId: 2
   Number: 20
   GetNum: 20
+  Satisfaction: 100
+  Fight_exp: 10
 }
 items {
   Level: 1
   CardId: 3
   Number: 30
   GetNum: 10
+  Satisfaction: 100
+  Fight_exp: 10
 }
 items {
   Level: 2
   CardId: 1
   Number: 10
   GetNum: 10
+  Satisfaction: 200
+  Fight_exp: 20
 }
 items {
   Level: 2
   CardId: 2
   Number: 20
   GetNum: 20
+  Satisfaction: 200
+  Fight_exp: 20
 }
 items {
   Level: 2
   CardId: 3
   Number: 30
   GetNum: 20
+  Satisfaction: 200
+  Fight_exp: 20
 }
 items {
   Level: 3
   CardId: 1
   Number: 10
   GetNum: 10
+  Satisfaction: 300
+  Fight_exp: 30
 }
 items {
   Level: 3
   CardId: 2
   Number: 20
   GetNum: 20
+  Satisfaction: 300
+  Fight_exp: 30
 }
 items {
   Level: 3
   CardId: 3
   Number: 30
   GetNum: 20
+  Satisfaction: 300
+  Fight_exp: 30
+}
+items {
+  Level: 4
+  CardId: 1
+  Number: 10
+  GetNum: 10
+  Satisfaction: 400
+  Fight_exp: 40
+}
+items {
+  Level: 4
+  CardId: 2
+  Number: 20
+  GetNum: 20
+  Satisfaction: 400
+  Fight_exp: 40
+}
+items {
+  Level: 4
+  CardId: 3
+  Number: 30
+  GetNum: 30
+  Satisfaction: 400
+  Fight_exp: 40
+}
+items {
+  Level: 5
+  CardId: 1
+  Number: 10
+  GetNum: 10
+  Satisfaction: 500
+  Fight_exp: 50
+}
+items {
+  Level: 5
+  CardId: 2
+  Number: 20
+  GetNum: 20
+  Satisfaction: 500
+  Fight_exp: 50
+}
+items {
+  Level: 5
+  CardId: 3
+  Number: 30
+  GetNum: 30
+  Satisfaction: 500
+  Fight_exp: 50
 }

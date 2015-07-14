@@ -117,14 +117,16 @@ type CardrecordData struct {
 	CardNum   int32 `bson:"card_num"`
 }
 type StarDate struct {
-	StarId    int32  `bson:"starid"`
-	Starname  string `bson:"starname"`
-	Level     int32  `bson:"level"`
-	Solution  int32  `bson:"experience"`
-	Dress     int32  `bson:"dress"`
-	Dressname string `bson:"dressname"`
-	Fighting  int32  `bson:"fighting"`
-	IsActive  int32  `bson:"is_active"` //是否选择，
+	StarId       int32  `bson:"starid"`
+	Starname     string `bson:"starname"`
+	Level        int32  `bson:"level"`
+	Solution     int32  `bson:"experience"`
+	Dress        int32  `bson:"dress"`
+	Dressname    string `bson:"dressname"`
+	Fighting     int32  `bson:"fighting"`
+	Satisfaction int32  `bson:"satisfaction"`
+	FightExp     int32  `bson:"fight_exp"`
+	IsActive     int32  `bson:"is_active"` //是否选择，
 
 }
 type CardData struct {

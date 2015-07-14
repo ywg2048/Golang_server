@@ -50,6 +50,7 @@ func Init() {
 	resLoadFile("friendstagetest.bytes", &FriendstagetestData)
 	resLoadFile("zootest.bytes", &ZootestData)
 	resLoadFile("rankingtest.bytes", &RankingtestData)
+	resLoadFile("levelup.bytes", &LevelupData)
 } //>>>func
 
 var PetData resource.PetArray
@@ -73,5 +74,6 @@ var FriendntftestData resource.FriendntftestArray
 var FriendstagetestData resource.FriendstagetestArray
 var ZootestData resource.ZootestArray
 var RankingtestData resource.RankingtestArray
+var LevelupData resource.LevelupArray
 
 //>>>var
