@@ -15,6 +15,7 @@ import cspb "protocol"
 import "labix.org/v2/mgo/bson"
 
 import db_session "tuojie.com/piggo/quickstart.git/db/session"
+
 import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func LevelUpHandle(
@@ -23,6 +24,7 @@ func LevelUpHandle(
 	beego.Info("*********LevelUpHandle Start**********")
 	req_data := req.GetBody().GetLevelUpReq()
 	beego.Info(req_data)
+	// beego.Info(resmgr.LevelupData.GetItems())
 	ret := int32(1)
 
 	c := db_session.DB("zoo").C("player")
@@ -39,18 +41,18 @@ func LevelUpHandle(
 						for j := range req_data.GetCardNtf() {
 							if player.Cards[i].CardId == req_data.GetCardNtf()[j].GetCardId() {
 								if player.Cards[i].CardNum >= req_data.GetCardNtf()[j].GetCardNum() {
-									//卡片足够
+									// 卡片足够
 									for m := range resmgr.LevelupData.GetItems() {
 										if resmgr.LevelupData.GetItems()[m].GetLevel() == req_data.GetCurrentLevel() {
 
 											_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-												bson.M{"$inc": bson.M{"cards." + fmt.Sprint(i) + ".card_num": -req_data.GetCardNtf()[j].GetCardNum(), "experience_pool": -req_data.GetExp(), "star." + fmt.Sprint(k) + "level": int32(1)}})
+												bson.M{"$inc": bson.M{"cards." + fmt.Sprint(i) + ".card_num": -req_data.GetCardNtf()[j].GetCardNum(), "experience_pool": -req_data.GetExp(), "star." + fmt.Sprint(k) + ".level": int32(1)}})
 											_, errs := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
 												bson.M{"$set": bson.M{"star." + fmt.Sprint(k) + ".satisfaction": resmgr.LevelupData.GetItems()[m].GetSatisfaction(), "star." + fmt.Sprint(k) + ".fight_exp": resmgr.LevelupData.GetItems()[m].GetFightExp()}})
 											if err == nil && errs == nil {
 												beego.Info("小伙伴升级成功！")
 											} else {
-												beego.Error("小伙伴升级失败！")
+												beego.Error("小伙伴升级失败！", err, errs)
 											}
 										}
 									}

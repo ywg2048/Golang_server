@@ -48,7 +48,7 @@ func Init() {
 	cmdProcessRegister(cspb.Command_kResourceReq, ResourceHandle)
 	cmdProcessRegister(cspb.Command_kReceiveRewardReq, ReceiveRewardHandle)
 	cmdProcessRegister(cspb.Command_kAchievementUpdateReq, AchievementupdateHandle)
-	cmdProcessRegister(cspb.Command_kLevelUpReq, LevelUpHandle)
+	cmdProcessRegister(cspb.Command_kZooAnimalReq, ZooAnimalHandle)
 }
 
 func PkgListHandle(

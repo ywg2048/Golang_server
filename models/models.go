@@ -98,6 +98,14 @@ type Player struct {
 	Medal              int32                  `bson:"medal"`
 	MedalLevelId       int32                  `bson:"medal_level_id"`
 	Achievement        []*AchievementData     `bson:"achievement"`
+	Zoo                []*ZooData             `bson:"zoo"`
+}
+
+//动物园
+type ZooData struct {
+	AnimalId    int32 `bson:"animal_id"`
+	AnimalLevel int32 `bson:"animal_level"`
+	Islocked    int32 `bson:"is_locked"`
 }
 
 /*成就*/

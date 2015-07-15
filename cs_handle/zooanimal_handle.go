@@ -1,7 +1,7 @@
 package cs_handle
 
 import (
-	// "fmt"
+	"fmt"
 	"github.com/astaxie/beego"
 	// "time"
 	models "tuojie.com/piggo/quickstart.git/models"
@@ -17,35 +17,41 @@ import db_session "tuojie.com/piggo/quickstart.git/db/session"
 
 // import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
-func ZooHandle(
+func ZooAnimalHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
-	beego.Info("*********ZooHandle Start**********")
-	req_data := req.GetBody().GetZooReq()
+	beego.Info("*********ZooAnimalHandle Start**********")
+	req_data := req.GetBody().GetZooanimalReq()
 	beego.Info(req_data)
 	ret := int32(1)
+
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
-
-	//显示动物列表
-	var AnimalNtf []*cspb.CSAnimalNtf
-	// for i := range resmgr.ZootestData.GetItems() {
-	// 	AnimalNtf = append(AnimalNtf, makeAnimalNtf(resmgr.ZootestData.GetItems()[i].GetAnimalId(), resmgr.ZootestData.GetItems()[i].GetStatus()))
-	// }
 	for i := range player.Zoo {
-		AnimalNtf = append(AnimalNtf, makeAnimalNtf(player.Zoo[i].AnimalId, player.Zoo[i].AnimalLevel, player.Zoo[i].Islocked))
+		if req_data.GetAnimalId() == player.Zoo[i].AnimalId {
+			if player.Zoo[i].AnimalLevel == req_data.GetUptolevel()-int32(1) {
+				//检查等级是否合法
+				if player.Gold >= req_data.GetRequiredGold() {
+					//检查金币是否足够
+					_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+						bson.M{"$inc": bson.M{"zoo." + fmt.Sprint(i) + ".animal_level": int32(1), "gold": -req_data.GetRequiredGold()}})
+				} else {
+					beego.Error("金币不够")
+				}
+			} else {
+				beego.Error("等级错误！")
+			}
+		}
 	}
-	beego.Info(AnimalNtf)
-	res_data := new(cspb.CSZooRes)
 
-	*res_data = cspb.CSZooRes{
-		AnimalNtf: AnimalNtf,
-	}
+	res_data := new(cspb.CSZooAnimalRes)
+
+	*res_data = cspb.CSZooAnimalRes{}
 
 	res_pkg_body := new(cspb.CSBody)
 	*res_pkg_body = cspb.CSBody{
-		ZooRes: res_data,
+		ZooanimalRes: res_data,
 	}
 	res_list = makeCSPkgList(int32(cspb.Command_kZooRes),
 		res_pkg_body, res_list)

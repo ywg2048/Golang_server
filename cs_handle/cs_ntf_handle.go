@@ -215,12 +215,13 @@ func makefriendlist(FriendListId int32, Playerid int32, Name string, Starid int3
 	return friendlist_ntf
 }
 
-func makeAnimalNtf(AnimalId int32, Status int32) *cspb.CSAnimalNtf {
+func makeAnimalNtf(AnimalId int32, AnimalLevel int32, Islocked int32) *cspb.CSAnimalNtf {
 	animal_ntf := new(cspb.CSAnimalNtf)
 	*animal_ntf = cspb.CSAnimalNtf{
 
-		AnimalId: proto.Int32(AnimalId),
-		Status:   proto.Int32(Status),
+		AnimalId:    proto.Int32(AnimalId),
+		AnimalLevel: proto.Int32(AnimalLevel),
+		Islocked:    proto.Int32(Islocked),
 	}
 	return animal_ntf
 }
