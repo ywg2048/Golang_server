@@ -28,23 +28,52 @@ func ZooAnimalHandle(
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
-	for i := range player.Zoo {
-		if req_data.GetAnimalId() == player.Zoo[i].AnimalId {
-			if player.Zoo[i].AnimalLevel == req_data.GetUptolevel()-int32(1) {
-				//检查等级是否合法
-				if player.Gold >= req_data.GetRequiredGold() {
-					//检查金币是否足够
-					_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-						bson.M{"$inc": bson.M{"zoo." + fmt.Sprint(i) + ".animal_level": int32(1), "gold": -req_data.GetRequiredGold()}})
+
+	if req_data.GetIsLocked() == int32(1) {
+		//解锁动物
+		if req_data.GetUptolevel() == int32(1) {
+			//检测动物是否为1级
+			for i := range player.Zoo {
+				if player.Zoo[i].AnimalId == req_data.GetAnimalId() {
+					beego.Error("此动物已经解锁了，不要再次解锁")
 				} else {
-					beego.Error("金币不够")
+					_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+						bson.M{"$push": bson.M{"zoo": bson.M{"animal_id": req_data.GetAnimalId(), "animal_level": int32(1), "is_locked": int32(0)}}})
+					if err == nil {
+						beego.Info("解锁成功！")
+					} else {
+						beego.Error("解锁失败！")
+					}
 				}
-			} else {
-				beego.Error("等级错误！")
+			}
+		} else {
+			beego.Error("新动物不为1级")
+		}
+	} else if req_data.GetIsLocked() == int32(0) {
+
+		//升级动物
+		for i := range player.Zoo {
+			if req_data.GetAnimalId() == player.Zoo[i].AnimalId {
+				if player.Zoo[i].AnimalLevel == req_data.GetUptolevel()-int32(1) {
+					//检查等级是否合法
+					if player.Gold >= req_data.GetRequiredGold() {
+						//检查金币是否足够
+						_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+							bson.M{"$inc": bson.M{"zoo." + fmt.Sprint(i) + ".animal_level": int32(1), "gold": -req_data.GetRequiredGold()}})
+						if err == nil {
+							beego.Info("动物升级成功！")
+						} else {
+							beego.Error("动物升级失败！")
+						}
+					} else {
+						beego.Error("金币不够")
+					}
+				} else {
+					beego.Error("等级错误！")
+				}
 			}
 		}
 	}
-
 	res_data := new(cspb.CSZooAnimalRes)
 
 	*res_data = cspb.CSZooAnimalRes{}
