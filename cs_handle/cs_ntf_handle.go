@@ -53,7 +53,7 @@ func makeAttrItemNtf(item_id int32, item_num int32,
 
 func makePet(pet_id int32, pet_level int32,
 	pet_cur_exp int32, pet_total_exp int32,
-	pet_star_level int32, Petmedallevel int32, PetmedalNum int32, DressId int32, PetCardNtf []*cspb.CSPetCardNtf) *cspb.PetInfo {
+	pet_star_level int32, DressId int32) *cspb.PetInfo {
 
 	pet_info := new(cspb.PetInfo)
 	*pet_info = cspb.PetInfo{
@@ -62,10 +62,8 @@ func makePet(pet_id int32, pet_level int32,
 		PetCurExp:    proto.Int32(pet_cur_exp),
 		PetTotalExp:  proto.Int32(pet_total_exp),
 		PetStarLevel: proto.Int32(pet_star_level),
-		PetMedalLevl: proto.Int32(Petmedallevel),
-		PetMedalNum:  proto.Int32(PetmedalNum),
-		DressId:      proto.Int32(DressId),
-		PetCardNtf:   PetCardNtf,
+
+		DressId: proto.Int32(DressId),
 	}
 
 	beego.Debug("pet_info:%v", pet_info)

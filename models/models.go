@@ -91,7 +91,7 @@ type Player struct {
 	RechargeFlow       RechargeFlowData       `bson:"RechargeFlow"`
 	LastSignInTime     int64                  `bson:"last_signin_time"`
 	FreeSignInOperTime int64                  `bson:"free_signin_oper_time"`
-	Levels             []*cspb.CSStageNtf     `bson:"Levels"`
+	Levels             []*StageLevel          `bson:"Levels"`
 	Money              *cspb.CSMoneyReq       `bson:"Money"`
 	Cards              []*CardData            `bson:"cards"`
 	Cardrecord         []*CardData1           `bson:"cardrecord"`
@@ -99,6 +99,16 @@ type Player struct {
 	MedalLevelId       int32                  `bson:"medal_level_id"`
 	Achievement        []*AchievementData     `bson:"achievement"`
 	Zoo                []*ZooData             `bson:"zoo"`
+}
+
+//关卡的分数
+type StageLevel struct {
+	StageId    int32 `bson:"stage_id"`
+	StageLevel int32 `bson:"stage_level"`
+	StageScore int32 `bson:"stage_score"`
+	GetMedal   int32 `bson:"get_medal"`
+	MedalIsAdd int32 `bson:"medal_isadd"`
+	Timestamp  int32 `bson:"time_stamp"`
 }
 
 //动物园
@@ -128,7 +138,7 @@ type StarDate struct {
 	StarId       int32  `bson:"starid"`
 	Starname     string `bson:"starname"`
 	Level        int32  `bson:"level"`
-	Solution     int32  `bson:"experience"`
+	Currentexp   int32  `bson:"current_exp"`
 	Dress        int32  `bson:"dress"`
 	Dressname    string `bson:"dressname"`
 	Fighting     int32  `bson:"fighting"`

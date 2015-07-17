@@ -101,9 +101,9 @@ func GetMaxStage(uid int32) int32 {
 	arr := [...]int32{0}
 	s := arr[0:]
 	for i := range player.Levels {
-		if player.Levels[i].GetStageId() < 10000 {
+		if player.Levels[i].StageId < 10000 {
 			//普通关卡
-			s = append(s, player.Levels[i].GetStageId())
+			s = append(s, player.Levels[i].StageId)
 			MaxStage = int32(len(s)) - int32(1)
 		}
 	}

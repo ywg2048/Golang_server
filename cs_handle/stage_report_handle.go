@@ -13,7 +13,7 @@ import "labix.org/v2/mgo/bson"
 import db_session "tuojie.com/piggo/quickstart.git/db/session"
 import (
 	"fmt"
-	"time"
+	// "time"
 )
 
 func init() {
@@ -36,35 +36,54 @@ func stageReportHandle(
 	//时间戳
 	ret := int32(0)
 	if err == nil {
-		for i := range req_data.StageNtf {
-			var stage = req_data.StageNtf[i]
-			if len(player.Levels) > 0 {
-				if len(req_data.StageNtf) <= len(player.Levels) {
-					if int32(*stage.StageScore) > int32(player.Levels[i].GetStageScore()) {
-						c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-							bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
-						c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-							bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
-						beego.Info("更新用户分数成功")
+		// for i := range req_data.StageNtf {
+		// 	var stage = req_data.StageNtf[i]
+		// 	if len(player.Levels) > 0 {
+		// 		if len(req_data.StageNtf) <= len(player.Levels) {
+		// 			if int32(*stage.StageScore) > int32(player.Levels[i].StageScore) {
+		// 				c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+		// 					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
+		// 				c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+		// 					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
+		// 				beego.Info("更新用户分数成功")
+		// 			}
+		// 		} else {
+		// 			c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+		// 				bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
+		// 			c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+		// 				bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
+		// 			beego.Info("新关卡用户分数保存成功")
+		// 		}
+
+		// 	} else {
+		// 		//*stage.StageLevel = int32(1)
+		// 		c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+		// 			bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
+		// 		c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+		// 			bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
+		// 		beego.Info("插入新用户分数成功")
+		// 	}
+
+		// 	ret = 1
+		// }
+		for i := range req_data.GetStageNtf() {
+			for j := range player.Levels {
+				if req_data.GetStageNtf()[i].GetStageId() == player.Levels[j].StageId {
+					//已有的关卡
+					if player.Levels[j].StageScore < req_data.GetStageNtf()[i].GetStageScore() {
+						//玩的分数比服务器的高,则更新服务器分数
+						_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+							bson.M{"set": bson.M{"Levels." + fmt.Sprint(j) + ".stage_id": req_data.GetStageNtf()[i].GetStageScore(),
+								"Levels." + fmt.Sprint(j) + ".stage_level": req_data.GetStageNtf()[i].GetStageLevel(),
+								"Levels." + fmt.Sprint(j) + ".time_stamp":  req_data.GetStageNtf()[i].GetTimestamp()}})
+						if err != nil {
+							beego.Error("更新出错")
+						} else {
+							beego.Info("关卡更新成功")
+						}
 					}
-				} else {
-					c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-						bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
-					c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-						bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
-					beego.Info("新关卡用户分数保存成功")
 				}
-
-			} else {
-				//*stage.StageLevel = int32(1)
-				c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
-				c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
-				beego.Info("插入新用户分数成功")
 			}
-
-			ret = 1
 		}
 
 	} else {
@@ -72,104 +91,104 @@ func stageReportHandle(
 	}
 
 	//取出分数放入mysql里面
-	var playerscore models.Player
-	errs := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&playerscore)
+	// var playerscore models.Player
+	// errs := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&playerscore)
 
-	o := orm.NewOrm()
-	var userscore models.Userscore
+	// o := orm.NewOrm()
+	// var userscore models.Userscore
 
-	var userscore_read []models.Userscore
-	var cond *orm.Condition
-	cond = orm.NewCondition()
+	// var userscore_read []models.Userscore
+	// var cond *orm.Condition
+	// cond = orm.NewCondition()
 
-	cond = cond.And("Uid__contains", int64(playerscore.Uid))
-	var qs orm.QuerySeter
-	qs = orm.NewOrm().QueryTable("userscore").SetCond(cond)
-	cnt, err := qs.All(&userscore_read)
-	beego.Info(cnt, err)
-	if errs == nil {
-		if len(userscore_read) == 0 {
-			//如何mysql中无数据
-			for j := range playerscore.Levels {
-				userscore.Uid = int64(playerscore.Uid)
-				userscore.Level = playerscore.Levels[j].GetStageId()
-				userscore.Score = playerscore.Levels[j].GetStageScore()
-				userscore.Startnum = playerscore.Levels[j].GetStageLevel()
-				userscore.Time = int64(playerscore.Levels[j].GetTimestamp())
-				id, err := o.Insert(&userscore)
-				if err == nil {
+	// cond = cond.And("Uid__contains", int64(playerscore.Uid))
+	// var qs orm.QuerySeter
+	// qs = orm.NewOrm().QueryTable("userscore").SetCond(cond)
+	// cnt, err := qs.All(&userscore_read)
+	// beego.Info(cnt, err)
+	// if errs == nil {
+	// 	if len(userscore_read) == 0 {
+	// 		//如何mysql中无数据
+	// 		for j := range playerscore.Levels {
+	// 			userscore.Uid = int64(playerscore.Uid)
+	// 			userscore.Level = playerscore.Levels[j].GetStageId()
+	// 			userscore.Score = playerscore.Levels[j].GetStageScore()
+	// 			userscore.Startnum = playerscore.Levels[j].GetStageLevel()
+	// 			userscore.Time = int64(playerscore.Levels[j].GetTimestamp())
+	// 			id, err := o.Insert(&userscore)
+	// 			if err == nil {
 
-					beego.Debug("插入成功！！", id)
+	// 				beego.Debug("插入成功！！", id)
 
-				} else {
+	// 			} else {
 
-					beego.Error("插入失败！！！")
+	// 				beego.Error("插入失败！！！")
 
-				}
-			}
-		} else {
-			//如果mysql中有数据
-			if len(userscore_read) == len(playerscore.Levels) {
-				//没有添加新关数
-				for j := range playerscore.Levels {
-					userscore.Id = userscore_read[j].Id
-					userscore.Uid = int64(playerscore.Uid)
-					userscore.Level = playerscore.Levels[j].GetStageId()
-					userscore.Score = playerscore.Levels[j].GetStageScore()
-					userscore.Startnum = playerscore.Levels[j].GetStageLevel()
-					userscore.Time = int64(playerscore.Levels[j].GetTimestamp())
+	// 			}
+	// 		}
+	// 	} else {
+	// 		//如果mysql中有数据
+	// 		if len(userscore_read) == len(playerscore.Levels) {
+	// 			//没有添加新关数
+	// 			for j := range playerscore.Levels {
+	// 				userscore.Id = userscore_read[j].Id
+	// 				userscore.Uid = int64(playerscore.Uid)
+	// 				userscore.Level = playerscore.Levels[j].GetStageId()
+	// 				userscore.Score = playerscore.Levels[j].GetStageScore()
+	// 				userscore.Startnum = playerscore.Levels[j].GetStageLevel()
+	// 				userscore.Time = int64(playerscore.Levels[j].GetTimestamp())
 
-					if num, err := o.Update(&userscore); err == nil {
+	// 				if num, err := o.Update(&userscore); err == nil {
 
-						beego.Debug("更新成功！！", num)
+	// 					beego.Debug("更新成功！！", num)
 
-					} else {
+	// 				} else {
 
-						beego.Error("更新失败！！！")
+	// 					beego.Error("更新失败！！！")
 
-					}
-				}
-			} else if len(userscore_read) < len(playerscore.Levels) {
-				//前面已有的更新
-				for j := range userscore_read {
-					userscore.Id = userscore_read[j].Id
-					userscore.Uid = int64(playerscore.Uid)
-					userscore.Level = playerscore.Levels[j].GetStageId()
-					userscore.Score = playerscore.Levels[j].GetStageScore()
-					userscore.Startnum = playerscore.Levels[j].GetStageLevel()
-					userscore.Time = int64(playerscore.Levels[j].GetTimestamp())
+	// 				}
+	// 			}
+	// 		} else if len(userscore_read) < len(playerscore.Levels) {
+	// 			//前面已有的更新
+	// 			for j := range userscore_read {
+	// 				userscore.Id = userscore_read[j].Id
+	// 				userscore.Uid = int64(playerscore.Uid)
+	// 				userscore.Level = playerscore.Levels[j].GetStageId()
+	// 				userscore.Score = playerscore.Levels[j].GetStageScore()
+	// 				userscore.Startnum = playerscore.Levels[j].GetStageLevel()
+	// 				userscore.Time = int64(playerscore.Levels[j].GetTimestamp())
 
-					if num, err := o.Update(&userscore); err == nil {
+	// 				if num, err := o.Update(&userscore); err == nil {
 
-						beego.Debug("更新成功！！", num)
+	// 					beego.Debug("更新成功！！", num)
 
-					} else {
+	// 				} else {
 
-						beego.Error("更新失败！！！")
+	// 					beego.Error("更新失败！！！")
 
-					}
-				}
-				//后面的插入
-				for k := len(userscore_read); k < len(playerscore.Levels); k++ {
-					userscore.Uid = int64(playerscore.Uid)
-					userscore.Level = playerscore.Levels[k].GetStageId()
-					userscore.Score = playerscore.Levels[k].GetStageScore()
-					userscore.Startnum = playerscore.Levels[k].GetStageLevel()
-					userscore.Time = int64(playerscore.Levels[k].GetTimestamp())
-					id, err := o.Insert(&userscore)
-					if err == nil {
+	// 				}
+	// 			}
+	// 			//后面的插入
+	// 			for k := len(userscore_read); k < len(playerscore.Levels); k++ {
+	// 				userscore.Uid = int64(playerscore.Uid)
+	// 				userscore.Level = playerscore.Levels[k].GetStageId()
+	// 				userscore.Score = playerscore.Levels[k].GetStageScore()
+	// 				userscore.Startnum = playerscore.Levels[k].GetStageLevel()
+	// 				userscore.Time = int64(playerscore.Levels[k].GetTimestamp())
+	// 				id, err := o.Insert(&userscore)
+	// 				if err == nil {
 
-						beego.Debug("插入成功！！", id)
+	// 					beego.Debug("插入成功！！", id)
 
-					} else {
+	// 				} else {
 
-						beego.Error("插入失败！！！")
+	// 					beego.Error("插入失败！！！")
 
-					}
-				}
-			}
-		}
-	}
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 
 	res_data := new(cspb.CSStageReportRes)
 	*res_data = cspb.CSStageReportRes{
