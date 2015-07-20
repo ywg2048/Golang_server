@@ -1,0 +1,11 @@
+items {
+  Current_exp: 0
+  Dressid: 0
+  Fight_exp: 0
+  Fighting: 15600
+  IsActive: 1
+  Level: 1
+  Satisfaction: 500
+  StarId: 8
+  StarName: "皓皓"
+}

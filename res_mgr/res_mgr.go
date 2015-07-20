@@ -57,6 +57,7 @@ func Init() {
 	resLoadFile("rankingtest.bytes", &RankingtestData)
 	resLoadFile("levelup.bytes", &LevelupData)
 	resLoadFile("exp.bytes", &ExpData)
+	resLoadFile("initgameresouce.bytes", &InitGameResouceData)
 } //>>>func
 
 var PetData resource.PetArray
@@ -80,5 +81,6 @@ var ZootestData resource.ZootestArray
 var RankingtestData resource.RankingtestArray
 var LevelupData resource.LevelupArray
 var ExpData resource.ExpArray
+var InitGameResouceData resource.InitgameresouceArray
 
 //>>>var

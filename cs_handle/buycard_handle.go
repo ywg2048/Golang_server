@@ -29,34 +29,40 @@ func BuyCardHandle(
 	var player models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
 
-	if req_data.GetDiamond() <= player.Diamond {
-		//钻石足够
-		for i := range player.Cards {
-			if player.Cards[i].CardId == req_data.GetCardId() {
-				_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-					bson.M{"$inc": bson.M{"diamond": -req_data.GetDiamond(), "cards." + fmt.Sprint(i) + ".card_num": req_data.GetCardNum()}})
-				if err == nil {
-					beego.Info("卡片购买成功！")
-				} else {
-					beego.Error("卡片购买失败！")
-				}
+	//if req_data.GetDiamond() <= player.Diamond {
+	//钻石足够
+	for i := range player.Cards {
+		if player.Cards[i].CardId == req_data.GetCardId() {
+			_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+				bson.M{"$inc": bson.M{"diamond": -req_data.GetDiamond(), "cards." + fmt.Sprint(i) + ".card_num": req_data.GetCardNum()}})
+			if err == nil {
+				beego.Info("卡片购买成功！")
+			} else {
+				beego.Error("卡片购买失败！")
 			}
 		}
-	} else {
-		beego.Error("钻石不足！")
 	}
+	//} else {
+	//	beego.Error("钻石不足！")
+	//}
 
 	var player_return models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player_return)
 	currentDiamond := player_return.Diamond
-	var CurrentCardNtf []*cspb.CSCardNtf
+
+	var currentCardNum int32
 	for j := range player_return.Cards {
-		CurrentCardNtf = append(CurrentCardNtf, makecardNtf1(player_return.Cards[j].CardId, player_return.Cards[j].CardNum))
+		if player_return.Cards[j].CardId == req_data.GetCardId() {
+			currentCardNum = player_return.Cards[j].CardNum
+		}
 	}
+	cardId := req_data.GetCardId()
+
 	res_data := new(cspb.CSBuyCardRes)
 	*res_data = cspb.CSBuyCardRes{
 		CurrentDiamond: &currentDiamond,
-		CurrentCardNtf: CurrentCardNtf,
+		CardId:         &cardId,
+		CurrentCardNum: &currentCardNum,
 	}
 	beego.Info(res_data)
 	res_pkg_body := new(cspb.CSBody)

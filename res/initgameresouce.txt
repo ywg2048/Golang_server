@@ -1,0 +1,5 @@
+items {
+  Diamond: 1000
+  Flower: 35
+  Gold: 4000
+}
