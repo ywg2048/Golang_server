@@ -9,7 +9,7 @@ import (
 
 import cspb "protocol"
 
-// import proto "code.google.com/p/goprotobuf/proto"
+import proto "code.google.com/p/goprotobuf/proto"
 
 // import db "tuojie.com/piggo/quickstart.git/db/collection"
 import "labix.org/v2/mgo/bson"
@@ -79,20 +79,33 @@ func LevelUpHandle(
 	// var player_after models.Player
 	// c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player_after)
 	// //返回值
-	// currentStarId := req_data.GetCurrentStarId()
-	// var currentLevel int32
-	// currentSolution := player_after.ExperiencePool
-	// // CurrentExp :=
+
 	// for i := range player_after.Star {
 	// 	if player_after.Star[i].StarId == req_data.GetCurrentStarId() {
 	// 		currentLevel = player_after.Star[i].Level
 
 	// 	}
 	// }
+	PetInfo := new(cspb.PetInfo)
+	*PetInfo = cspb.PetInfo{
+		PetId:       proto.Int32(req_data.GetCurrentStarId()),
+		PetLevel:    proto.Int32(req_data.GetCurrentLevel()),
+		DressId:     proto.Int32(req_data.GetDressId()),
+		PetCurExp:   proto.Int32(req_data.GetExp()),
+		PetTotalExp: proto.Int32(req_data.GetExp()),
+
+		Fighting:     proto.Int32(2500),
+		PetStarLevel: proto.Int32(req_data.GetCurrentLevel()),
+	}
+	var CurrentCardNtf []*cspb.CSCardNtf
+	for i := range req_data.GetCardNtf() {
+		CurrentCardNtf = append(CurrentCardNtf, makecardNtf1(req_data.GetCardNtf()[i].GetCardId(), req_data.GetCardNtf()[i].GetCardNum()))
+	}
+
 	res_data := new(cspb.CSLevelUpRes)
 	*res_data = cspb.CSLevelUpRes{
-	// PetInfo:        PetInfo,
-	// CurrentCardNtf: CurrentCardNtf,
+		PetInfo:        PetInfo,
+		CurrentCardNtf: CurrentCardNtf,
 	}
 
 	res_pkg_body := new(cspb.CSBody)

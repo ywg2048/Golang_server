@@ -50,6 +50,7 @@ func Init() {
 	cmdProcessRegister(cspb.Command_kReceiveRewardReq, ReceiveRewardHandle)
 	cmdProcessRegister(cspb.Command_kAchievementUpdateReq, AchievementupdateHandle)
 	cmdProcessRegister(cspb.Command_kZooAnimalReq, ZooAnimalHandle)
+	cmdProcessRegister(cspb.Command_kBuyCardReq, BuyCardHandle)
 }
 
 func PkgListHandle(

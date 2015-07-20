@@ -35,11 +35,11 @@ func EvolutionHandle(
 				if player.ExperiencePool >= req_data.GetSolution() {
 					//检测药水的使用量是否合法
 					_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-						bson.M{"$inc": bson.M{"experience_pool": -req_data.GetSolution(), "star." + fmt.Sprint(i) + "current_exp": req_data.GetSolution()}})
+						bson.M{"$inc": bson.M{"experience_pool": -req_data.GetSolution(), "star." + fmt.Sprint(i) + ".current_exp": req_data.GetSolution()}})
 					if err == nil {
 						beego.Info("使用药水成功！")
 					} else {
-						beego.Error("使用药水失败！")
+						beego.Error("使用药水失败！", err)
 					}
 				} else {
 					beego.Error("药水使用量不合法！")
@@ -69,7 +69,7 @@ func EvolutionHandle(
 		Solution:   &solution,
 		CurrentExp: &currentExp,
 	}
-
+	beego.Info(res_data)
 	res_pkg_body := new(cspb.CSBody)
 	*res_pkg_body = cspb.CSBody{
 		EvolutionRes: res_data,

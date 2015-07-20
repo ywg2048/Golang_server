@@ -77,6 +77,14 @@ func makecardNtf(CardId int32, CardNum int32) *cspb.CSPetCardNtf {
 	}
 	return card_ntf
 }
+func makecardNtf1(CardId int32, CardNum int32) *cspb.CSCardNtf {
+	card_ntf := new(cspb.CSCardNtf)
+	*card_ntf = cspb.CSCardNtf{
+		CardId:  proto.Int32(CardId),
+		CardNum: proto.Int32(CardNum),
+	}
+	return card_ntf
+}
 func makePetNtf(pet_list []*cspb.PetInfo,
 	res_list *cspb.CSPkgList) {
 
