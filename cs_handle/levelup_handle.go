@@ -37,7 +37,7 @@ func LevelUpHandle(
 				//等级符合要求
 				for a := range resmgr.ExpData.GetItems() {
 					if resmgr.ExpData.GetItems()[a].GetLevelId() == player.Star[k].Level {
-						if (player.Star[k].Currentexp - resmgr.ExpData.GetItems()[a].GetRequireExp()) == req_data.GetExp() {
+						if (player.Star[k].Currentexp - resmgr.ExpData.GetItems()[a].GetRequireExp()) >= req_data.GetExp() {
 							//经验足够的情况下
 							for i := range player.Cards {
 								for j := range req_data.GetCardNtf() {

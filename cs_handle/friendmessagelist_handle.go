@@ -142,17 +142,17 @@ func FriendmessageListHandle(
 	}
 	beego.Info("FriendmessagelistNtf is :", FriendmessagelistNtf)
 	//发完之后就讲mysql中的Isfinish变为1
-	var message models.Messages
-	o := orm.NewOrm()
-	for i := range messages {
-		beego.Info(i)
-		message = models.Messages{Touid: int32(res_list.GetUid()), IsFinish: int32(0)}
-		o.Read(&message, "Touid", "IsFinish")
-		beego.Info(message)
-		message.IsFinish = int32(1)
-		id, err := o.Update(&message, "IsFinish")
-		beego.Info(err, id)
-	}
+	// var message models.Messages
+	// o := orm.NewOrm()
+	// for i := range messages {
+	// 	beego.Info(i)
+	// 	message = models.Messages{Touid: int32(res_list.GetUid()), IsFinish: int32(0)}
+	// 	o.Read(&message, "Touid", "IsFinish")
+	// 	beego.Info(message)
+	// 	message.IsFinish = int32(1)
+	// 	id, err := o.Update(&message, "IsFinish")
+	// 	beego.Info(err, id)
+	// }
 
 	res_data := new(cspb.CSFriendmessageListRes)
 	*res_data = cspb.CSFriendmessageListRes{

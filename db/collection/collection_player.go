@@ -5,7 +5,7 @@ import "labix.org/v2/mgo/bson"
 import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
-
+	"strconv"
 	models "tuojie.com/piggo/quickstart.git/models"
 )
 
@@ -19,29 +19,20 @@ import "strings"
 
 // import proto "code.google.com/p/goprotobuf/proto"
 
-import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
+// import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func init() {
 	orm.RegisterDataBase("default", "mysql", "root:@/Monsters?charset=utf8")
 }
 
 func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, models.Player) {
-	beego.Info("-----------Testing---------")
-	for i := range resmgr.DresstestData.GetItems() {
-		beego.Info(resmgr.DresstestData.GetItems()[i].GetStarId(), resmgr.DresstestData.GetItems()[i].GetDressId())
-	}
-	beego.Info("-----------Testing---------")
-
-	beego.Debug("******LoadPlayer:%v", clientAccount)
-
-	var player models.Player
-	ret := int32(0)
 
 	beego.Debug("Before client is %s, serverAccount is %s, uid is %s", clientAccount, serverAccount, uid)
 	//测试关数据
 	//res := SetLevelValuesTest(clientAccount, 1, 2, 60000)
 	//log.Debug("*****^^^^^^^^res is %v", res)
-
+	var player models.Player
+	ret := int32(0)
 	if len(serverAccount) != 24 {
 		re := regexp.MustCompile("\"\\w+\"")
 		serverAccount = re.FindString(serverAccount)
@@ -82,9 +73,11 @@ func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, m
 				player.RegistTime = time.Now().Unix()
 				player.Saccount = bson.NewObjectId()
 				player.Uid = GetUid()
-				player.Diamond = int32(100)
-				player.Flower = int32(5)
-				player.Gold = int32(3000)
+				player.Diamond = int32(50)
+				player.Flower = int32(30)
+				player.Gold = int32(2000)
+				player.ExperiencePool = int32(3000)
+				player.StarId = int32(8)
 				beego.Info("Write player:%v", player)
 
 				err = c.Insert(&player)
@@ -94,6 +87,29 @@ func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, m
 					beego.Error("创建新用户失败:%v", err)
 					ret = int32(cspb.ErrorCode_PlayerInsertFail)
 					player.Uid = int64(0)
+				} else {
+					var player models.Player
+					c.Find(bson.M{"uid": int32(GetUid())}).One(&player)
+					beego.Info("cards len", len(player.Cards))
+					if len(player.Cards) == 0 {
+						for i := 0; i <= stringToint(beego.AppConfig.String("card_account")); i++ {
+							_, err := c.Upsert(bson.M{"uid": int32(GetUid())},
+								bson.M{"$set": bson.M{"cards." + fmt.Sprint(i) + ".card_id": (i + 1), "cards." + fmt.Sprint(i) + ".card_num": int32(0)}})
+							if err != nil {
+								beego.Error("插入失败")
+							} else {
+								beego.Info("插入成功")
+							}
+						}
+					}
+					if len(player.Star) == 0 {
+						_, err := c.Upsert(bson.M{"uid": int32(GetUid())},
+							bson.M{"$push": bson.M{"star": bson.M{"starid": int32(8), "starname": "皓皓", "level": int32(1), "current_exp": int32(0), "dress": int32(1),
+								"dressname": "初级套装", "fighting": int32(16500), "satisfaction": int32(50), "fight_exp": int32(0), "is_active": int32(1)}}})
+						if err != nil {
+							beego.Error("小伙伴初始化失败", err)
+						}
+					}
 				}
 			}
 		case nil:
@@ -276,4 +292,11 @@ func SetLevelValues(account string, levelid int32, stage_level int32, stage_scor
 		return -1
 	}
 	return 0
+}
+func stringToint(value string) int {
+	b, error := strconv.Atoi(value)
+	if error != nil {
+		fmt.Println("字符串转换成整数失败")
+	}
+	return b
 }

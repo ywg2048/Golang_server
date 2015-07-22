@@ -15,7 +15,7 @@ import "labix.org/v2/mgo/bson"
 
 import db_session "tuojie.com/piggo/quickstart.git/db/session"
 
-// import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
+import resmgr "tuojie.com/piggo/quickstart.git/res_mgr"
 
 func ReceiveRewardHandle(
 	req *cspb.CSPkg,
@@ -32,16 +32,24 @@ func ReceiveRewardHandle(
 		if player.Achievement[i].AchievementId == req_data.GetAchievementid() {
 			if player.Achievement[i].StarLevel <= req_data.GetStarLevel() {
 				//只有没有领取的时候才能领取
-				_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-					bson.M{"$set": bson.M{"achievement." + fmt.Sprint(i) + ".achievementid": req_data.GetAchievementid(), "achievement." + fmt.Sprint(i) + ".isreceive": int32(1)}})
-				_, errs := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-					bson.M{"$inc": bson.M{"experience_pool": req_data.GetExp(), "diamond": req_data.GetDiamond(), "achievement." + fmt.Sprint(i) + ".starlevel": int32(1)}})
-				if errs == nil && err == nil {
-					beego.Info("领取奖励成功！")
-					IsReceive = int32(1)
-				} else {
-					beego.Error("领取奖励失败！")
+				for j := range resmgr.AchievementData.GetItems() {
+					if resmgr.AchievementData.GetItems()[j].GetId() == req_data.GetAchievementid() && resmgr.AchievementData.GetItems()[j].GetStarnum() == req_data.GetStarLevel() {
+						_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+							bson.M{"$set": bson.M{"achievement." + fmt.Sprint(i) + ".achievementid": req_data.GetAchievementid(), "achievement." + fmt.Sprint(i) + ".isreceive": int32(1)}})
+						_, errs := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+							bson.M{"$inc": bson.M{"experience_pool": resmgr.AchievementData.GetItems()[j].GetExp(),
+								"diamond": resmgr.AchievementData.GetItems()[j].GetDiamond(),
+								"achievement." + fmt.Sprint(i) + ".starlevel": int32(1), "medal": resmgr.AchievementData.GetItems()[j].GetMedal(), "gold": resmgr.AchievementData.GetItems()[j].GetGold(),
+								"flower": resmgr.AchievementData.GetItems()[j].GetFlower()}})
+						if errs == nil && err == nil {
+							beego.Info("领取奖励成功！")
+							IsReceive = int32(1)
+						} else {
+							beego.Error("领取奖励失败！")
+						}
+					}
 				}
+
 			} else {
 				beego.Error("该奖励已经领取！")
 			}
