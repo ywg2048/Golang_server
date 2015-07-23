@@ -25,7 +25,7 @@ func RemoveMessageHandle(
 	req_data := req.GetBody().GetRemovemessageReq()
 	beego.Info(req_data)
 	ret := int32(1)
-	isRemove := int32(0)
+	isRemove := int32(1)
 
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
@@ -45,7 +45,7 @@ func RemoveMessageHandle(
 
 	res_data := new(cspb.CSRemoveMessageRes)
 	*res_data = cspb.CSRemoveMessageRes{
-		IsRemove: isRemove,
+		IsRemove: &isRemove,
 	}
 	beego.Info(res_data)
 	res_pkg_body := new(cspb.CSBody)
