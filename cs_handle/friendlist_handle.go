@@ -36,7 +36,6 @@ func FriendlistHandle(
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
-	beego.Info(player.FriendList[0], player.FriendList[1])
 
 	var StarName string
 	var Fighting int32
@@ -47,10 +46,10 @@ func FriendlistHandle(
 	var MedalLevelID int32
 	var Stagelevel int32
 	for i := range player.FriendList {
-
+		// if player.FriendList[i].IsActive == int32(1) {
 		var players models.Player
 		err_ := c.Find(bson.M{"uid": player.FriendList[i].Friendid}).One(&players)
-		beego.Info(players.FriendList[0], players.FriendList[1])
+
 		if err_ != nil {
 			beego.Error(err_)
 		}
@@ -73,6 +72,7 @@ func FriendlistHandle(
 
 		FriendListNtf = append(FriendListNtf, makefriendlist(int32(i), player.FriendList[i].Friendid, players.Name, players.StarId, StarName, Fighting, DressId, Dress, Level, Medal, MedalLevelID, Stagelevel))
 		beego.Info("FriendListNtf is:", FriendListNtf)
+		// }
 	}
 	beego.Info("FriendListNtf is:", FriendListNtf)
 	res_data := new(cspb.CSFriendlistRes)

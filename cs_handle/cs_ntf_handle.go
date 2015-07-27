@@ -180,12 +180,13 @@ func makePoolNextFreeNtf(hour int32, today int32,
 	res_list = makeCSPkgList(int32(cspb.Command_kPoolNextFreeNtf),
 		res_pkg_body, res_list)
 }
-func makeFriendntf(Playid int32, Starid int32, Name string) *cspb.CSFriendNtf {
+func makeFriendntf(Playid int32, Starid int32, Name string, MysqlId int32) *cspb.CSFriendNtf {
 	friend_ntf := new(cspb.CSFriendNtf)
 	*friend_ntf = cspb.CSFriendNtf{
-		Playid: proto.Int32(Playid),
-		Starid: proto.Int32(Starid),
-		Name:   proto.String(Name),
+		Playid:  proto.Int32(Playid),
+		Starid:  proto.Int32(Starid),
+		Name:    proto.String(Name),
+		MysqlId: proto.Int32(MysqlId),
 	}
 	return friend_ntf
 }

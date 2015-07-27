@@ -40,8 +40,7 @@ func BuyCardHandle(
 			}
 		}
 	}
-	//if req_data.GetDiamond() <= player.Diamond {
-	//钻石足够
+
 	for i := range player.Cards {
 		if player.Cards[i].CardId == req_data.GetCardId() {
 			_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
@@ -53,9 +52,6 @@ func BuyCardHandle(
 			}
 		}
 	}
-	//} else {
-	//	beego.Error("钻石不足！")
-	//}
 
 	var player_return models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player_return)

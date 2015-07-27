@@ -46,17 +46,17 @@ func ServerTimeHandle(
 	messagenTipsntf = append(messagenTipsntf, makemessageTipsntf(int32(1), int32(len(messages))))
 	messagenTipsntf = append(messagenTipsntf, makemessageTipsntf(int32(2), int32(3)))
 	//发完之后就讲mysql中的Isfinish变为1
-	var message models.Messages
-	o := orm.NewOrm()
-	for i := range messages {
-		beego.Info(i)
-		message = models.Messages{Touid: int32(res_list.GetUid()), IsFinish: int32(0)}
-		o.Read(&message, "Touid", "IsFinish")
-		beego.Info(message)
-		message.IsFinish = int32(1)
-		id, err := o.Update(&message, "IsFinish")
-		beego.Info(err, id)
-	}
+	// var message models.Messages
+	// o := orm.NewOrm()
+	// for i := range messages {
+	// 	beego.Info(i)
+	// 	message = models.Messages{Touid: int32(res_list.GetUid()), IsFinish: int32(0)}
+	// 	o.Read(&message, "Touid", "IsFinish")
+	// 	beego.Info(message)
+	// 	message.IsFinish = int32(1)
+	// 	id, err := o.Update(&message, "IsFinish")
+	// 	beego.Info(err, id)
+	// }
 	res_data := new(cspb.CSServerTimeRes)
 	*res_data = cspb.CSServerTimeRes{
 		Ret:             proto.Int32(ret),

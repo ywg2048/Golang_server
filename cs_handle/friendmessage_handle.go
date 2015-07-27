@@ -236,8 +236,8 @@ func FriendmessageHandle(
 		} else if req_data.GetMessageType() == int32(2) && req_data.GetElementType() == int32(1) {
 			//赠送小红花
 			messages.Tag = int32(2)
-		} else if req_data.GetMessageType() == int32(2) && req_data.GetElementType() == int32(1) {
-			//赠送卡片
+		} else if req_data.GetMessageType() == int32(1) && req_data.GetElementType() == int32(2) {
+			//接受卡片
 			messages.Tag = int32(4)
 		}
 		for i := range req_data.GetMessagesNtf() {
@@ -280,18 +280,53 @@ func FriendmessageHandle(
 			}
 		}
 	}
+
+	//已发送的消息列表删除
+
+	// var message models.Messages
+	// o := orm.NewOrm()
+	// for i := range req_data.GetMysqlIdNtf() {
+	// 	beego.Info(i)
+	// 	message = models.Messages{Id: req_data.GetMysqlIdNtf()[i].GetMysqlId()}
+	// 	o.Read(&message)
+	// 	beego.Info(message)
+	// 	message.IsFinish = int32(1)
+	// 	id, err := o.Update(&message, "IsFinish")
+	// 	beego.Info(err, id)
+	// }
+	var player_return models.Player
+	c.Find(bson.M{"uid": uid}).One(&player_return)
+	var CardNtf []*cspb.CSCardNtf
+	for i := range player_return.Cards {
+		for j := range req_data.GetMessagesNtf() {
+
+			for k := range req_data.GetMessagesNtf()[j].GetElement() {
+				beego.Info(k)
+				if player_return.Cards[i].CardId == req_data.GetMessagesNtf()[j].GetElement()[k].GetCardId() {
+					beego.Info("find cardid")
+					CardNtf = append(CardNtf, makecardNtf1(player_return.Cards[i].CardId, player_return.Cards[i].CardNum))
+				} else {
+					beego.Error("Not Find CardId")
+				}
+			}
+		}
+
+	}
+
 	res_data := new(cspb.CSFriendmessageRes)
 	messageId := req_data.GetMessageId()
 	friendListId := req_data.GetFriendListId()
 	elementType := req_data.GetElementType()
 
 	beego.Info("isGive =", isGive)
+	beego.Info(CardNtf)
 	*res_data = cspb.CSFriendmessageRes{
 		IsGive:       &isGive,
 		Uid:          &uid,
 		MessageId:    &messageId,
 		FriendListId: &friendListId,
 		ElementType:  &elementType,
+		CardNtf:      CardNtf,
 	}
 
 	res_pkg_body := new(cspb.CSBody)

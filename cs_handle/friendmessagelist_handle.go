@@ -71,17 +71,17 @@ func FriendmessageListHandle(
 		if messages[k].Tag == int32(1) {
 			//赠送小红花
 
-			Friendntf_tag_1 = append(Friendntf_tag_1, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname))
+			Friendntf_tag_1 = append(Friendntf_tag_1, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, messages[k].Id))
 			beego.Info("Friendntf_tag_1", Friendntf_tag_1)
 		} else if messages[k].Tag == int32(2) {
 			//接受小红花
 
-			Friendntf_tag_2 = append(Friendntf_tag_2, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname))
+			Friendntf_tag_2 = append(Friendntf_tag_2, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, messages[k].Id))
 			beego.Info("Friendntf_tag_2", Friendntf_tag_2)
 		} else if messages[k].Tag == int32(4) {
 			//接受卡片
 
-			Friendntf_tag_3 = append(Friendntf_tag_3, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname))
+			Friendntf_tag_3 = append(Friendntf_tag_3, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, messages[k].Id))
 			beego.Info("Friendntf_tag_3", Friendntf_tag_3)
 		} else if messages[k].Tag == int32(3) {
 			//赠送卡片
@@ -92,33 +92,36 @@ func FriendmessageListHandle(
 			}
 
 			for i := range friend.Cardrecord {
+
 				if friend.Cardrecord[i].MessageId == messages[k].Id {
 					var message models.Messages
 					o := orm.NewOrm()
-
+					var Friendntf_tag_4 []*cspb.CSFriendNtf
+					message = models.Messages{Id: friend.Cardrecord[i].MessageId}
+					o.Read(&message)
+					beego.Info(message)
+					Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname, messages[k].Id))
 					switch friend.Cardrecord[i].CardId {
 					case int32(1):
-						var Friendntf_tag_4 []*cspb.CSFriendNtf
-						message = models.Messages{Id: friend.Cardrecord[i].MessageId}
-						o.Read(&message)
-						beego.Info(message)
-						Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
+
 						switch friend.Cardrecord[i].CardNum {
 						case int32(1):
 
 							FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(1), int32(1), Friendntf_tag_4, m+3))
 						case int32(5):
+
 							FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(1), int32(5), Friendntf_tag_4, m+3))
 						case int32(10):
+
 							FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(1), int32(10), Friendntf_tag_4, m+3))
 						}
 
 					case int32(2):
-						var Friendntf_tag_4 []*cspb.CSFriendNtf
-						message = models.Messages{Id: friend.Cardrecord[i].MessageId}
-						o.Read(&message)
-						beego.Info(message)
-						Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
+						// var Friendntf_tag_4 []*cspb.CSFriendNtf
+						// message = models.Messages{Id: friend.Cardrecord[i].MessageId}
+						// o.Read(&message)
+						// beego.Info(message)
+						// Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
 						switch friend.Cardrecord[i].CardNum {
 						case int32(1):
 							FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(2), int32(1), Friendntf_tag_4, m+3))
@@ -129,11 +132,11 @@ func FriendmessageListHandle(
 
 						}
 					case int32(3):
-						var Friendntf_tag_4 []*cspb.CSFriendNtf
-						message = models.Messages{Id: friend.Cardrecord[i].MessageId}
-						o.Read(&message)
-						beego.Info(message)
-						Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
+						// var Friendntf_tag_4 []*cspb.CSFriendNtf
+						// message = models.Messages{Id: friend.Cardrecord[i].MessageId}
+						// o.Read(&message)
+						// beego.Info(message)
+						// Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
 						switch friend.Cardrecord[i].CardNum {
 						case int32(1):
 							FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(3), int32(1), Friendntf_tag_4, m+3))
@@ -144,11 +147,11 @@ func FriendmessageListHandle(
 
 						}
 					case 4:
-						var Friendntf_tag_4 []*cspb.CSFriendNtf
-						message = models.Messages{Id: friend.Cardrecord[i].MessageId}
-						o.Read(&message)
-						beego.Info(message)
-						Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
+						// var Friendntf_tag_4 []*cspb.CSFriendNtf
+						// message = models.Messages{Id: friend.Cardrecord[i].MessageId}
+						// o.Read(&message)
+						// beego.Info(message)
+						// Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
 						switch friend.Cardrecord[i].CardNum {
 						case int32(1):
 							FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(4), int32(1), Friendntf_tag_4, m+3))
@@ -159,11 +162,11 @@ func FriendmessageListHandle(
 
 						}
 					case 5:
-						var Friendntf_tag_4 []*cspb.CSFriendNtf
-						message = models.Messages{Id: friend.Cardrecord[i].MessageId}
-						o.Read(&message)
-						beego.Info(message)
-						Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
+						// var Friendntf_tag_4 []*cspb.CSFriendNtf
+						// message = models.Messages{Id: friend.Cardrecord[i].MessageId}
+						// o.Read(&message)
+						// beego.Info(message)
+						// Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
 						switch friend.Cardrecord[i].CardNum {
 						case int32(1):
 							FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(5), int32(1), Friendntf_tag_4, m+3))
@@ -174,11 +177,11 @@ func FriendmessageListHandle(
 
 						}
 					case 6:
-						var Friendntf_tag_4 []*cspb.CSFriendNtf
-						message = models.Messages{Id: friend.Cardrecord[i].MessageId}
-						o.Read(&message)
-						beego.Info(message)
-						Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
+						// var Friendntf_tag_4 []*cspb.CSFriendNtf
+						// message = models.Messages{Id: friend.Cardrecord[i].MessageId}
+						// o.Read(&message)
+						// beego.Info(message)
+						// Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
 						switch friend.Cardrecord[i].CardNum {
 						case int32(1):
 							FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(6), int32(1), Friendntf_tag_4, m+3))
@@ -189,11 +192,11 @@ func FriendmessageListHandle(
 
 						}
 					case 7:
-						var Friendntf_tag_4 []*cspb.CSFriendNtf
-						message = models.Messages{Id: friend.Cardrecord[i].MessageId}
-						o.Read(&message)
-						beego.Info(message)
-						Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
+						// var Friendntf_tag_4 []*cspb.CSFriendNtf
+						// message = models.Messages{Id: friend.Cardrecord[i].MessageId}
+						// o.Read(&message)
+						// beego.Info(message)
+						// Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname))
 						switch friend.Cardrecord[i].CardNum {
 						case int32(1):
 							FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(7), int32(1), Friendntf_tag_4, m+3))
@@ -211,7 +214,7 @@ func FriendmessageListHandle(
 		} else if messages[k].Tag == int32(5) {
 			//添加好友
 
-			Friendntf_tag_5 = append(Friendntf_tag_5, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname))
+			Friendntf_tag_5 = append(Friendntf_tag_5, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, messages[k].Id))
 			beego.Info("Friendntf_tag_5", Friendntf_tag_5)
 		}
 
@@ -242,7 +245,7 @@ func FriendmessageListHandle(
 	}
 
 	if len(Friendntf_tag_5) > 0 {
-		FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(0), int32(3), int32(0), int32(0), Friendntf_tag_5, m+4))
+		FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(3), int32(0), int32(0), Friendntf_tag_5, m+4))
 	}
 	beego.Info("FriendmessagelistNtf is :", FriendmessagelistNtf)
 	//发完之后就讲mysql中的Isfinish变为1
