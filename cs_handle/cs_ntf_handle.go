@@ -268,3 +268,23 @@ func makemessageTipsntf(Messagetype int32, Number int32) *cspb.CSmessageTipsntf 
 	}
 	return messageTips_ntf
 }
+func makeAttrInfo(Id int32, Value *cspb.AttrValue, ChangeType int32) *cspb.AttrInfo {
+	attrinfo := new(cspb.AttrInfo)
+	*attrinfo = cspb.AttrInfo{
+		Id:         proto.Int32(Id),
+		Value:      Value,
+		ChangeType: proto.Int32(ChangeType),
+	}
+	return attrinfo
+}
+
+// func makeAttrValue(Diamond int32, Gold int32, Flower int32, Solution int32) *cspb.AttrValue {
+// 	attrvalue := new(cspb.AttrValue)
+// 	*attrvalue = cspb.AttrValue{
+// 		Diamond:  proto.Int32(Diamond),
+// 		Gold:     proto.Int32(Gold),
+// 		Flower:   proto.Int32(Flower),
+// 		Solution: proto.Int32(Solution),
+// 	}
+// 	return attrvalue
+// }

@@ -30,25 +30,26 @@ func AddFriendHandle(
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	//查找用户是否存在
+	//是否是
 	err := c.Find(bson.M{"uid": friendId}).One(&player)
-	if err != nil {
-		//用户不存在
-		IsAdd = int32(0)
-		beego.Info("用户不存在")
-	} else {
-		//用户存在
-		//查看是否是好友
-		var players models.Player
-		err_self := c.Find(bson.M{"uid": uid}).One(&players)
-		beego.Info(err_self)
-		beego.Info(len(players.FriendList))
-		for i := range players.FriendList {
-			if players.FriendList[i].Friendid == friendId {
-				//已经是好友或者已经申请好友
-				IsAdd = int32(0)
-				break
+	if err == nil {
+		//是否存在
+		if uid != friendId {
+			//不为自己
+			var myself models.Player
+			c.Find(bson.M{"uid": uid}).One(&myself)
+			for i := range myself.FriendList {
+				if myself.FriendList[i].Friendid == friendId {
+					//已经申请或者已经是好友
+					IsAdd = int32(0)
+				}
 			}
+
+		} else {
+			IsAdd = int32(0)
 		}
+	} else {
+		IsAdd = int32(0)
 	}
 
 	if IsAdd == int32(1) {

@@ -81,6 +81,7 @@ type Player struct {
 	Flower             int32                  `bson:"flower"`
 	Diamond            int32                  `bson:"diamond"`
 	RMB                int32                  `bson:"rmb"`
+	FruitLevel         int32                  `bson:"fruit_level"`
 	StarId             int32                  `bson:"starid"`
 	Star               []*StarDate            `bson:"star"`
 	ExperiencePool     int32                  `bson:"experience_pool"`
