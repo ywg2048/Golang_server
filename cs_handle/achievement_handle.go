@@ -25,10 +25,7 @@ func AchievementHandle(
 	beego.Info(req_data)
 	ret := int32(1)
 	var AchievementNtf []*cspb.CSAchievementNtf
-	//测试代码
-	// for i := range resmgr.AchievementtestData.GetItems() {
-	// 	AchievementNtf = append(AchievementNtf, makeAchievementNtf(resmgr.AchievementtestData.GetItems()[i].GetAchievementid(), resmgr.AchievementtestData.GetItems()[i].GetStatus()))
-	// }
+
 	//正式代码
 	c := db_session.DB("zoo").C("player")
 	var player models.Player

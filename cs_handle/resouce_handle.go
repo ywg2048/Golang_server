@@ -43,7 +43,7 @@ func ResourceHandle(
 
 	if req_data.GetType() == int32(2) {
 		_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-			bson.M{"$inc": bson.M{"gold": req_data.GetGold(), "diamond": -req_data.GetDiamond()}})
+			bson.M{"$set": bson.M{"gold": req_data.GetGold(), "diamond": req_data.GetDiamond()}})
 		if err == nil {
 			beego.Info("金币数量变更成功！")
 		} else {
@@ -52,7 +52,7 @@ func ResourceHandle(
 	}
 	if req_data.GetType() == int32(3) {
 		_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-			bson.M{"$inc": bson.M{"flower": req_data.GetFlower(), "gold": -req_data.GetGold()}})
+			bson.M{"$set": bson.M{"flower": req_data.GetFlower(), "gold": req_data.GetGold()}})
 		if err == nil {
 			beego.Info("小红花数量变更成功！")
 		} else {
@@ -61,7 +61,7 @@ func ResourceHandle(
 	}
 	if req_data.GetType() == int32(4) {
 		_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-			bson.M{"$inc": bson.M{"experience_pool": req_data.GetSolution(), "gold": -req_data.GetGold()}})
+			bson.M{"$set": bson.M{"experience_pool": req_data.GetSolution(), "gold": req_data.GetGold()}})
 		if err == nil {
 			beego.Info("药水数量变更成功！")
 		} else {

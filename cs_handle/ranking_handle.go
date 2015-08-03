@@ -77,10 +77,12 @@ func RankHandle(
 
 		o := orm.NewOrm()
 
-		num, err := o.Raw("select ranking.* from ranking,friend where ranking.uid = friend.`friend_id` ORDER BY  ranking.`medal` desc").QueryRows(&ranking)
+		num, err := o.Raw("select  distinct ranking.* from ranking,friend where ranking.uid =friend.`friend_id` and friend.`uid`=? or ranking.`uid` = ? ORDER BY  ranking.`medal` desc", int32(res_list.GetUid()), int32(res_list.GetUid())).QueryRows(&ranking)
 		if err == nil {
 
 			beego.Info(num, ranking)
+		} else {
+			beego.Error(err)
 		}
 		for i := range ranking {
 			res_rank = append(res_rank, makeRank(ranking[i].Uid, ranking[i].Name, ranking[i].Level, ranking[i].Medal, int32(i+1), ranking[i].MedalLevelId, StarId))

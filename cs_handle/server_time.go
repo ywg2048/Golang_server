@@ -35,7 +35,7 @@ func ServerTimeHandle(
 
 	cond = cond.And("Id__gte", 1)
 	cond = cond.And("Touid__contains", int32(res_list.GetUid()))
-	cond = cond.And("IsFinish__contains", int32(0))
+	cond = cond.And("IsSend__contains", int32(0))
 	beego.Info(cond)
 	var qs orm.QuerySeter
 	qs = orm.NewOrm().QueryTable("messages").SetCond(cond)
@@ -45,18 +45,18 @@ func ServerTimeHandle(
 	var messagenTipsntf []*cspb.CSmessageTipsntf
 	messagenTipsntf = append(messagenTipsntf, makemessageTipsntf(int32(1), int32(len(messages))))
 	messagenTipsntf = append(messagenTipsntf, makemessageTipsntf(int32(2), int32(3)))
-	//发完之后就讲mysql中的Isfinish变为1
-	// var message models.Messages
-	// o := orm.NewOrm()
-	// for i := range messages {
-	// 	beego.Info(i)
-	// 	message = models.Messages{Touid: int32(res_list.GetUid()), IsFinish: int32(0)}
-	// 	o.Read(&message, "Touid", "IsFinish")
-	// 	beego.Info(message)
-	// 	message.IsFinish = int32(1)
-	// 	id, err := o.Update(&message, "IsFinish")
-	// 	beego.Info(err, id)
-	// }
+	//发完之后就讲mysql中的IsSend变为1
+	var message models.Messages
+	o := orm.NewOrm()
+	for i := range messages {
+		beego.Info(i)
+		message = models.Messages{Touid: int32(res_list.GetUid()), IsSend: int32(0)}
+		o.Read(&message, "Touid", "IsSend")
+		beego.Info(message)
+		message.IsSend = int32(1)
+		id, err := o.Update(&message, "IsSend")
+		beego.Info(err, id)
+	}
 	res_data := new(cspb.CSServerTimeRes)
 	*res_data = cspb.CSServerTimeRes{
 		Ret:             proto.Int32(ret),

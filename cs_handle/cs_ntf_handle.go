@@ -277,6 +277,18 @@ func makeAttrInfo(Id int32, Value *cspb.AttrValue, ChangeType int32) *cspb.AttrI
 	}
 	return attrinfo
 }
+func makeStageNtf(StageId int32, StageLevel int32, StageScore int32, GetMedal int32, MedalIsAdd int32, Timestamp int32) *cspb.CSStageNtf {
+	stage_ntf := new(cspb.CSStageNtf)
+	*stage_ntf = cspb.CSStageNtf{
+		StageId:    proto.Int32(StageId),
+		StageLevel: proto.Int32(StageLevel),
+		StageScore: proto.Int32(StageScore),
+		GetMedal:   proto.Int32(GetMedal),
+		MedalIsAdd: proto.Int32(MedalIsAdd),
+		Timestamp:  proto.Int32(Timestamp),
+	}
+	return stage_ntf
+}
 
 // func makeAttrValue(Diamond int32, Gold int32, Flower int32, Solution int32) *cspb.AttrValue {
 // 	attrvalue := new(cspb.AttrValue)

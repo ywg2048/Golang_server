@@ -35,9 +35,7 @@ func MessageCenterHandle(
 	beego.Debug(message, cnt, err)
 	var res_messages []*cspb.CSMessageNtf
 	for i := range message {
-
 		res_messages = append(res_messages, makeMessage(message[i].Id, message[i].Title, message[i].Content, message[i].IsActive, message[i].Time))
-
 	}
 	ret := int32(1)
 	res_data := new(cspb.CSMessageCenterRes)

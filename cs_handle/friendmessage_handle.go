@@ -72,7 +72,7 @@ func FriendmessageHandle(
 					_, err := c.Upsert(bson.M{"uid": uid},
 						bson.M{"$set": bson.M{"cards." + fmt.Sprint(req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId()-1) + ".card_id": req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId()}})
 					c.Upsert(bson.M{"uid": uid},
-						bson.M{"$inc": bson.M{"cards." + fmt.Sprint(req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId()-1) + ".card_num": -req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
+						bson.M{"$set": bson.M{"cards." + fmt.Sprint(req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId()-1) + ".card_num": -req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
 
 					if err != nil {
 						beego.Error("减少卡片失败")
@@ -124,7 +124,7 @@ func FriendmessageHandle(
 							_, err := c.Upsert(bson.M{"uid": uid},
 								bson.M{"$set": bson.M{"cards." + fmt.Sprint(n) + ".card_id": req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId()}})
 							c.Upsert(bson.M{"uid": uid},
-								bson.M{"$inc": bson.M{"cards." + fmt.Sprint(n) + ".card_num": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
+								bson.M{"$set": bson.M{"cards." + fmt.Sprint(n) + ".card_num": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
 
 							if err != nil {
 								beego.Error("插入失败")
@@ -305,8 +305,6 @@ func FriendmessageHandle(
 				if player_return.Cards[i].CardId == req_data.GetMessagesNtf()[j].GetElement()[k].GetCardId() {
 					beego.Info("find cardid")
 					CardNtf = append(CardNtf, makecardNtf1(player_return.Cards[i].CardId, player_return.Cards[i].CardNum))
-				} else {
-					beego.Error("Not Find CardId")
 				}
 			}
 		}

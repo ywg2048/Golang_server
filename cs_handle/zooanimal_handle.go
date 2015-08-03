@@ -83,11 +83,18 @@ func ZooAnimalHandle(
 		}
 	}
 	AnimalId := req_data.GetAnimalId()
+	var player_return models.Player
+	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player_return)
 	var Level int32
 	if IsLocked == int32(1) {
 		Level = int32(0)
 	} else {
-		Level = req_data.GetUptolevel()
+		for i := range player_return.Zoo {
+			if player_return.Zoo[i].AnimalId == AnimalId {
+				Level = player_return.Zoo[i].AnimalLevel
+			}
+		}
+
 	}
 
 	res_data := new(cspb.CSZooAnimalRes)
@@ -101,7 +108,7 @@ func ZooAnimalHandle(
 	*res_pkg_body = cspb.CSBody{
 		ZooanimalRes: res_data,
 	}
-	res_list = makeCSPkgList(int32(cspb.Command_kZooRes),
+	res_list = makeCSPkgList(int32(cspb.Command_kZooAnimalRes),
 		res_pkg_body, res_list)
 	return ret
 

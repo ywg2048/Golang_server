@@ -44,7 +44,7 @@ func BuyCardHandle(
 	for i := range player.Cards {
 		if player.Cards[i].CardId == req_data.GetCardId() {
 			_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-				bson.M{"$inc": bson.M{"diamond": -req_data.GetDiamond(), "cards." + fmt.Sprint(i) + ".card_num": req_data.GetCardNum()}})
+				bson.M{"$set": bson.M{"diamond": req_data.GetDiamond(), "cards." + fmt.Sprint(i) + ".card_num": req_data.GetCardNum()}})
 			if err == nil {
 				beego.Info("卡片购买成功！")
 			} else {

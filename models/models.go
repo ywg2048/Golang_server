@@ -42,10 +42,10 @@ type Messages struct {
 	FromStarId  int32
 	Fromstar    string
 	ElementType int32 //1:小红花，2：卡片，3：加好友
-
-	IsFinish int32
-	Tag      int32 //消息的标志（1~5）
-	Time     int64
+	IsSend      int32 //小红点
+	IsFinish    int32
+	Tag         int32 //消息的标志（1~5）
+	Time        int64
 }
 
 //排名

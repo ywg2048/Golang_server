@@ -13,7 +13,7 @@ import "labix.org/v2/mgo/bson"
 import db_session "tuojie.com/piggo/quickstart.git/db/session"
 import (
 	"fmt"
-	// "time"
+	"time"
 )
 
 func init() {
@@ -36,60 +36,61 @@ func stageReportHandle(
 	//时间戳
 	ret := int32(0)
 	if err == nil {
-		// for i := range req_data.StageNtf {
-		// 	var stage = req_data.StageNtf[i]
-		// 	if len(player.Levels) > 0 {
-		// 		if len(req_data.StageNtf) <= len(player.Levels) {
-		// 			if int32(*stage.StageScore) > int32(player.Levels[i].StageScore) {
-		// 				c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-		// 					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
-		// 				c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-		// 					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
-		// 				beego.Info("更新用户分数成功")
-		// 			}
-		// 		} else {
-		// 			c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-		// 				bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
-		// 			c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-		// 				bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
-		// 			beego.Info("新关卡用户分数保存成功")
-		// 		}
+		for i := range req_data.StageNtf {
+			var stage = req_data.StageNtf[i]
+			if len(player.Levels) > 0 {
+				if len(req_data.StageNtf) <= len(player.Levels) {
+					if int32(*stage.StageScore) > int32(player.Levels[i].StageScore) {
+						c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+							bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
+						c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+							bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
+						beego.Info("更新用户分数成功")
+					}
+				} else {
+					c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+						bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
+					c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+						bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
+					beego.Info("新关卡用户分数保存成功")
+				}
 
-		// 	} else {
-		// 		//*stage.StageLevel = int32(1)
-		// 		c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-		// 			bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
-		// 		c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-		// 			bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
-		// 		beego.Info("插入新用户分数成功")
-		// 	}
+			} else {
+				//*stage.StageLevel = int32(1)
+				c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
+				c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
+					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
+				beego.Info("插入新用户分数成功")
+			}
 
-		// 	ret = 1
-		// }
-		for i := range req_data.GetStageNtf() {
-			for j := range player.Levels {
-				if req_data.GetStageNtf()[i].GetStageId() == player.Levels[j].StageId {
-					//已有的关卡
-					if player.Levels[j].StageScore < req_data.GetStageNtf()[i].GetStageScore() {
-						//玩的分数比服务器的高,则更新服务器分数
+			ret = 1
+		}
+	}
+
+	//存储奖杯
+	for i := range req_data.GetStageNtf() {
+		if req_data.GetStageNtf()[i].GetMedalIsAdd() == int32(0) {
+			_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+				bson.M{"$inc": bson.M{"medal": req_data.GetStageNtf()[i].GetGetMedal()}})
+			if err == nil {
+				beego.Info("勋章存储成功！")
+				for j := range player.Levels {
+					if player.Levels[j].StageId == req_data.GetStageNtf()[i].GetStageId() {
 						_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-							bson.M{"set": bson.M{"Levels." + fmt.Sprint(j) + ".stage_id": req_data.GetStageNtf()[i].GetStageScore(),
-								"Levels." + fmt.Sprint(j) + ".stage_level": req_data.GetStageNtf()[i].GetStageLevel(),
-								"Levels." + fmt.Sprint(j) + ".time_stamp":  req_data.GetStageNtf()[i].GetTimestamp()}})
+							bson.M{"Levels." + fmt.Sprint(j) + "medal_isadd": int32(1)})
 						if err != nil {
-							beego.Error("更新出错")
+							beego.Error("勋章接受类型变更失败！")
 						} else {
-							beego.Info("关卡更新成功")
+							beego.Info("勋章接受类型变更成功！")
 						}
 					}
 				}
+			} else {
+				beego.Error("勋章存储失败！")
 			}
 		}
-
-	} else {
-		ret = 0
 	}
-
 	//取出分数放入mysql里面
 	// var playerscore models.Player
 	// errs := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&playerscore)
@@ -190,10 +191,16 @@ func stageReportHandle(
 	// 	}
 	// }
 
+	var StageNtf []*cspb.CSStageNtf
+	var stagereport models.Player
+	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&stagereport)
+	for i := range stagereport.Levels {
+		StageNtf = append(StageNtf, makeStageNtf(stagereport.Levels[i].StageId, stagereport.Levels[i].StageLevel, stagereport.Levels[i].StageScore, stagereport.Levels[i].GetMedal, stagereport.Levels[i].MedalIsAdd, stagereport.Levels[i].Timestamp))
+	}
 	res_data := new(cspb.CSStageReportRes)
 	*res_data = cspb.CSStageReportRes{
 		Ret:      proto.Int32(ret),
-		StageNtf: req_data.StageNtf,
+		StageNtf: StageNtf,
 	}
 
 	res_pkg_body := new(cspb.CSBody)
