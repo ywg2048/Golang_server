@@ -53,6 +53,7 @@ func Init() {
 	cmdProcessRegister(cspb.Command_kBuyCardReq, BuyCardHandle)
 	cmdProcessRegister(cspb.Command_kRemoveMessageReq, RemoveMessageHandle)
 	cmdProcessRegister(cspb.Command_kFruitLevelUpReq, FruitLevelUpHandle)
+	cmdProcessRegister(cspb.Command_kCardReq, CardHandle)
 }
 
 func PkgListHandle(

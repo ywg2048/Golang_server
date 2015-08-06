@@ -1,4 +1,0 @@
-db_ip: "10.170.55.105:27017"
-svr_port: "9001"
-tools_svr_port: "9101"
-game_name: "WonderfulFriends"

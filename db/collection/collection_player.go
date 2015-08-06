@@ -113,6 +113,7 @@ func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, m
 				}
 			}
 		case nil:
+			//找到设备
 			if player.Uid != uid {
 				// 在设备上就有ID存在，以设备ID为准
 				beego.Error("在设备上就有ID存在，以设备ID为准.服务器上查的MAYAID is %s, 设备存储 is %d ", player.Uid, uid)
@@ -127,12 +128,12 @@ func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, m
 					beego.Error("更新用户失败:%v", err)
 				}
 			} else {
-				beego.Debug("获取用户%v ", player)
+				beego.Debug("获取用户", player)
 			}
 		default:
 			// 因为不是nill，就是出错了
 			// 而且错误不是ErrNotFound
-			beego.Error("ErrorCode_SysError in LoadingPlayer error is: %s", err)
+			beego.Error("ErrorCode_SysError in LoadingPlayer error is:", err)
 			ret = int32(cspb.ErrorCode_SysError)
 		}
 	}

@@ -39,7 +39,6 @@ func MessageCenterHandle(
 	}
 	ret := int32(1)
 	res_data := new(cspb.CSMessageCenterRes)
-	beego.Debug("res_data", req_data)
 	*res_data = cspb.CSMessageCenterRes{
 		Ret:        proto.Int32(ret),
 		MessageNtf: res_messages,

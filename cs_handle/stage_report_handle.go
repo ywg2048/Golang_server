@@ -30,67 +30,58 @@ func stageReportHandle(
 
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
-	err := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
+	err := c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
 	beego.Debug("*********StageReportHandle result is %v err is %v********", player, err)
 
 	//时间戳
 	ret := int32(0)
 	if err == nil {
-		for i := range req_data.StageNtf {
-			var stage = req_data.StageNtf[i]
+		for i := range req_data.GetStageNtf() {
+
 			if len(player.Levels) > 0 {
-				if len(req_data.StageNtf) <= len(player.Levels) {
-					if int32(*stage.StageScore) > int32(player.Levels[i].StageScore) {
-						c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-							bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
-						c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-							bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
-						beego.Info("更新用户分数成功")
+				if len(req_data.GetStageNtf()) <= len(player.Levels) {
+					if int32(req_data.GetStageNtf()[i].GetStageScore()) > int32(player.Levels[i].StageScore) {
+						_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+							bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".stage_id": req_data.GetStageNtf()[i].GetStageId(),
+								"Levels." + fmt.Sprint(i) + ".stage_level": req_data.GetStageNtf()[i].GetStageLevel(),
+								"Levels." + fmt.Sprint(i) + ".stage_score": req_data.GetStageNtf()[i].GetStageScore(),
+								"Levels." + fmt.Sprint(i) + ".medal_isadd": req_data.GetStageNtf()[i].GetMedalIsAdd(),
+								"Levels." + fmt.Sprint(i) + ".time_stamp":  time.Now().Unix()}})
+						if err == nil {
+							beego.Info("更新用户分数成功")
+						}
 					}
 				} else {
-					c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-						bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
-					c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-						bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
-					beego.Info("新关卡用户分数保存成功")
+					_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+						bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".stage_id": req_data.GetStageNtf()[i].GetStageId(),
+							"Levels." + fmt.Sprint(i) + ".stage_level": req_data.GetStageNtf()[i].GetStageLevel(),
+							"Levels." + fmt.Sprint(i) + ".stage_score": req_data.GetStageNtf()[i].GetStageScore(),
+							"Levels." + fmt.Sprint(i) + ".medal_isadd": req_data.GetStageNtf()[i].GetMedalIsAdd(),
+							"Levels." + fmt.Sprint(i) + ".time_stamp":  time.Now().Unix()}})
+					if err == nil {
+						beego.Info("新关卡用户分数保存成功")
+					}
 				}
 
 			} else {
 				//*stage.StageLevel = int32(1)
-				c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i): stage}})
-				c.Upsert(bson.M{"c_account": res_list.GetCAccount()},
-					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".timestamp": time.Now().Unix()}})
-				beego.Info("插入新用户分数成功")
+				_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+					bson.M{"$set": bson.M{"Levels." + fmt.Sprint(i) + ".stage_id": req_data.GetStageNtf()[i].GetStageId(),
+						"Levels." + fmt.Sprint(i) + ".stage_level": req_data.GetStageNtf()[i].GetStageLevel(),
+						"Levels." + fmt.Sprint(i) + ".stage_score": req_data.GetStageNtf()[i].GetStageScore(),
+						"Levels." + fmt.Sprint(i) + ".medal_isadd": req_data.GetStageNtf()[i].GetMedalIsAdd(),
+						"Levels." + fmt.Sprint(i) + ".time_stamp":  time.Now().Unix()}})
+				if err == nil {
+					beego.Info("插入新用户分数成功")
+				}
 			}
 
 			ret = 1
 		}
 	}
 
-	//存储奖杯
-	for i := range req_data.GetStageNtf() {
-		if req_data.GetStageNtf()[i].GetMedalIsAdd() == int32(0) {
-			_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-				bson.M{"$inc": bson.M{"medal": req_data.GetStageNtf()[i].GetGetMedal()}})
-			if err == nil {
-				beego.Info("勋章存储成功！")
-				for j := range player.Levels {
-					if player.Levels[j].StageId == req_data.GetStageNtf()[i].GetStageId() {
-						_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-							bson.M{"Levels." + fmt.Sprint(j) + "medal_isadd": int32(1)})
-						if err != nil {
-							beego.Error("勋章接受类型变更失败！")
-						} else {
-							beego.Info("勋章接受类型变更成功！")
-						}
-					}
-				}
-			} else {
-				beego.Error("勋章存储失败！")
-			}
-		}
-	}
+	//存储卡片
+
 	//取出分数放入mysql里面
 	// var playerscore models.Player
 	// errs := c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&playerscore)
@@ -195,8 +186,9 @@ func stageReportHandle(
 	var stagereport models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&stagereport)
 	for i := range stagereport.Levels {
-		StageNtf = append(StageNtf, makeStageNtf(stagereport.Levels[i].StageId, stagereport.Levels[i].StageLevel, stagereport.Levels[i].StageScore, stagereport.Levels[i].GetMedal, stagereport.Levels[i].MedalIsAdd, stagereport.Levels[i].Timestamp))
+		StageNtf = append(StageNtf, makeStageNtf(stagereport.Levels[i].StageId, stagereport.Levels[i].StageLevel, stagereport.Levels[i].StageScore, stagereport.Levels[i].GetMedal, stagereport.Levels[i].MedalIsAdd))
 	}
+	beego.Info("StageNtf:", StageNtf)
 	res_data := new(cspb.CSStageReportRes)
 	*res_data = cspb.CSStageReportRes{
 		Ret:      proto.Int32(ret),
