@@ -125,10 +125,10 @@ func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, m
 				err = c.Update(bson.M{"_id": player.Saccount}, player)
 
 				if err != nil {
-					beego.Error("更新用户失败:%v", err)
+					beego.Error("更新用户失败:", err)
 				}
 			} else {
-				beego.Debug("获取用户", player)
+				beego.Debug("获取用户:", player)
 			}
 		default:
 			// 因为不是nill，就是出错了

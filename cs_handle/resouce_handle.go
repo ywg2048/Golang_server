@@ -3,6 +3,7 @@ package cs_handle
 import (
 	// "fmt"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
 	// "time"
 	models "tuojie.com/piggo/quickstart.git/models"
 )
@@ -74,6 +75,20 @@ func ResourceHandle(
 			bson.M{"$set": bson.M{"medal": req_data.GetMedal()}})
 		if err == nil {
 			beego.Info("勋章变更成功！")
+			//mysql表的勋章数量变更
+			o := orm.NewOrm()
+			var ranking models.Ranking
+
+			ranking = models.Ranking{Uid: int32(res_list.GetUid())}
+			o.Read(&ranking, "uid")
+			beego.Info(ranking)
+			ranking.Medal = req_data.GetMedal()
+			id, err := o.Update(&ranking, "Medal")
+			if err == nil {
+				beego.Info("mysql勋章变更成功", id)
+			} else {
+				beego.Error("mysql勋章变更失败", err)
+			}
 		} else {
 			beego.Error("勋章变更失败！")
 		}
@@ -81,10 +96,8 @@ func ResourceHandle(
 	if req_data.GetType() == int32(11) {
 		_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
 			bson.M{"$set": bson.M{"medal": req_data.GetMedal(), "diamond": req_data.GetDiamond(), "rmb": req_data.GetRMB(), "flower": req_data.GetFlower(), "experience_pool": req_data.GetSolution(), "gold": req_data.GetGold()}})
-		if err == nil {
-			beego.Info("信息变更成功！")
-		} else {
-			beego.Error("信息变更失败！")
+		if err != nil {
+			beego.Error("信息更新失败")
 		}
 	}
 	var player_return models.Player
