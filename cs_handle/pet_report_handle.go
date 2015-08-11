@@ -20,17 +20,18 @@ func petReportHandle(
 	pet_id := req_data.GetPetId()
 	ret := int32(1)
 	Ret := int32(0)
+	isExsit := int32(0)
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
-	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
-	_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-		bson.M{"$set": bson.M{"starid": pet_id}})
-	if err == nil {
-		Ret = int32(1)
-		beego.Info("明星更换成功！")
-	} else {
-		beego.Error("明星更换失败！")
-	}
+	//c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
+	// _, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+	// 	bson.M{"$set": bson.M{"starid": pet_id}})
+	// if err == nil {
+	// 	Ret = int32(1)
+	// 	beego.Info("明星更换成功！")
+	// } else {
+	// 	beego.Error("明星更换失败！")
+	// }
 
 	//更换小伙伴
 	// if req_data.GetType == int32(1) {
@@ -44,14 +45,25 @@ func petReportHandle(
 	// 	}
 	// } else {
 	// //解锁小伙伴
-	// _, err := c.Upsert(bson.M{"uid": player.Uid},
-	// 	bson.M{"$push": bson.M{"star": bson.M{"starid": pet_id,  "level": int32(1), "current_exp": int32(0), "dress": int32(1),
-	// 		"dressname": "初级套装", "fighting": int32(16500), "satisfaction": int32(50), "fight_exp": int32(0), "is_active": int32(1)}}})
+	for i := range player.Star {
+		if player.Star[i].StarId == pet_id {
+			isExsit = int32(1)
+		}
+	}
+	if isExsit == int32(0) {
+		_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+			bson.M{"$push": bson.M{"star": bson.M{"starid": pet_id, "level": int32(1), "current_exp": int32(0), "dress": int32(1),
+				"dressname": "初级套装", "fighting": int32(16500), "satisfaction": int32(50), "fight_exp": int32(0), "is_active": int32(1)}}})
+		if err != nil {
+			beego.Error("解锁小伙伴失败", err)
 
-	// if err != nil {
-	// 	beego.Error("解锁小伙伴失败", err)
-	// }
-	// }
+		} else {
+			beego.Info("解锁成功")
+		}
+	} else {
+		beego.Error("已经解锁了")
+	}
+
 	res_data := new(cspb.CSReportPetRes)
 	*res_data = cspb.CSReportPetRes{
 		Ret: &Ret,

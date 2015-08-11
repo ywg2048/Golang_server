@@ -1,51 +1,57 @@
 package cs_handle
 
 import (
+	"fmt"
 	"github.com/astaxie/beego"
+	// "github.com/astaxie/beego/orm"
+	models "tuojie.com/piggo/quickstart.git/models"
 )
+
 import cspb "protocol"
 import proto "code.google.com/p/goprotobuf/proto"
-import pet_db "tuojie.com/piggo/quickstart.git/db/collection"
+import "labix.org/v2/mgo/bson"
+
+import db_session "tuojie.com/piggo/quickstart.git/db/session"
 
 func getPetListHandle(
 	req *cspb.CSPkg,
 	res_list *cspb.CSPkgList) int32 {
-
-	pet_db_list, ret := pet_db.GetPetList(res_list.GetSAccount())
-	if ret == 1 {
-		return makePetListResPkg(req, res_list, ret)
-	} else if ret == 0 {
-		var pet_list []*cspb.PetInfo
-
-		for _, db_info := range pet_db_list {
-
-			pet_list = append(pet_list, makePet(db_info.PetId,
-				db_info.PetLevel,
-				db_info.PetCurExp,
-				db_info.PetTotalExp,
-				db_info.PetStarLevel,
-
-				db_info.DressId,
-			))
+	beego.Info("****getPetListHandle Start******")
+	req_data := req.GetBody().GetPetListReq()
+	beego.Info(req_data)
+	ret := int32(1)
+	c := db_session.DB("zoo").C("player")
+	var player models.Player
+	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
+	if req_data.GetData() != int32(-1) {
+		for i := range player.Star {
+			for j := range req_data.GetPetList() {
+				if player.Star[i].StarId == req_data.GetPetList()[j].GetPetId() {
+					c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+						bson.M{"star." + fmt.Sprint(i) + ".level": req_data.GetPetList()[j].GetPetLevel(),
+							"star." + fmt.Sprint(i) + ".current_exp":  req_data.GetPetList()[j].GetPetCurExp(),
+							"star." + fmt.Sprint(i) + ".dress":        req_data.GetPetList()[j].GetDressId(),
+							"star." + fmt.Sprint(i) + ".fighting":     req_data.GetPetList()[j].GetFighting(),
+							"star." + fmt.Sprint(i) + ".satisfaction": req_data.GetPetList()[j].GetSatisfaction(),
+							"star." + fmt.Sprint(i) + ".fight_exp":    req_data.GetPetList()[j].GetFightExp()})
+				}
+			}
 		}
-		//添加pet_ntf到res_list中
-		makePetNtf(pet_list, res_list)
-	} else {
-		beego.Error("get pet list fail ret:%d", ret)
 	}
 
-	return makePetListResPkg(req, res_list, ret)
-}
-
-func makePetListResPkg(req *cspb.CSPkg,
-	res_list *cspb.CSPkgList, ret int32) int32 {
-
+	var player_return models.Player
+	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player_return)
+	var PetList []*cspb.PetInfo
+	for i := range player_return.Star {
+		PetList = append(PetList, makePet(player_return.Star[i].StarId, player_return.Star[i].Level, player_return.Star[i].Currentexp, player_return.Star[i].Satisfaction, player_return.Star[i].FightExp, player_return.Star[i].Fighting, player_return.Star[i].Dress))
+	}
 	//填充petlistres回包
 	res_data := new(cspb.CSPetListRes)
 	*res_data = cspb.CSPetListRes{
-		Ret: proto.Int32(ret),
+		Ret:     proto.Int32(ret),
+		PetList: PetList,
 	}
-
+	beego.Info(res_data)
 	res_pkg_body := new(cspb.CSBody)
 	*res_pkg_body = cspb.CSBody{
 		PetListRes: res_data,

@@ -67,9 +67,10 @@ func LevelUpHandle(
 	var PetLevel int32
 	var DressId int32
 	var PetCurExp int32
-	var PetTotalExp int32
+	var Satisfaction int32
 	var Fighting int32
-	var PetStarLevel int32
+	var FightExp int32
+
 	var CurrentCardNtf []*cspb.CSCardNtf
 	for j := range player_return.Star {
 		if player_return.Star[j].StarId == req_data.GetCurrentStarId() {
@@ -77,10 +78,9 @@ func LevelUpHandle(
 			PetLevel = player_return.Star[j].Level
 			DressId = player_return.Star[j].Dress
 			PetCurExp = player_return.Star[j].Currentexp
-			PetTotalExp = player_return.Star[j].Currentexp
+			Satisfaction = player_return.Star[j].Satisfaction
 			Fighting = player_return.Star[j].Fighting
-			PetStarLevel = player_return.Star[j].Level
-
+			FightExp = player_return.Star[j].FightExp
 			for i := range player_return.Cards {
 				CurrentCardNtf = append(CurrentCardNtf, makecardNtf1(player_return.Cards[i].CardId, player_return.Cards[i].CardNum))
 			}
@@ -92,9 +92,9 @@ func LevelUpHandle(
 		PetLevel:     proto.Int32(PetLevel),
 		DressId:      proto.Int32(DressId),
 		PetCurExp:    proto.Int32(PetCurExp),
-		PetTotalExp:  proto.Int32(PetTotalExp),
+		Satisfaction: proto.Int32(Satisfaction),
+		FightExp:     proto.Int32(FightExp),
 		Fighting:     proto.Int32(Fighting),
-		PetStarLevel: proto.Int32(PetStarLevel),
 	}
 	res_data := new(cspb.CSLevelUpRes)
 	*res_data = cspb.CSLevelUpRes{

@@ -33,7 +33,7 @@ func ResourceHandle(
 
 	if req_data.GetType() == int32(1) {
 		_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-			bson.M{"$inc": bson.M{"diamond": req_data.GetDiamond(), "rmb": req_data.GetRMB()}})
+			bson.M{"$set": bson.M{"diamond": req_data.GetDiamond(), "rmb": req_data.GetRMB()}})
 		if err == nil {
 			beego.Info("钻石数量变更成功！")
 		} else {
@@ -83,9 +83,9 @@ func ResourceHandle(
 			o.Read(&ranking, "uid")
 			beego.Info(ranking)
 			ranking.Medal = req_data.GetMedal()
-			id, err := o.Update(&ranking, "Medal")
+
 			if err == nil {
-				beego.Info("mysql勋章变更成功", id)
+				beego.Info("mysql勋章变更成功")
 			} else {
 				beego.Error("mysql勋章变更失败", err)
 			}

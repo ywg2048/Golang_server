@@ -28,12 +28,14 @@ func FruitLevelUpHandle(
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
-	_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-		bson.M{"$set": bson.M{"fruit_level": req_data.GetCurrentFruitlevel()}})
-	if err == nil {
-		beego.Info("水果升级成功！")
-	} else {
-		beego.Error("水果升级失败！", err)
+	if req_data.GetCurrentFruitlevel() != int32(-1) {
+		_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+			bson.M{"$set": bson.M{"fruit_level": req_data.GetCurrentFruitlevel()}})
+		if err == nil {
+			beego.Info("水果升级成功！")
+		} else {
+			beego.Error("水果升级失败！", err)
+		}
 	}
 	var player_return models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player_return)

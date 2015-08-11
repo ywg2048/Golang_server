@@ -2,6 +2,7 @@ package cs_handle
 
 import (
 	"github.com/astaxie/beego"
+	// models "tuojie.com/piggo/quickstart.git/models"
 )
 import cspb "protocol"
 
@@ -52,18 +53,18 @@ func makeAttrItemNtf(item_id int32, item_num int32,
 }
 
 func makePet(pet_id int32, pet_level int32,
-	pet_cur_exp int32, pet_total_exp int32,
-	pet_star_level int32, DressId int32) *cspb.PetInfo {
+	pet_cur_exp int32, Satisfaction int32,
+	FightExp int32, Fighting int32, DressId int32) *cspb.PetInfo {
 
 	pet_info := new(cspb.PetInfo)
 	*pet_info = cspb.PetInfo{
 		PetId:        proto.Int32(pet_id),
 		PetLevel:     proto.Int32(pet_level),
 		PetCurExp:    proto.Int32(pet_cur_exp),
-		PetTotalExp:  proto.Int32(pet_total_exp),
-		PetStarLevel: proto.Int32(pet_star_level),
-
-		DressId: proto.Int32(DressId),
+		Satisfaction: proto.Int32(Satisfaction),
+		FightExp:     proto.Int32(FightExp),
+		Fighting:     proto.Int32(Fighting),
+		DressId:      proto.Int32(DressId),
 	}
 
 	beego.Debug("pet_info:%v", pet_info)

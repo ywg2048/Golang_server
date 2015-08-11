@@ -201,14 +201,14 @@ func reward(signin_day int32, res_list *cspb.CSPkgList) {
 	}
 
 	//发送 chip 或者 pet ntf
-	if len(pet_list) > 0 {
-		beego.Debug("petlist:%v", pet_list)
-		for _, pet := range pet_list {
-			db.SetPetInfo(res_list.GetSAccount(), pet.GetPetId(),
-				1, 0, 0, pet.GetPetStarLevel())
-		}
-		makePetNtf(pet_list, res_list)
-	}
+	// if len(pet_list) > 0 {
+	// 	beego.Debug("petlist:%v", pet_list)
+	// 	for _, pet := range pet_list {
+	// 		db.SetPetInfo(res_list.GetSAccount(), pet.GetPetId(),
+	// 			1, 0, 0, pet.GetPetStarLevel())
+	// 	}
+	// 	makePetNtf(pet_list, res_list)
+	// }
 
 	if len(chip_list) > 0 {
 		beego.Debug("makeChipList chip_list:%v", chip_list)

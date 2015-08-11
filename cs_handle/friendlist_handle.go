@@ -65,19 +65,7 @@ func FriendlistHandle(
 					Dress = players.Star[j].Dressname
 					Level = players.Star[j].Level
 					Medal = players.Medal
-					if 100 <= players.Medal && players.Medal < 500 {
-						MedalLevelID = int32(1)
-					} else if 500 <= players.Medal && players.Medal < 1400 {
-						MedalLevelID = int32(2)
-					} else if 1400 <= players.Medal && players.Medal < 2700 {
-						MedalLevelID = int32(3)
-					} else if 2700 <= players.Medal && players.Medal < 4000 {
-						MedalLevelID = int32(4)
-					} else if 4000 <= players.Medal && players.Medal < 5000 {
-						MedalLevelID = int32(5)
-					} else if players.Medal >= 5000 {
-						MedalLevelID = int32(5)
-					}
+					MedalLevelID = players.MedalLevelId
 
 				}
 			}
