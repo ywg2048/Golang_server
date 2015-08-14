@@ -75,7 +75,7 @@ func ResourceHandle(
 			bson.M{"$set": bson.M{"medal": req_data.GetMedal()}})
 		if err == nil {
 			beego.Info("勋章变更成功！")
-			//mysql表的勋章数量变更
+			//mysql排行表的勋章数量变更
 			o := orm.NewOrm()
 			var ranking models.Ranking
 
@@ -83,11 +83,11 @@ func ResourceHandle(
 			o.Read(&ranking, "uid")
 			beego.Info(ranking)
 			ranking.Medal = req_data.GetMedal()
-
-			if err == nil {
-				beego.Info("mysql勋章变更成功")
+			id, errs := o.Update(&ranking, "medal")
+			if errs == nil {
+				beego.Info("mysql勋章变更成功", id)
 			} else {
-				beego.Error("mysql勋章变更失败", err)
+				beego.Error("mysql勋章变更失败", errs)
 			}
 		} else {
 			beego.Error("勋章变更失败！")

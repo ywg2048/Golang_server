@@ -27,21 +27,21 @@ func CardHandle(
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
-
-	for i := range req_data.GetCardNtf() {
-		for j := range player.Cards {
-			if req_data.GetCardNtf()[i].GetCardId() == player.Cards[j].CardId {
-				_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-					bson.M{"$set": bson.M{"cards." + fmt.Sprint(j) + ".card_num": req_data.GetCardNtf()[i].GetCardNum()}})
-				if err == nil {
-					beego.Info("卡片掉落存储成功!")
-				} else {
-					beego.Error("卡片掉落存储失败!")
+	if req_data.GetData() != int32(-1) {
+		for i := range req_data.GetCardNtf() {
+			for j := range player.Cards {
+				if req_data.GetCardNtf()[i].GetCardId() == player.Cards[j].CardId {
+					_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+						bson.M{"$set": bson.M{"cards." + fmt.Sprint(j) + ".card_num": req_data.GetCardNtf()[i].GetCardNum()}})
+					if err == nil {
+						beego.Info("卡片掉落存储成功!")
+					} else {
+						beego.Error("卡片掉落存储失败!")
+					}
 				}
 			}
 		}
 	}
-
 	var player_return models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player_return)
 	var CardNtf []*cspb.CSCardNtf

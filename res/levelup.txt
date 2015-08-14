@@ -3,7 +3,7 @@ items {
   CardId: 1
   Number: 10
   GetNum: 10
-  Satisfaction: 100
+  Attack: 5000
   Fight_exp: 10
 }
 items {
@@ -11,7 +11,7 @@ items {
   CardId: 2
   Number: 20
   GetNum: 20
-  Satisfaction: 100
+  Attack: 5000
   Fight_exp: 10
 }
 items {
@@ -19,7 +19,7 @@ items {
   CardId: 3
   Number: 30
   GetNum: 10
-  Satisfaction: 100
+  Attack: 5000
   Fight_exp: 10
 }
 items {
@@ -27,7 +27,7 @@ items {
   CardId: 1
   Number: 10
   GetNum: 10
-  Satisfaction: 200
+  Attack: 5150
   Fight_exp: 20
 }
 items {
@@ -35,7 +35,7 @@ items {
   CardId: 2
   Number: 20
   GetNum: 20
-  Satisfaction: 200
+  Attack: 5150
   Fight_exp: 20
 }
 items {
@@ -43,7 +43,7 @@ items {
   CardId: 3
   Number: 30
   GetNum: 20
-  Satisfaction: 200
+  Attack: 5150
   Fight_exp: 20
 }
 items {
@@ -51,7 +51,7 @@ items {
   CardId: 1
   Number: 10
   GetNum: 10
-  Satisfaction: 300
+  Attack: 5300
   Fight_exp: 30
 }
 items {
@@ -59,7 +59,7 @@ items {
   CardId: 2
   Number: 20
   GetNum: 20
-  Satisfaction: 300
+  Attack: 5300
   Fight_exp: 30
 }
 items {
@@ -67,7 +67,7 @@ items {
   CardId: 3
   Number: 30
   GetNum: 20
-  Satisfaction: 300
+  Attack: 5300
   Fight_exp: 30
 }
 items {
@@ -75,7 +75,7 @@ items {
   CardId: 1
   Number: 10
   GetNum: 10
-  Satisfaction: 400
+  Attack: 5450
   Fight_exp: 40
 }
 items {
@@ -83,7 +83,7 @@ items {
   CardId: 2
   Number: 20
   GetNum: 20
-  Satisfaction: 400
+  Attack: 5450
   Fight_exp: 40
 }
 items {
@@ -91,7 +91,7 @@ items {
   CardId: 3
   Number: 30
   GetNum: 30
-  Satisfaction: 400
+  Attack: 5450
   Fight_exp: 40
 }
 items {
@@ -99,7 +99,7 @@ items {
   CardId: 1
   Number: 10
   GetNum: 10
-  Satisfaction: 500
+  Attack: 5600
   Fight_exp: 50
 }
 items {
@@ -107,7 +107,7 @@ items {
   CardId: 2
   Number: 20
   GetNum: 20
-  Satisfaction: 500
+  Attack: 5600
   Fight_exp: 50
 }
 items {
@@ -115,6 +115,606 @@ items {
   CardId: 3
   Number: 30
   GetNum: 30
-  Satisfaction: 500
+  Attack: 5600
   Fight_exp: 50
+}
+items {
+  Level: 6
+  CardId: 1
+  Number: 10
+  GetNum: 10
+  Attack: 5750
+  Fight_exp: 60
+}
+items {
+  Level: 6
+  CardId: 2
+  Number: 20
+  GetNum: 20
+  Attack: 5750
+  Fight_exp: 60
+}
+items {
+  Level: 6
+  CardId: 3
+  Number: 30
+  GetNum: 30
+  Attack: 5750
+  Fight_exp: 60
+}
+items {
+  Level: 7
+  CardId: 1
+  Number: 10
+  GetNum: 10
+  Attack: 5900
+  Fight_exp: 70
+}
+items {
+  Level: 7
+  CardId: 2
+  Number: 20
+  GetNum: 20
+  Attack: 5900
+  Fight_exp: 70
+}
+items {
+  Level: 7
+  CardId: 3
+  Number: 30
+  GetNum: 30
+  Attack: 5900
+  Fight_exp: 70
+}
+items {
+  Level: 8
+  CardId: 2
+  Number: 10
+  GetNum: 10
+  Attack: 6050
+  Fight_exp: 80
+}
+items {
+  Level: 8
+  CardId: 3
+  Number: 20
+  GetNum: 20
+  Attack: 6050
+  Fight_exp: 80
+}
+items {
+  Level: 8
+  CardId: 4
+  Number: 30
+  GetNum: 30
+  Attack: 6050
+  Fight_exp: 80
+}
+items {
+  Level: 9
+  CardId: 2
+  Number: 10
+  GetNum: 10
+  Attack: 6200
+  Fight_exp: 90
+}
+items {
+  Level: 9
+  CardId: 3
+  Number: 20
+  GetNum: 20
+  Attack: 6200
+  Fight_exp: 90
+}
+items {
+  Level: 9
+  CardId: 4
+  Number: 30
+  GetNum: 30
+  Attack: 6200
+  Fight_exp: 90
+}
+items {
+  Level: 10
+  CardId: 2
+  Number: 10
+  GetNum: 10
+  Attack: 6350
+  Fight_exp: 100
+}
+items {
+  Level: 10
+  CardId: 3
+  Number: 20
+  GetNum: 20
+  Attack: 6350
+  Fight_exp: 100
+}
+items {
+  Level: 10
+  CardId: 4
+  Number: 30
+  GetNum: 30
+  Attack: 6350
+  Fight_exp: 100
+}
+items {
+  Level: 11
+  CardId: 2
+  Number: 10
+  GetNum: 10
+  Attack: 6500
+  Fight_exp: 110
+}
+items {
+  Level: 11
+  CardId: 3
+  Number: 20
+  GetNum: 20
+  Attack: 6500
+  Fight_exp: 110
+}
+items {
+  Level: 11
+  CardId: 4
+  Number: 30
+  GetNum: 30
+  Attack: 6500
+  Fight_exp: 110
+}
+items {
+  Level: 12
+  CardId: 2
+  Number: 10
+  GetNum: 10
+  Attack: 6650
+  Fight_exp: 120
+}
+items {
+  Level: 12
+  CardId: 3
+  Number: 20
+  GetNum: 20
+  Attack: 6650
+  Fight_exp: 120
+}
+items {
+  Level: 12
+  CardId: 4
+  Number: 30
+  GetNum: 30
+  Attack: 6650
+  Fight_exp: 120
+}
+items {
+  Level: 13
+  CardId: 2
+  Number: 10
+  GetNum: 10
+  Attack: 6800
+  Fight_exp: 130
+}
+items {
+  Level: 13
+  CardId: 3
+  Number: 20
+  GetNum: 20
+  Attack: 6800
+  Fight_exp: 130
+}
+items {
+  Level: 13
+  CardId: 4
+  Number: 30
+  GetNum: 30
+  Attack: 6800
+  Fight_exp: 130
+}
+items {
+  Level: 14
+  CardId: 2
+  Number: 10
+  GetNum: 10
+  Attack: 6950
+  Fight_exp: 140
+}
+items {
+  Level: 14
+  CardId: 3
+  Number: 20
+  GetNum: 20
+  Attack: 6950
+  Fight_exp: 140
+}
+items {
+  Level: 14
+  CardId: 4
+  Number: 30
+  GetNum: 30
+  Attack: 6950
+  Fight_exp: 140
+}
+items {
+  Level: 15
+  CardId: 3
+  Number: 10
+  GetNum: 10
+  Attack: 7100
+  Fight_exp: 150
+}
+items {
+  Level: 15
+  CardId: 4
+  Number: 20
+  GetNum: 20
+  Attack: 7100
+  Fight_exp: 150
+}
+items {
+  Level: 15
+  CardId: 5
+  Number: 30
+  GetNum: 30
+  Attack: 7100
+  Fight_exp: 150
+}
+items {
+  Level: 16
+  CardId: 3
+  Number: 10
+  GetNum: 10
+  Attack: 7250
+  Fight_exp: 160
+}
+items {
+  Level: 16
+  CardId: 4
+  Number: 20
+  GetNum: 20
+  Attack: 7250
+  Fight_exp: 160
+}
+items {
+  Level: 16
+  CardId: 5
+  Number: 30
+  GetNum: 30
+  Attack: 7250
+  Fight_exp: 160
+}
+items {
+  Level: 17
+  CardId: 3
+  Number: 10
+  GetNum: 10
+  Attack: 7400
+  Fight_exp: 170
+}
+items {
+  Level: 17
+  CardId: 4
+  Number: 20
+  GetNum: 20
+  Attack: 7400
+  Fight_exp: 170
+}
+items {
+  Level: 17
+  CardId: 5
+  Number: 30
+  GetNum: 30
+  Attack: 7400
+  Fight_exp: 170
+}
+items {
+  Level: 18
+  CardId: 3
+  Number: 10
+  GetNum: 10
+  Attack: 7550
+  Fight_exp: 180
+}
+items {
+  Level: 18
+  CardId: 4
+  Number: 20
+  GetNum: 20
+  Attack: 7550
+  Fight_exp: 180
+}
+items {
+  Level: 18
+  CardId: 5
+  Number: 30
+  GetNum: 30
+  Attack: 7550
+  Fight_exp: 180
+}
+items {
+  Level: 19
+  CardId: 3
+  Number: 10
+  GetNum: 10
+  Attack: 7700
+  Fight_exp: 190
+}
+items {
+  Level: 19
+  CardId: 4
+  Number: 20
+  GetNum: 20
+  Attack: 7700
+  Fight_exp: 190
+}
+items {
+  Level: 19
+  CardId: 5
+  Number: 30
+  GetNum: 30
+  Attack: 7700
+  Fight_exp: 190
+}
+items {
+  Level: 20
+  CardId: 3
+  Number: 10
+  GetNum: 10
+  Attack: 7850
+  Fight_exp: 200
+}
+items {
+  Level: 20
+  CardId: 4
+  Number: 20
+  GetNum: 20
+  Attack: 7850
+  Fight_exp: 200
+}
+items {
+  Level: 20
+  CardId: 5
+  Number: 30
+  GetNum: 30
+  Attack: 7850
+  Fight_exp: 200
+}
+items {
+  Level: 21
+  CardId: 3
+  Number: 10
+  GetNum: 10
+  Attack: 8000
+  Fight_exp: 210
+}
+items {
+  Level: 21
+  CardId: 4
+  Number: 20
+  GetNum: 20
+  Attack: 8000
+  Fight_exp: 210
+}
+items {
+  Level: 21
+  CardId: 5
+  Number: 30
+  GetNum: 30
+  Attack: 8000
+  Fight_exp: 210
+}
+items {
+  Level: 22
+  CardId: 4
+  Number: 10
+  GetNum: 10
+  Attack: 8150
+  Fight_exp: 220
+}
+items {
+  Level: 22
+  CardId: 5
+  Number: 20
+  GetNum: 20
+  Attack: 8150
+  Fight_exp: 220
+}
+items {
+  Level: 22
+  CardId: 6
+  Number: 30
+  GetNum: 30
+  Attack: 8150
+  Fight_exp: 220
+}
+items {
+  Level: 23
+  CardId: 4
+  Number: 10
+  GetNum: 10
+  Attack: 8300
+  Fight_exp: 230
+}
+items {
+  Level: 23
+  CardId: 5
+  Number: 20
+  GetNum: 20
+  Attack: 8300
+  Fight_exp: 230
+}
+items {
+  Level: 23
+  CardId: 6
+  Number: 30
+  GetNum: 30
+  Attack: 8300
+  Fight_exp: 230
+}
+items {
+  Level: 24
+  CardId: 4
+  Number: 10
+  GetNum: 10
+  Attack: 8450
+  Fight_exp: 240
+}
+items {
+  Level: 24
+  CardId: 5
+  Number: 20
+  GetNum: 20
+  Attack: 8450
+  Fight_exp: 240
+}
+items {
+  Level: 24
+  CardId: 6
+  Number: 30
+  GetNum: 30
+  Attack: 8450
+  Fight_exp: 240
+}
+items {
+  Level: 25
+  CardId: 4
+  Number: 10
+  GetNum: 10
+  Attack: 8600
+  Fight_exp: 250
+}
+items {
+  Level: 25
+  CardId: 5
+  Number: 20
+  GetNum: 20
+  Attack: 8600
+  Fight_exp: 250
+}
+items {
+  Level: 25
+  CardId: 6
+  Number: 30
+  GetNum: 30
+  Attack: 8600
+  Fight_exp: 250
+}
+items {
+  Level: 26
+  CardId: 4
+  Number: 10
+  GetNum: 10
+  Attack: 8750
+  Fight_exp: 260
+}
+items {
+  Level: 26
+  CardId: 5
+  Number: 20
+  GetNum: 20
+  Attack: 8750
+  Fight_exp: 260
+}
+items {
+  Level: 26
+  CardId: 6
+  Number: 30
+  GetNum: 30
+  Attack: 8750
+  Fight_exp: 260
+}
+items {
+  Level: 27
+  CardId: 4
+  Number: 10
+  GetNum: 10
+  Attack: 8900
+  Fight_exp: 270
+}
+items {
+  Level: 27
+  CardId: 5
+  Number: 20
+  GetNum: 20
+  Attack: 8900
+  Fight_exp: 270
+}
+items {
+  Level: 27
+  CardId: 6
+  Number: 30
+  GetNum: 30
+  Attack: 8900
+  Fight_exp: 270
+}
+items {
+  Level: 28
+  CardId: 4
+  Number: 10
+  GetNum: 10
+  Attack: 9050
+  Fight_exp: 280
+}
+items {
+  Level: 28
+  CardId: 5
+  Number: 20
+  GetNum: 20
+  Attack: 9050
+  Fight_exp: 280
+}
+items {
+  Level: 28
+  CardId: 6
+  Number: 30
+  GetNum: 30
+  Attack: 9050
+  Fight_exp: 280
+}
+items {
+  Level: 29
+  CardId: 4
+  Number: 10
+  GetNum: 10
+  Attack: 9200
+  Fight_exp: 290
+}
+items {
+  Level: 29
+  CardId: 5
+  Number: 20
+  GetNum: 20
+  Attack: 9200
+  Fight_exp: 290
+}
+items {
+  Level: 29
+  CardId: 6
+  Number: 30
+  GetNum: 30
+  Attack: 9200
+  Fight_exp: 290
+}
+items {
+  Level: 30
+  CardId: 4
+  Number: 10
+  GetNum: 10
+  Attack: 9350
+  Fight_exp: 300
+}
+items {
+  Level: 30
+  CardId: 5
+  Number: 20
+  GetNum: 20
+  Attack: 9350
+  Fight_exp: 300
+}
+items {
+  Level: 30
+  CardId: 6
+  Number: 30
+  GetNum: 30
+  Attack: 9350
+  Fight_exp: 300
 }

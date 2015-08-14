@@ -78,6 +78,8 @@ func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, m
 				player.Gold = int32(2000)
 				player.ExperiencePool = int32(3000)
 				player.StarId = int32(8)
+				player.Name = string(player.Uid)
+
 				beego.Info("Write player:%v", player)
 
 				err = c.Insert(&player)
@@ -110,6 +112,28 @@ func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, m
 							beego.Error("小伙伴初始化失败", err)
 						}
 					}
+
+					//初始化排名表的数据
+					o := orm.NewOrm()
+					var ranking models.Ranking
+
+					ranking = models.Ranking{Uid: int32(player.Uid)}
+					err := o.Read(&ranking, "uid")
+					if err != nil {
+						ranking.Medal = int32(0)
+						ranking.Uid = int32(player.Uid)
+						ranking.Level = int32(1)
+						ranking.MedalLevelId = int32(0)
+						ranking.StarId = int32(8)
+
+						id, errs := o.Insert(&ranking)
+						if errs == nil {
+							beego.Info("mysql排行表初始化成功", id)
+						} else {
+							beego.Error("mysql排行表初始化失败", errs)
+						}
+					}
+
 				}
 			}
 		case nil:
@@ -122,7 +146,7 @@ func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, m
 					player.Uid = uid
 				}
 
-				err = c.Update(bson.M{"_id": player.Saccount}, player)
+				err := c.Update(bson.M{"_id": player.Saccount}, player)
 
 				if err != nil {
 					beego.Error("更新用户失败:", err)
