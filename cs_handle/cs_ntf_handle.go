@@ -204,21 +204,23 @@ func makeFriendmessagelistNtf(MessageType int32, ElementType int32, CardId int32
 	return friendmessagelist_ntf
 
 }
-func makefriendlist(FriendListId int32, Playerid int32, Name string, Starid int32, Starname string, Fighting int32, DressId int32, Dress string, Level int32, Medal int32, MedalLevelID int32, Stagelevel int32) *cspb.CSFriendListNtf {
+func makefriendlist(FriendListId int32, Playerid int32, Name string, Starid int32, Starname string, Fighting int32, DressId int32, Dress string, Level int32, Medal int32, MedalLevelID int32, Stagelevel int32, iZooId int32, iAchievementID int32) *cspb.CSFriendListNtf {
 	friendlist_ntf := new(cspb.CSFriendListNtf)
 	*friendlist_ntf = cspb.CSFriendListNtf{
-		FriendListId: proto.Int32(FriendListId),
-		Playerid:     proto.Int32(Playerid),
-		Name:         proto.String(Name),
-		Starid:       proto.Int32(Starid),
-		Starname:     proto.String(Starname),
-		Fighting:     proto.Int32(Fighting),
-		DressId:      proto.Int32(DressId),
-		Dress:        proto.String(Dress),
-		Level:        proto.Int32(Level),
-		Medal:        proto.Int32(Medal),
-		MedalLevelID: proto.Int32(MedalLevelID),
-		Stagelevel:   proto.Int32(Stagelevel),
+		FriendListId:   proto.Int32(FriendListId),
+		Playerid:       proto.Int32(Playerid),
+		Name:           proto.String(Name),
+		Starid:         proto.Int32(Starid),
+		Starname:       proto.String(Starname),
+		Fighting:       proto.Int32(Fighting),
+		DressId:        proto.Int32(DressId),
+		Dress:          proto.String(Dress),
+		Level:          proto.Int32(Level),
+		Medal:          proto.Int32(Medal),
+		MedalLevelID:   proto.Int32(MedalLevelID),
+		Stagelevel:     proto.Int32(Stagelevel),
+		IZooID:         proto.Int32(iZooId),
+		IAchievementID: proto.Int32(iAchievementID),
 	}
 	return friendlist_ntf
 }

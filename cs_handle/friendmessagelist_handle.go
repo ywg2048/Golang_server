@@ -103,7 +103,8 @@ func FriendmessageListHandle(
 					Friendntf_tag_4 = append(Friendntf_tag_4, makeFriendntf(message.Fromuid, message.FromStarId, message.Fromname, messages[k].Id))
 					switch friend.Cardrecord[i].CardId {
 					case int32(1):
-						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(2), int32(1), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
+						m++
+						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(1), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
 						// switch friend.Cardrecord[i].CardNum {
 						// case int32(1):
 
@@ -117,7 +118,8 @@ func FriendmessageListHandle(
 						// }
 
 					case int32(2):
-						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(2), int32(1), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
+						m++
+						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(2), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
 
 						// var Friendntf_tag_4 []*cspb.CSFriendNtf
 						// message = models.Messages{Id: friend.Cardrecord[i].MessageId}
@@ -135,7 +137,8 @@ func FriendmessageListHandle(
 
 						// }
 					case int32(3):
-						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(2), int32(1), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
+						m++
+						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(3), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
 
 						// var Friendntf_tag_4 []*cspb.CSFriendNtf
 						// message = models.Messages{Id: friend.Cardrecord[i].MessageId}
@@ -153,7 +156,8 @@ func FriendmessageListHandle(
 
 						// }
 					case 4:
-						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(2), int32(1), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
+						m++
+						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(4), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
 
 						// var Friendntf_tag_4 []*cspb.CSFriendNtf
 						// message = models.Messages{Id: friend.Cardrecord[i].MessageId}
@@ -171,7 +175,8 @@ func FriendmessageListHandle(
 
 						// }
 					case 5:
-						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(2), int32(1), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
+						m++
+						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(5), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
 
 						// var Friendntf_tag_4 []*cspb.CSFriendNtf
 						// message = models.Messages{Id: friend.Cardrecord[i].MessageId}
@@ -189,7 +194,8 @@ func FriendmessageListHandle(
 
 						// }
 					case 6:
-						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(2), int32(1), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
+						m++
+						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(6), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
 
 						// var Friendntf_tag_4 []*cspb.CSFriendNtf
 						// message = models.Messages{Id: friend.Cardrecord[i].MessageId}
@@ -206,8 +212,8 @@ func FriendmessageListHandle(
 						// 	FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(6), int32(10), Friendntf_tag_4, m+3))
 						// }
 					case 7:
-
-						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(2), int32(1), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
+						m++
+						FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), int32(7), friend.Cardrecord[i].CardNum, Friendntf_tag_4, m+3))
 
 						// var Friendntf_tag_4 []*cspb.CSFriendNtf
 						// message = models.Messages{Id: friend.Cardrecord[i].MessageId}
@@ -240,10 +246,10 @@ func FriendmessageListHandle(
 	}
 
 	if len(Friendntf_tag_1) > 0 {
-		FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(1), int32(0), int32(1), Friendntf_tag_1, m))
+		FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(1), int32(0), int32(1), Friendntf_tag_1, m))
 	}
 	if len(Friendntf_tag_2) > 0 {
-		FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(1), int32(0), int32(1), Friendntf_tag_2, m+1))
+		FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(1), int32(0), int32(1), Friendntf_tag_2, m+1))
 	}
 	if len(Friendntf_tag_3) > 0 {
 		for k := range messages {
@@ -255,8 +261,8 @@ func FriendmessageListHandle(
 
 			for i := range friend.Cardrecord {
 				if friend.Cardrecord[i].MessageId == messages[k].Id {
-
-					FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(2), int32(2), friend.Cardrecord[i].CardId, friend.Cardrecord[i].CardNum, Friendntf_tag_3, m+2))
+					m++
+					FriendmessagelistNtf = append(FriendmessagelistNtf, makeFriendmessagelistNtf(int32(1), int32(2), friend.Cardrecord[i].CardId, friend.Cardrecord[i].CardNum, Friendntf_tag_3, m+2))
 				}
 			}
 		}

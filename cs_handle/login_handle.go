@@ -13,6 +13,7 @@ func loginHandle(
 	res_list *cspb.CSPkgList) int32 {
 
 	beego.Debug("******loginHandle, req is %v, res is %v", req, res_list)
+
 	ret, player := db.LoadPlayer(res_list.GetCAccount(), res_list.GetSAccount(), res_list.GetUid())
 	beego.Debug("Db LoadPlayer Player, ret is %d, player is %v", ret, player)
 

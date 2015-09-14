@@ -73,12 +73,13 @@ func LoadPlayer(clientAccount string, serverAccount string, uid int64) (int32, m
 				player.RegistTime = time.Now().Unix()
 				player.Saccount = bson.NewObjectId()
 				player.Uid = GetUid()
+
 				player.Diamond = int32(50)
 				player.Flower = int32(30)
 				player.Gold = int32(2000)
 				player.ExperiencePool = int32(3000)
 				player.StarId = int32(8)
-				player.Name = string(player.Uid)
+				player.Name = fmt.Sprintln(player.Uid)
 
 				beego.Info("Write player:%v", player)
 

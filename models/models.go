@@ -76,6 +76,10 @@ type Player struct {
 	Saccount           bson.ObjectId          `bson:"_id"`
 	Caccount           string                 `bson:"c_account"`
 	Uid                int64                  `bson:"uid"`
+	WechatId           string                 `bson:"wechatid"`
+	WechatImgUrl       string                 `bson:"wechatimgurl"`
+	WechatSex          int32                  `bson:"wechatsex"`
+	WechatNickname     string                 `bson:"wechatnickname"`
 	Name               string                 `bson:"name"`
 	Gold               int32                  `bson:"gold"`
 	Flower             int32                  `bson:"flower"`

@@ -45,6 +45,8 @@ func FriendlistHandle(
 	var Medal int32
 	var MedalLevelID int32
 	var Stagelevel int32
+	var IAchievementID int32
+	var IZooId int32
 	for i := range player.FriendList {
 		if player.FriendList[i].IsActive == int32(1) {
 			var players models.Player
@@ -54,7 +56,12 @@ func FriendlistHandle(
 				beego.Error(err_)
 			}
 			//定义
-
+			if len(players.Zoo) >= 1 {
+				IZooId = players.Zoo[len(players.Zoo)-1].AnimalId
+			} else {
+				IZooId = int32(0)
+			}
+			IAchievementID = int32(len(players.Achievement))
 			Stagelevel = GetMaxStage(player.FriendList[i].Friendid)
 			for j := range players.Star {
 				if players.Star[j].StarId == players.StarId {
@@ -70,7 +77,7 @@ func FriendlistHandle(
 				}
 			}
 
-			FriendListNtf = append(FriendListNtf, makefriendlist(int32(i), player.FriendList[i].Friendid, players.Name, players.StarId, StarName, Fighting, DressId, Dress, Level, Medal, MedalLevelID, Stagelevel))
+			FriendListNtf = append(FriendListNtf, makefriendlist(int32(i), player.FriendList[i].Friendid, players.Name, players.StarId, StarName, Fighting, DressId, Dress, Level, Medal, MedalLevelID, Stagelevel, IZooId, IAchievementID))
 			beego.Info("FriendListNtf is:", FriendListNtf)
 		}
 	}

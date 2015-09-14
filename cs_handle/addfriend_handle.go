@@ -26,6 +26,7 @@ func AddFriendHandle(
 	uid := req_data.GetUid()
 	friendId := req_data.GetFriendId()
 	IsAdd := int32(1)
+	Tips := "发送成功！"
 
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
@@ -41,60 +42,76 @@ func AddFriendHandle(
 			for i := range myself.FriendList {
 				if myself.FriendList[i].Friendid == friendId {
 					//已经申请或者已经是好友
-					IsAdd = int32(0)
+					IsAdd = int32(1)
+					Tips = "你们已经申请或者已经是好友！"
 				}
 			}
 
 		} else {
 			IsAdd = int32(0)
+			Tips = "请不要添加自己为好友！"
 		}
 	} else {
 		IsAdd = int32(0)
+		Tips = "用户不存在！"
 	}
 
 	if IsAdd == int32(1) {
 		beego.Info("操作1")
 		//自己的表
+		//检测是否已经申请过了
+		var myself models.Player
+		c.Find(bson.M{"uid": uid}).One(&myself)
 
-		c.Find(bson.M{"uid": uid}).One(&player)
+		isadded := int32(0)
+		for i := range myself.FriendList {
+			if myself.FriendList[i].Friendid == friendId {
+				//已经申请或者已经是好友
+				isadded = int32(1)
+				Tips = "你们已经申请或者已经是好友！"
+			}
+		}
+		if isadded == int32(0) {
+			c.Find(bson.M{"uid": uid}).One(&player)
 
-		i := len(player.FriendList)
-		_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-			bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(i) + ".friendid": friendId, "FriendList." + fmt.Sprint(i) + ".isActive": int32(0), "FriendList." + fmt.Sprint(i) + ".accepttime": int64(0)}})
-		beego.Info(err)
-		//朋友的申请列表
+			i := len(player.FriendList)
+			_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+				bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(i) + ".friendid": friendId, "FriendList." + fmt.Sprint(i) + ".isActive": int32(0), "FriendList." + fmt.Sprint(i) + ".accepttime": int64(0)}})
+			beego.Info(err)
+			//朋友的申请列表
 
-		var friend models.Player
-		c.Find(bson.M{"uid": friendId}).One(&friend)
-		j := len(friend.ApplyFriendList)
+			var friend models.Player
+			c.Find(bson.M{"uid": friendId}).One(&friend)
+			j := len(friend.ApplyFriendList)
 
-		c.Upsert(bson.M{"uid": friendId},
-			bson.M{"$set": bson.M{"ApplyFriendList." + fmt.Sprint(j) + ".applyuid": uid, "ApplyFriendList." + fmt.Sprint(j) + ".isAccept": int32(0), "ApplyFriendList." + fmt.Sprint(j) + ".isrefuse": int32(0), "ApplyFriendList." + fmt.Sprint(j) + ".applytime": time.Now().Unix(), "ApplyFriendList." + fmt.Sprint(j) + ".oprationtime": int64(0)}})
-		k := len(friend.FriendList)
-		_, errs := c.Upsert(bson.M{"uid": friendId},
-			bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(k) + ".friendid": int32(req_data.GetUid()), "FriendList." + fmt.Sprint(k) + ".isActive": int32(0), "FriendList." + fmt.Sprint(k) + ".accepttime": int64(0)}})
-		beego.Info(errs)
-		//消息通知mysql表
-		var players models.Player
-		err_self := c.Find(bson.M{"uid": uid}).One(&players)
-		beego.Info(err_self)
-		o := orm.NewOrm()
-		var messages models.Messages
-		messages.Fromuid = int32(res_list.GetUid())
-		messages.Fromname = players.Name
-		messages.FromStarId = players.StarId
-		messages.Time = time.Now().Unix()
-		messages.IsFinish = int32(0)
-		messages.Messagetype = int32(0)
-		messages.ElementType = int32(3)
+			c.Upsert(bson.M{"uid": friendId},
+				bson.M{"$set": bson.M{"ApplyFriendList." + fmt.Sprint(j) + ".applyuid": uid, "ApplyFriendList." + fmt.Sprint(j) + ".isAccept": int32(0), "ApplyFriendList." + fmt.Sprint(j) + ".isrefuse": int32(0), "ApplyFriendList." + fmt.Sprint(j) + ".applytime": time.Now().Unix(), "ApplyFriendList." + fmt.Sprint(j) + ".oprationtime": int64(0)}})
+			k := len(friend.FriendList)
+			_, errs := c.Upsert(bson.M{"uid": friendId},
+				bson.M{"$set": bson.M{"FriendList." + fmt.Sprint(k) + ".friendid": int32(req_data.GetUid()), "FriendList." + fmt.Sprint(k) + ".isActive": int32(0), "FriendList." + fmt.Sprint(k) + ".accepttime": int64(0)}})
+			beego.Info(errs)
+			//消息通知mysql表
+			var players models.Player
+			err_self := c.Find(bson.M{"uid": uid}).One(&players)
+			beego.Info(err_self)
+			o := orm.NewOrm()
+			var messages models.Messages
+			messages.Fromuid = int32(res_list.GetUid())
+			messages.Fromname = players.Name
+			messages.FromStarId = players.StarId
+			messages.Time = time.Now().Unix()
+			messages.IsFinish = int32(0)
+			messages.Messagetype = int32(0)
+			messages.ElementType = int32(3)
 
-		messages.Touid = friendId
-		messages.Tag = int32(5)
-		id, err := o.Insert(&messages)
-		beego.Info(id, err)
+			messages.Touid = friendId
+			messages.Tag = int32(5)
+			id, err := o.Insert(&messages)
+			beego.Info(id, err)
 
-		if err == nil {
-			beego.Info("插入成功！", id)
+			if err == nil {
+				beego.Info("插入成功！", id)
+			}
 		}
 	}
 	beego.Info(err)
@@ -104,6 +121,7 @@ func AddFriendHandle(
 		Uid:      &uid,
 		FriendId: &friendId,
 		IsAdd:    &IsAdd,
+		Tips:     &Tips,
 	}
 
 	res_pkg_body := new(cspb.CSBody)

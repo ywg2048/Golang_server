@@ -25,6 +25,7 @@ func ZooAnimalHandle(
 	beego.Info(req_data)
 	ret := int32(1)
 	IsLocked := int32(0)
+	isLevelUp := int32(0)
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
@@ -70,6 +71,7 @@ func ZooAnimalHandle(
 							bson.M{"$inc": bson.M{"zoo." + fmt.Sprint(i) + ".animal_level": int32(1), "gold": -req_data.GetRequiredGold()}})
 						if err == nil {
 							beego.Info("动物升级成功！")
+							isLevelUp = int32(1)
 						} else {
 							beego.Error("动物升级失败！")
 						}
@@ -99,9 +101,10 @@ func ZooAnimalHandle(
 
 	res_data := new(cspb.CSZooAnimalRes)
 	*res_data = cspb.CSZooAnimalRes{
-		AnimalId: &AnimalId,
-		IsLocked: &IsLocked,
-		Level:    &Level,
+		AnimalId:  &AnimalId,
+		IsLocked:  &IsLocked,
+		Level:     &Level,
+		IsLevelup: &isLevelUp,
 	}
 	beego.Info("res_data", res_data)
 	res_pkg_body := new(cspb.CSBody)
