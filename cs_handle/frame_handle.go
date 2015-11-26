@@ -55,7 +55,8 @@ func Init() {
 	cmdProcessRegister(cspb.Command_kFruitLevelUpReq, FruitLevelUpHandle)
 	cmdProcessRegister(cspb.Command_kCardReq, CardHandle)
 	cmdProcessRegister(cspb.Command_kFightedPetReq, FightedPetHandle)
-
+	cmdProcessRegister(cspb.Command_kDropStageReq, DropStageHandle)
+	cmdProcessRegister(cspb.Command_kToolReq, ToolHandle)
 }
 
 func PkgListHandle(

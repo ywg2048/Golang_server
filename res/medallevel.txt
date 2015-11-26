@@ -8,27 +8,27 @@ items {
 items {
   Id: 2
   Medalmin: 500
-  Medalmax: 1400
+  Medalmax: 1399
   Medalnum: 500
   Desc: "中级"
 }
 items {
   Id: 3
-  Medalmin: 1401
-  Medalmax: 2700
+  Medalmin: 1400
+  Medalmax: 2699
   Medalnum: 1400
   Desc: "高级"
 }
 items {
   Id: 4
-  Medalmin: 2701
-  Medalmax: 4000
+  Medalmin: 2700
+  Medalmax: 3999
   Medalnum: 2700
   Desc: "白银"
 }
 items {
   Id: 5
-  Medalmin: 4001
+  Medalmin: 4000
   Medalmax: 4999
   Medalnum: 4000
   Desc: "黄金"
@@ -36,6 +36,7 @@ items {
 items {
   Id: 6
   Medalmin: 5000
+  Medalmax: 100000
   Medalnum: 5000
   Desc: "白金"
 }

@@ -8,7 +8,7 @@ import (
 )
 import cspb "protocol"
 
-// import proto "code.google.com/p/goprotobuf/proto"
+import proto "code.google.com/p/goprotobuf/proto"
 
 // import db "tuojie.com/piggo/quickstart.git/db/collection"
 import "labix.org/v2/mgo/bson"
@@ -35,13 +35,21 @@ func ReceiveRewardHandle(
 				for j := range resmgr.AchievementData.GetItems() {
 					if resmgr.AchievementData.GetItems()[j].GetId() == req_data.GetAchievementid() && resmgr.AchievementData.GetItems()[j].GetStarnum() == req_data.GetStarLevel() {
 						_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-							bson.M{"$set": bson.M{"achievement." + fmt.Sprint(i) + ".achievementid": req_data.GetAchievementid(), "achievement." + fmt.Sprint(i) + ".isreceive": int32(1), "achievement." + fmt.Sprint(i) + ".starlevel": req_data.GetStarLevel()}})
+							bson.M{"$inc": bson.M{"achievement." + fmt.Sprint(i) + ".starlevel": 1, "Gold": resmgr.AchievementData.GetItems()[j].GetGold(),
+								"diamond": resmgr.AchievementData.GetItems()[j].GetDiamond(), "flower": resmgr.AchievementData.GetItems()[j].GetFlower(),
+								"experience_pool": resmgr.AchievementData.GetItems()[j].GetSolution(), "medal": resmgr.AchievementData.GetItems()[j].GetMedal()}})
 
 						if err == nil {
-							beego.Info("领取奖励成功！")
-							IsReceive = int32(1)
+							_, errs := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+								bson.M{"$set": bson.M{"achievement." + fmt.Sprint(i) + ".isreceive": int32(1)}})
+							if errs == nil {
+								beego.Info("领取奖励成功！")
+								IsReceive = int32(1)
+							} else {
+								beego.Error("isreceive变更失败")
+							}
 						} else {
-							beego.Error("领取奖励失败！")
+							beego.Error("领取奖励失败！", err)
 						}
 					}
 				}
@@ -51,6 +59,26 @@ func ReceiveRewardHandle(
 			}
 		}
 	}
+
+	//返回资源
+	var player_return models.Player
+	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player_return)
+	// AttrValue = append(AttrValue, makeAttrValue(player_return.Diamond, player_return.Gold, player_return.Flower, player_return.ExperiencePool))
+	var Resource []*cspb.AttrInfo
+	AttrValue := new(cspb.AttrValue)
+	*AttrValue = cspb.AttrValue{
+		Diamond:  proto.Int32(player_return.Diamond),
+		Gold:     proto.Int32(player_return.Gold),
+		Flower:   proto.Int32(player_return.Flower),
+		Solution: proto.Int32(player_return.ExperiencePool),
+		Medal:    proto.Int32(player_return.Medal),
+	}
+	Resource = append(Resource, makeAttrInfo(int32(1), AttrValue, int32(3)))
+	Resource = append(Resource, makeAttrInfo(int32(2), AttrValue, int32(3)))
+	Resource = append(Resource, makeAttrInfo(int32(3), AttrValue, int32(3)))
+	Resource = append(Resource, makeAttrInfo(int32(8), AttrValue, int32(3)))
+	Resource = append(Resource, makeAttrInfo(int32(9), AttrValue, int32(3)))
+
 	Achievementid := req_data.GetAchievementid()
 	StarLevel := req_data.GetStarLevel()
 	beego.Info(IsReceive)
@@ -59,6 +87,7 @@ func ReceiveRewardHandle(
 		IsReceive:     &IsReceive,
 		Achievementid: &Achievementid,
 		StarLevel:     &StarLevel,
+		ResouceInfo:   Resource,
 	}
 
 	res_pkg_body := new(cspb.CSBody)

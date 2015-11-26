@@ -30,7 +30,7 @@ func ZooAnimalHandle(
 	var player models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
 
-	if req_data.GetIsLocked() == int32(1) {
+	if req_data.GetIsLocked() == bool(true) {
 		//解锁动物
 		if req_data.GetUptolevel() == int32(1) {
 			//检测动物是否为1级
@@ -58,7 +58,7 @@ func ZooAnimalHandle(
 			IsLocked = int32(1)
 			beego.Error("新动物不为1级")
 		}
-	} else if req_data.GetIsLocked() == int32(0) {
+	} else if req_data.GetIsLocked() == bool(false) {
 
 		//升级动物
 		for i := range player.Zoo {
@@ -105,6 +105,7 @@ func ZooAnimalHandle(
 		IsLocked:  &IsLocked,
 		Level:     &Level,
 		IsLevelup: &isLevelUp,
+		Gold:      &player_return.Gold,
 	}
 	beego.Info("res_data", res_data)
 	res_pkg_body := new(cspb.CSBody)

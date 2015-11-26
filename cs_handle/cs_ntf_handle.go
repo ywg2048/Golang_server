@@ -292,14 +292,14 @@ func makeStageNtf(StageId int32, StageLevel int32, StageScore int32, GetMedal in
 	return stage_ntf
 }
 
-// func makeAttrValue(Diamond int32, Gold int32, Flower int32, Solution int32, Medal int32) *cspb.AttrValue {
-// 	attrvalue := new(cspb.AttrValue)
-// 	*attrvalue = cspb.AttrValue{
-// 		Diamond:  proto.Int32(Diamond),
-// 		Gold:     proto.Int32(Gold),
-// 		Flower:   proto.Int32(Flower),
-// 		Solution: proto.Int32(Solution),
-// 		Medal:    proto.Int32(Medal),
-// 	}
-// 	return attrvalue
-// }
+func makeToolInfo(ToolID int32, ToolName string, ToolCount int32, ToolPriceType int32, ToolPrice int32) *cspb.CSToolInfo {
+	attrvalue := new(cspb.CSToolInfo)
+	*attrvalue = cspb.CSToolInfo{
+		ToolID:        proto.Int32(ToolID),
+		ToolName:      proto.String(ToolName),
+		ToolCount:     proto.Int32(ToolCount),
+		ToolPriceType: proto.Int32(ToolPriceType),
+		ToolPrice:     proto.Int32(ToolPrice),
+	}
+	return attrvalue
+}

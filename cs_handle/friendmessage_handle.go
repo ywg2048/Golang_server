@@ -105,16 +105,22 @@ func FriendmessageHandle(
 						for j := range req_data.GetMessagesNtf()[i].GetElement() {
 							_, err := c.Upsert(bson.M{"uid": uid},
 								bson.M{"$inc": bson.M{"cards." + fmt.Sprint(req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId()-1) + ".card_num": -req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}})
-
 							if err != nil {
 								beego.Error("减少卡片失败")
+
 								isGive = int32(0)
 							} else {
 								beego.Info("减少卡片成功")
+
 							}
+							// _, errs := c.Upsert(bson.M{"uid": uid},
+							// 	bson.M{"$push": bson.M{"cardrecord": bson.M{"message_id": messageid, "card_id": req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId(), "card_num": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}}})
+
 						}
 					}
 				}
+				//card记录表里面要生成记录
+
 			}
 			beego.Info("请求赠送卡片")
 		}
@@ -122,7 +128,7 @@ func FriendmessageHandle(
 
 		//传的值有问题
 		beego.Error("value is Error")
-		isGive = int32(0)
+
 	}
 	if req_data.GetOperationType() == int32(2) {
 		//接受，处理掉消息
@@ -131,10 +137,20 @@ func FriendmessageHandle(
 		case int32(1):
 			//红花
 			beego.Info("接受小红花")
+			for i := range req_data.GetMessagesNtf() {
+				_, err := c.Upsert(bson.M{"uid": uid},
+					bson.M{"$inc": bson.M{"flower": 1}})
+				if err == nil {
+					beego.Info("接受小红花成功！", i)
+				} else {
+					beego.Error("接受小红花失败！", i)
+				}
+			}
 			isGive = int32(1)
 		case int32(2):
 			//卡片
 			beego.Info("接受卡片")
+
 			c.Find(bson.M{"uid": uid}).One(&player)
 
 			for i := range req_data.GetMessagesNtf() {
@@ -234,7 +250,13 @@ func FriendmessageHandle(
 						Friend.FriendId = player.FriendList[i].Friendid
 						id, err := o.Insert(&Friend)
 						beego.Info(id, err)
+
+						Friend.Uid = player.FriendList[i].Friendid
+						Friend.FriendId = uid
+						id1, err1 := o.Insert(&Friend)
+						beego.Info(id1, err1)
 					}
+
 				}
 			} else if req_data.GetMessagesNtf()[i].GetStatus() == int32(2) {
 				for j := range player.FriendList {
@@ -290,7 +312,7 @@ func FriendmessageHandle(
 	}
 	//消息表
 	c.Find(bson.M{"c_account": res_list.GetCAccount()}).One(&player)
-	if req_data.GetElementType() != int32(3) && req_data.GetOperationType() != int32(3) {
+	if req_data.GetElementType() != int32(3) && req_data.GetOperationType() != int32(3) && req_data.GetOperationType() != int32(2) {
 		//生成消息mysql
 		o := orm.NewOrm()
 		var messages models.Messages
@@ -311,7 +333,7 @@ func FriendmessageHandle(
 			messages.Messagetype = int32(1)
 			messages.Tag = int32(1)
 		} else if req_data.GetMessageType() == int32(2) && req_data.GetElementType() == int32(2) && req_data.GetOperationType() != int32(3) {
-			//接受卡片
+			//主动赠送：接受卡片
 			messages.Messagetype = int32(2)
 			messages.Tag = int32(4)
 		} else if req_data.GetMessageType() == int32(1) && req_data.GetElementType() == int32(1) && req_data.GetOperationType() == int32(1) {
@@ -319,7 +341,7 @@ func FriendmessageHandle(
 			messages.Messagetype = int32(2)
 			messages.Tag = int32(2)
 		} else if req_data.GetMessageType() == int32(1) && req_data.GetElementType() == int32(2) && req_data.GetOperationType() == int32(1) {
-			//接受卡片
+			//申请赠送：接受卡片
 			messages.Messagetype = int32(2)
 			messages.Tag = int32(4)
 		}
@@ -369,35 +391,35 @@ func FriendmessageHandle(
 					}
 				}
 			} else {
-				if len(meesages_arr) <= 0 {
-					if req_data.GetMessagesNtf()[i].GetStatus() != int32(2) {
 
-						messages.Touid = req_data.GetMessagesNtf()[i].GetPlayuid()
-						messageid, err := o.Insert(&messages)
-						if err != nil {
-							beego.Error(err)
-							isGive = int32(0)
-						}
+				if req_data.GetMessagesNtf()[i].GetStatus() != int32(2) {
 
-						beego.Info(messageid)
-						if req_data.GetOperationType() == int32(1) && req_data.GetElementType() == int32(2) {
+					messages.Touid = req_data.GetMessagesNtf()[i].GetPlayuid()
+					messageid, err := o.Insert(&messages)
+					if err != nil {
+						beego.Error(err)
+						isGive = int32(0)
+					}
 
-							for j := range req_data.GetMessagesNtf()[i].GetElement() {
+					beego.Info(messageid)
+					if req_data.GetOperationType() == int32(1) && req_data.GetElementType() == int32(2) {
+						//点击消息里的赠送卡片按钮
+						for j := range req_data.GetMessagesNtf()[i].GetElement() {
 
-								_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-									bson.M{"$push": bson.M{"cardrecord": bson.M{"message_id": messageid, "card_id": req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId(), "card_num": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}}})
-								if err != nil {
-									beego.Error("赠送卡片存储失败")
-									isGive = int32(0)
-								} else {
-									beego.Info("赠送卡片存储成功")
-								}
-
+							_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+								bson.M{"$push": bson.M{"cardrecord": bson.M{"message_id": messageid, "card_id": req_data.GetMessagesNtf()[i].GetElement()[j].GetCardId(), "card_num": req_data.GetMessagesNtf()[i].GetElement()[j].GetElementNum()}}})
+							if err != nil {
+								beego.Error("赠送卡片存储失败")
+								isGive = int32(0)
+							} else {
+								beego.Info("赠送卡片存储成功")
 							}
 
 						}
+
 					}
 				}
+
 			}
 		}
 	}
@@ -511,17 +533,17 @@ func FriendmessageHandle(
 	}
 	//已发送的消息列表删除
 
-	// var message models.Messages
-	// o := orm.NewOrm()
-	// for i := range req_data.GetMysqlIdNtf() {
-	// 	beego.Info(i)
-	// 	message = models.Messages{Id: req_data.GetMysqlIdNtf()[i].GetMysqlId()}
-	// 	o.Read(&message)
-	// 	beego.Info(message)
-	// 	message.IsFinish = int32(1)
-	// 	id, err := o.Update(&message, "IsFinish")
-	// 	beego.Info(err, id)
-	// }
+	var message models.Messages
+	o := orm.NewOrm()
+	for i := range req_data.GetMysqlIdNtf() {
+		beego.Info(i)
+		message = models.Messages{Id: req_data.GetMysqlIdNtf()[i].GetMysqlId()}
+		o.Read(&message)
+		beego.Info(message)
+		message.IsFinish = int32(1)
+		id, err := o.Update(&message, "IsFinish")
+		beego.Info(err, id)
+	}
 
 	var player_return models.Player
 	c.Find(bson.M{"uid": uid}).One(&player_return)
@@ -554,6 +576,7 @@ func FriendmessageHandle(
 		FriendListId: &friendListId,
 		ElementType:  &elementType,
 		CardNtf:      CardNtf,
+		Flower:       &player_return.Flower,
 	}
 
 	res_pkg_body := new(cspb.CSBody)

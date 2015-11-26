@@ -23,6 +23,7 @@ func FightedPetHandle(
 	req_data := req.GetBody().GetFightedpetReq()
 	beego.Info(req_data)
 	ret := int32(1)
+	issuccess := int32(0)
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player)
@@ -34,6 +35,7 @@ func FightedPetHandle(
 			beego.Error("小伙伴更换失败！")
 		} else {
 			beego.Info("小伙伴更换成功！")
+			issuccess = int32(1)
 		}
 
 		//mysql排名表
@@ -58,6 +60,7 @@ func FightedPetHandle(
 	res_data := new(cspb.CSFightedPetRes)
 	*res_data = cspb.CSFightedPetRes{
 		CurrentFightedPetId: proto.Int32(player_return.StarId),
+		IsSuccess:           &issuccess,
 	}
 
 	res_pkg_body := new(cspb.CSBody)

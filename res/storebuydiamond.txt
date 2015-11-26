@@ -53,7 +53,7 @@ items {
   platform: "iOS"
 }
 items {
-  Id: 7
+  Id: 1
   Dollor: 1
   RMB: 1
   Diamond: 50
@@ -62,7 +62,7 @@ items {
   platform: "Android"
 }
 items {
-  Id: 8
+  Id: 2
   Dollor: 4
   RMB: 4
   Diamond: 130
@@ -71,7 +71,7 @@ items {
   platform: "Android"
 }
 items {
-  Id: 9
+  Id: 3
   Dollor: 9
   RMB: 9
   Diamond: 275
@@ -80,7 +80,7 @@ items {
   platform: "Android"
 }
 items {
-  Id: 10
+  Id: 4
   Dollor: 19
   RMB: 19
   Diamond: 570
@@ -89,7 +89,7 @@ items {
   platform: "Android"
 }
 items {
-  Id: 11
+  Id: 5
   Dollor: 39
   RMB: 39
   Diamond: 1500
@@ -98,7 +98,7 @@ items {
   platform: "Android"
 }
 items {
-  Id: 12
+  Id: 6
   Dollor: 99
   RMB: 99
   Diamond: 4000

@@ -181,7 +181,18 @@ func stageReportHandle(
 	// 		}
 	// 	}
 	// }
+	//勋章更新
 
+	var player_return models.Player
+	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&player_return)
+	if len(req_data.GetStageNtf()) > 0 {
+		_, errs := c.Upsert(bson.M{"uid": int32(res_list.GetUid())}, bson.M{"$inc": bson.M{"medal": req_data.GetStageNtf()[len(req_data.GetStageNtf())-1].GetMedalIsAdd()}})
+		if errs == nil {
+			beego.Info("勋章保存成功！")
+		} else {
+			beego.Info("勋章保存失败！")
+		}
+	}
 	var StageNtf []*cspb.CSStageNtf
 	var stagereport models.Player
 	c.Find(bson.M{"uid": int32(res_list.GetUid())}).One(&stagereport)
@@ -193,6 +204,7 @@ func stageReportHandle(
 	*res_data = cspb.CSStageReportRes{
 		Ret:      proto.Int32(ret),
 		StageNtf: StageNtf,
+		Medal:    &stagereport.Medal,
 	}
 
 	res_pkg_body := new(cspb.CSBody)

@@ -1,0 +1,132 @@
+items {
+  id: 1
+  iMax: 99
+  iOneGameMax: 5
+  szName: "快速消除"
+  iUnLockStage: 0
+  iUseScene: 1
+  iRMBPrice: 9
+  iToolPrice: 1000
+  iToolPriceType: 1
+  szDescId: "使用后可快速消除指定消除物"
+}
+items {
+  id: 2
+  iMax: 99
+  iOneGameMax: 5
+  szName: "重新排列"
+  iUnLockStage: 0
+  iUseScene: 1
+  iRMBPrice: 9
+  iToolPrice: 20
+  iToolPriceType: 2
+  szDescId: "使用后可将所有动物头像重新排布"
+}
+items {
+  id: 3
+  iMax: 99
+  iOneGameMax: 3
+  szName: "交换位置"
+  iUnLockStage: 0
+  iUseScene: 1
+  iRMBPrice: 9
+  iToolPrice: 60
+  iToolPriceType: 2
+  szDescId: "交换指定小动物头像的位置"
+}
+items {
+  id: 4
+  iMax: 99
+  iOneGameMax: 3
+  szName: "旋风射线"
+  iUnLockStage: 0
+  iUseScene: 1
+  iRMBPrice: 9
+  iToolPrice: 33
+  iToolPriceType: 2
+  szDescId: "将动物头像变成可选择方向的旋风射线"
+}
+items {
+  id: 5
+  iMax: 99
+  iOneGameMax: 5
+  szName: "加5步"
+  iUnLockStage: 0
+  iUseScene: 1
+  iRMBPrice: 9
+  iToolPrice: 25
+  iToolPriceType: 2
+  szDescId: "使用后可在单局内添加5步"
+}
+items {
+  id: 6
+  iMax: 99
+  iOneGameMax: 0
+  szName: "增加步数"
+  iUnLockStage: 0
+  iUseScene: 2
+  iRMBPrice: 9
+  iToolPrice: 25
+  iToolPriceType: 2
+  szDescId: "使用后可在单局内添加步数"
+}
+items {
+  id: 7
+  iMax: 99
+  iOneGameMax: 0
+  szName: "奇妙幽灵"
+  iUnLockStage: 11
+  iUseScene: 2
+  iRMBPrice: 0
+  iToolPrice: 38
+  iToolPriceType: 2
+  szDescId: "开局后获得一个奇妙幽灵"
+}
+items {
+  id: 8
+  iMax: 99
+  iOneGameMax: 0
+  szName: "旋风射线"
+  iUnLockStage: 21
+  iUseScene: 2
+  iRMBPrice: 0
+  iToolPrice: 28
+  iToolPriceType: 2
+  szDescId: "开局后获得一个旋风射线"
+}
+items {
+  id: 9
+  iMax: 99
+  iOneGameMax: 0
+  szName: "随机色子"
+  iUnLockStage: 10
+  iUseScene: 2
+  iRMBPrice: 0
+  iToolPrice: 20
+  iToolPriceType: 2
+  szDescId: "随机一个道具并在单局内使用"
+}
+items {
+  id: 10
+  iMax: 99
+  iOneGameMax: 0
+  szName: "加三步"
+  iUnLockStage: 8
+  iUseScene: 2
+  iRMBPrice: 0
+  iToolPrice: 1900
+  iToolPriceType: 1
+  szDescId: "单局内添加3步"
+}
+items {
+  id: 11
+  iMax: 99
+  iOneGameMax: 0
+  szName: "奇妙飓风"
+  iUnLockStage: 0
+  iUseScene: 2
+  iRMBPrice: 0
+  iToolPrice: 38
+  iToolPriceType: 2
+  szDescId: "开局后获得一个奇妙飓风"
+}

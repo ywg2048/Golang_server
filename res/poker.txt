@@ -1,0 +1,145 @@
+items {
+  Id: 1
+  CardNum: 14
+  ColorType: 1
+}
+items {
+  Id: 2
+  CardNum: 8
+  ColorType: 1
+}
+items {
+  Id: 3
+  CardNum: 9
+  ColorType: 1
+}
+items {
+  Id: 4
+  CardNum: 10
+  ColorType: 1
+}
+items {
+  Id: 5
+  CardNum: 11
+  ColorType: 1
+}
+items {
+  Id: 6
+  CardNum: 12
+  ColorType: 1
+}
+items {
+  Id: 7
+  CardNum: 13
+  ColorType: 1
+}
+items {
+  Id: 8
+  CardNum: 14
+  ColorType: 2
+}
+items {
+  Id: 9
+  CardNum: 8
+  ColorType: 2
+}
+items {
+  Id: 10
+  CardNum: 9
+  ColorType: 2
+}
+items {
+  Id: 11
+  CardNum: 10
+  ColorType: 2
+}
+items {
+  Id: 12
+  CardNum: 11
+  ColorType: 2
+}
+items {
+  Id: 13
+  CardNum: 12
+  ColorType: 2
+}
+items {
+  Id: 14
+  CardNum: 13
+  ColorType: 2
+}
+items {
+  Id: 15
+  CardNum: 14
+  ColorType: 3
+}
+items {
+  Id: 16
+  CardNum: 8
+  ColorType: 3
+}
+items {
+  Id: 17
+  CardNum: 9
+  ColorType: 3
+}
+items {
+  Id: 18
+  CardNum: 10
+  ColorType: 3
+}
+items {
+  Id: 19
+  CardNum: 11
+  ColorType: 3
+}
+items {
+  Id: 20
+  CardNum: 12
+  ColorType: 3
+}
+items {
+  Id: 21
+  CardNum: 13
+  ColorType: 3
+}
+items {
+  Id: 22
+  CardNum: 14
+  ColorType: 4
+}
+items {
+  Id: 23
+  CardNum: 8
+  ColorType: 4
+}
+items {
+  Id: 24
+  CardNum: 9
+  ColorType: 4
+}
+items {
+  Id: 25
+  CardNum: 10
+  ColorType: 4
+}
+items {
+  Id: 26
+  CardNum: 11
+  ColorType: 4
+}
+items {
+  Id: 27
+  CardNum: 12
+  ColorType: 4
+}
+items {
+  Id: 28
+  CardNum: 13
+  ColorType: 4
+}
+items {
+  Id: 29
+  CardNum: 0
+  ColorType: 0
+}

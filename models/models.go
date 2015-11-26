@@ -105,6 +105,14 @@ type Player struct {
 	MedalLevelId       int32                  `bson:"medal_level_id"`
 	Achievement        []*AchievementData     `bson:"achievement"`
 	Zoo                []*ZooData             `bson:"zoo"`
+	Tool               []*ToolData            `bson:"tool"`
+}
+type ToolData struct {
+	ToolId        int32  `bson:"tool_id"`
+	ToolName      string `bson:"tool_name"`
+	ToolCount     int32  `bson:"tool_count"`
+	ToolPrice     int32  `bson:"tool_price"`
+	ToolPriceType int32  `bson:"tool_pricetype"`
 }
 
 //关卡的分数

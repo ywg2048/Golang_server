@@ -1,0 +1,4722 @@
+items {
+  StageId: 1
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 2
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 3
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 4
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 5
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 6
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 7
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 8
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 9
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 10
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 11
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 12
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 13
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 14
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 15
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 16
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 17
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 18
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 19
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 20
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 21
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 22
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 23
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 24
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 25
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 26
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 27
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 28
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 29
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 30
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 31
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 32
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 33
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 34
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 35
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 36
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 37
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 38
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 39
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 40
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 101
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 41
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 42
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 43
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 44
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 45
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 46
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 47
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 48
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 49
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 50
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 51
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 52
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 53
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 54
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 55
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 56
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 57
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 58
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 59
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 60
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 61
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 62
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 63
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 64
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 65
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 66
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 67
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 68
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 69
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 70
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 71
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 72
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 73
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 74
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 75
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 76
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 77
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 78
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 79
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 80
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 102
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 81
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 82
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 83
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 84
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 85
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 86
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 87
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 88
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 89
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 90
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 91
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 92
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 93
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 94
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 95
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 96
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 97
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 98
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 99
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 100
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 101
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 102
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 103
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 104
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 105
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 106
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 107
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 108
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 109
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 110
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 111
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 112
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 113
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 114
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 115
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 116
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 117
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 118
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 119
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 120
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 103
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 121
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 122
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 123
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 124
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 125
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 126
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 127
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 128
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 129
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 130
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 131
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 132
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 133
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 134
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 135
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 136
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 137
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 138
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 139
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 140
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+    BonusId: 104
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 105
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+  BonusList {
+    BonusId: 106
+    OneStar: 1
+    TwoStar: 2
+    ThreeStar: 3
+  }
+}
+items {
+  StageId: 10001
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+  }
+}
+items {
+  StageId: 10002
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+  }
+}
+items {
+  StageId: 10003
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+  }
+}
+items {
+  StageId: 20001
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+  }
+}
+items {
+  StageId: 20002
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+  }
+}
+items {
+  StageId: 20003
+  BonusList {
+    BonusId: 7
+    OneStar: 30
+    TwoStar: 5
+    ThreeStar: 5
+  }
+  BonusList {
+    BonusId: 5
+    OneStar: 1
+    TwoStar: 1
+    ThreeStar: 1
+  }
+  BonusList {
+  }
+}

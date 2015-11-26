@@ -3,8 +3,8 @@ items {
   Title: "升级达人I"
   starnum: 1
   Desc: "你的小伙伴中出现等级达到10级"
-  Stage_conditions: 10
-  Exp: 0
+  Target: 10
+  Solution: 0
   Medal: 5
   Flower: 0
   Gold: 10000
@@ -15,8 +15,8 @@ items {
   Title: "升级达人II"
   starnum: 2
   Desc: "你的小伙伴中出现等级达到20级"
-  Stage_conditions: 20
-  Exp: 0
+  Target: 20
+  Solution: 0
   Medal: 15
   Flower: 0
   Gold: 30000
@@ -27,8 +27,8 @@ items {
   Title: "升级达人III"
   starnum: 3
   Desc: "你的小伙伴中出现等级达到30级"
-  Stage_conditions: 30
-  Exp: 0
+  Target: 30
+  Solution: 0
   Medal: 30
   Flower: 0
   Gold: 50000
@@ -39,8 +39,8 @@ items {
   Title: "荣耀之光I"
   starnum: 1
   Desc: "勋章排名达到第二档最佳新人"
-  Stage_conditions: 2
-  Exp: 0
+  Target: 2
+  Solution: 0
   Medal: 0
   Flower: 1
   Gold: 0
@@ -51,8 +51,8 @@ items {
   Title: "荣耀之光II"
   starnum: 2
   Desc: "勋章排名达到第四档超级巨星"
-  Stage_conditions: 4
-  Exp: 0
+  Target: 4
+  Solution: 0
   Medal: 0
   Flower: 3
   Gold: 0
@@ -63,8 +63,8 @@ items {
   Title: "荣耀之光III"
   starnum: 3
   Desc: "勋章排名达到第六档传奇人物"
-  Stage_conditions: 6
-  Exp: 0
+  Target: 6
+  Solution: 0
   Medal: 0
   Flower: 5
   Gold: 0
@@ -75,8 +75,8 @@ items {
   Title: "坚持不懈I"
   starnum: 1
   Desc: "连续10天每天闯关20次"
-  Stage_conditions: 10
-  Exp: 1000
+  Target: 10
+  Solution: 1000
   Medal: 1
   Flower: 1
   Gold: 0
@@ -87,8 +87,8 @@ items {
   Title: "坚持不懈II"
   starnum: 2
   Desc: "连续30天每天闯关20次"
-  Stage_conditions: 30
-  Exp: 10000
+  Target: 30
+  Solution: 10000
   Medal: 3
   Flower: 3
   Gold: 0
@@ -99,8 +99,8 @@ items {
   Title: "坚持不懈III"
   starnum: 3
   Desc: "连续100天每天闯关20次"
-  Stage_conditions: 1000
-  Exp: 30000
+  Target: 1000
+  Solution: 30000
   Medal: 10
   Flower: 5
   Gold: 0
@@ -111,8 +111,8 @@ items {
   Title: "课课课I"
   starnum: 1
   Desc: "累计充值金额达到50RMB"
-  Stage_conditions: 50
-  Exp: 5000
+  Target: 50
+  Solution: 5000
   Medal: 1
   Flower: 5
   Gold: 50000
@@ -123,8 +123,8 @@ items {
   Title: "课课课II"
   starnum: 2
   Desc: "累计充值金额达到200RMB"
-  Stage_conditions: 200
-  Exp: 20000
+  Target: 200
+  Solution: 20000
   Medal: 3
   Flower: 5
   Gold: 200000
@@ -135,8 +135,8 @@ items {
   Title: "课课课III"
   starnum: 3
   Desc: "累计充值金额达到500RMB"
-  Stage_conditions: 500
-  Exp: 50000
+  Target: 500
+  Solution: 50000
   Medal: 10
   Flower: 5
   Gold: 500000
@@ -147,8 +147,8 @@ items {
   Title: "腰缠万贯I"
   starnum: 1
   Desc: "累计获得金币数达到8000000"
-  Stage_conditions: 8000000
-  Exp: 0
+  Target: 8000000
+  Solution: 0
   Medal: 0
   Flower: 1
   Gold: 0
@@ -159,8 +159,8 @@ items {
   Title: "腰缠万贯II"
   starnum: 2
   Desc: "累计获得金币数达到30000000"
-  Stage_conditions: 30000000
-  Exp: 0
+  Target: 30000000
+  Solution: 0
   Medal: 0
   Flower: 3
   Gold: 0
@@ -171,8 +171,8 @@ items {
   Title: "腰缠万贯III"
   starnum: 3
   Desc: "累计获得金币数达到88888888"
-  Stage_conditions: 88888888
-  Exp: 0
+  Target: 88888888
+  Solution: 0
   Medal: 0
   Flower: 5
   Gold: 0
@@ -183,8 +183,8 @@ items {
   Title: "花钱如流水I"
   starnum: 1
   Desc: "累计使用金币数达到8000000"
-  Stage_conditions: 8000000
-  Exp: 0
+  Target: 8000000
+  Solution: 0
   Medal: 0
   Flower: 1
   Gold: 0
@@ -195,8 +195,8 @@ items {
   Title: "花钱如流水II"
   starnum: 2
   Desc: "累计使用金币数达到30000000"
-  Stage_conditions: 30000000
-  Exp: 0
+  Target: 30000000
+  Solution: 0
   Medal: 0
   Flower: 3
   Gold: 0
@@ -207,8 +207,8 @@ items {
   Title: "花钱如流水III"
   starnum: 3
   Desc: "累计使用金币数达到88888888"
-  Stage_conditions: 88888888
-  Exp: 0
+  Target: 88888888
+  Solution: 0
   Medal: 0
   Flower: 5
   Gold: 0
@@ -219,8 +219,8 @@ items {
   Title: "助人为乐I"
   starnum: 1
   Desc: "累计赠送好友小红花或动物卡片80次"
-  Stage_conditions: 80
-  Exp: 5000
+  Target: 80
+  Solution: 5000
   Medal: 0
   Flower: 5
   Gold: 0
@@ -231,8 +231,8 @@ items {
   Title: "助人为乐II"
   starnum: 2
   Desc: "累计赠送好友小红花或动物卡片200次"
-  Stage_conditions: 200
-  Exp: 0
+  Target: 200
+  Solution: 0
   Medal: 1
   Flower: 5
   Gold: 0
@@ -243,8 +243,8 @@ items {
   Title: "助人为乐III"
   starnum: 3
   Desc: "累计赠送好友小红花或动物卡片350次"
-  Stage_conditions: 350
-  Exp: 0
+  Target: 350
+  Solution: 0
   Medal: 3
   Flower: 5
   Gold: 0
@@ -255,8 +255,8 @@ items {
   Title: "知己成群I"
   starnum: 1
   Desc: "好友数量达到20个"
-  Stage_conditions: 20
-  Exp: 2000
+  Target: 20
+  Solution: 2000
   Medal: 0
   Flower: 0
   Gold: 5000
@@ -267,8 +267,8 @@ items {
   Title: "知己成群II"
   starnum: 2
   Desc: "好友数量达到50个"
-  Stage_conditions: 50
-  Exp: 5000
+  Target: 50
+  Solution: 5000
   Medal: 0
   Flower: 0
   Gold: 20000
@@ -279,8 +279,8 @@ items {
   Title: "知己成群III"
   starnum: 3
   Desc: "好友数量达到100个"
-  Stage_conditions: 100
-  Exp: 10000
+  Target: 100
+  Solution: 10000
   Medal: 0
   Flower: 0
   Gold: 50000
@@ -291,8 +291,8 @@ items {
   Title: "急速闯关I"
   starnum: 1
   Desc: "在闯关开始后只使用了8步内就完成了过关目标"
-  Stage_conditions: 8
-  Exp: 1000
+  Target: 8
+  Solution: 1000
   Medal: 0
   Flower: 3
   Gold: 5000
@@ -303,8 +303,8 @@ items {
   Title: "急速闯关II"
   starnum: 2
   Desc: "在闯关开始后只使用了6步内就完成了过关目标"
-  Stage_conditions: 6
-  Exp: 3000
+  Target: 6
+  Solution: 3000
   Medal: 0
   Flower: 5
   Gold: 20000
@@ -315,8 +315,8 @@ items {
   Title: "急速闯关III"
   starnum: 3
   Desc: "在闯关开始后只使用了4步内就完成了过关目标"
-  Stage_conditions: 4
-  Exp: 0
+  Target: 4
+  Solution: 0
   Medal: 5
   Flower: 0
   Gold: 0
@@ -327,8 +327,8 @@ items {
   Title: "横冲直撞I"
   starnum: 1
   Desc: "在一局游戏中触发直线冲击波效果15次"
-  Stage_conditions: 15
-  Exp: 5000
+  Target: 15
+  Solution: 5000
   Medal: 0
   Flower: 1
   Gold: 5000
@@ -339,8 +339,8 @@ items {
   Title: "横冲直撞II"
   starnum: 2
   Desc: "在一局游戏中触发直线冲击波效果25次"
-  Stage_conditions: 25
-  Exp: 0
+  Target: 25
+  Solution: 0
   Medal: 1
   Flower: 3
   Gold: 0
@@ -351,8 +351,8 @@ items {
   Title: "横冲直撞III"
   starnum: 3
   Desc: "在一局游戏中触发直线冲击波效果35次"
-  Stage_conditions: 35
-  Exp: 0
+  Target: 35
+  Solution: 0
   Medal: 3
   Flower: 5
   Gold: 0
@@ -363,8 +363,8 @@ items {
   Title: "炸弹狂人I"
   starnum: 1
   Desc: "在一局游戏中触发爆炸效果10次"
-  Stage_conditions: 10
-  Exp: 5000
+  Target: 10
+  Solution: 5000
   Medal: 0
   Flower: 1
   Gold: 5000
@@ -375,8 +375,8 @@ items {
   Title: "炸弹狂人II"
   starnum: 2
   Desc: "在一局游戏中触发爆炸效果15次"
-  Stage_conditions: 15
-  Exp: 0
+  Target: 15
+  Solution: 0
   Medal: 1
   Flower: 3
   Gold: 0
@@ -387,8 +387,8 @@ items {
   Title: "炸弹狂人III"
   starnum: 3
   Desc: "在一局游戏中触发爆炸效果20次"
-  Stage_conditions: 20
-  Exp: 0
+  Target: 20
+  Solution: 0
   Medal: 3
   Flower: 5
   Gold: 0
@@ -399,8 +399,8 @@ items {
   Title: "回魂夜I"
   starnum: 1
   Desc: "在一局游戏中触发幽灵效果5次"
-  Stage_conditions: 5
-  Exp: 5000
+  Target: 5
+  Solution: 5000
   Medal: 0
   Flower: 1
   Gold: 5000
@@ -411,8 +411,8 @@ items {
   Title: "回魂夜II"
   starnum: 2
   Desc: "在一局游戏中触发幽灵效果8次"
-  Stage_conditions: 8
-  Exp: 0
+  Target: 8
+  Solution: 0
   Medal: 1
   Flower: 3
   Gold: 0
@@ -423,8 +423,8 @@ items {
   Title: "回魂夜III"
   starnum: 3
   Desc: "在一局游戏中触发幽灵效果10次"
-  Stage_conditions: 10
-  Exp: 0
+  Target: 10
+  Solution: 0
   Medal: 3
   Flower: 5
   Gold: 0
@@ -435,8 +435,8 @@ items {
   Title: "冲撞爆破I"
   starnum: 1
   Desc: "在一局游戏中触发直线爆炸效果5次"
-  Stage_conditions: 5
-  Exp: 5000
+  Target: 5
+  Solution: 5000
   Medal: 0
   Flower: 1
   Gold: 5000
@@ -447,8 +447,8 @@ items {
   Title: "冲撞爆破II"
   starnum: 2
   Desc: "在一局游戏中触发直线爆炸效果9次"
-  Stage_conditions: 9
-  Exp: 0
+  Target: 9
+  Solution: 0
   Medal: 1
   Flower: 3
   Gold: 0
@@ -459,8 +459,8 @@ items {
   Title: "冲撞爆破III"
   starnum: 3
   Desc: "在一局游戏中触发直线爆炸效果12次"
-  Stage_conditions: 12
-  Exp: 0
+  Target: 12
+  Solution: 0
   Medal: 3
   Flower: 5
   Gold: 0
@@ -471,8 +471,8 @@ items {
   Title: "十字星I"
   starnum: 1
   Desc: "在一局游戏中触发双直线效果5次"
-  Stage_conditions: 5
-  Exp: 5000
+  Target: 5
+  Solution: 5000
   Medal: 0
   Flower: 1
   Gold: 5000
@@ -483,8 +483,8 @@ items {
   Title: "十字星II"
   starnum: 2
   Desc: "在一局游戏中触发双直线效果9次"
-  Stage_conditions: 9
-  Exp: 0
+  Target: 9
+  Solution: 0
   Medal: 1
   Flower: 3
   Gold: 0
@@ -495,8 +495,8 @@ items {
   Title: "十字星III"
   starnum: 3
   Desc: "在一局游戏中触发双直线效果12次"
-  Stage_conditions: 12
-  Exp: 0
+  Target: 12
+  Solution: 0
   Medal: 3
   Flower: 5
   Gold: 0
@@ -507,8 +507,8 @@ items {
   Title: "大爆炸I"
   starnum: 1
   Desc: "在一局游戏中触发双爆炸效果5次"
-  Stage_conditions: 5
-  Exp: 5000
+  Target: 5
+  Solution: 5000
   Medal: 0
   Flower: 1
   Gold: 5000
@@ -519,8 +519,8 @@ items {
   Title: "大爆炸II"
   starnum: 2
   Desc: "在一局游戏中触发双爆炸效果9次"
-  Stage_conditions: 9
-  Exp: 0
+  Target: 9
+  Solution: 0
   Medal: 1
   Flower: 3
   Gold: 0
@@ -531,8 +531,8 @@ items {
   Title: "大爆炸III"
   starnum: 3
   Desc: "在一局游戏中触发双爆炸效果12次"
-  Stage_conditions: 12
-  Exp: 0
+  Target: 12
+  Solution: 0
   Medal: 3
   Flower: 5
   Gold: 0
@@ -543,8 +543,8 @@ items {
   Title: "幽灵爆破I"
   starnum: 1
   Desc: "在一局游戏中触发幽灵爆炸效果3次"
-  Stage_conditions: 3
-  Exp: 0
+  Target: 3
+  Solution: 0
   Medal: 1
   Flower: 1
   Gold: 0
@@ -555,8 +555,8 @@ items {
   Title: "幽灵爆破II"
   starnum: 2
   Desc: "在一局游戏中触发幽灵爆炸效果5次"
-  Stage_conditions: 5
-  Exp: 0
+  Target: 5
+  Solution: 0
   Medal: 3
   Flower: 3
   Gold: 0
@@ -567,8 +567,8 @@ items {
   Title: "幽灵爆破III"
   starnum: 3
   Desc: "在一局游戏中触发幽灵爆炸效果8次"
-  Stage_conditions: 8
-  Exp: 0
+  Target: 8
+  Solution: 0
   Medal: 5
   Flower: 5
   Gold: 0
@@ -579,8 +579,8 @@ items {
   Title: "幽灵冲撞I"
   starnum: 1
   Desc: "在一局游戏中触发幽灵直线效果3次"
-  Stage_conditions: 3
-  Exp: 0
+  Target: 3
+  Solution: 0
   Medal: 1
   Flower: 1
   Gold: 0
@@ -591,8 +591,8 @@ items {
   Title: "幽灵冲撞II"
   starnum: 2
   Desc: "在一局游戏中触发幽灵直线效果5次"
-  Stage_conditions: 5
-  Exp: 0
+  Target: 5
+  Solution: 0
   Medal: 3
   Flower: 3
   Gold: 0
@@ -603,8 +603,8 @@ items {
   Title: "幽灵冲撞III"
   starnum: 3
   Desc: "在一局游戏中触发幽灵直线效果8次"
-  Stage_conditions: 8
-  Exp: 0
+  Target: 8
+  Solution: 0
   Medal: 5
   Flower: 5
   Gold: 0
@@ -615,8 +615,8 @@ items {
   Title: "鬼影成双I"
   starnum: 1
   Desc: "在一局游戏中触发双幽灵效果2次"
-  Stage_conditions: 2
-  Exp: 0
+  Target: 2
+  Solution: 0
   Medal: 1
   Flower: 1
   Gold: 0
@@ -627,8 +627,8 @@ items {
   Title: "鬼影成双II"
   starnum: 2
   Desc: "在一局游戏中触发双幽灵效果3次"
-  Stage_conditions: 3
-  Exp: 0
+  Target: 3
+  Solution: 0
   Medal: 3
   Flower: 3
   Gold: 0
@@ -639,8 +639,8 @@ items {
   Title: "鬼影成双III"
   starnum: 3
   Desc: "在一局游戏中触发双幽灵效果4次"
-  Stage_conditions: 4
-  Exp: 0
+  Target: 4
+  Solution: 0
   Medal: 5
   Flower: 5
   Gold: 0
@@ -651,8 +651,8 @@ items {
   Title: "绝杀I"
   starnum: 1
   Desc: "累计在最后一步时完成游戏目标10次"
-  Stage_conditions: 10
-  Exp: 10000
+  Target: 10
+  Solution: 10000
   Medal: 0
   Flower: 0
   Gold: 5000
@@ -663,8 +663,8 @@ items {
   Title: "绝杀II"
   starnum: 2
   Desc: "累计在最后一步时完成游戏目标25次"
-  Stage_conditions: 25
-  Exp: 20000
+  Target: 25
+  Solution: 20000
   Medal: 0
   Flower: 0
   Gold: 15000
@@ -675,8 +675,8 @@ items {
   Title: "绝杀III"
   starnum: 3
   Desc: "累计在最后一步时完成游戏目标50次"
-  Stage_conditions: 50
-  Exp: 0
+  Target: 50
+  Solution: 0
   Medal: 3
   Flower: 0
   Gold: 0
@@ -687,8 +687,8 @@ items {
   Title: "屡败屡战I"
   starnum: 1
   Desc: "累计闯关失败100次"
-  Stage_conditions: 100
-  Exp: 5000
+  Target: 100
+  Solution: 5000
   Medal: 0
   Flower: 0
   Gold: 5000
@@ -699,8 +699,8 @@ items {
   Title: "屡败屡战II"
   starnum: 2
   Desc: "累计闯关失败300次"
-  Stage_conditions: 300
-  Exp: 15000
+  Target: 300
+  Solution: 15000
   Medal: 0
   Flower: 0
   Gold: 15000
@@ -711,8 +711,8 @@ items {
   Title: "屡败屡战III"
   starnum: 3
   Desc: "累计闯关失败750次"
-  Stage_conditions: 750
-  Exp: 30000
+  Target: 750
+  Solution: 30000
   Medal: 0
   Flower: 0
   Gold: 30000
@@ -723,8 +723,8 @@ items {
   Title: "一战功成I"
   starnum: 1
   Desc: "累计首次闯关成功次数10次"
-  Stage_conditions: 10
-  Exp: 5000
+  Target: 10
+  Solution: 5000
   Medal: 1
   Flower: 1
   Gold: 0
@@ -735,8 +735,8 @@ items {
   Title: "一战功成II"
   starnum: 2
   Desc: "累计首次闯关成功次数25次"
-  Stage_conditions: 25
-  Exp: 15000
+  Target: 25
+  Solution: 15000
   Medal: 3
   Flower: 3
   Gold: 0
@@ -747,8 +747,8 @@ items {
   Title: "一战功成III"
   starnum: 3
   Desc: "累计首次闯关成功次数50次"
-  Stage_conditions: 50
-  Exp: 30000
+  Target: 50
+  Solution: 30000
   Medal: 5
   Flower: 5
   Gold: 0
@@ -759,8 +759,8 @@ items {
   Title: "接二连三I"
   starnum: 1
   Desc: "一次移动引发5次消除"
-  Stage_conditions: 5
-  Exp: 0
+  Target: 5
+  Solution: 0
   Medal: 0
   Flower: 1
   Gold: 0
@@ -771,8 +771,8 @@ items {
   Title: "接二连三II"
   starnum: 2
   Desc: "一次移动引发12次消除"
-  Stage_conditions: 12
-  Exp: 0
+  Target: 12
+  Solution: 0
   Medal: 0
   Flower: 3
   Gold: 0
@@ -783,8 +783,8 @@ items {
   Title: "接二连三III"
   starnum: 3
   Desc: "一次移动引发20次消除"
-  Stage_conditions: 20
-  Exp: 0
+  Target: 20
+  Solution: 0
   Medal: 3
   Flower: 5
   Gold: 0
@@ -795,8 +795,8 @@ items {
   Title: "硕果累累I"
   starnum: 1
   Desc: "累计收集金苹果100个"
-  Stage_conditions: 100
-  Exp: 0
+  Target: 100
+  Solution: 0
   Medal: 0
   Flower: 0
   Gold: 10000
@@ -807,8 +807,8 @@ items {
   Title: "硕果累累II"
   starnum: 2
   Desc: "累计收集金苹果350个"
-  Stage_conditions: 350
-  Exp: 0
+  Target: 350
+  Solution: 0
   Medal: 0
   Flower: 0
   Gold: 25000
@@ -819,8 +819,8 @@ items {
   Title: "硕果累累III"
   starnum: 3
   Desc: "累计收集金苹果800个"
-  Stage_conditions: 800
-  Exp: 0
+  Target: 800
+  Solution: 0
   Medal: 3
   Flower: 0
   Gold: 50000
@@ -831,8 +831,8 @@ items {
   Title: "瓢泼大雨I"
   starnum: 1
   Desc: "累计收集水滴100个"
-  Stage_conditions: 100
-  Exp: 0
+  Target: 100
+  Solution: 0
   Medal: 0
   Flower: 0
   Gold: 10000
@@ -843,8 +843,8 @@ items {
   Title: "瓢泼大雨II"
   starnum: 2
   Desc: "累计收集水滴350个"
-  Stage_conditions: 350
-  Exp: 0
+  Target: 350
+  Solution: 0
   Medal: 0
   Flower: 0
   Gold: 25000
@@ -855,8 +855,8 @@ items {
   Title: "瓢泼大雨III"
   starnum: 3
   Desc: "累计收集水滴800个"
-  Stage_conditions: 800
-  Exp: 0
+  Target: 800
+  Solution: 0
   Medal: 3
   Flower: 0
   Gold: 50000

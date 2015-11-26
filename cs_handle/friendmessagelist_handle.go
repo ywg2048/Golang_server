@@ -79,12 +79,12 @@ func FriendmessageListHandle(
 			Friendntf_tag_2 = append(Friendntf_tag_2, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, messages[k].Id))
 			beego.Info("Friendntf_tag_2", Friendntf_tag_2)
 		} else if messages[k].Tag == int32(3) {
-			//接受卡片
+			//赠送卡片
 
 			Friendntf_tag_3 = append(Friendntf_tag_3, makeFriendntf(messages[k].Fromuid, messages[k].FromStarId, messages[k].Fromname, messages[k].Id))
 			beego.Info("Friendntf_tag_3", Friendntf_tag_3)
 		} else if messages[k].Tag == int32(4) {
-			//赠送卡片
+			//接受卡片
 			var friend models.Player
 			err := c.Find(bson.M{"uid": messages[k].Fromuid}).One(&friend)
 			if err != nil {

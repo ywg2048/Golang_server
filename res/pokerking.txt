@@ -1,0 +1,180 @@
+items {
+  Id: 1
+  Value: 1
+  Data: 14
+  ColorType: 1
+}
+items {
+  Id: 2
+  Value: 8
+  Data: 8
+  ColorType: 1
+}
+items {
+  Id: 3
+  Value: 9
+  Data: 9
+  ColorType: 1
+}
+items {
+  Id: 4
+  Value: 10
+  Data: 10
+  ColorType: 1
+}
+items {
+  Id: 5
+  Value: 11
+  Data: 11
+  ColorType: 1
+}
+items {
+  Id: 6
+  Value: 12
+  Data: 12
+  ColorType: 1
+}
+items {
+  Id: 7
+  Value: 13
+  Data: 13
+  ColorType: 1
+}
+items {
+  Id: 8
+  Value: 17
+  Data: 14
+  ColorType: 2
+}
+items {
+  Id: 9
+  Value: 24
+  Data: 8
+  ColorType: 2
+}
+items {
+  Id: 10
+  Value: 25
+  Data: 9
+  ColorType: 2
+}
+items {
+  Id: 11
+  Value: 26
+  Data: 10
+  ColorType: 2
+}
+items {
+  Id: 12
+  Value: 27
+  Data: 11
+  ColorType: 2
+}
+items {
+  Id: 13
+  Value: 28
+  Data: 12
+  ColorType: 2
+}
+items {
+  Id: 14
+  Value: 29
+  Data: 13
+  ColorType: 2
+}
+items {
+  Id: 15
+  Value: 33
+  Data: 14
+  ColorType: 3
+}
+items {
+  Id: 16
+  Value: 40
+  Data: 8
+  ColorType: 3
+}
+items {
+  Id: 17
+  Value: 41
+  Data: 9
+  ColorType: 3
+}
+items {
+  Id: 18
+  Value: 42
+  Data: 10
+  ColorType: 3
+}
+items {
+  Id: 19
+  Value: 43
+  Data: 11
+  ColorType: 3
+}
+items {
+  Id: 20
+  Value: 44
+  Data: 12
+  ColorType: 3
+}
+items {
+  Id: 21
+  Value: 45
+  Data: 13
+  ColorType: 3
+}
+items {
+  Id: 22
+  Value: 49
+  Data: 14
+  ColorType: 4
+}
+items {
+  Id: 23
+  Value: 56
+  Data: 8
+  ColorType: 4
+}
+items {
+  Id: 24
+  Value: 57
+  Data: 9
+  ColorType: 4
+}
+items {
+  Id: 25
+  Value: 58
+  Data: 10
+  ColorType: 4
+}
+items {
+  Id: 26
+  Value: 59
+  Data: 11
+  ColorType: 4
+}
+items {
+  Id: 27
+  Value: 60
+  Data: 12
+  ColorType: 4
+}
+items {
+  Id: 28
+  Value: 61
+  Data: 13
+  ColorType: 4
+}
+items {
+  Id: 29
+  Value: 0
+  Data: 0
+  ColorType: 0
+}
+items {
+  Id: 30
+  Value: 0
+  Data: 0
+  ColorType: 0
+}

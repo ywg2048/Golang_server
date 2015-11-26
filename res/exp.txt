@@ -34,3 +34,83 @@ items {
   LevelId: 10
   RequireExp: 1900
 }
+items {
+  LevelId: 11
+  RequireExp: 2000
+}
+items {
+  LevelId: 12
+  RequireExp: 2100
+}
+items {
+  LevelId: 13
+  RequireExp: 2200
+}
+items {
+  LevelId: 14
+  RequireExp: 2300
+}
+items {
+  LevelId: 15
+  RequireExp: 2400
+}
+items {
+  LevelId: 16
+  RequireExp: 2500
+}
+items {
+  LevelId: 17
+  RequireExp: 2600
+}
+items {
+  LevelId: 18
+  RequireExp: 2700
+}
+items {
+  LevelId: 19
+  RequireExp: 2800
+}
+items {
+  LevelId: 20
+  RequireExp: 2900
+}
+items {
+  LevelId: 21
+  RequireExp: 3000
+}
+items {
+  LevelId: 22
+  RequireExp: 3100
+}
+items {
+  LevelId: 23
+  RequireExp: 3200
+}
+items {
+  LevelId: 24
+  RequireExp: 3300
+}
+items {
+  LevelId: 25
+  RequireExp: 3400
+}
+items {
+  LevelId: 26
+  RequireExp: 3500
+}
+items {
+  LevelId: 27
+  RequireExp: 3600
+}
+items {
+  LevelId: 28
+  RequireExp: 3700
+}
+items {
+  LevelId: 29
+  RequireExp: 3800
+}
+items {
+  LevelId: 30
+  RequireExp: 3900
+}

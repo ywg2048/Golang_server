@@ -22,7 +22,7 @@ func EvolutionHandle(
 	beego.Info("*********EvolutionHandle Start**********")
 	req_data := req.GetBody().GetEvolutionReq()
 	beego.Info(req_data)
-
+	isSave := int32(0)
 	ret := int32(1)
 	c := db_session.DB("zoo").C("player")
 	var player models.Player
@@ -32,18 +32,20 @@ func EvolutionHandle(
 		if player.Star[i].StarId == req_data.GetStarId() {
 			// if player.Star[i].Currentexp == req_data.GetCurrentExp() {
 			//检测客户端的经验是否和服务器一致
-			// if player.ExperiencePool >= req_data.GetSolution() {
-			//检测药水的使用量是否合法
-			_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
-				bson.M{"$set": bson.M{"experience_pool": req_data.GetSolution(), "star." + fmt.Sprint(i) + ".current_exp": req_data.GetCurrentExp()}})
-			if err == nil {
-				beego.Info("使用药水成功！")
+			if player.ExperiencePool >= req_data.GetSolution() {
+				//检测药水的使用量是否合法
+				_, err := c.Upsert(bson.M{"uid": int32(res_list.GetUid())},
+					bson.M{"$inc": bson.M{"experience_pool": -req_data.GetSolution(), "star." + fmt.Sprint(i) + ".current_exp": req_data.GetSolution()}})
+				if err == nil {
+					beego.Info("使用药水成功！")
+					isSave = int32(1)
+				} else {
+					beego.Error("使用药水失败！")
+
+				}
 			} else {
-				beego.Error("使用药水失败！")
+				beego.Error("药水使用量不合法！")
 			}
-			// } else {
-			// beego.Error("药水使用量不合法！")
-			// }
 			// } else {
 			// beego.Error("客户端和服务器的经验值不一致！")
 			// }
@@ -65,12 +67,13 @@ func EvolutionHandle(
 	}
 	starId = req_data.GetStarId()
 	solution = player_return.ExperiencePool
-
+	beego.Info("isSave=", isSave)
 	res_data := new(cspb.CSEvolutionRes)
 	*res_data = cspb.CSEvolutionRes{
 		StarId:     &starId,
 		Solution:   &solution,
 		CurrentExp: &currentExp,
+		IsSave:     &isSave,
 	}
 
 	res_pkg_body := new(cspb.CSBody)

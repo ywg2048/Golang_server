@@ -1,23 +1,26 @@
 items {
   Id: 1
-  Diamond: 10
+  BuyConsumeType: 2
   Solution: 500
   Desc: "小瓶药水"
   StoreID: "com.tuojie.500solution"
   CountDown: 43200
+  ConsumeCount: 10
 }
 items {
   Id: 2
-  Diamond: 20
+  BuyConsumeType: 2
   Solution: 2000
   Desc: "中瓶药水"
   StoreID: "com.tuojie.2000solution"
+  ConsumeCount: 20
 }
 items {
   Id: 3
-  Diamond: 70
+  BuyConsumeType: 2
   Solution: 10000
   Desc: "大瓶药水"
   StoreID: "com.tuojie.10000solution"
   CountDown: 604800
+  ConsumeCount: 70
 }
